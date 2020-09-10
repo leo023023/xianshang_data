@@ -23,12 +23,12 @@ $(function () {
 
 
 	//滑动上一张
-	$('.mzys_lb').on('swipeleft', function () {
+	$('.hwhm_Cooldog_content').on('swipeleft', function () {
 		hwhm_btn_left();
 	});
 
 	//滑动下一张
-	$('.mzys_lb').on('swiperight', function () {
+	$('.hwhm_Cooldog_content').on('swiperight', function () {
 		hwhm_btn_right();
 	});
 
@@ -36,7 +36,7 @@ $(function () {
 
 
 	//图片自动轮播
-	timer = setInterval(hwhm_btn_right, 888888000);
+	timer = setInterval(hwhm_btn_right, 2000);
 
 	//点击上一张的封装函数
 	function hwhm_btn_left() {
