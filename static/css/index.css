@@ -257,7 +257,7 @@ body{
 	height: 400px;
 }
 .mzys_mzys_wenan .wenan_biaoti{
-	background: url("/images/mzys_bt.svg") no-repeat;
+	background: url("../images/mzys_bt.svg") no-repeat;
 	width: 79px;
 	height: 237px;
 	float: right;
@@ -569,6 +569,14 @@ li{
     top: 2122px;
     right: -2px;
     background-size: cover;
+}
+.i_jiantou_left{
+    margin-left: 6px;
+    margin-bottom: 22px;
+}
+.i_jiantou_right{
+	margin-right: 0px;
+    margin-bottom: 22px;
 }
 #pc_qmgl{
 	width: 1200px;

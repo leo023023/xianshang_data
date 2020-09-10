@@ -1,27 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="29px" height="29px" viewBox="0 0 29 29" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="44px" height="44px" viewBox="0 0 44 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 49.1 (51147) - http://www.bohemiancoding.com/sketch -->
-    <title>legt_btn</title>
+    <title>ljiantou</title>
     <desc>Created with Sketch.</desc>
     <defs>
-        <filter x="-3.4%" y="-14.9%" width="106.8%" height="132.8%" filterUnits="objectBoundingBox" id="filter-1">
-            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+        <circle id="path-1" cx="10" cy="10" r="10"></circle>
+        <filter x="-62.5%" y="-62.5%" width="225.0%" height="225.0%" filterUnits="objectBoundingBox" id="filter-2">
+            <feMorphology radius="2" operator="dilate" in="SourceAlpha" result="shadowSpreadOuter1"></feMorphology>
+            <feOffset dx="0" dy="0" in="shadowSpreadOuter1" result="shadowOffsetOuter1"></feOffset>
+            <feMorphology radius="1" operator="erode" in="SourceAlpha" result="shadowInner"></feMorphology>
+            <feOffset dx="0" dy="0" in="shadowInner" result="shadowInner"></feOffset>
+            <feComposite in="shadowOffsetOuter1" in2="shadowInner" operator="out" result="shadowOffsetOuter1"></feComposite>
+            <feGaussianBlur stdDeviation="3.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <path d="M13.0857864,5.42893219 L8.85786438,9.65685425 L13.0857864,13.8847763 L11.6568542,15.3137085 L6,9.65685425 L11.6568542,4 L13.0857864,5.42893219 Z" id="path-3"></path>
+        <filter x="-84.7%" y="-53.0%" width="269.4%" height="206.1%" filterUnits="objectBoundingBox" id="filter-4">
+            <feOffset dx="0" dy="0" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
             <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
-            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
-            <feMerge>
-                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
-                <feMergeNode in="SourceGraphic"></feMergeNode>
-            </feMerge>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
         </filter>
     </defs>
     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Artboard-Copy-2" transform="translate(-504.000000, -2108.000000)">
-            <g id="名不顺" transform="translate(499.000000, 1967.000000)">
-                <g id="Group-17" filter="url(#filter-1)" transform="translate(0.000000, 22.000000)">
-                    <g id="legt_btn" transform="translate(10.000000, 122.000000)">
-                        <circle id="Oval-5" stroke="#333333" stroke-width="2" cx="9.5" cy="9.5" r="9.5"></circle>
-                        <path d="M12.0857864,5.42893219 L7.85786438,9.65685425 L12.0857864,13.8847763 L10.6568542,15.3137085 L5,9.65685425 L10.6568542,4 L12.0857864,5.42893219 Z" id="Combined-Shape" fill="#333333"></path>
-                    </g>
+        <g id="Artboard-21" transform="translate(-124.000000, -166.000000)">
+            <g id="ljiantou" transform="translate(136.000000, 178.000000)">
+                <g id="Oval-5">
+                    <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                    <circle stroke="#333333" stroke-width="2" cx="10" cy="10" r="11"></circle>
+                </g>
+                <g id="Combined-Shape">
+                    <use fill="black" fill-opacity="1" filter="url(#filter-4)" xlink:href="#path-3"></use>
+                    <use fill="#333333" fill-rule="evenodd" xlink:href="#path-3"></use>
                 </g>
             </g>
         </g>

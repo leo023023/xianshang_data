@@ -22,7 +22,7 @@ $(function () {
 	});
 	
 	//图片自动轮播
-	timer = setInterval(btn_right, 8000);
+	timer = setInterval(btn_right, 2000);
 	
 	//点击上一张的封装函数
 	function btn_left() {
