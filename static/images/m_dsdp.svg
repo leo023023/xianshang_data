@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="362px" height="129px" viewBox="0 0 362 129" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.1 (51147) - http://www.bohemiancoding.com/sketch -->
+    <title>m_dsdp</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#E17EC7" offset="0%"></stop>
+            <stop stop-color="#BF4895" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="100%" y1="100%" x2="0%" y2="0%" id="linearGradient-2">
+            <stop stop-color="#009FDF" offset="0%"></stop>
+            <stop stop-color="#50C4FF" offset="100%"></stop>
+        </linearGradient>
+        <circle id="path-3" cx="116.5" cy="31.5" r="31.5"></circle>
+        <filter x="-25.4%" y="-17.5%" width="150.8%" height="150.8%" filterUnits="objectBoundingBox" id="filter-4">
+            <feOffset dx="0" dy="5" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="4.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.196078431   0 0 0 0 0.71372549   0 0 0 0 0.952941176  0 0 0 0.552649457 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <linearGradient x1="29.6266577%" y1="0%" x2="88.6069171%" y2="100%" id="linearGradient-5">
+            <stop stop-color="#00ADFF" offset="0%"></stop>
+            <stop stop-color="#1F71FF" offset="100%"></stop>
+        </linearGradient>
+        <circle id="path-6" cx="311" cy="39" r="14"></circle>
+        <filter x="-51.8%" y="-33.9%" width="203.6%" height="203.6%" filterUnits="objectBoundingBox" id="filter-7">
+            <feOffset dx="0" dy="5" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="4" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.0980392157   0 0 0 0 0.48627451   0 0 0 0 1  0 0 0 0.400617074 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <linearGradient x1="29.7436887%" y1="0%" x2="65.4067099%" y2="81.0104357%" id="linearGradient-8">
+            <stop stop-color="#5F95F9" offset="0%"></stop>
+            <stop stop-color="#4A77CC" offset="100%"></stop>
+        </linearGradient>
+        <circle id="path-9" cx="75" cy="54" r="24"></circle>
+        <filter x="-29.2%" y="-20.8%" width="158.3%" height="158.3%" filterUnits="objectBoundingBox" id="filter-10">
+            <feOffset dx="0" dy="4" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="4" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.294117647   0 0 0 0 0.470588235   0 0 0 0 0.807843137  0 0 0 0.590806159 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <linearGradient x1="100%" y1="100%" x2="0%" y2="0%" id="linearGradient-11">
+            <stop stop-color="#9100DD" offset="0%"></stop>
+            <stop stop-color="#B329FB" offset="100%"></stop>
+        </linearGradient>
+        <circle id="path-12" cx="230.5" cy="51.5" r="31.5"></circle>
+        <filter x="-20.6%" y="-12.7%" width="141.3%" height="141.3%" filterUnits="objectBoundingBox" id="filter-13">
+            <feOffset dx="0" dy="5" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="3.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.607843137   0 0 0 0 0.0509803922   0 0 0 0 0.901960784  0 0 0 0.267917799 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <linearGradient x1="0%" y1="0%" x2="86.6067656%" y2="100%" id="linearGradient-14">
+            <stop stop-color="#FFC613" offset="0%"></stop>
+            <stop stop-color="#FF8320" offset="100%"></stop>
+        </linearGradient>
+        <circle id="path-15" cx="164.5" cy="65.5" r="42.5"></circle>
+        <filter x="-27.6%" y="-25.3%" width="155.3%" height="155.3%" filterUnits="objectBoundingBox" id="filter-16">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="7.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 1   0 0 0 0 0.607843137   0 0 0 0 0.105882353  0 0 0 0.722826087 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard-15" transform="translate(-2.000000, -1003.000000)">
+            <g id="m_dsdp" transform="translate(2.000000, 1007.000000)">
+                <circle id="Oval-3" fill="url(#linearGradient-1)" cx="34.5" cy="80.5" r="9.5"></circle>
+                <g id="Oval-3-Copy-2">
+                    <use fill="black" fill-opacity="1" filter="url(#filter-4)" xlink:href="#path-3"></use>
+                    <use fill="url(#linearGradient-2)" fill-rule="evenodd" xlink:href="#path-3"></use>
+                </g>
+                <circle id="Oval-3-Copy-4" fill="#79D67B" cx="198.5" cy="19.5" r="19.5"></circle>
+                <g id="Oval-3-Copy-5">
+                    <use fill="black" fill-opacity="1" filter="url(#filter-7)" xlink:href="#path-6"></use>
+                    <use fill="url(#linearGradient-5)" fill-rule="evenodd" xlink:href="#path-6"></use>
+                </g>
+                <circle id="Oval-3" fill="#F7AA00" cx="5" cy="42" r="5"></circle>
+                <circle id="Oval-3" fill="#8BF984" cx="356" cy="67" r="6"></circle>
+                <g id="Oval-3-Copy">
+                    <use fill="black" fill-opacity="1" filter="url(#filter-10)" xlink:href="#path-9"></use>
+                    <use fill="url(#linearGradient-8)" fill-rule="evenodd" xlink:href="#path-9"></use>
+                </g>
+                <g id="Oval-3-Copy-3">
+                    <use fill="black" fill-opacity="1" filter="url(#filter-13)" xlink:href="#path-12"></use>
+                    <use fill="url(#linearGradient-11)" fill-rule="evenodd" xlink:href="#path-12"></use>
+                </g>
+                <g id="Oval-3">
+                    <use fill="black" fill-opacity="1" filter="url(#filter-16)" xlink:href="#path-15"></use>
+                    <use fill="url(#linearGradient-14)" fill-rule="evenodd" xlink:href="#path-15"></use>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

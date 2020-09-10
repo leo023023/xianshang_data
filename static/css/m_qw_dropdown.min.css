@@ -1,0 +1,170 @@
+
+/*input, select, form, textarea, button {*/
+    /*border: none;*/
+    /*margin: 0;*/
+    /*outline: none;*/
+    /*padding: 0;*/
+    /*appearance: none;*/
+/*}*/
+
+/*h1, h2, h3, h4, h5 {*/
+    /*font-weight: normal;*/
+/*}*/
+
+/*img {*/
+    /*border: none;*/
+/*}*/
+
+/*a {*/
+    /*text-decoration: none;*/
+/*}*/
+
+/** {*/
+    /*font: normal 10px/100% "Helvetica Neue", Helvetica, Arial, sans-serif;*/
+/*}*/
+
+/*li {*/
+    /*list-style-type: none;*/
+/*}*/
+
+/*html {*/
+    /*font-size: 625%;*/
+/*}*/
+
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+    color: #aaa;
+    font-size: .14rem;
+}
+#demo_datetime{
+    margin-left: 4px;
+}
+input, textarea {
+    color: #222;
+    font-size: 15px;
+    background: transparent;
+    font-weight: normal;
+}
+
+.dropdwon {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, .5);
+    z-index: 99950002;
+}
+
+.display_none {
+    display: none;
+}
+
+.dropdwon .down_cont {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background: #fff;
+    /*padding: 0 .16rem;*/
+    /*width: calc(100% - .32rem);*/
+    z-index: 111150001;
+}
+
+.dropdwon .other_box {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    z-index: 50000;
+}
+
+.dropdwon .down_cont .title {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #ededed;
+    height: 44px;
+    line-height: 44px;
+}
+
+.dropdwon .down_cont .title > span {
+    font-size: 16px;
+    font-weight: bolder;
+    color: #222;
+    padding-left: 2vw;
+    padding-right: 2vw;
+}
+
+.dropdwon .down_cont .title .cacel {
+    color: #666;
+}
+
+.dropdwon .down_cont .title .finsih {
+    color: #0C1222;
+}
+
+.dropdwon .down_cont .content {
+    display: flex;
+    flex-wrap: wrap;
+    /*justify-content: space-between;*/
+    padding-bottom: .2rem;
+    padding-left: 2vw;
+    padding-right: 2vw;
+}
+
+.dropdwon .down_cont .display_none {
+    display: none;
+}
+
+.dropdwon .down_cont .content > span {
+    font-size: 14px;
+    color: #0C1222;
+    background: #FFFFFF;
+    border: 1px solid #0C1222;
+    border-radius: 2px;
+    height: 42px;
+    width: 23%;
+    text-align: center;
+    line-height: 42px;
+    display: inline-block;
+    margin-top: 9px;
+    margin-left: 6px;
+}
+
+.dropdwon .down_cont .content > span.active {
+    color: red;
+    border: 1px solid red;
+    background: url(/images/pay_type_gou.svg) no-repeat !important;
+    background-position: 100% 100% !important;
+}
+
+.tool_tip {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 99999;
+    margin: auto;
+    background: rgba(0, 0, 0, .5);
+    color: #fff;
+    line-height: 1.5;
+    font-size: .15rem;
+    border-radius: .18rem;
+    text-align: center;
+    width: 80%;
+    max-width: 2.2rem;
+    border-radius: .05rem;
+    padding: 0 .1rem;
+    height: 1rem;
+    line-height: 1rem;
+    display: none;
+}
+#singleSelect{
+    background: transparent;
+    z-index: 2;
+    position: relative;
+
+}
+.shurukuangggg{
+    /*background-color: #1ab394;*/
+}

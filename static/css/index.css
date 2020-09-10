@@ -1,0 +1,651 @@
+
+body{
+	min-width: 1190px;
+
+}
+#headnav{
+	background: url("../images/back_0.png") no-repeat;
+	width: 100%;
+	background-position: center;
+	height: 108px;
+	box-sizing: border-box;
+	margin-top: 58px;
+}
+#headnav .nav_neirong{
+	width: 1190px;
+	height: 108px;
+	margin: 0 auto;
+	padding-top: 20px;
+	box-sizing: border-box;
+}
+#headnav .right_nav{
+	width: 700px;
+	height: 70px;
+	line-height: 70px;
+}
+#headnav li{
+	float: right;
+	margin-right: 32px;
+}
+#headnav li>a{
+	text-decoration: none;
+	font-size: 16px;
+	color: #0C1222;
+}
+#headnav .vip_login_btn{
+	width: 142px;
+    height: 44px;
+    color: #0C1222;
+    border: 2px solid #0C1222;
+    background-color: transparent;
+    outline: none;
+    font-size: 18px;
+    text-decoration: none;
+    border-radius: 4px;
+    line-height: 29px;
+	margin-top: 12px;
+}
+#headnav .logo{
+    background: url(../images/logo.png) no-repeat;
+    width: 179px;
+    height: 70px;
+    background-size: contain;
+}
+#dingbuad img{
+	margin-right:300px;
+	width: 18px;
+	height: 18px;
+}
+/*首屏样式设计*/
+#first_scren{
+	background-image: url("../images/back_1.jpg");
+	width: 100%;
+	height: 592px;
+	background-position:center;
+	overflow: hidden;
+}
+#first_scren .first_neirong{
+	width: 1190px;
+	margin: 0 auto;
+	height: 683px;
+	/*background-color: #ffeee5;*/
+}
+#first_scren .wenan{
+	width: 600px;
+	height: 600px;
+}
+#first_scren .wenan_1{
+	margin-top: 96px;
+}
+#first_scren .wenan_1>h3{
+	font-size: 72px;
+	color: #0C1222;
+	font-weight: bolder;
+}
+#first_scren .wenan_1>p{
+	font-weight: lighter;
+	color: #0C1222;
+}
+#first_scren .wenan_2{
+	margin-top: 71px;
+	width: 500px;
+	height: 100px;
+}
+#first_scren .wenan_2 ul>li{
+	float: left;
+	margin-right: 47px;
+}
+#first_scren .wenan_2>li>div{
+	box-sizing: border-box;
+}
+#first_scren .wenan_2>li>h4{
+	font-size: 48px;
+	color: #0C1222;
+}
+/*这块是提交表的样式*/
+
+/*九大起名理论板块*/
+#jiudalilunn{
+	background: url("../images/back_2.jpg") no-repeat;
+	background-position: center;
+	width: 100%;
+	height: 480px;
+	box-sizing: border-box;
+	overflow: hidden;
+
+}
+#jiudalilunn .jiudabt{
+	background: url("../images/jiadabiaoti_bj.png");
+	box-sizing: border-box;
+	width: 236px;
+	height: 46px;
+	margin:0 auto;
+}
+#jiudalilunn .jiudabt h3{
+	text-align: -webkit-center;
+
+}
+#jiudalilunn .jiuda_neirong{
+	width: 1190px;
+	margin: 0 auto;
+}
+#jiudalilunn .jiuda_neirong span{
+	font-size: 60px;
+	font-weight: bolder;
+}
+#jiudalilunn .jiuda_neirong p{
+	margin-top: 20px;
+	text-align: center;
+	line-height: 24px;
+}
+#jiudalilunn .lilunleixing{
+	background: url("../images/lilunleixing.png");
+	width: 1181px;
+	height: 265px;
+	background-position: center;
+	margin: 0 auto;
+}
+/*平台优势*/
+#pingtaiyoushi{
+	background: url("../images/back_3.jpg") no-repeat;
+	background-position: center;
+	width: 100%;
+	height: 466px;
+}
+#pingtaiyoushi .pt_neirong{
+	width: 1190px;
+	margin: 0 auto;
+}
+#pingtaiyoushi .ptys{
+	width: 234px;
+	height: 400px;
+}
+#pingtaiyoushi p{
+	width: 234px;
+	text-align: center;
+}
+#pingtaiyoushi .ptys_bj{
+	background: url(/images/pingtaiyoushi.svg) no-repeat;
+    width: 234px;
+    height: 234px;
+    margin-bottom: 30px;
+    background-size: contain;
+}
+#pingtaiyoushi .lijiquming{
+	margin-top: 20px;
+	width: 234px;
+	height: 44px;
+	background-color:#303849;
+	color: #ffffff;
+	font-size: 16px;
+	font-weight: bolder;
+	border: none;
+	border-radius: 4px;
+	box-shadow: 0px 4px 11px -2px rgba(17,38,55,0.32);
+	z-index: 2201;
+}
+#pingtaiyoushi .fourleixing{
+	width: 956px;
+	padding-left: 36px;
+	/*background-color: red;*/
+	height: 400px;
+}
+#pingtaiyoushi .ptys_gxbj{
+	background: url("/images/fouryoushi_bg.svg");
+	width: 411px;
+	height: 141px;
+	margin-top: 45px;
+    margin-left: 44px;
+	box-shadow: 0px 4px 11px -7px rgba(0,100,174,0.32);
+	padding-top: 20px;
+	padding-left: 20px;
+}
+#pingtaiyoushi .ptys_gxbj .yuanquan_big{
+	width: 22px;
+	height: 22px;
+	border-radius: 50%;
+	border: 1px red solid;
+}
+#pingtaiyoushi .ptys_gxbj .yuanquan_small{
+	width: 16px;
+	height: 16px;
+	border-radius: 50%;
+	margin-top: 2px;
+	margin-left: 2px;
+	border: 1px red solid;
+}
+#pingtaiyoushi .ptys_gxbj h4{
+	margin-left: 29px;
+    margin-top: -19px;
+	font-weight: bolder;
+}
+#pingtaiyoushi .ptys_gxbj p{
+	width:314px;
+	line-height: 22px;
+	text-align: left;
+	margin-bottom: 1px;
+}
+/*这段是名正言顺样式设计*/
+#mzys_zongti{
+	background: url("../images/back_4.jpg") no-repeat;
+	background-position: center;
+	width: 100%;
+	height: 528px;
+	overflow: hidden;
+}
+#mzys_neirong{
+	width: 1190px;
+	height: 500px;
+	margin: 0 auto;
+}
+.mzys_xbk{
+	width: 1190px;
+	height: 600px;
+	margin: 0 auto;
+	margin-top: -145px;
+}
+#mzys_mzys{
+	width: 686px;
+	height: 500px;
+}
+.mzys_mzys_wenan{
+	width: 517px;
+	height: 380px;
+}
+.mzys_lb{
+	width: 600px;
+	height: 400px;
+}
+.mzys_mzys_wenan .wenan_biaoti{
+	background: url("/images/mzys_bt.svg") no-repeat;
+	width: 79px;
+	height: 237px;
+	float: right;
+	margin-right: 0px;
+}
+.mzys_mzys_wenan>ul{
+	width: 400px;
+	height: 380px;
+	margin-left: 24px;
+}
+.mzys_mzys_wenan li{
+	float: right;
+	width: 20px;
+	margin-right: 6px;
+}
+#mzys_neirong .mzys_mzys_wenan li:after {
+	margin-top: 10px;
+	content: '';
+	height: inherit;
+	width: 1px;
+	background: #000000;
+	display: inline-block;
+	vertical-align: middle;
+}
+.Cooldog_content>ul>li>h3{
+	text-align: center;
+	margin-left: -4px;
+}
+.Cooldog_content>ul>li>p{
+	text-align: center;
+    width: 324px;
+    margin-left: 25px;
+    margin-top: 31px;
+    line-height: 26px;
+    font-size: 16px;
+    letter-spacing: 1px;
+    color: #333;
+}
+/*下面这段是何谓好名的样式设计*/
+#heweihaoming{
+	background: url("../images/back_5.jpg") no-repeat;
+	background-position: center;
+	width: 100%;
+	height: 1073px;
+}
+#main{
+	width: 1190px;
+	margin: 0 auto;
+	height: 700px;
+	position: relative;
+	/*margin: 50px auto;!*为了在此的观看效果，我选择了这个数据*!*/
+	/*overflow: hidden;!*因为设置了隐藏，所示的效果只有一张solid1*!*/
+	/*可在元素赠加和定位完成后进行影藏*/
+}
+/*
+ * 为所以图片设置同main一样宽高不大推荐
+	因为，如果图片没进行过处理，强制改变宽高，容易产生变形，
+	图片将变得难看。
+ * *//*为了使图片叠加所以我们使用absolute，在此之前
+ * 	我们需要去它的父级添加一个relative。
+ * */
+#main #banner{
+	position: absolute;
+	background-color: #ffffff;
+	width: 394px;
+	height: 534px;
+	border-radius: 8px;
+	box-shadow: 0px 0px 19px 0px rgba(0,0,0,0.17);
+}
+#main  div .fenge{
+	position: absolute;
+	z-index: 999999;
+	left: 20px;
+	width: 60px;
+	height: 6px;
+	background-color: #000000;
+}
+#main h4{
+	position: absolute;
+	top: 260px;
+	left: 20px;
+}
+#main p{
+	position: absolute;
+	top: 340px;
+	left: 20px;
+	color: #666666;
+	width: 350px;
+	line-height: 24px;
+	font-size: 14px;
+}
+#main hr{
+	position: absolute;
+	top: 260px;
+	left: 20px;
+	position: absolute;
+	top: 300px;
+	width: 80px;
+	height: 6px;
+	color: black;
+	border: none;
+}
+#main .banner-slide{
+	position: absolute;
+	top: 3px;
+	left: 3px;
+	width: 388px;
+	height: 252px;
+	/*overflow: hidden;!*防止图片过大，超出范围，影响视觉*!*/
+	display:none;
+}
+#main .slide-active{
+	display: block;
+}
+/*
+ * 挨个设置轮播图的图片
+ * 为了方便在图片所在div加内容，标签
+ * 我们选择把轮播图内容以background形式出现。
+ */
+#main .numbersss{
+	position: absolute;
+	color: #ffffff;
+	font-size: 18px;
+	top: 314px;
+    left: 407px;
+}
+#main .slide1{
+	background: url("../images/bazixiji_01.png") no-repeat;
+}
+#main .slide2{
+	background: url("../images/bazixiji_02.png") no-repeat;
+	background-size: cover;
+}
+#main .slide3{
+	background: url("../images/bazixiji_03.jpg") no-repeat;
+	background-size: cover;
+}
+#main .slide4{
+	background: url("../images/bazixiji_04.png") no-repeat;
+	background-size: cover;
+}
+#main .slide5{
+	background: url("../images/bazixiji_05.png") no-repeat;
+	background-size: cover;
+}
+#main .slide6{
+	background: url("../images/bazixiji_06.png") no-repeat;
+}
+#main .slide7{
+	background: url("../images/bazixiji_07.png") no-repeat;
+	background-size: cover;
+}
+#main .slide8{
+	background: url("../images/bazixiji_08.jpg") no-repeat;
+	background-size: cover;
+}
+#main .slide9{
+	background: url("../images/bazixiji_09.jpg") no-repeat;
+	background-size: cover;
+}
+#main .slide10{
+	background: url("../images/bazixiji_10.png") no-repeat;
+	background-size: cover;
+}
+#main .slide11{
+	background: url("../images/bazixiji_11.png") no-repeat;
+	background-size: cover;
+}
+#main .slide12{
+	background: url("../images/bazixiji_12.png") no-repeat;
+	background-size: cover;
+}
+/*ul标签的移动*/
+#main .dots #dots{
+	position: absolute;
+	width: 8px;
+	height: 100px;
+	top: 345px;/*由于我设置了li高为40，总高600，所以进行
+	560的移动*/
+	margin-left: 360px;/*(1200-5*130)/2*/
+}
+#main .dotss #dotss{
+	position: absolute;
+    top: 112px;
+    width: 500px;
+    height: 600px;
+    left: 475px;
+}
+li{
+	list-style: none;
+}
+#main .dots #dots li{
+	margin-top: 16px;
+	font-size: 14px;
+	height: 6px;
+	width: 6px;
+	margin-top: 5px;
+	border-radius: 50%;
+	cursor: pointer;
+	border: solid 1px #ffffff;
+	/*由于上面的定位，所以*/
+	float: left;/*为了是图标自左向右*/
+	margin-left: 50px;
+	list-style: none;
+}
+#main .dotss h3{
+	position: absolute;
+	font-size: 38px;
+	left: 471px;
+	line-height: 40px;
+}
+#main .dotss .jieshi{
+	position: absolute;
+    font-size: 14px;
+	font-size: 16px;
+    left: 475px;
+    width: 700px;
+    height: 50px;
+    top: 67px;
+    line-height: 40px;
+}
+#main .dotss #dotss li{
+	width: 700px;
+	cursor: pointer;
+	float: left;/*为了是图标自左向右*/
+	list-style: none;
+	padding-top: 16px;
+	font-size: 14px;
+}
+#main .dotss #dotss li:hover{
+	font-size: 16px;
+	font-weight: bolder;
+}
+#main .dots #dots .li1{
+	background: #ffffff;
+}
+#main #left-right .move{
+	position: absolute;
+	margin-top:260px;
+	height: 80px;
+	width: 40px;
+	font-size: 50px;/*设置<>大小*/
+	padding-left: 10px ;
+}
+/*左右分离*/
+#main #left-right #next{
+	right:0;
+}
+/*触碰上下张有效果*/
+
+#beijing{
+	border-radius: 8px;
+	box-shadow: 0px 0px 19px 0px rgba(0,0,0,0.17);
+	top: 29px;
+	left: 53px;
+	width: 394px;
+	height: 534px;
+	background: linear-gradient(45deg,#515867,#303849);
+	position: absolute;
+
+}
+/*左右两边图片装饰设计*/
+#zuoyou_zhuangshi .zuo1{
+	position: absolute;
+    background: url(/images/back_2_img.png) no-repeat;
+    width: 379px;
+    height: 204px;
+    z-index: 2000;
+    top: 540px;
+    left: 0;
+    background-size: cover;
+}
+#zuoyou_zhuangshi .zuo2{
+	position: absolute;
+    background: url(../images/back_4_img.png) no-repeat;
+    width: 405px;
+    height: 364px;
+    z-index: 2000;
+    top: 1374px;
+    left: -59px;
+    background-size: cover;
+}
+#zuoyou_zhuangshi .zuo3{
+	position: absolute;
+    background: url(../images/back_6_img.png) no-repeat;
+    width: 278px;
+    height: 315px;
+    z-index: 2000;
+    top: 2803px;
+    left: -59px;
+    background-size: cover;
+}
+#zuoyou_zhuangshi .you1{
+	position: absolute;
+    background: url(../images/back_3_img.png) no-repeat;
+    width: 344px;
+    height: 242px;
+    z-index: 2000;
+    top: 1130px;
+    right: 0px;
+    background-size: cover;
+}
+#zuoyou_zhuangshi .you2{
+	position: absolute;
+    background: url(../images/back_5_img.png) no-repeat;
+    width: 391px;
+    height: 227px;
+    z-index: 2000;
+    top: 2122px;
+    right: -2px;
+    background-size: cover;
+}
+#pc_qmgl{
+	width: 1200px;
+    position: absolute;
+    margin: 0 auto;
+    z-index: 510000;
+    left: 50%;
+    margin-left: -600px;
+    margin-top: -78px;
+}
+.qmgl_title .qmgk{
+	float: left;
+	line-height: 60px;
+	margin: 0px;
+	font-size: 38px;
+	color: #0C1222;
+}
+.qmgl_title>a{
+	float: right;
+	line-height: 60px;
+	color: #666666;
+}
+.qmgl_title>a>img{
+	margin-left: 6px;
+	margin-top: -3px;
+}
+#qmgl_lanmu_title{
+	width: 100%;
+	height: 40px;
+	margin-top: 86px;
+}
+#qmgl_lanmu_title>ul>li{
+	float: left;
+    border-right: 1px solid #ccc;
+    width: 12.5%;
+    text-align: center;
+	font-size: 16px;
+}
+#qmgl_lanmu_title>ul>li:last-child{
+    border-right: none;
+}
+#qmgl_lanmu_title>ul>li>a:hover{
+	color: red;
+}
+#qmgl_lanmu_title>ul>li>a{
+	color: #0C1222;
+	font-weight: bolder;
+}
+.fenlei{
+	display: none;
+}
+.selected>a{
+	color: red !important;
+}
+.fenlei>a{
+	width: 276px;
+	display: inline-block;
+	margin-left: 14px;
+}
+.fenlei>a>h5{
+	width: 100%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+	color: #0C1222;
+}
+.fenlei>a>p{
+	line-height: 22px;
+    font-size: 14px;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+	color: #555;
+}
+.fenlei_selected{
+	display: block;
+}

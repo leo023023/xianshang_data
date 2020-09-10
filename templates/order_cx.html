@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../static/css/dibuad.css">
+    <link rel="stylesheet" href="../static/css/csjg.css">
+    <link rel="stylesheet" href="../static/css/quanju.css">
+    <link rel="stylesheet" href="../static/css/order_cx.css">
+    <title>vip登录_订单查询_起名宝典</title>   
+    <link rel="icon" href="../static/images/favicon.ico" type="image/x-icon" />
+	<link rel="icon" href="../static/images/favicon.ico" type="image/x-icon" />
+    <script src="../static/js/jquery.cookie.js"></script>
+    <script src="../static/js/jquery.min.js"></script>
+    <script src="../static/js/csjg_mz_ku.js"></script>
+    <script src="../static/js/Cooldog.js"></script>
+    <script src="../static/js/pay_ajax.js"></script>
+    <script>
+		var _hmt = _hmt || [];
+		(function() {
+		  var hm = document.createElement("script");
+		  hm.src = "https://hm.baidu.com/hm.js?5b37103acf8363b67cf5a20048902f2b";
+		  var s = document.getElementsByTagName("script")[0]; 
+		  s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
+</head>
+<body id="order_vip_body">
+    <!--<div id="dingbuad" class="clearfix">-->
+    <!--    <div class="neirong">-->
+    <!--        <div class="fl">-->
+    <!--            <p>十年只专注一件事情——宝宝起名；以传统周易学为理论基础，结合大数据分析，为您提供最科学的起名方案</p>-->
+    <!--        </div>-->
+            <!--顶部广告关闭交互在Cooldog.js-->
+    <!--        <div class="fr closed">-->
+    <!--            <img src='{{ url_for("static",filename="static/images/dbad_closed.svg") }}' alt="">-->
+    <!--        </div>-->
+    <!--    </div>-->
+    <!--</div>-->
+    <div id="order_zw">
+        <div id="csjg_first_scren">
+            <div class="nav_neirong">
+                <div class="logo fl"><a id="order_vip_logo" href="{{ url_for('helloWorld') }}"></a></div>
+                <div class="right_nav fr">
+                    <div class="btn fr">
+                        <button type="submit"><a id="order_fhsy" href="{{ url_for('helloWorld') }}">返回首页</a></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="vip_login">
+            <form action="" method="post">
+                <input name="vip_nub" id="order_tele_vip" type="text" placeholder="请输入手机号进行VIP登录">
+                <button id="order_btn_vip" type="submit">VIP登录</button>
+            </form>
+        </div>
+        <div id="order_vip_fq">
+            <div id="fq">
+                <h3 class="fq_title">常见问题</h3>
+                <div class="fq_1 fq order_fq_1">
+                    <div class="fq_toubu fq_toubu_1 order_vip_fq_1">
+                        <h3 class="fq_h3 fq_h3_1">01 付了款不能起名或不记得订单怎么办？</h3>
+                        <div class="dianji_1"></div>
+                    </div>
+                    <div class="fanwei_1 fanwei">
+                        <div class="guanggao_1 ">
+                            <p class="fq_p_neirong">
+                                付款成功后会发一条短信，里面有订单号和专属起名地址，点击短信中地址即可查看起名结果，如果没收到短信，请点 订单查询
+                                去查询订单，输入你下单时填写的手机号，查到订单号点击订单号即可查看起名结果。如果付款无短信也查不到订单。
+                                把支付凭证和手机号发给我们，技术为您处理订单。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="fq_2 fq order_fq_1">
+                    <div class="fq_toubu fq_toubu_2 order_vip_fq_2">
+                        <h3 class="fq_h3 fq_h3_2">01 付了款不能起名或不记得订单怎么办？</h3>
+                        <div class="dianji_2"></div>
+                    </div>
+                    <div class="fanwei_2 fanwei">
+                        <div class="guanggao_2 ">
+                            <p class="fq_p_neirong">
+                                付款成功后会发一条短信，里面有订单号和专属起名地址，点击短信中地址即可查看起名结果，如果没收到短信，请点 订单查询
+                                去查询订单，输入你下单时填写的手机号，查到订单号点击订单号即可查看起名结果。如果付款无短信也查不到订单。
+                                把支付凭证和手机号发给我们，技术为您处理订单。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="fq_3 fq order_fq_1">
+                    <div class="fq_toubu fq_toubu_3 order_vip_fq_2">
+                        <h3 class="fq_h3 fq_h3_3">01 付了款不能起名或不记得订单怎么办？</h3>
+                        <div class="dianji_3"></div>
+                    </div>
+                    <div class="fanwei_3 fanwei">
+                        <div class="guanggao_3 ">
+                            <p class="fq_p_neirong">
+                                付款成功后会发一条短信，里面有订单号和专属起名地址，点击短信中地址即可查看起名结果，如果没收到短信，请点 订单查询
+                                去查询订单，输入你下单时填写的手机号，查到订单号点击订单号即可查看起名结果。如果付款无短信也查不到订单。
+                                把支付凭证和手机号发给我们，技术为您处理订单。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="fq_4 fq order_fq_1">
+                    <div class="fq_toubu fq_toubu_4 order_vip_fq_2">
+                        <h3 class="fq_h3 fq_h3_4">01 付了款不能起名或不记得订单怎么办？</h3>
+                        <div class="dianji_4"></div>
+                    </div>
+                    <div class="fanwei_4 fanwei">
+                        <div class="guanggao_4 ">
+                            <p class="fq_p_neirong">
+                                付款成功后会发一条短信，里面有订单号和专属起名地址，点击短信中地址即可查看起名结果，如果没收到短信，请点 订单查询
+                                去查询订单，输入你下单时填写的手机号，查到订单号点击订单号即可查看起名结果。如果付款无短信也查不到订单。
+                                把支付凭证和手机号发给我们，技术为您处理订单。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <script src="../static/js/shouqi.js"></script>
+            </div>
+        </div>
+    </div>
+    <div id="order_cx_back">
+        <div class="order_cx_back_1"></div>
+        <div class="order_cx_back_2"></div>
+        <div class="order_cx_back_3"></div>
+        <div class="order_cx_back_4"></div>
+        <div class="order_cx_back_5"></div>
+    </div>
+    <hr id="order_vip_fg">
+    
+    <div id="order_vip_bottom">
+        <p>弘扬传统文化，破除迷信宿命，倡导科学起名，促进社会和谐。</p>
+        <p><span>Copyright © 2013-2020&nbsp;&nbsp;</span><a href="http://www.qmg365.com/">起名宝典</a>&nbsp;&nbsp;(本网站部分图片和视频来源于网络，如有侵权，请及时联系我们删除)。<a href="#" rel="nofollow" target="_blank">&nbsp;&nbsp;渝ICP备20002651号&nbsp;&nbsp;</a></p>
+    </div>
+   
+</body>
+</html>

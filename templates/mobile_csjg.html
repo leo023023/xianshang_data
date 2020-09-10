@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>移动端测算结果页</title>
+    <link rel="stylesheet" href="../static/css/mobile_csjg.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/m_Cooldog.css">
+    <link rel="stylesheet" href="../static/css/m_hwhm.css">
+    <link rel="stylesheet" href="../static/css/iconfont.css">
+    <link rel="stylesheet" href="../static/css/m_huadong.css">
+    <link rel="stylesheet" href="../static/css/iconfont.css">
+    <link href="../static/css/css" rel="stylesheet" type="text/css">
+    <link rel="icon" href="/static/images/favicon.ico" type="image/x-icon"/>
+    <link rel="stylesheet" type="text/css" href="../static/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/m_style.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/loader_bg.css">
+    <link rel="stylesheet" href="../static/css/dibu_he_btn.css">
+    <link rel="stylesheet" href="../static/css/m_pingjia_gunping.css">
+    <script src="../static/js/jquery.min.js"></script>
+    <script type="text/javascript" src="../static/js/m_navbarscroll.js"></script>
+    <script type="text/javascript" src="../static/js/m_csjg_zffs.js"></script>
+    <script type="text/javascript" src="../static/js/m_flexble.js"></script>
+    <script type="text/javascript" src="../static/js/m_isceoll.js"></script>
+    <script type="text/javascript">
+        $(function () {
+
+            //demo示例一到四 通过lass调取，一句可以搞定，用于页面中可能有多个导航的情况
+            $('.wrapper').navbarscroll();
+
+            //demo示例五 通过id调取
+            $('#demo05').navbarscroll({
+                defaultSelect: 6,
+                endClickScroll: function (obj) {
+                    console.log(obj.text())
+                }
+            });
+
+            //demo示例六 通过id调取
+            $('#demo06').navbarscroll({
+                defaultSelect: 3,
+                scrollerWidth: 7,
+                fingerClick: 1,
+                endClickScroll: function (obj) {
+                    console.log(obj.text())
+                }
+            });
+        });
+    </script>
+    <audio controls="controls" style="display: none;"></audio>
+    <script src="../static/js/m_csjg.js"></script>
+    <script src="../static/js/m_csjg_bdtj.js"></script>
+    <script src="../static/js/m_db_ad_close.js"></script>
+    <script src="../static/js/pay_ajax.js"></script>
+    <script type="text/javascript" src="../static/js/m_pingjia_gunping.js"></script>
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?5b37103acf8363b67cf5a20048902f2b";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+</head>
+<body style="font-size: 12px">
+<!--这里引用的是m_csjg_zffs文件-->
+<div class="loader_bg">
+    <div class="loader_zt">
+        <div class="loader">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="loader_wenan">姓名详解生成中...</div>
+    </div>
+</div>
+<!--这里引用的是m_csjg_zffs文件-->
+<div id="m_pay_tanchuang" style="display: none">
+    <div class="pay_tc_zt">
+        <div class="pay_tc_db">
+            <img class="pay_tc_colse" src="/static/images/dbad_closed.svg" alt="">
+            <div class="m_vip_logo_div">
+                <img class="m_vip_logo" src="/static/images/vip_icon.svg" alt="" style="width:100%">
+            </div>
+            <h3 class="vip_title"> 起名宝<span>VIP会员</span></h3>
+            <p class="vip_zfje">支付金额：<span>¥8.90元</span></p>
+            <ul style="list-style: square !important;color: #fff">
+                <li><i></i>&nbsp;&nbsp;<span>专业</span>&nbsp;&nbsp;多年起名经验 大数据智能算法</li>
+                <li><i></i>&nbsp;&nbsp;<span>全面</span>&nbsp;&nbsp;多年起名经验 大数据智能算法</li>
+                <li><i></i>&nbsp;&nbsp;<span>低价</span>&nbsp;&nbsp;多年起名经验 大数据智能算法</li>
+                <li><i></i>&nbsp;&nbsp;<span>低价</span>&nbsp;&nbsp;多年起名经验 大数据智能算法</li>
+            </ul>
+        </div>
+        <form class="m_zffs_xz" id="pay_form" method="post" onsubmit="javascript:return check_form();">
+            <div class="pay_tc_zffs">
+                <h3>支付方式</h3>
+                <div class="m_zffs_zffs m_zffs_zffs_wx">
+                    <div style="display:flex">
+                        <img src="/static/images/m_wechat_icon.svg" alt="" style="margin-right:10px">
+                        <span>微信支付</span>
+                    </div>
+                    <i class="m_zffs_active" data-type="m_wechat_icon"></i>
+                </div>
+                <hr class="m_zffs_zffs_fg">
+                <div class="m_zffs_zffs m_zffs_zffs_zfb">
+                    <div style="display:flex">
+                        <img src="/static/images/m_zfb_icon.svg" alt="" style="margin-right:10px">
+                        <span>支付宝支付</span>
+                    </div>
+                    <i data-type="m_wechat_icon"></i>
+                </div>
+                <input type="text" id="wechat_pay_pay" name="pay_type" value="1" style="display: none">
+                {#                <input type="radio" id="zfb_pay_pay" name="pay_type" value="2" style="display: none">#}
+            </div>
+            <input type="text" class="order_id_lr" placeholder="您的手机号码" id="telephne" name="order_id">
+            <p class="m_order_id_ts">手机号将作为您开通vip会员的唯一凭证，请务必填写准确！</p>
+            <button type="button" id="tc_pay_tijiao" class="m_order_id_tijiao tc_tijiao">开通VIP立获优质好名</button>
+        </form>
+
+
+    </div>
+</div>
+<!--这个是注释功能-->
+<!--<div id="m_dinbuad" class="header">-->
+<!--    <img src="/static/images/dbad_closed.svg" class="m_ad_close fr" alt="">-->
+<!--    <p class="m_ad_content">十年只专注一件事情——宝宝起名；以传统周易学为理论基础，结合大数据分析，为您提供最科学的起名方案 </p>-->
+<!--</div>-->
+<!--<div id="m_csjg_kong">-->
+</div>
+<div id="m_csjg_nav">
+    <a href="javascript:;" onclick="history.go(-1)" class="m_csjg_back"></a>
+    <a class="m_csjg_logo" href="#" style="left: 256.5px;">
+        <img src="/static/images/logo.png" alt="">
+    </a>
+    {% if vip_tele %}
+        <a class="m_csjg_login" href="#">{{ vip_tele.telephone }}</a>
+    {% else %}
+        <a class="m_csjg_login" href="{{ url_for('order_cx') }}">VIP登录</a>
+    {% endif %}
+</div>
+<div id="m_csjg_jbxx">
+    <div class="jbxx_bg">
+        <h3>基本信息</h3>
+        <a href="{{ url_for("helloWorld") }}" style="display:inline-block;float:right;margin-top:-22px">
+            <img class="m_csjg_bianji" src="/static/images/jbxx_ed.svg" alt="">
+        </a>
+        <ul>
+            <li class="m_jbxx_li">姓氏:<span>{{ xing }}</span></li>
+            <li class="m_jbxx_li">性别:<span>{{ xingbie_zhon }}</span></li>
+            <li class="m_jbxx_li">定字:<span>{{ dingzhi }}</span></li>
+        </ul>
+        <hr>
+        <ul>
+            <li class="m_jbxx_li">公历:<span>{{ birthtime }}</span></li>
+            <li class="m_jbxx_li">农历:<span>{{ ba_gl_nl }}</span></li>
+        </ul>
+        <hr>
+        <ul>
+            <li class="m_jbxx_li">
+                <span style="color:#999;font-weight:normal">期望:</span>
+                {% if qiwang_dt_lb_1 %}
+                    {% for bianliang in qiwang_dt_lb_1 %}
+                        <input class="csjg_xing_qw" value="{{ bianliang }}"
+                               style="width:26%;color:#000;font-weight:bolder">
+                    {% endfor %}
+                {% else %}
+                    <span>未选择</span>
+                {% endif %}
+            </li>
+            <!--<li class="m_jbxx_li">期望:<span>上进心&nbsp;&nbsp;富裕&nbsp;&nbsp;优秀</span>-->
+        </ul>
+        <hr>
+        <ul>
+            {% if birthplace %}
+                <li>出生地:<span>{{ birthplace }}</span></li>
+            {% else %}
+                <li>出生地:<span>未选择</span></li>
+            {% endif %}
+        </ul>
+        <hr>
+        <button class="m_csjg_ckxq m_csjg_ckxq_zk" name="m_csjg_ckxq">查看用字详细分析</button>
+        <div class="m_yzxj yzxj_ztbk" style="display: none">
+            <h3 class="m_yzxj_h3">{{ ba_mp_y_m_d_h }}</h3>
+            <div class="bzwx_bzmp m_csjg_xj_bzmp_gx">
+                <h4><span class="m_xj_xbt_zsq"></span>八字命盘</h4>
+                <table class="bawx_xj_bg">
+                    <tbody>
+                    {% for k in ba_mp %}
+                        <tr class="bawx_xj_hang">
+                            <th>{{ k.key_0 }}</th>
+                            <td>{{ k.key_1 }}</td>
+                            <td>{{ k.key_2 }}</td>
+                            <td>{{ k.key_3 }}</td>
+                            <td>{{ k.key_4 }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <div class="m_yzxj">
+                <div class="bzwx_bzmp m_csjg_xj_bzmp_gx">
+                    <h4><span class="m_xj_xbt_zsq "></span>五行分析</h4>
+                    <p>五行个数：</p>
+                    <ul class="m_yzxj_wxgs">
+                        {% for wu_gs in ba_mp_gs %}
+                            <li>
+                                <h5>{{ wu_gs.wuxing }}</h5>
+                                <p class="wuxing_ppppp">{{ wu_gs.wx_ge }}</p>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <p>帮扶日主的五行：</p>
+                <p>{{ ba_mp_bfrz }}</p>
+                <p>五行是否所缺：</p>
+                <p>{{ ba_mp_wxsq }}</p>
+            </div>
+            <div class="m_xj_gx m_csjg_xj_bzmp_gx">
+                <h4><span class="m_xj_xbt_zsq"></span>日柱命理</h4>
+                <p>{{ ba_mp_rzml_4 }}</p>
+                <p>{{ ba_mp_rzml_5 }}</p>
+                <p>{{ ba_mp_rzml_6 }}</p>
+                <p>{{ ba_mp_rzml_7 }}</p>
+                <p>{{ ba_mp_rzml_8 }}</p>
+            </div>
+            <button class="m_csjg_ckxq m_csjg_ckxq_sq" name="m_csjg_ckxq">收起用字详细分析</button>
+        </div>
+    </div>
+</div>
+<div id="m_csjg_jxhm">
+    <div class="m_jxhm_title">
+        <h3>精选好名</h3>
+        {% if vip_tele %}
+            <div class="m_csjg_kaitong">
+            </div>
+        {% else %}
+            <div class="m_csjg_kaitong">
+                <p>开通VIP，查看更多好名及完整名字分析报告</p>
+                <img src="/static/images/csjg_kaitong.svg" alt="">
+            </div>
+        {% endif %}
+    </div>
+
+    <div class="jxhm_ku liveDiv">
+        <!--这里的交互放到了m_csjg_bdtj-->
+        {% if vip_tele %}
+            <div id="m_vipmb" style="display: none"></div>
+        {% else %}
+            <div id="m_vipmb"></div>
+        {% endif %}
+        <div class="wrapper wrapper02" id="wrapper02">
+            <div class="scroller"
+                 style="width: 3636px; transition-timing-function: cubic-bezier(0.1, 0.97, 0.1, 1); transition-duration: 0ms; transform: translate(0px, 0px) translateZ(0px);">
+                {% if qiwang_dt_lb_int %}
+                    {% for qiwang_dt_lb_1 in qiwang_dt_lb_int %}
+                        <input class="yczy_yczy csjg_xing_qw csjg_xing_qw_int" type="text" value="{{ qiwang_dt_lb_1 }}"
+                               name="qiwang" style="display: none">
+                    {% endfor %}
+                {% else %}
+                    <input class="yczy_yczy csjg_xing_qw" type="text" value="" name="qiwang">
+                {% endif %}
+                <input class="yczy_yczy csjg_xing" type="text" value="{{ xing }}" name="xing">
+                <input class="yczy_yczy csjg_xingbie" type="text" value="{{ xingbie }}" name="xingbie">
+                <input class="yczy_yczy csjg_dingzhi" type="text" value="{{ dingzhi }}" name="dingzhi">
+                <input class="yczy_yczy csjg_birthtime" type="text" value="{{ birthtime }}" name="birthtime">
+                <input class="yczy_yczy csjg_biaodan_xz" type="text" value="{{ biaodan_xz }}" name="biaodan_xz">
+                <ul class="clearfix">
+                    {% if vip_tele %}
+                        {% for mz_lt in mz_ku %}
+                            <li class="m_mzlist_vip_vip" style="margin-left: 2px; margin-right: 2px;">
+                                <a href="javascript:void(0)">
+                                    <button class="mzku_btn_bg mizi_ku_cla_vip csjg_biaodan_mz" type="submit"
+                                            value="{{ mz_lt }}"
+                                            name="mizi_ku_nm">{{ mz_lt }}</button>
+                                </a>
+                            </li>
+                        {% endfor %}
+                    {% else %}
+                        <li class="m_mzlist_novip" style="margin-left: 2px; margin-right: 2px;">
+                            <a href="javascript:void(0)">
+                                <button class="mzku_btn_bg mizi_ku_cla mizi_ku_cla_vip" type="submit"
+                                        value="{{ mz_ku[0] }}" name="mizi_ku_nm">{{ mz_ku[0] }}</button>
+                            </a>
+                        </li>
+                        {# 这是正对还没有开通vip设计的#}
+                        {% for mz_lt in vip1_mzku_noxing[1:] %}
+                            <li class="m_mzlist_novip" style="margin-left: 2px; margin-right: 2px;">
+                                <a href="javascript:void(0)">
+                                    <button class="mzku_btn_bg mizi_ku_cla mizi_ku_cla_vip" type="submit"
+                                            value="{{ xing }}{{ mz_lt }}" name="mizi_ku_nm">
+                                        {{ xing }}{{ mz_lt }}</button>
+                                </a>
+                            </li>
+                        {% endfor %}
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+        <div id="m_jxhm_fenge"></div>
+        <div class="wrapper wrapper03" id="wrapper03">
+            <div class="scroller"
+                 style="width: 1805px; transition-timing-function: cubic-bezier(0.1, 0.57, 0.1, 1); transition-duration: 0ms; transform: translate(0px, 0px) translateZ(0px);">
+                <!--这里调用的是m_csjg-->
+                <ul class="clearfix">
+                    <li class="m_xj_zh_li" style="margin-left: 0px; margin-right: 0px;"><a
+                            href="javascript:void(0)">综合点评<span class="q_m_zh_df">{{ q_m_zh_df }}</span>分</a>
+                    </li>
+                    <li class="m_xj_bzwx_li" style="margin-left: 0px; margin-right: 0px;"><a
+                            href="javascript:void(0)">八字五行详解<span
+                            class="q_m_qt_df_qx_lt_1">{{ q_m_qt_df_qx_lt[1] }}</span></a></li>
+                    <li class="m_xj_sxsx_li" style="margin-left: 0px; margin-right: 0px;"><a
+                            href="javascript:void(0)">生肖属性详解<span
+                            class="q_m_qt_df_qx_lt_2">{{ q_m_qt_df_qx_lt[2] }}</span></a></li>
+                    <li class="m_xj_xzxj_li" style="margin-left: 0px; margin-right: 0px;"><a
+                            href="javascript:void(0)">星座详解<span
+                            class="q_m_qt_df_qx_lt_3">{{ q_m_qt_df_qx_lt[3] }}</span></a>
+                    </li>
+                    <li class="m_xj_scwg_li" style="margin-left: 0px; margin-right: 0px;"><a
+                            href="javascript:void(0)">三才五格详解<span
+                            class="q_m_qt_df_qx_lt_4">{{ q_m_qt_df_qx_lt[4] }}</span></a></li>
+                    <li class="m_xj_zybg_li" style="margin-left: 0px; margin-right: 0px;"><a
+                            href="javascript:void(0)">周易八卦详解<span
+                            class="q_m_qt_df_qx_lt_5">{{ q_m_qt_df_qx_lt[5] }}</span></a></li>
+                    <li class="m_xj_yyy_li" style="margin-left: 0px; margin-right: 0px;"><a
+                            href="javascript:void(0)">音形义详解<span
+                            class="q_m_qt_df_qx_lt_0">{{ q_m_qt_df_qx_lt[0] }}</span></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+    <script>
+        /*
+         * 菜单移动到顶部后定位在顶部
+         * message[菜单的id名或者class类名]
+         * height[菜单距离顶部的距离]
+         */
+        function navChangeArea(message, height) {
+            var liveDiv = $("#" + message).length ? $("#" + message) : $("." + message);
+            var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+            if (scrollTop < height) {
+                liveDiv.css({
+                    "position": "relative",
+                    "top": "0px",
+                    "padding-top": "0vw",
+                    "box-shadow": "0px 32px 14px 6px rgba(0,0,0,0.08)"
+                });
+            } else {
+                liveDiv.css({
+                    "position": "fixed",
+                    "top": "0px",
+                    "padding-top": "3vw",
+                    "box-shadow": "0px 0px 14px 6px rgba(0,0,0,0.08)"
+                });
+            }
+        }
+
+        var statszxczxc = $('.yzxj_ztbk').css('display');
+        $(window).bind("scroll", function () {
+            navChangeArea("liveDiv", 291);
+        });
+        $(window).bind("touchmove", function () {
+            navChangeArea("liveDiv", 291);
+        });
+        $(".m_csjg_ckxq_zk").click(function () {
+            $(".m_yzxj").css({"display": "block",});
+            $(".m_csjg_ckxq_zk").css({"display": "none",});
+            $(window).bind("scroll", function () {
+                navChangeArea("liveDiv", 1042);
+            });
+            $(window).bind("touchmove", function () {
+                navChangeArea("liveDiv", 1042);
+            });
+
+        });
+
+        $(".m_csjg_ckxq_sq").click(function () {
+            $(".m_yzxj").css({"display": "none",});
+            $(".m_csjg_ckxq_zk").css({"display": "block",});
+            $(window).bind("scroll", function () {
+                navChangeArea("liveDiv", 371);
+            });
+            $(window).bind("touchmove", function () {
+                navChangeArea("liveDiv", 371);
+            });
+        });
+
+
+        // $(window).bind("scroll", function () {
+        //     navChangeArea("liveDiv", 1102);
+        // });
+        // $(window).bind("touchmove", function () {
+        //     navChangeArea("liveDiv", 1102);
+        // });
+
+
+    </script>
+</div>
+<div>
+    <div id="m_csjg_xj">
+        <div class="m_xj_title">
+            <h3 class="m_big_xingming">{{ xing }}{{ li_lt_mz_noxing_1 }}</h3>
+            <p class="q_m_pingying">({{ q_m_pingying }})</p>
+        </div>
+        <hr>
+        <div class="m_xj_gx">
+            <h4><span class="m_xj_xbt_zsq"></span>字义内涵</h4>
+            <p class="q_m_hanyi_1_1">{{ q_m_hanyi_1_1 }}</p>
+            <p class="q_m_hanyi_2_2">{{ q_m_hanyi_2_2 }}</p>
+        </div>
+        <hr>
+        <div class="m_xj_gx">
+            <h4><span class="m_xj_xbt_zsq"></span>姓名打分</h4>
+            <ul>
+                <li class="zh">
+                    <p class="fenshu fenshu_fenshu">{{ q_m_zh_df }}分</p>
+                    <hr>
+                    <p class="xiangmu gexiang">综合</p>
+                </li>
+                <li class="bzwx">
+                    <p class="fenshu q_m_qt_df_qx_lt_1_1">{{ q_m_qt_df_qx_lt[1] }}</p>
+                    <hr>
+                    <p class="xiangmu gexiang">八字五行</p>
+                </li>
+                <li class="sx">
+                    <p class="fenshu q_m_qt_df_qx_lt_2_2">{{ q_m_qt_df_qx_lt[2] }}</p>
+                    <hr>
+                    <p class="xiangmu gexiang">生肖</p>
+                </li>
+                <li class="xz">
+                    <p class="fenshu q_m_qt_df_qx_lt_3_3">{{ q_m_qt_df_qx_lt[3] }}</p>
+                    <hr>
+                    <p class="xiangmu gexiang">星座</p>
+                </li>
+                <li class="wg">
+                    <p class="fenshu q_m_qt_df_qx_lt_4_4">{{ q_m_qt_df_qx_lt[4] }}</p>
+                    <hr>
+                    <p class="xiangmu gexiang">三才五格</p>
+                </li>
+                <li class="zybg">
+                    <p class="fenshu q_m_qt_df_qx_lt_5_5">{{ q_m_qt_df_qx_lt[5] }}</p>
+                    <hr>
+                    <p class="xiangmu gexiang">周易卦象</p>
+                </li>
+                <li class="zybg2">
+                    <p class="fenshu q_m_qt_df_qx_lt_0_0">{{ q_m_qt_df_qx_lt[0] }}</p>
+                    <hr>
+                    <p class="xiangmu gexiang">音形义</p>
+                </li>
+            </ul>
+        </div>
+        <hr>
+        <div class="m_xj_gx">
+            <h4><span class="m_xj_xbt_zsq"></span>引经据典</h4>
+            {% for q_m_yjjd_qx in q_m_yjjd_qx_3 %}
+                <p class="q_m_yjjd_qx{{ q_m_yjjd_qx_3.index(q_m_yjjd_qx) }}">来自{{ q_m_yjjd_qx }}</p>
+            {% endfor %}
+        </div>
+        <hr>
+        <div class="m_xj_gx">
+            <h4><span class="m_xj_xbt_zsq"></span>八字开运</h4>
+            <p class="q_m_bzky_qx">{{ q_m_bzky_qx }}</p>
+        </div>
+        <hr>
+        <div class="m_xj_gx">
+            <h4><span class="m_xj_xbt_zsq"></span>大师点评</h4>
+            <p class="q_m_dsdp">{{ q_m_dsdp }}</p>
+        </div>
+        <div class="m_xj_gx">
+            <h4><span class="m_xj_xbt_zsq"></span>名字印象</h4>
+            <div class="m_xj_mzyx">
+                <p class="m_dsdp_tags1 m_dsdp_tags mz_yx_lt_qx_qp_0">{{ mz_yx_lt_qx_qp[0] }}</p>
+                <p class="m_dsdp_tags2 m_dsdp_tags mz_yx_lt_qx_qp_1">{{ mz_yx_lt_qx_qp[1] }}</p>
+                <p class="m_dsdp_tags3 m_dsdp_tags mz_yx_lt_qx_qp_2">{{ mz_yx_lt_qx_qp[2] }}</p>
+                <p class="m_dsdp_tags4 m_dsdp_tags mz_yx_lt_qx_qp_3">{{ mz_yx_lt_qx_qp[3] }}</p>
+                <p class="m_dsdp_tags5 m_dsdp_tags mz_yx_lt_qx_qp_4">{{ mz_yx_lt_qx_qp[4] }}</p>
+                <p class="m_dsdp_tags6 m_dsdp_tags mz_yx_lt_qx_qp_5">{{ mz_yx_lt_qx_qp[5] }}</p>
+            </div>
+        </div>
+    </div>
+    <div id="m_csjg_xj_bzwx" style="display: none">
+        <div class="xj_bzwx_title">
+            <h3>"<span class="li_lt_mz_noxing_1">{{ li_lt_mz_noxing_1 }}</span>”——八字五行起名详解 <span
+                    class="q_m_qt_df_qx_lt_1">{{ q_m_qt_df_qx_lt[1] }}</span></h3>
+            <p class="m_bawx_title_p">综合占比30%</p>
+        </div>
+        <div class="bzwx_bzmp m_csjg_xj_bzmp_gx">
+            <h4><span class="m_xj_xbt_zsq"></span>八字命盘</h4>
+            <table class="bawx_xj_bg">
+                <tbody>
+                {% for k in ba_mp %}
+                    <tr class="bawx_xj_hang">
+                        <th class="bawx_xj_dyg">{{ k.key_0 }}</th>
+                        <td class="bawx_xj_dyg">{{ k.key_1 }}</td>
+                        <td class="bawx_xj_dyg">{{ k.key_2 }}</td>
+                        <td class="bawx_xj_dyg">{{ k.key_3 }}</td>
+                        <td class="bawx_xj_dyg">{{ k.key_4 }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+
+        </div>
+        <div class="bzwx_bzmp m_csjg_xj_bzmp_gx">
+            <h4><span></span>五行个数</h4>
+            <table class="bawx_xj_bg">
+                <tbody>
+
+
+                <tr class="bawx_xj_hang">
+                    <th class="bawx_xj_dyg_2">五行:</th>
+                    {% for wu_gs in ba_mp_gs %}
+                        <td class="bawx_xj_dyg_2">{{ wu_gs.wuxing }}</td>
+                    {% endfor %}
+                </tr>
+                <tr class="bawx_xj_hang">
+                    <th class="bawx_xj_dyg_2">个数:</th>
+                    {% for wu_gs in ba_mp_gs %}
+                        <td class="bawx_xj_dyg_2">{{ wu_gs.wx_ge }}</td>
+                    {% endfor %}
+                </tr>
+                <tr class="bawx_xj_hang">
+                    <th class="bawx_xj_dyg_2">五行总结:</th>
+                    <td class="bawx_xj_dyg_3" colspan="5">
+                        <p class="bawx_zj">{{ ba_mp_wxsq }}</p>
+                        <p class="bawx_zj">{{ ba_mp_bfrz }}</p>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="bzwx_rzml m_csjg_xj_bzmp_gx">
+            <h4><span class="m_xj_xbt_zsq"></span>日柱命理</h4>
+            <p class="bzwx_rzml_p">{{ ba_mp_rzml_4 }}</p>
+            <p class="bzwx_rzml_p">{{ ba_mp_rzml_5 }}</p>
+            <p class="bzwx_rzml_p">{{ ba_mp_rzml_6 }}</p>
+            <p class="bzwx_rzml_p">{{ ba_mp_rzml_7 }}</p>
+            <p class="bzwx_rzml_p">{{ ba_mp_rzml_8 }}</p>
+        </div>
+        <div class="bzwx_rzml m_csjg_xj_bzmp_gx">
+            <h4><span class="m_xj_xbt_zsq"></span>八字测算</h4>
+            {% for ba_mp_bzcs_qp_lt in ba_mp_bzcs_qp %}
+                <p class="bzwx_rzml_p">{{ ba_mp_bzcs_qp_lt }}</p>
+            {% endfor %}
+        </div>
+        <div class="bzwx_rzml m_csjg_xj_bzmp_gx">
+            <h4><span class="m_xj_xbt_zsq"></span>三命通会</h4>
+            {% for ba_mp_smth_qp in ba_mp_smth_qp %}
+                <p class="bzwx_rzml_p">{{ ba_mp_smth_qp }}</p>
+            {% endfor %}
+        </div>
+    </div>
+    <div id="m_csjg_sxsx" style="display: none">
+        <div class="xj_bzwx_title">
+            <h3>"<span class="li_lt_mz_noxing_1">{{ li_lt_mz_noxing_1 }}</span>”——生肖起名详解 <span
+                    class="q_m_qt_df_qx_lt_2">{{ q_m_qt_df_qx_lt[2] }}</span></h3>
+            <p class="m_bawx_title_p">综合评分10%</p>
+        </div>
+        <div class=" m_csjg_xj_bzmp_gx">
+            <h4><span class="m_xj_xbt_zsq"></span>生肖性格优点</h4>
+            <div class="m_xj_sxsx">
+                {% for q_m_sxxg_qp_n in q_m_sxxg_qp %}
+                    <p class="sxsx_xingge sxsx_xingge_{{ q_m_sxxg_qp.index(q_m_sxxg_qp_n) }}">{{ q_m_sxxg_qp_n }}</p>
+                {% endfor %}
+            </div>
+        </div>
+        <div class=" m_csjg_xj_bzmp_gx">
+            <h4><span class="m_xj_xbt_zsq"></span>生肖性格缺点</h4>
+            <div class="m_xj_sxsx">
+                {% for q_m_sxxg_qd_qp_m in q_m_sxxg_qd_qp %}
+                    <p class="sxsx_xingge sxsx_xgqd_{{ q_m_sxxg_qd_qp.index(q_m_sxxg_qd_qp_m) }}">{{ q_m_sxxg_qd_qp_m }}</p>
+                {% endfor %}
+            </div>
+        </div>
+        <div class=" m_csjg_xj_bzmp_gx">
+            <h4><span class="m_xj_xbt_zsq"></span>生肖评分解释</h4>
+            <p class="q_m_sxxg_jies">{{ q_m_sxxg_jies }}</p>
+        </div>
+    </div>
+    <div id="m_csjg_xzxj" style="display: none">
+        <div class="xj_bzwx_title">
+            <h3>"<span class="li_lt_mz_noxing_1">{{ li_lt_mz_noxing_1 }}</span>”——星座起名详解 <span
+                    class="q_m_qt_df_qx_lt_3">{{ q_m_qt_df_qx_lt[3] }}</span></h3>
+            <p class="m_bawx_title_p">综合评分10%</p>
+        </div>
+        <div class=" m_csjg_xj_bzmp_gx">
+            <h4><span></span>星座</h4>
+            <div class="m_xj_sxsx">
+                <p class="xz_xz">{{ q_m_sm_xz }}</p>
+            </div>
+        </div>
+        <div class=" m_csjg_xj_bzmp_gx">
+            <h4><span class="m_xj_xbt_zsq"></span>该星座优点</h4>
+            <div class="m_xj_sxsx">
+                {% for foo in q_m_sm_xz_yd_qx_qp %}
+                    <p class="xz_xingge xz_xingge_{{ q_m_sm_xz_yd_qx_qp.index(foo) }}">{{ foo }}</p>
+                {% endfor %}
+            </div>
+        </div>
+        <div class=" m_csjg_xj_bzmp_gx">
+            <h4><span class="m_xj_xbt_zsq"></span>该星座缺点</h4>
+            <div class="m_xj_sxsx">
+                {% for foo in q_m_sm_xz_qd_qp %}
+                    <p class="xz_xingge xz_xinggeqd_{{ q_m_sm_xz_qd_qp.index(foo) }}">{{ foo }}</p>
+                {% endfor %}
+            </div>
+        </div>
+        <div class=" m_csjg_xj_bzmp_gx">
+            <h4><span class="m_xj_xbt_zsq"></span>星座评分解释</h4>
+            <p class="q_m_xz_pfjs_pf">{{ q_m_xz_pfjs_pf }}</p>
+        </div>
+    </div>
+    <div id="m_csjg_scwg" style="display: none">
+        <div class="xj_bzwx_title">
+            <h3>"<span class="li_lt_mz_noxing_1">{{ li_lt_mz_noxing_1 }}</span>”——三才五格起名详解 <span
+                    class="mz_yx_lt_qx_qp_4">{{ q_m_qt_df_qx_lt[4] }}</span></h3>
+            <p class="m_bawx_title_p">综合评分10%</p>
+        </div>
+        <div class=" m_csjg_xj_bzmp_gx">
+            <h4><span class="m_xj_xbt_zsq"></span>结构解析</h4>
+            <div class="rzml_xbt_fr fr">
+                <div class="scwg_color">
+                    <div class="scwg_wg_1"><span class="scwg_mz q_m_scwg_waige">外格 {{ q_m_scwg_waige }}</span></div>
+                    <div class="scwg_wg_2"></div>
+                    <div class="scwg_wg_3">
+                        <p>1</p>
+                        <p><span class="scwg_mz q_m_scwg_qb_1">{{ q_m_scwg_qb[0] }}</span></p>
+                        <p><span class="scwg_mz q_m_scwg_qb_2">{{ q_m_scwg_qb[1] }}</span></p>
+                        <p><span class="scwg_mz q_m_scwg_ming_2_qx">{{ q_m_scwg_ming_2_qx }}</span></p>
+                    </div>
+                    <div class="scwg_mz_1">
+                        <span class="scwg_mz_2"></span>
+                        <span class="scwg_mz_2"></span>
+                        <span class="scwg_mz_2"></span>
+                    </div>
+                    <div class="scwg_wg_4">
+                        <p>天格 <span class="scwg_mz q_m_scwg_tiange">{{ q_m_scwg_tiange }}</span></p>
+                        <p>地格 <span class="scwg_mz q_m_scwg_dige">{{ q_m_scwg_dige }}</span></p>
+                        <p>人格 <span class="scwg_mz q_m_scwg_renge">{{ q_m_scwg_renge }}</span></p>
+                    </div>
+                </div>
+                <div class="scwg_zg">
+                    <span></span>
+                    <p>总格 <span class="scwg_zg_fl q_m_scwg_zongge">{{ q_m_scwg_zongge }}</span></p>
+                </div>
+            </div>
+        </div>
+        <div class=" m_csjg_xj_bzmp_gx">
+            <h4><span class="m_xj_xbt_zsq"></span>天格 <span class="q_m_scwg_tiange">{{ q_m_scwg_tiange }}</span>解析</h4>
+            <p class="bzwx_rzml_p q_m_scwg_tiange_jx">{{ q_m_scwg_tiange_jx }}</p>
+        </div>
+        <div class=" m_csjg_xj_bzmp_gx">
+            <h4><span class="m_xj_xbt_zsq"></span>地格 <span class="q_m_scwg_dige">{{ q_m_scwg_dige }}</span>解析</h4>
+            <p class="bzwx_rzml_p q_m_scwg_dige_jx">{{ q_m_scwg_dige_jx }}</p>
+        </div>
+        <div class=" m_csjg_xj_bzmp_gx">
+            <h4><span class="m_xj_xbt_zsq"></span>人格 <span class="q_m_scwg_renge">{{ q_m_scwg_renge }}</span>解析</h4>
+            <p class="bzwx_rzml_p q_m_scwg_renge_jx">{{ q_m_scwg_renge_jx }}</p>
+        </div>
+        <div class=" m_csjg_xj_bzmp_gx">
+            <h4><span class="m_xj_xbt_zsq"></span>外格 <span class="q_m_scwg_waige">{{ q_m_scwg_waige }}</span>解析</h4>
+            <p class="bzwx_rzml_p">{{ q_m_scwg_waige_jx }}</p>
+        </div>
+        <div class=" m_csjg_xj_bzmp_gx">
+            <h4><span class="m_xj_xbt_zsq"></span>总格 <span class="q_m_scwg_zongge">{{ q_m_scwg_zongge }}</span>解析</h4>
+            <p class="bzwx_rzml_p q_m_scwg_zongge_jx">{{ q_m_scwg_zongge_jx }}</p>
+        </div>
+        <div class=" m_csjg_xj_bzmp_gx">
+            <h4><span class="m_xj_xbt_zsq"></span>三才解析</h4>
+            <p class="bzwx_rzml_p q_m_scwg_scwg_jx">{{ q_m_scwg_scwg_jx }}</p>
+        </div>
+        <div class=" m_csjg_xj_bzmp_gx">
+            <h4><span class="m_xj_xbt_zsq"></span>基础运解析</h4>
+            <p class="bzwx_rzml_p q_m_scwg_jcy_jx">{{ q_m_scwg_jcy_jx }}</p>
+        </div>
+        <div class=" m_csjg_xj_bzmp_gx">
+            <h4><span class="m_xj_xbt_zsq"></span>成功运解析</h4>
+            <p class="bzwx_rzml_p q_m_scwg_cgy_jx">{{ q_m_scwg_cgy_jx }}</p>
+        </div>
+        <div class=" m_csjg_xj_bzmp_gx">
+            <h4><span class="m_xj_xbt_zsq"></span>人际关系解析</h4>
+            <p class="bzwx_rzml_p q_m_scwg_rjgx_jx">{{ q_m_scwg_rjgx_jx }}</p>
+        </div>
+        <div class=" m_csjg_xj_bzmp_gx">
+            <h4><span class="m_xj_xbt_zsq"></span>性格影响解析</h4>
+            <p class="bzwx_rzml_p q_m_scwg_xg_jx">{{ q_m_scwg_xg_jx }}</p>
+        </div>
+        <hr>
+        <div class=" m_csjg_xj_bzmp_gx">
+            <h4><span class="m_xj_xbt_zsq"></span>三才解释</h4>
+            <p class="bzwx_rzml_p">
+                三才就是天地人，命数就是这个天地人三才之道组成的，如果天命不能变，而地脉道地理环境，和个人的努力，就是人间道改变了，三分之二改变了，就大了天命天机道的三分之一。人的命就会改变。所以那些听天由命的说法是一种消极的思想。</p>
+        </div>
+        <div class=" m_csjg_xj_bzmp_gx m_xj_wgjs">
+            <h4><span class="m_xj_xbt_zsq"></span>五格解释</h4>
+            <p class="bzwx_rzml_p">五格指的是姓名学中天格、地格、人格、总格、外格：</p>
+            <p class="bzwx_rzml_p"><span>天格：</span>为五格之一，是姓氏格，因姓氏来源于祖先，原则上只能接受。</p>
+            <p class="bzwx_rzml_p"><span>地格：</span>由名组成，地格是前运格和基础运格，主管1-17岁之间的运势，代表少年时期，和人格有相当密切的关系。其数理吉凶，亦代表与子女、部属、晚辈的关系。
+            </p>
+            <p class="bzwx_rzml_p"><span>人格：</span>由姓与名字中的第一个字决定，主管17-32岁之间的运势，以主人之成就，能力、个性、境遇，作用力可影响人的一生，是人的中心主运，并且与天格、地格、外格均有相互的作用，是五格的重点。
+            </p>
+            <p class="bzwx_rzml_p"><span>外格：</span>副运或中年运，主管33-48岁之间的运势，代表着社交活动、人际关系、环境家居、同辈关系等，其数理吉凶与人格关系密切，相互作用力较大。代表副运。
+            </p>
+            <p class="bzwx_rzml_p"><span>总格：</span>代表其人之一生，总纳天地人三格之意义，但对于其人性格、职业、命运富于变化之中早年运缺乏明显的暗灵作用，但于其人成为一定之性向类型之后，即发生灵导吉凶作用。
+            </p>
+        </div>
+    </div>
+    <div id="m_csjg_zybgxj" style="display: none">
+        <div class="xj_bzwx_title">
+            <h3>"<span class="">{{ li_lt_mz_noxing_1 }}</span>”——周易卦象起名详解 <span
+                    class="q_m_qt_df_qx_lt_4">{{ q_m_qt_df_qx_lt[4] }}</span></h3>
+            <p class="m_bawx_title_p">占综合评分10%</p>
+        </div>
+        <div class=" m_csjg_xj_bzmp_gx zybgxj_jg">
+            <h4><span class="m_xj_xbt_zsq"></span>名字卦象解析</h4>
+            <p class="gx_rzml_p q_m_gx_jx_qp_2_0">{{ q_m_gx_jx_qp_2[0] }}</p>
+            <p class="gx_rzml_p q_m_gx_jx_qp_2_1">{{ q_m_gx_jx_qp_2[1] }}</p>
+        </div>
+        <div class=" m_csjg_xj_bzmp_gx zybgxj_jg">
+            <h4><span class="m_xj_xbt_zsq"></span>大师解卦</h4>
+            {% for foo in q_m_zybg_jg_qx2 %}
+                <p class="gx_rzml_p gx_rzml_p_{{ q_m_zybg_jg_qx2.index(foo) }}">{{ foo }}</p>
+            {% endfor %}
+        </div>
+        <div class=" m_csjg_xj_bzmp_gx m_xj_wgjs">
+            <h4><span class="m_xj_xbt_zsq"></span>运势</h4>
+            <p class="bzwx_rzml_p"><span>大象：</span><span class="q_m_gxys_jx_dx">{{ q_m_gxys_jx_dx }}</span></p>
+            <p class="bzwx_rzml_p"><span>总论：</span><span class="q_m_gxys_jx_zl">{{ q_m_gxys_jx_zl }}</span></p>
+            <p class="bzwx_rzml_p"><span>建议：</span><span class="q_m_gxys_jx_jy">{{ q_m_gxys_jx_jy }}</span></p>
+            <p class="bzwx_rzml_p"><span>事业：</span><span class="q_m_gxys_jx_sy">{{ q_m_gxys_jx_sy }}</span></p>
+            <p class="bzwx_rzml_p"><span>经商：</span><span class="q_m_gxys_jx_js">{{ q_m_gxys_jx_js }}</span></p>
+            <p class="bzwx_rzml_p"><span>求名：</span><span class="q_m_gxys_jx_qm">{{ q_m_gxys_jx_qm }}</span></p>
+            <p class="bzwx_rzml_p"><span>婚恋：</span><span class="q_m_gxys_jx_hl">{{ q_m_gxys_jx_hl }}</span></p>
+        </div>
+    </div>
+    <div id="m_xj_yxy" style="display: none">
+        <div class="xj_bzwx_title">
+            <h3>"<span class="li_lt_mz_noxing_1">{{ li_lt_mz_noxing_1 }}</span>”——音形义起名详解 <span
+                    class="q_m_qt_df_qx_lt_0">{{ q_m_qt_df_qx_lt[0] }}</span></h3>
+            <p class="m_bawx_title_p">占综合评分30%</p>
+        </div>
+        <div class="m_xj_xingm">
+            <h3 class="q_m_yxy_ming_1">{{ q_m_yxy_ming[0] }}</h3>
+            <ul>
+                <li>
+                    <h5>字义解释</h5>
+                    <p class="q_m_yxy_zyjs1">{{ q_m_yxy_zyjs1 }}</p>
+                </li>
+                <li>
+                    <h5>用字解释</h5>
+                    <p class="q_m_yxy_yzjs1_qx">{{ q_m_yxy_yzjs1_qx }}</p>
+                </li>
+                <li>
+                    <h5>来源解释</h5>
+                    <p class="q_m_yjjd_qx_3_0">{{ q_m_yjjd_qx_3[0] }}</p>
+                </li>
+            </ul>
+        </div>
+        <div class="m_xj_xingm">
+            <h3 class="q_m_yxy_ming_2">{{ q_m_yxy_ming[1] }}</h3>
+            <ul>
+                <li>
+                    <h5>字义解释</h5>
+                    <p class="q_m_yxy_zyjs2">{{ q_m_yxy_zyjs2 }}</p>
+                </li>
+                <li>
+                    <h5>用字解释</h5>
+                    <p class="q_m_yxy_yzjs22_qx">{{ q_m_yxy_yzjs22_qx }}</p>
+                </li>
+                <li>
+                    <h5>来源解释</h5>
+                    <p class="q_m_yjjd_qx_3">{{ q_m_yjjd_qx_3[1] }}</p>
+                </li>
+            </ul>
+        </div>
+        <div class=" m_csjg_xj_bzmp_gx m_xj_wgjs">
+            <h4><span class="m_xj_xbt_zsq"></span>字义分析</h4>
+            {% for foo in q_m_yxy_zyfx_qx1 %}
+                <p class="zyfx_p zyfx_p_0_{{ q_m_yxy_zyfx_qx1.index(foo) }}">{{ foo }}</p>
+            {% endfor %}
+        </div>
+        <div class=" m_csjg_xj_bzmp_gx m_xj_wgjs">
+            <h4><span class="m_xj_xbt_zsq"></span>音律分析</h4>
+            <p class="bzwx_rzml_p q_m_yxy_ylfx_qx">{{ q_m_yxy_ylfx_qx }}</p>
+        </div>
+        <div class=" m_csjg_xj_bzmp_gx m_xj_wgjs">
+            <h4><span class="m_xj_xbt_zsq"></span>字型分析</h4>
+            {% for foo in q_m_yxy_zxfx_lt2 %}
+                <p class="zyfx_p zyfx_p_1_{{ q_m_yxy_zxfx_lt2.index(foo) }}">{{ foo }}</p>
+            {% endfor %}
+        </div>
+        <div class=" m_csjg_xj_bzmp_gx m_xj_wgjs">
+            <h4><span class="m_xj_xbt_zsq"></span>总结</h4>
+            <p class="bzwx_rzml_p q_m_yxy_dsdp_qx">{{ q_m_yxy_dsdp_qx }}</p>
+        </div>
+    </div>
+</div>
+<hr class="m_csjg_yhpj_fg">
+<div id="m_csjg_yhpj" class="m_csjg_fq">
+    <h3><span class="m_csjg_yhpj_zsq"></span>用户评价</h3>
+</div>
+<div class="myscroll">
+    <ul>
+        {% for i in range(0,pingjia_fenzhu_one_len) %}
+            <li>
+                <p class="pingjia_content ">{{ pingjia_content_ls[0][i] }}</p>
+                <p class="pingjia_shijian ">{{ pingjian_shijian[0] }}&nbsp&nbsp来自{{ city_fenzu[0][i] }}的用户的评价</p>
+            </li>
+        {% endfor %}
+        {% for i in range(0,pingjia_fenzhu_two_len) %}
+            <li>
+                <p class="pingjia_content ">{{ pingjia_content_ls[1][i] }}</p>
+                <p class="pingjia_shijian ">{{ pingjian_shijian[1] }}&nbsp&nbsp来自{{ city_fenzu[1][i] }}的用户的评价</p>
+            </li>
+        {% endfor %}
+        {% for i in range(0,pingjia_fenzhu_two_len) %}
+            <li>
+                <p class="pingjia_content ">{{ pingjia_content_ls[1][i] }}</p>
+                <p class="pingjia_shijian ">{{ pingjian_shijian[1] }}&nbsp&nbsp来自{{ city_fenzu[1][i] }}的用户评价</p>
+            </li>
+        {% endfor %}
+        {% for i in range(0,pingjia_fenzhu_two_len) %}
+            <li>
+                <p class="pingjia_content ">{{ pingjia_content_ls[1][i] }}</p>
+                <p class="pingjia_shijian ">{{ pingjian_shijian[1] }}&nbsp&nbsp来自{{ city_fenzu[1][i] }}的用户的评价</p>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+<hr class="m_csjg_yhpj_fg">
+<div id="m_csjg_fq" class="m_csjg_fq">
+    <h3><span class="m_csjg_yhpj_zsq"></span>常见问题</h3>
+    <div>
+        <section class="jq22-container">
+            <div class="container">
+                <div class="col-md-6 col-sm-6">
+                    <div class="panel-group wrap" id="accordion" role="tablist" aria-multiselectable="true">
+                        <div class="panel">
+                            <div class="panel-heading" role="tab" id="headingOne">
+                                <h4 class="panel-title">
+                                    <a role="button" data-toggle="collapse" data-parent="#accordion"
+                                       href="#collapseOne" aria-expanded="false"
+                                       aria-controls="collapseOne" class="collapsed iconfont">
+                                        01 付了款不能起名或不记得订单怎么办？
+                                        <span class="iconfont"><img src="/static/images/m_cs_arrow_down.svg" alt=""
+                                                                    style="width:18px;heght:18px"></span>
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapseOne" class="panel-collapse collapse" role="tabpanel"
+                                 aria-labelledby="headingOne"
+                                 aria-expanded="false" style="height: 0px;">
+                                <div class="panel-body">
+                                    付款时请填写自己真实的手机号码，如果账号仍不能使用，请及时<a target="_blank"
+                                                                    href="http://wpa.qq.com/msgrd?v=3&uin=2210265949&site=qq&menu=yes"
+                                                                    style="color: red">联系我们</a>，并提供您当时开通vip的支付截图
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="panel">
+                            <div class="panel-heading" role="tab" id="headingTwo">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" role="button" data-toggle="collapse"
+                                       data-parent="#accordion"
+                                       href="#collapseTwo" aria-expanded="false"
+                                       aria-controls="collapseTwo">
+                                        02 付款后如何查询起名结果？
+                                        <span class="iconfont"><img src="/static/images/m_cs_arrow_down.svg" alt=""
+                                                                    style="width:18px;heght:18px"></span>
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel"
+                                 aria-labelledby="headingTwo"
+                                 aria-expanded="false" style="height: 0px;">
+                                <div class="panel-body">
+                                    付款后点击右上角进行vip登录，然后就可以不限时间和不限次数的使用本系统进行起名。
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="panel">
+                            <div class="panel-heading" role="tab" id="headingThree">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" role="button" data-toggle="collapse"
+                                       data-parent="#accordion"
+                                       href="#collapseThree" aria-expanded="false"
+                                       aria-controls="collapseThree">
+                                        03 现在网上起名的机构那么多，不知道选择哪家才好？
+                                        <span class="iconfont"><img src="/static/images/m_cs_arrow_down.svg" alt=""
+                                                                    style="width:18px;heght:18px"></span>
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapseThree" class="panel-collapse collapse" role="tabpanel"
+                                 aria-labelledby="headingThree" aria-expanded="false" style="height: 0px;">
+                                <div class="panel-body">
+                                    网上虽然有很多起名机构，但都是先付费再起名，那么对起名的质量很难保障，而我们平台是可以先免费试用，如果您满意，再付费查看更多的优质好名的。
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="panel">
+                            <div class="panel-heading" role="tab" id="headingFour">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" role="button" data-toggle="collapse"
+                                       data-parent="#accordion"
+                                       href="#collapseFour" aria-expanded="false"
+                                       aria-controls="collapseFour">
+                                        04 如何评价一个名字是不是好名？
+                                        <span class="iconfont"><img src="/static/images/m_cs_arrow_down.svg" alt=""
+                                                                    style="width:18px;heght:18px"></span>
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapseFour" class="panel-collapse collapse" role="tabpanel"
+                                 aria-labelledby="headingFour"
+                                 aria-expanded="false" style="height: 0px;">
+                                <div class="panel-body">
+                                    我们通过大数据进行筛选，智能生成，对没一个名字都会根据取名人的姓氏、性别，综合、音、形、义，结合美学、心理学、生肖等诸多方面，并参考时代文化综合考虑起名，每一项都有详细的解读。
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+        <!--<script src="./Bootstrap3扁平风格垂直手风琴特效_files/jquery-1.10.2.js"></script>-->
+        <!--<script src="./Bootstrap3扁平风格垂直手风琴特效_files/jquery.min.js"></script>-->
+        <script src="../static/js/bootstrap-3.3.4.js"></script>
+        <script src="../static/bootstrap.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('.collapse.in').prev('.panel-heading').addClass('active');
+                $('#accordion, #bs-collapse')
+                    .on('show.bs.collapse', function (a) {
+                        $(a.target).prev('.panel-heading').addClass('active');
+                    })
+                    .on('hide.bs.collapse', function (a) {
+                        $(a.target).prev('.panel-heading').removeClass('active');
+                    });
+            });
+        </script>
+
+        <audio controls="controls" style="display: none;"></audio>
+    </div>
+</div>
+<div id="m_index_footer">
+    <p>弘扬传统文化，破除迷信宿命，倡导科学起名，促进社会和谐。</p>
+    <p>起名宝典 Copyright © 2013-2020 渝ICP备20002651号 本网站部分图片和视频来源于网络，如有侵权，请及时联系我们删除</p>
+    <p>客服QQ：2210265949</p>
+
+</div>
+{% if vip_tele %}
+    <div id="m_db_btn" style="display: none">
+        <button type="submit">开通VIP立即获取好名</button>
+    </div>
+{% else %}
+    <div id="m_db_btn">
+        <button type="submit">开通VIP立即获取好名</button>
+    </div>
+{% endif %}
+
+</body>
+</html>

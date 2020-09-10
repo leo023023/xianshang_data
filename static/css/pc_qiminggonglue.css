@@ -1,0 +1,113 @@
+#headnav{
+	background: url("../images/back_0.png") no-repeat;
+	width: 100%;
+	background-position: center;
+	height: 108px;
+	box-sizing: border-box;
+	margin-top: 58px;
+	border-bottom: 1px solid #cccccc;
+}
+#headnav .nav_neirong{
+	width: 1190px;
+	height: 108px;
+	margin: 0 auto;
+	padding-top: 20px;
+	box-sizing: border-box;
+}
+#headnav .right_nav{
+	width: 700px;
+	height: 70px;
+	line-height: 70px;
+}
+#headnav li{
+	float: right;
+	margin-right: 32px;
+}
+#headnav li>a{
+	text-decoration: none;
+	font-size: 16px;
+	color: #0C1222;
+}
+#headnav .vip_login_btn{
+	width: 142px;
+    height: 44px;
+    color: #0C1222;
+    border: 2px solid #0C1222;
+    background-color: transparent;
+    outline: none;
+    font-size: 18px;
+    text-decoration: none;
+    border-radius: 4px;
+    line-height: 29px;
+    margin-top: 12px;
+    text-align: center;
+}
+#headnav .logo{
+    background: url(../images/logo.png) no-repeat;
+    width: 179px;
+    height: 70px;
+    background-size: contain;
+}
+
+#breadcrumb{
+	width: 1190px;
+	margin: 0 auto;
+	margin-top: 12px;
+}
+#breadcrumb>a{
+	color: #666666;
+}
+#breadcrumb>a+a:before{
+	padding: 0 5px;
+    content: "";
+    background: url(../images/mianbaoxiejiantou.svg) no-repeat;
+    background-position-y: 2px;
+    width: 6px;
+    height: 10px;
+    margin: 0 0px;
+    background-size: 80%;
+}
+#qmgl_zw{
+    width: 1200px;
+    margin: 0 auto;
+}
+.qmgl_zw_list{
+    width:750px;
+}
+.lanmu_xiao_bt{
+    display: flex;
+    width: 750px;margin-top: 12px;
+}
+.lanmu_xiao_bt>a{
+    line-height: 24px;
+}
+.lanmu_list{
+    margin-top: 14px;
+}
+.lanmu_xiao_bt>h3{
+    width: 683px;
+    font-size: 24px;
+    line-height: 24px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    border-left: 4px solid #0C1222;
+    text-indent: 10px;
+}
+.lanmu_xiao_bt>a:after {
+    content: url(../images/mianbaoxiejiantou.svg);
+    width: 6px;
+    height: 6px;
+    margin-left: 4px;
+}
+.wenzhang_list{
+    margin-top: 24px;
+    display: block;
+    text-decoration: none !important;
+}
+.wenzhang_list>h5{
+    font-size: 14px;
+    font-weight: bolder;
+}
+.wenzhang_list>p{
+    color: #666666;
+}

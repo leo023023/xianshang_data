@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<!-- saved from url=(0046)http://www.jq22.com/demo/dropdown201906242334/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="stylesheet" href="./多选示例_files/dropdown.min.css">
+<title>多选示例</title>
+<style>
+    .zp_input {
+      min-height: 32px;
+      font-size: 14px;
+      line-height: 32px;
+      margin: 20px 10px;
+      border: 1px solid #ededed;
+      padding-left: 10px;
+      border-radius: 3px;
+    }
+  </style>
+</head>
+<body style="">
+<div class="zp_input" id="multipleSelect">加班补助 员工体检 坐着上班 班车接送 </div>
+
+<div class="tool_tip"></div>
+
+<script src="./多选示例_files/jquery-1.10.2.js"></script><script src="./多选示例_files/jquery.min.js"></script>
+<script src="./多选示例_files/dropdown.min.js"></script>
+<script>
+  
+
+  var multiple = new Dropdown({
+    dom: 'multipleSelect',//点击触发下拉的选择框的id
+    type: 'multiple',//是单选还是多选 单选 single 多选 multiple
+    title: '员工福利（可多选）',//选择框title
+    required: false,//是否必填
+    dataArr: [ // id不可重复
+      {
+        id: '1',
+        cont: '周末双休'
+      },
+      {
+        id: '2',
+        cont: '加班补助'
+      },
+      {
+        id: '3',
+        cont: '员工体检'
+      },
+      {
+        id: '4',
+        cont: '轻松高新'
+      },
+      {
+        id: '5',
+        cont: '坐着上班'
+      },
+      {
+        id: '6',
+        cont: '班车接送'
+      }
+    ],
+    success: function (resp) { // 回调函数
+      var val = '';
+      if(resp.length>0){
+        for(var i in resp){
+          val += resp[i].cont + ' '
+        }
+      }else{
+        val =  '多选请选择'
+      }
+       $('#multipleSelect').html(val)
+      
+    }
+  })
+  // var per = new dropdown(true)
+
+</script>
+<audio controls="controls" style="display: none;"></audio></body><style type="text/css">#yddContainer{display:block;font-family:Microsoft YaHei;position:relative;width:100%;height:100%;top:-4px;left:-4px;font-size:12px;border:1px solid}#yddTop{display:block;height:22px}#yddTopBorderlr{display:block;position:static;height:17px;padding:2px 28px;line-height:17px;font-size:12px;color:#5079bb;font-weight:bold;border-style:none solid;border-width:1px}#yddTopBorderlr .ydd-sp{position:absolute;top:2px;height:0;overflow:hidden}.ydd-icon{left:5px;width:17px;padding:0px 0px 0px 0px;padding-top:17px;background-position:-16px -44px}.ydd-close{right:5px;width:16px;padding-top:16px;background-position:left -44px}#yddKeyTitle{float:left;text-decoration:none}#yddMiddle{display:block;margin-bottom:10px}.ydd-tabs{display:block;margin:5px 0;padding:0 5px;height:18px;border-bottom:1px solid}.ydd-tab{display:block;float:left;height:18px;margin:0 5px -1px 0;padding:0 4px;line-height:18px;border:1px solid;border-bottom:none}.ydd-trans-container{display:block;line-height:160%}.ydd-trans-container a{text-decoration:none;}#yddBottom{position:absolute;bottom:0;left:0;width:100%;height:22px;line-height:22px;overflow:hidden;background-position:left -22px}.ydd-padding010{padding:0 10px}#yddWrapper{color:#252525;z-index:10001;background:url(chrome-extension://eopjamdnofihpioajgfdikhhbobonhbb/ab20.png);}#yddContainer{background:#fff;border-color:#4b7598}#yddTopBorderlr{border-color:#f0f8fc}#yddWrapper .ydd-sp{background-image:url(chrome-extension://eopjamdnofihpioajgfdikhhbobonhbb/ydd-sprite.png)}#yddWrapper a,#yddWrapper a:hover,#yddWrapper a:visited{color:#50799b}#yddWrapper .ydd-tabs{color:#959595}.ydd-tabs,.ydd-tab{background:#fff;border-color:#d5e7f3}#yddBottom{color:#363636}#yddWrapper{min-width:250px;max-width:400px;}</style></html>

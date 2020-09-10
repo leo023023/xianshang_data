@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <script src="../static/js/jquery-1.10.2.js"></script>
+    <link href="../static/css/mobiscroll.custom.min.css" rel="stylesheet" type="text/css">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>起名攻略</title>
+    <meta name="keywords" content="免费起名字,宝宝起名网,起名字大全,起名网,取名">
+    <meta NAME="description"
+          content="起名宝典是以传统周易学、汉语语言文学、诗词国学、统计学(千万级大数据分析)、心理学结合大数据为理论基础,起名宝典主要有男孩起名、女孩起名、诗词起名、传统起名名等在线起名等功能，是起名必备工具!">
+    <link rel="stylesheet" href="../static/css/mobile_index.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <link href="../static/css/m_gonglue.css" rel="stylesheet" type="text/css">
+    <link href="../static/css/quanju.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="../static/css/pc_biaodn_quanju.css">
+    <link rel="stylesheet" href="../static/css/m_quanjutanchuang.css">
+    <link href="../static/css/quanju.css" rel="stylesheet" type="text/css">
+    <link href="../static/css/m_qw_dropdown.min.css" rel="stylesheet" type="text/css">
+    <link href="../static/css/mobiscroll.custom.min.css" rel="stylesheet" type="text/css">
+    <script src="../static/js/jquery.min.js"></script>
+    <script src="../static/js/m_isceoll.js"></script>
+    <script src="../static/js/m_csjg_zffs.js"></script>
+    <script src="../static/js/pay_ajax.js"></script>
+    <script src="../static/js/m_qiwang.js"></script>
+    <script src="../static/js/mobiscroll.custom.min.js"></script>
+	<script>
+		var _hmt = _hmt || [];
+		(function() {
+			var hm = document.createElement("script");
+			hm.src = "https://hm.baidu.com/hm.js?5b37103acf8363b67cf5a20048902f2b";
+			var s = document.getElementsByTagName("script")[0]; 
+			s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
+</head>
+<body id="body">
+
+<div class="kong_tishi_dv">
+    <div class="kong_tishi_dv_dv">
+        <h3 class="tishi">提示</h3>
+        <p class="zw">未生成合适的名字，请重新选择期望或增加期望标签</p>
+    </div>
+</div>
+<div class="qiwangneirong" style="display: none">
+    <div class="qiwangneirong_zw">
+        <div class="qiwangneirong_title">
+            <p class="m_qw_cancel">取消</p>
+            <h5 class="m_qw_xzxz">请选择期望性格(不超过3个)</h5>
+            <p class="m_qw_finish">完成</p>
+        </div>
+        <div class="qiwangneirong_zw_zw">
+            <ul class="m_qw_zw_ul m_qw_zw_ul_nozh">
+                <li value="1">优雅</li>
+                <li value="2">爱国</li>
+                <li value="3">吉祥</li>
+                <li value="4">美好</li>
+            </ul>
+            <ul class="m_qw_zw_ul m_qw_zw_ul_nozh">
+                <li value="5">明理</li>
+                <li value="7">美德</li>
+                <li value="8">幸福</li>
+                <li value="13">浩大</li>
+            </ul>
+
+            <ul class="m_qw_zw_ul m_qw_zw_ul_nozh">
+                <li value="14">英俊</li>
+                <li value="15">健壮</li>
+                <li value="16">美丽</li>
+                <li value="17">安康</li>
+            </ul>
+            <ul class="m_qw_zw_ul m_qw_zw_ul_nozh">
+                <li value="18">年轻</li>
+                <li value="19">快乐</li>
+                <li value="20">灵巧</li>
+                <li value="21">勇敢</li>
+            </ul>
+
+            <ul class="m_qw_zw_ul m_qw_zw_ul_nozh">
+                <li value="22">坚强</li>
+                <li value="23">稳重</li>
+                <li value="24">文静</li>
+                <li value="25">贤淑</li>
+            </ul>
+            <ul class="m_qw_zw_ul m_qw_zw_ul_nozh">
+                <li value="26">才华</li>
+                <li value="27">智慧</li>
+                <li value="28">谦虚</li>
+                <li value="29">正直</li>
+            </ul>
+
+            <ul class="m_qw_zw_ul m_qw_zw_ul_nozh">
+                <li value="30">纯洁</li>
+                <li value="31">志向</li>
+                <li value="33">杰出</li>
+                <li value="34">上进</li>
+            </ul>
+            <ul class="m_qw_zw_ul m_qw_zw_ul_zh">
+                <li value="35">财富</li>
+                <li value="36" class="zuihouyige">优秀</li>
+            </ul>
+
+        </div>
+    </div>
+</div>
+
+<div id="m_pay_tanchuang" style="display: none">
+    <div class="pay_tc_zt">
+        <div class="pay_tc_db">
+            <img class="pay_tc_colse" src="/static/images/dbad_closed.svg" alt="">
+            <div class="m_vip_logo_div">
+                <img class="m_vip_logo" src="/static/images/vip_icon.svg" alt="">
+            </div>
+            <h3 class="vip_title"> 起名宝<span>VIP会员</span></h3>
+            <p class="vip_zfje">支付金额：<span>¥8.90元</span></p>
+            <ul style="list-style: square !important;color: #fff">
+                <li><i></i>&nbsp;&nbsp;<span>专业</span>&nbsp;&nbsp;多年起名经验 大数据智能算法</li>
+                <li><i></i>&nbsp;&nbsp;<span>全面</span>&nbsp;&nbsp;多年起名经验 大数据智能算法</li>
+                <li><i></i>&nbsp;&nbsp;<span>低价</span>&nbsp;&nbsp;多年起名经验 大数据智能算法</li>
+                <li><i></i>&nbsp;&nbsp;<span>低价</span>&nbsp;&nbsp;多年起名经验 大数据智能算法</li>
+            </ul>
+        </div>
+        <form class="m_zffs_xz" id="pay_form" method="post" onsubmit="javascript:return check_form();">
+            <div class="pay_tc_zffs">
+                <h3>支付方式</h3>
+                <div class="m_zffs_zffs m_zffs_zffs_wx">
+                    <div>
+                        <img src="/static/images/m_wechat_icon.svg" alt="">
+                        <span>微信支付</span>
+                    </div>
+                    <i class="m_zffs_active" data-type="m_wechat_icon"></i>
+                </div>
+                <hr class="m_zffs_zffs_fg">
+                <div class="m_zffs_zffs m_zffs_zffs_zfb">
+                    <div>
+                        <img src="/static/images/m_zfb_icon.svg" alt="">
+                        <span>支付宝支付</span>
+                    </div>
+                    <i data-type="m_wechat_icon"></i>
+                </div>
+                <input type="text" id="wechat_pay_pay" name="pay_type" value="1" style="display: none">
+                {#                <input type="radio" id="zfb_pay_pay" name="pay_type" value="2" style="display: none">#}
+            </div>
+            <input type="text" class="order_id_lr" placeholder="您的手机号码" id="telephne" name="order_id">
+            <p class="m_order_id_ts">手机号将作为您开通vip会员的唯一凭证，请务必填写准确！</p>
+            <button type="button" id="tc_pay_tijiao" class="m_order_id_tijiao tc_tijiao">开通VIP立获优质好名</button>
+        </form>
+    </div>
+    <div class="m_pay_tanchuang_bj"></div>
+</div>
+
+<div id="m_gl_nav">
+    <a href="javascript:;" onclick="history.go(-1)" class="m_csjg_back"></a>
+    <a class="m_csjg_logo" href="#" style="left: 256.5px;">
+        <img src="/static/images/m_baishe_logo.svg" alt="">
+    </a>
+    <a id="m_order_btn_vip" href="{{ url_for('order_cx') }}">VIP登录</a>
+</div>
+<div id="breadcrumb">
+    <a href="http://127.0.0.1:5000/">首页</a>
+    <a href="javascript:;">{{ lanmu_name }}</a>
+</div>
+
+<div id="m_index_biaodan">
+    <form action="{{ url_for("csjg") }}" method="post" autocomplete="off">
+        <div class="bd_neirong">
+            <ul>
+                <li>
+                    <span>姓氏</span>
+                    <div class="shurukuang">
+                        <input type="text" required id="m_bd_xx_name" class="m_name m_bd_xx" name="xing"
+                               placeholder="输入起名姓氏">
+                    </div>
+                    <hr>
+                </li>
+                <li>
+                    <span>性别</span>
+                    <div class="shurukuang">
+                        <ul class="m_xb_xz_ul m_xz_xz_ul">
+                            <li class=" m_xb_xz_nan" value="1">男</li>
+                            <li class="m_xb_xz_nv" value="0">女</li>
+                            <!--这里是用的m_csjg_zffs的js-->
+                            <li class="m_xb_xz_active m_xb_xz_nobirth" value="9">未出生</li>
+                        </ul>
+                        <input id="m_xb_xz_put" name="xingbie" type="text" value="9" style="display: none">
+                    </div>
+                    <hr>
+                </li>
+                <li>
+                    <span>定字(选填)</span>
+                    <div class="shurukuang">
+                        <input type="text" class="m_bd_dz" name="dingzhi" placeholder="输入定字">
+                        <!--这里是用的m_csjg_zffs的js-->
+                        <ul class="m_dz_xz_ul m_xz_xz_ul">
+                            <li value="1" class="m_dz_xz_sz">首字</li>
+                            <li value="2" class="m_dz_xz_mz">末字</li>
+                            <li value="9" class="m_dz_xz_bh m_dz_xz_active">包含</li>
+                        </ul>
+                        <input id="m_xb_dz_put" name="biaodan_xz" type="text" value="9" style="display: none">
+                    </div>
+                    <hr>
+                </li>
+                <li>
+                    <span>期望(选填)</span>
+                    <div class="shurukuangggg">
+                        <div class="shurukuang">
+                            <!--<input class="zp_input" id="singleSelect" readonly="" placeholder="请选择期望性格" value=""-->
+                            <!--       style="width: 57vw;height: 40px">-->
+                            <div class="zp_input_x" id="singleSelectt" style="width: 57vw;height: 40px">
+                                <p class="m_qw_btn_moren">请选择期望性格</p>
+                            </div>
+                            <div id="xzchenggong">
+                                <!--这里调用的是m_qiwang_index.js-->
+                                <!--这里调用的是m_qw_dropdpwn.min.js-->
+                                <p id="zxcxzcxzc1" class="m_xingge_tags_tags"></p>
+                                <p id="zxcxzcxzc2" class="m_xingge_tags_tags"></p>
+                                <p id="zxcxzcxzc3" class="m_xingge_tags_tags"></p>
+                            </div>
+                            <img src="/images/m_bd_sanjiao.svg" alt=""
+                                 style="width: 14px;height: 14px;background-size: cover;margin-top: 14px">
+                            <div class="tool_tip"></div>
+                            <!--<script src="../static/js/m_jquery-1.11.0.min.js"></script>-->
+                            <!--<script src="../static/js/m_qw_dropdown.min.js"></script>-->
+                            <!--<script src="../static/js/m_qiwang_index.js"></script>-->
+                            <!--<audio controls="controls" style="display: none;"></audio>-->
+                            <hr>
+                        </div>
+                    </div>
+                    <hr>
+                </li>
+                <li>
+                    <span id="m_cssj_bd_title">预产期</span>
+                    <div id="m_ceshi_csrq" style="width:57vw">
+                        <div class="section">
+                            <!--<label>日期时间控件</label>-->
+                            <input type="text" id="demo_datetime" name="birthtime" class="mbsc-comp" readonly=""
+                                   placeholder="请选择出生时间"
+                                   value=''>
+                            <script>
+                                $(document).ready(function () {
+                                    var time = new Date();
+                                    var day = ("0" + time.getDate()).slice(-2);
+                                    var month = ("0" + (time.getMonth() + 1)).slice(-2);
+                                    var hour = time.getHours();
+                                    var minute = time.getMinutes();
+                                    var today = time.getFullYear() + "-" + (month) + "-" + (day) + ' ' + (hour) + ':' + (minute);
+                                    $('#demo_datetime').attr('value', today);
+                                })
+                            </script>
+                        </div>
+                        <script>
+
+                            var theme = "ios";
+                            var mode = "scroller";
+                            var display = "bottom";
+                            var lang = "zh";
+
+
+                            // Select demo initialization
+                            $('#demo_select').mobiscroll().select({
+                                theme: theme,     // Specify theme like: theme: 'ios' or omit setting to use default
+                                mode: mode,       // Specify scroller mode like: mode: 'mixed' or omit setting to use default
+                                display: display, // Specify display mode like: display: 'bottom' or omit setting to use default
+                                lang: lang        // Specify language like: lang: 'pl' or omit setting to use default
+                            });
+
+                            // Date demo initialization
+                            $('#demo_date').mobiscroll().date({
+                                theme: theme,
+                                mode: mode,
+                                display: display,
+                                lang: lang
+                            });
+
+                            // Date & Time demo initialization
+                            $('#demo_datetime').mobiscroll().datetime({
+                                theme: theme,
+                                mode: mode,
+                                display: display,
+                                lang: lang,
+                                dateFormat: "yyyy-mm-dd",
+                                minDate: new Date(1949, 3, 10, 9, 22),
+                                maxDate: new Date(2030, 7, 30, 15, 44),
+                                stepMinute: 1
+                            });
+
+                            // Time demo initialization
+                            $('#demo_time').mobiscroll().time({
+                                theme: theme,
+                                mode: mode,
+                                display: display,
+                                lang: lang
+                            });
+                        </script>
+
+
+                        <audio controls="controls" style="display: none;"></audio>
+                    </div>
+                    <img src="/images/m_bd_sanjiao.svg" alt=""
+                         style="width: 14px;height: 14px;background-size: cover;margin-top: 14px">
+                    <hr>
+                </li>
+                <li>
+                    <span>出生地点(选填)</span>
+                    <div class="shurukuang">
+                        <div id="m_csd">
+                            <input type="text" id="picker" name="birthplace" value="" placeholder="请选择出生地">
+                            <script src="../static/js/m_csd_picker.min.js"></script>
+                            <script type="text/javascript" src="../static/js/m_diqu.js"></script>
+                            <script type="text/javascript" src="../static/js/m_csd_index.js"></script>
+                            <div class="picker" style="z-index: 500003 !important;">
+                                <div class="picker-mask mask-hook"></div>
+                                <div class="picker-panel panel-hook">
+                                    <div class="picker-choose choose-hook">
+                                        <span class="cancel cancel-hook"></span>
+                                        <span class="confirm confirm-hook"></span>
+                                        <h1 class="picker-title">地址选择</h1>
+                                    </div>
+                                    <div class="picker-content">
+                                        <div class="mask-top border-1px"></div>
+                                        <div class="mask-bottom border-1px"></div>
+                                        <div class="wheel-wrapper wheel-wrapper-hook">
+                                            <div class="wheel wheel-hook">
+                                                <ul class="wheel-scroll wheel-scroll-hook">
+                                                    <li class="wheel-item" data-val="0">北京</li>
+                                                    <li class="wheel-item" data-val="1">广东</li>
+                                                    <li class="wheel-item" data-val="2">上海</li>
+                                                    <li class="wheel-item" data-val="3">天津</li>
+                                                    <li class="wheel-item" data-val="4">重庆</li>
+                                                    <li class="wheel-item" data-val="5">辽宁</li>
+                                                    <li class="wheel-item" data-val="6">江苏</li>
+                                                    <li class="wheel-item" data-val="7">湖北</li>
+                                                    <li class="wheel-item" data-val="8">四川</li>
+                                                    <li class="wheel-item" data-val="9">陕西</li>
+                                                    <li class="wheel-item" data-val="10">河北</li>
+                                                    <li class="wheel-item" data-val="11">山西</li>
+                                                    <li class="wheel-item" data-val="12">河南</li>
+                                                    <li class="wheel-item" data-val="13">吉林</li>
+                                                    <li class="wheel-item" data-val="14">黑龙江</li>
+                                                    <li class="wheel-item" data-val="15">内蒙古</li>
+                                                    <li class="wheel-item" data-val="16">山东</li>
+                                                    <li class="wheel-item" data-val="17">安徽</li>
+                                                    <li class="wheel-item" data-val="18">浙江</li>
+                                                    <li class="wheel-item" data-val="19">福建</li>
+                                                    <li class="wheel-item" data-val="20">湖南</li>
+                                                    <li class="wheel-item" data-val="21">广西</li>
+                                                    <li class="wheel-item" data-val="22">江西</li>
+                                                    <li class="wheel-item" data-val="23">贵州</li>
+                                                    <li class="wheel-item" data-val="24">云南</li>
+                                                    <li class="wheel-item" data-val="25">西藏</li>
+                                                    <li class="wheel-item" data-val="26">海南</li>
+                                                    <li class="wheel-item" data-val="27">甘肃</li>
+                                                    <li class="wheel-item" data-val="28">宁夏</li>
+                                                    <li class="wheel-item" data-val="29">青海</li>
+                                                    <li class="wheel-item" data-val="30">新疆</li>
+                                                    <li class="wheel-item" data-val="31">香港</li>
+                                                    <li class="wheel-item" data-val="32">澳门</li>
+                                                    <li class="wheel-item" data-val="33">台湾</li>
+                                                    <li class="wheel-item" data-val="34">海外</li>
+                                                    <li class="wheel-item" data-val="35">其他</li>
+                                                </ul>
+                                            </div>
+                                            <div class="wheel wheel-hook">
+                                                <ul class="wheel-scroll wheel-scroll-hook">
+                                                    <li class="wheel-item" data-val="0">东城区</li>
+                                                    <li class="wheel-item" data-val="1">西城区</li>
+                                                    <li class="wheel-item" data-val="2">崇文区</li>
+                                                    <li class="wheel-item" data-val="3">宣武区</li>
+                                                    <li class="wheel-item" data-val="4">朝阳区</li>
+                                                    <li class="wheel-item" data-val="5">海淀区</li>
+                                                    <li class="wheel-item" data-val="6">丰台区</li>
+                                                    <li class="wheel-item" data-val="7">石景山区</li>
+                                                    <li class="wheel-item" data-val="8">房山区</li>
+                                                    <li class="wheel-item" data-val="9">通州区</li>
+                                                    <li class="wheel-item" data-val="10">顺义区</li>
+                                                    <li class="wheel-item" data-val="11">昌平区</li>
+                                                    <li class="wheel-item" data-val="12">大兴区</li>
+                                                    <li class="wheel-item" data-val="13">怀柔区</li>
+                                                    <li class="wheel-item" data-val="14">平谷区</li>
+                                                    <li class="wheel-item" data-val="15">门头沟区</li>
+                                                    <li class="wheel-item" data-val="16">密云县</li>
+                                                    <li class="wheel-item" data-val="17">延庆县</li>
+                                                    <li class="wheel-item" data-val="18">其他</li>
+                                                </ul>
+                                            </div>
+                                            <div class="wheel wheel-hook">
+                                                <ul class="wheel-scroll wheel-scroll-hook">
+                                                    <li class="wheel-item" data-val="0"></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="picker-footer footer-hook"></div>
+                                </div>
+                            </div>
+                            <audio controls="controls" style="display: none;"></audio>
+                        </div>
+                    </div>
+                    <hr>
+                </li>
+            </ul>
+            <div id="buton_clear" style="content: none !important;">
+                <button type='submit' id="m_biaodan_shouji_form_tijiao" name="m_ljqm" value="">立即取名</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div id="qmgl">
+    <div class="gl_list">
+        <div class="gl_list_title">
+            <div class="gl_list_title_fl">
+                <i class="title_zhuangshi"></i>
+                <h2>{{ lanmu_name }}</h2>
+            </div>
+        </div>
+        {% for i in range(0,len_id) %}
+            <a class="gl_content" href="{{ url_for('wzxq',article_idid=artilce_id[i]) }}">
+                <h4>{{ lanmu_title[i] }}</h4>
+                <p>{{ lanmu_qbwz_jieduan[i] }}</p>
+            </a>
+        {% endfor %}
+    </div>
+</div>
+<div id="m_gl_zhanwei"></div>
+{% if vip_tele %}
+    <div id="m_gl_db_btn" style="display:none">
+        <button type="submit">开通VIP立即获取好名</button>
+    </div>
+{% else %}
+    <div id="m_gl_db_btn">
+        <button type="submit">开通VIP立即获取好名</button>
+    </div>
+{% endif %}
+
+</body>
+</html>

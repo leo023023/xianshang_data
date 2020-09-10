@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>PayPayZhu DEMO</title>
+</head>
+
+<body>
+    <form style='display:none' id='pay_form' method='post' action='https://www.paypayzhu.com/api/pay'>
+        <input id='api_user' name='api_user' type='text' value='8fc5501b' />
+        <input id='price' name='price' type='text' value='' />
+        <input id='type' name='type' type='text' value=''/>
+        <input id='redirect' name='redirect' type='text' value=''/>
+        <input id='order_id' name='order_id' type='text' value=''/>
+        <input id='order_info' name='order_info' type='text' value=''/>
+        <input id='signature' name='signature' type='text' value=''/>
+        <input id='btn_pay' type='submit'>
+    </form>
+
+    <form action={{url_for}}>
+        输入商品价格: <br/>
+        <input type="text" id="pay_price" required>元</p>
+        <input type="radio" id="type_weixin" name="type" value="1" checked>微信支付</p>
+        <input type="radio" id="type_alipay" name="type" value="2" >支付宝支付</p>
+        <input type="submit" id="btn_buy" value="确认购买"/>
+    </form>
+
+<!-- Javascript -->
+
+<script type="text/javascript" src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<script type="text/javascript">
+
+$().ready(function(){
+    function get_type(){
+        return ($("#type_weixin").is(':checked') ? "1" : "2" ); 
+    }
+
+    $("#btn_buy").click(function(e){        
+        $.post("/pay",
+            {
+                price : $("#pay_price").val(), 
+                type : get_type(),
+            },
+            function(data){ 
+                console.log(data);
+                if (data.code > 0){
+                    $("#api_user").val(data.data.api_user);
+                    $("#price").val(data.data.price);
+                    $("#type").val(data.data.type);
+                    $("#redirect").val(data.data.redirect);
+                    $("#order_id").val(data.data.order_id);
+                    $("#order_info").val(data.data.order_info);
+                    $("#signature").val(data.data.signature);
+                    $('#btn_pay').click();
+                } else {
+                    alert(data.msg);
+                }
+            }, "json"
+        );
+        e.preventDefault();
+        return false;
+    });
+});
+</script>    
+</body>
+</html>
+

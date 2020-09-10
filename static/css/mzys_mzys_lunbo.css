@@ -1,0 +1,161 @@
+
+.clearfix:after {
+    content: " ";
+    display: block;
+    clear: both;
+}
+
+.box {
+    position: relative;
+    width: 800px;
+    height: 300px;
+    margin-top: -26px;
+    margin-left: -77px;
+}
+
+.main {
+    width: 809px;
+    height:333px;
+    overflow: hidden;
+    position: absolute;
+    top: 0px;
+    left: 50%;
+    margin-left: -350px;
+}
+#mzys_mzys .main h3{
+    position: absolute;
+    top: -63px;
+    right: 97px;
+    margin-top: 100px;
+}
+#mzys_mzys .main p{
+    position: absolute;
+    width: 221px;
+    text-align: center;
+    top: -11px;
+    right: 45px;
+    margin-top: 100px
+}
+
+.item {
+    list-style: none;
+    width: 304px;
+    height: 209px;
+    position: absolute;
+    left: 0px;
+    top: 72px;
+    transition: all 0.3s ease;
+}
+.item p{
+
+}
+
+.p0 {
+    transform: translate3d(-400px, 0, 0) scale(1);
+    opacity: 0.1;
+    z-index: 1;
+}
+
+.p1 {
+    transform: translate3d(0px, 0, 0) scale(1);
+    opacity: 0.8;
+    z-index: 2;
+    background:url("../images/mzys_bt.svg") no-repeat; ;
+}
+
+.p2 {
+    transform: translate3d(400px, 0, 0) scale(1);
+    opacity: 0.8;
+    z-index: 3;
+}
+
+.p3 {
+    transform: translate3d(200px, 0, 0) scale(1.5);
+    opacity: 1;
+    z-index: 4;
+}
+
+.p4 {
+    transform: translate3d(800px, 0, 0) scale(1);
+    opacity: 0.1;
+    z-index: 3;
+}
+
+.newItem {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+}
+
+.changeItem {
+    position: absolute;
+    left: 780%;
+    top: 0px;
+    margin-left: -1402px;
+    transform: scale(1);
+}
+
+.item img {
+    width: 100%;
+    height: 100%;
+}
+
+.btnMain {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+.left {
+    position: absolute;
+    left: 62px;
+    top: 50%;
+    margin-top: -9px;
+    z-index: 10;
+    width: 40px;
+    height: 40px;
+}
+
+.right {
+    position: absolute;
+    right: 156px;
+    top: 50%;
+    margin-top: -9px;
+    z-index: 10;
+    width: 40px;
+    height: 40px;
+}
+
+.left img,
+.right img {
+    width: 32px;
+    height: 32px;
+}
+
+.pressMain {
+    position: absolute;
+    left: 50%;
+    bottom: 10px;
+    width: 134px;
+    height: 24px;
+    margin-left: -86px;
+    z-index: 20;
+}
+
+.pressMain span {
+    display: inline-block;
+    margin: 2px 3px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    color: #fff;
+    background-color: rgba(255, 255, 255, 0.53);
+    text-align: center;
+    line-height: 20px;
+}
+
+.pressMain .active {
+    background: #0C1222;
+}

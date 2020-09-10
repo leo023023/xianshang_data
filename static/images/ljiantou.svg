@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="29px" height="29px" viewBox="0 0 29 29" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.1 (51147) - http://www.bohemiancoding.com/sketch -->
+    <title>legt_btn</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <filter x="-3.4%" y="-14.9%" width="106.8%" height="132.8%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard-Copy-2" transform="translate(-504.000000, -2108.000000)">
+            <g id="名不顺" transform="translate(499.000000, 1967.000000)">
+                <g id="Group-17" filter="url(#filter-1)" transform="translate(0.000000, 22.000000)">
+                    <g id="legt_btn" transform="translate(10.000000, 122.000000)">
+                        <circle id="Oval-5" stroke="#333333" stroke-width="2" cx="9.5" cy="9.5" r="9.5"></circle>
+                        <path d="M12.0857864,5.42893219 L7.85786438,9.65685425 L12.0857864,13.8847763 L10.6568542,15.3137085 L5,9.65685425 L10.6568542,4 L12.0857864,5.42893219 Z" id="Combined-Shape" fill="#333333"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

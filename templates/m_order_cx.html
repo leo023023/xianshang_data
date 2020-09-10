@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>移动端订单查询</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="../static/css/mobile_csjg.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/m_Cooldog.css">
+    <link rel="stylesheet" href="../static/css/m_hwhm.css">
+    <link rel="stylesheet" href="../static/css/iconfont.css">
+    <link rel="stylesheet" href="../static/css/m_huadong.css">
+    <link href="/css/css" rel="stylesheet" type="text/css">
+    <link href="/css/icon" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../static/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/m_style.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/m_order_cx.css">
+    <link rel="stylesheet" href="../static/css/dibu_he_btn.css">
+    <script src="../static/js/jquery.min.js"></script>
+    <script src="../static/js/m_csjg.js"></script>
+    <script src="../static/js/m_csjg_bdtj.js"></script>
+    <script src="../static/js/m_csjg_zffs.js"></script>
+    <script src="../static/js/pay_ajax.js"></script>
+    <script src="../static/js/m_db_ad_close.js"></script>
+    <script src="../static/js/m_viplogin.js"></script>
+</head>
+<body id="m_order_vip_body">
+<div class="no_vip_kkk" style="display: {{ no_vip }}">
+    <div class="no_vip_wenan">
+        <h3 style="font-size:20px">起名宝VIP</h3>
+        <p style="line-height: 39px;margin-top: -11px;margin-bottom: 10px;color: #999;font-weight: initial;">您尚未开通VIP 请开通后在登录</p>
+        <button class="no_vip_kkkt">立即开通  立获好名</button>
+    </div>
+    <img src="/images/m_cx_novip_close.svg" alt="" class="no_vip_wenan_close">
+</div>	
+<div id="m_pay_tanchuang" style="display: none">
+    <div class="pay_tc_zt">
+        <div class="pay_tc_db">
+            <img class="pay_tc_colse" src="/images/dbad_closed.svg" alt="">
+            <div class="m_vip_logo_div">
+                <img class="m_vip_logo" src="/images/vip_icon.svg" alt="" style="width:100%">
+            </div>
+            <h3 class="vip_title"> 起名宝<span>VIP会员</span></h3>
+            <p class="vip_zfje">支付金额：<span>¥8.90元</span></p>
+            <ul style="list-style: square !important;color: #fff">
+                <li><i></i>&nbsp;&nbsp;<span>专业</span>&nbsp;&nbsp;多年起名经验 大数据智能算法</li>
+                <li><i></i>&nbsp;&nbsp;<span>全面</span>&nbsp;&nbsp;多年起名经验 大数据智能算法</li>
+                <li><i></i>&nbsp;&nbsp;<span>低价</span>&nbsp;&nbsp;多年起名经验 大数据智能算法</li>
+                <li><i></i>&nbsp;&nbsp;<span>低价</span>&nbsp;&nbsp;多年起名经验 大数据智能算法</li>
+            </ul>
+        </div>
+        <form class="m_zffs_xz" id="pay_form" method="post" onsubmit="javascript:return check_form();">
+            <div class="pay_tc_zffs">
+                <h3>支付方式</h3>
+                <div class="m_zffs_zffs m_zffs_zffs_wx">
+                    <div class="m_zffs_yihang" style="width:180px;display:flex">
+                        <img src="/images/m_wechat_icon.svg" alt="" style="margin-right:10px">
+                        <span>微信支付</span>
+                    </div>
+                    <i class="m_zffs_active" data-type="m_wechat_icon"></i>
+                </div>
+                <hr class="m_zffs_zffs_fg">
+                <div class="m_zffs_zffs m_zffs_zffs_zfb">
+                    <div class="m_zffs_yihang" style="width:180px;display:flex">
+                        <img src="/images/m_zfb_icon.svg" alt="" style="margin-right:10px">
+                        <span>支付宝支付</span>
+                    </div>
+                    <i data-type="m_wechat_icon"></i>
+                </div>
+                <input type="text" id="wechat_pay_pay" name="pay_type" value="1" style="display: none">
+{#                <input type="radio" id="zfb_pay_pay" name="pay_type" value="2" style="display: none">#}
+            </div>
+            <input type="text" class="order_id_lr" placeholder="您的手机号码" id="telephne" name="order_id">
+            <p class="m_order_id_ts">手机号将作为您开通vip会员的唯一凭证，请务必填写准确！</p>
+            <button type="button" id="tc_pay_tijiao" class="m_order_id_tijiao tc_tijiao">开通VIP立获优质好名</button>
+        </form>
+    </div>
+</div>
+<!--<div id="m_dinbuad" class="header">-->
+<!--    <img src="/images/dbad_closed.svg" class="m_ad_close fr" alt="">-->
+<!--    <p class="m_ad_content">十年只专注一件事情——宝宝起名；以传统周易学为理论基础，结合大数据分析，为您提供最科学的起名方案 </p>-->
+<!--</div>-->
+<!--<div id="m_csjg_kong">-->
+</div>
+<div id="m_order_cx_nav">
+    <a href="javascript:;" onclick="history.go(-1)" class="m_csjg_back"></a>
+    <a class="m_csjg_logo" href="{{url_for('helloWorld')}}" style="left: 256.5px;">
+        <img src="/static/images/m_baishe_logo.svg" alt="">
+    </a>
+    <a class="m_csjg_login" href="javascript:;" onclick="history.go(-1)" >返回</a>
+</div>
+<div id="m_vip_login">
+    <form action="" method="post" id="m_cx_form">
+        <input name="vip_nub" id="m_order_tele_vip" type="text" placeholder="请输入手机号进行VIP登录">
+        <button id="m_order_btn_vip" type="submit">VIP登录</button>
+    </form>
+</div>
+<div id="m_csjg_fq" class="m_csjg_fq">
+    <h3><span class="m_csjg_yhpj_zsq"></span>常见问题</h3>
+    <div>
+        <section class="jq22-container">
+            <div class="container">
+                <div class="col-md-6 col-sm-6">
+                    <div class="panel-group wrap" id="accordion" role="tablist" aria-multiselectable="true">
+                        <div class="panel">
+                            <div class="panel-heading" role="tab" id="headingOne">
+                                <h4 class="panel-title">
+                                    <a role="button" data-toggle="collapse" data-parent="#accordion"
+                                       href="#collapseOne" aria-expanded="false"
+                                       aria-controls="collapseOne" class="collapsed iconfont">
+                                        01 付了款不能起名或不记得订单怎么办？
+                                        <span class="iconfont"><img src="../static/images/csjg_arrow_up.svg" alt="" style="width:18px;heght:18px"></span>
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapseOne" class="panel-collapse collapse" role="tabpanel"
+                                 aria-labelledby="headingOne"
+                                 aria-expanded="false" style="height: 0px;">
+                                <div class="panel-body">
+                                    付款时请填写自己真实的手机号码，如果账号仍不能使用，请及时<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=2210265949&site=qq&menu=yes" style="color: red">联系我们</a>，并提供您当时开通vip的支付截图。
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="panel">
+                            <div class="panel-heading" role="tab" id="headingTwo">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" role="button" data-toggle="collapse"
+                                       data-parent="#accordion"
+                                       href="#collapseTwo" aria-expanded="false"
+                                       aria-controls="collapseTwo">
+                                        02 付款后如何查询起名结果？
+                                        <span class="iconfont"><img src="../static/images/csjg_arrow_up.svg" alt="" style="width:18px;heght:18px"></span>
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel"
+                                 aria-labelledby="headingTwo"
+                                 aria-expanded="false" style="height: 0px;">
+                                <div class="panel-body">
+                                    付款后点击右上角进行vip登录，然后就可以不限时间和不限次数的使用本系统进行起名。
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="panel">
+                            <div class="panel-heading" role="tab" id="headingThree">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" role="button" data-toggle="collapse"
+                                       data-parent="#accordion"
+                                       href="#collapseThree" aria-expanded="false"
+                                       aria-controls="collapseThree">
+                                        03 现在网上起名的机构那么多，不知道选择哪家才好？
+                                        <span class="iconfont"><img src="../static/images/csjg_arrow_up.svg" alt="" style="width:18px;heght:18px"></span>
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapseThree" class="panel-collapse collapse" role="tabpanel"
+                                 aria-labelledby="headingThree" aria-expanded="false" style="height: 0px;">
+                                <div class="panel-body">
+                                  网上虽然有很多起名机构，但都是先付费再起名，那么对起名的质量很难保障，而我们平台是可以先免费试用，如果您满意，再付费查看更多的优质好名的。
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="panel">
+                            <div class="panel-heading" role="tab" id="headingFour">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" role="button" data-toggle="collapse"
+                                       data-parent="#accordion"
+                                       href="#collapseFour" aria-expanded="false"
+                                       aria-controls="collapseFour">
+                                        04 如何评价一个名字是不是好名？
+                                        <span class="iconfont"><img src="../static/images/csjg_arrow_up.svg" alt="" style="width:18px;heght:18px"></span>
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapseFour" class="panel-collapse collapse" role="tabpanel"
+                                 aria-labelledby="headingFour"
+                                 aria-expanded="false" style="height: 0px;">
+                                <div class="panel-body"> 我们通过大数据进行筛选，智能生成，对没一个名字都会根据取名人的姓氏、性别，综合、音、形、义，结合美学、心理学、生肖等诸多方面，并参考时代文化综合考虑起名，每一项都有详细的解读。
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+        <!--<script src="./Bootstrap3扁平风格垂直手风琴特效_files/jquery-1.10.2.js"></script>-->
+        <!--<script src="./Bootstrap3扁平风格垂直手风琴特效_files/jquery.min.js"></script>-->
+        <script src="../static/js/bootstrap-3.3.4.js"></script>
+        <script src="../static/bootstrap.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('.collapse.in').prev('.panel-heading').addClass('active');
+                $('#accordion, #bs-collapse')
+                    .on('show.bs.collapse', function (a) {
+                        $(a.target).prev('.panel-heading').addClass('active');
+                    })
+                    .on('hide.bs.collapse', function (a) {
+                        $(a.target).prev('.panel-heading').removeClass('active');
+                    });
+            });
+        </script>
+
+        <audio controls="controls" style="display: none;"></audio>
+    </div>
+</div>
+<div id="m_index_footer">
+    <p>弘扬传统文化，破除迷信宿命，倡导科学起名，促进社会和谐。</p>
+    <p>起名宝典 Copyright © 2013-2020 渝ICP备20002651号
+        本网站部分图片和视频来源于网络，如有侵权，请及时<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=2210265949&site=qq&menu=yes" style="color: red">联系我们</a>删除</p>
+</div>
+<div class="zhanwei_kong" style="height:56px;background-color:"></div>
+<div id="m_db_btn">
+    <button type="submit">开通VIP立即获取好名</button>
+</div>
+</body>
+</html>

@@ -1,0 +1,118 @@
+#headnav{
+	background: url("../images/back_0.png") no-repeat;
+	width: 100%;
+	background-position: center;
+	height: 108px;
+	box-sizing: border-box;
+	margin-top: 58px;
+	border-bottom: 1px solid #cccccc;
+}
+#headnav .nav_neirong{
+	width: 1190px;
+	height: 108px;
+	margin: 0 auto;
+	padding-top: 20px;
+	box-sizing: border-box;
+}
+#headnav .right_nav{
+	width: 700px;
+	height: 70px;
+	line-height: 70px;
+}
+#headnav li{
+	float: right;
+	margin-right: 32px;
+}
+#headnav li>a{
+	text-decoration: none;
+	font-size: 16px;
+	color: #0C1222;
+}
+#headnav .vip_login_btn{
+	width: 142px;
+    height: 44px;
+    color: #0C1222;
+    border: 2px solid #0C1222;
+    background-color: transparent;
+    outline: none;
+    font-size: 18px;
+    text-decoration: none;
+    border-radius: 4px;
+    line-height: 29px;
+    margin-top: 12px;
+    text-align: center;
+}
+#headnav .logo{
+    background: url(../images/logo.png) no-repeat;
+    width: 179px;
+    height: 70px;
+    background-size: contain;
+}
+#dingbuad img{
+	margin-right:300px;
+	width: 18px;
+	height: 18px;
+}
+.modal-backdrop{
+	display: none;
+}
+#breadcrumb{
+	width: 1190px;
+	margin: 0 auto;
+	margin-top: 12px;
+}
+#breadcrumb>a{
+	color: #666666;
+}
+#breadcrumb>a+a:before {
+    padding: 0 5px;
+    content: "";
+    background: url(../images/mianbaoxiejiantou.svg) no-repeat;
+    background-position-y: 2px;
+    width: 6px;
+    height: 10px;
+    margin: 0 0px;
+    background-size: 80%;
+}
+#pc_wzxq{
+    width: 1200px;
+    margin: 0 auto;
+    margin-bottom: 30px;
+}
+#wzxq_content{
+    width: 750px;
+}
+#wzxq_content>h1{
+    font-size: 20px;
+}
+.biaodan_guai{
+	margin-top: -18px !important;
+}
+.pc_zhaiyao{
+    border: 1px solid #cccccc;
+    box-sizing: border-box;
+    padding-left: 9px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    padding-right: 9px;
+    color: #666666;
+}
+.pc_wzxq_content{
+	width: 750px;
+}
+.lanmu_xiangguan{
+	background-color: red;
+	margin-top: 20px;
+}
+.lanmu_hou5{
+	margin-right: 30px;
+}
+
+.lanmu_list_a{
+	line-height: 28px;
+	color: #666666;
+}
+.lanmu_qian_hou{
+	font-size: 16px;
+	font-weight: bolder;
+}

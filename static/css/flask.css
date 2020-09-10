@@ -1,0 +1,24 @@
+nav {
+    height: 65px;
+    background-color: #0C1222;
+}
+
+li {
+    float: left;
+    padding-left: 40px;
+    list-style: none;
+    line-height: 65px;
+
+}
+
+a {
+    text-decoration: none;
+    color: red;
+}
+
+#tupian {
+    background: url("../images/back_5_img.png");
+    width: 638px;
+    height: 347px;
+    background-color: #fff;
+}

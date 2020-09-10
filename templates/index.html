@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=8">
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="Cache" content="no-cache">
+    <meta name="baidu-site-verification" content="1Hzl4pOsBn"/>
+    <title>宝宝起名_免费测名_在线起名_起名宝典</title>
+    <meta name="keywords" content="免费起名字,宝宝起名网,起名字大全,起名网,取名">
+    <meta NAME="description"
+          content="起名宝典是以传统周易学、汉语语言文学、诗词国学、统计学(千万级大数据分析)、心理学结合大数据为理论基础,起名宝典主要有男孩起名、女孩起名、诗词起名、传统起名名等在线起名等功能，是起名必备工具!">
+    <link rel="stylesheet" href="../static/css/index.css">
+    <link rel="stylesheet" href="../static/css/quanju.css">
+    <link rel="stylesheet" href="../static/css/pc_biaodn_quanju.css">
+    <link rel="stylesheet" href="../static/css/qiwang_biaoqian.css">
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/css/myDatepicker.css">
+    <link rel="stylesheet" href="../static/css/areaStyle.css">
+    <link rel="stylesheet" href="../static/css/mzys_mzys_lunbo.css">
+    <link rel="stylesheet" href="../static/css/dibuad.css">
+    <link rel="stylesheet" href="../static/css/Cooldog.css">
+    <link rel="stylesheet" href="../static/css/iconfont.css">
+    <link rel="icon" href="../images/favicon.ico" type="image/x-icon"/>
+    <script src="../static/js/jquery.min.js"></script>
+    <script src="../static/js/myDatepicker.js"></script>
+    <script src="../static/js/bootstrap.min.js"></script>
+    <script src="../static/js/qiwangtanchuang.js"></script>
+    <script src="../static/js/vue.min.js"></script>
+    <script src="../static/js/charfirstPinyin.js"></script>
+    <script src="../static/js/area.js"></script>
+    <script src="../static/js/index.js"></script>
+    <script src="../static/js/pcindex_db_ad_close.js"></script>
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?5b37103acf8363b67cf5a20048902f2b";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+</head>
+<body>
+<div id="dingbuad" class="clearfix">
+    <div class="neirong">
+        <div class="fl">
+            <p>十年只专注一件事情——宝宝起名；以传统周易学为理论基础，结合大数据分析，为您提供最科学的起名方案</p>
+        </div>
+        <div class="fr closed">
+            <img src="../static/images/dbad_closed.svg" alt="">
+        </div>
+    </div>
+</div>
+<div id="headnav">
+    <div class="nav_neirong">
+        <a href="{{ url_for('helloWorld') }}">
+            <div class="logo fl"></div>
+        </a>
+        <div class="right_nav fr">
+            <ul class="fl">
+                <li><a href="#md_hmbz">好名标准</a></li>
+                <li><a href="#md_qmzy">起名注意</a></li>
+                <li><a href="#md_ptys">平台优势</a></li>
+                <li><a href="#md_qmll">起名理论</a></li>
+            </ul>
+            {% if vip_tele %}
+                <a class="btn fr vip_login_btn" href="#">{{ vip_tele.telephone }}</a>
+            {% else %}
+                <a class="btn fr vip_login_btn" href="{{ url_for('order_cx') }}">VIP登录</a>
+            {% endif %}
+        </div>
+    </div>
+</div>
+<div id="first_scren">
+    <div class="first_neirong">
+        <div class="wenan fl">
+            <div class="wenan_1">
+                <h3>科学·传统</h3>
+                <p>以解决当下取名“难”、“俗”、“烂大街”为核心目标</p>
+            </div>
+            <div class="wenan_2">
+                <ul>
+                    <li>
+                        <h4>10年+</h4>
+                        <p>人工取名经验</p>
+                    </li>
+                    <li>
+                        <h4>5千万+</h4>
+                        <p>诗词成语库</p>
+                    </li>
+                    <li>
+                        <h4>50万次+</h4>
+                        <p>测姓名</p>
+                    </li>
+                    <li>
+                        <h4>100种+</h4>
+                        <p>取名算法</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <a href="md_qmll" name="md_qmll"></a>
+        <div class="biaodan_index biaodan fr">
+            <h3>科学·传统</h3>
+            <p>一键解决当下取名“难”、“俗”、“大众化”等问题</p>
+            <form action="{{ url_for("csjg") }}" method="post" autocomplete="off">
+                <ul class="biaodan_neirong">
+                    <li>
+                        <span>请输入姓氏:</span>
+                        <div class=" shuru fr">
+                            <input class="name" name="xing" required type="text">
+                            <label for="biaodan_xb_nan" class="xb_xz_class"><input type="radio" name="xingbie" value="1" id="biaodan_xb_nan"><i></i>男</label>
+                            <label for="biaodan__xb_nv" class="xb_xz_class"><input type="radio" name="xingbie" value="0" id="biaodan__xb_nv"><i></i>女</label>
+                            <label for="biaodan__xb_nobirth" class="xb_xz_class"><input type="radio" name="xingbie" value="9" id="biaodan__xb_nobirth" checked><i></i>未出生</label>
+                        </div>
+                    </li>
+                    <li>
+                        <span>定字(选填):</span>
+                        <div class="shuru fr">
+                            <input class="dingzhi" name="dingzhi">
+                            <label for="biaodan_xz_1"><input type="radio" name="biaodan_xz" value="1" id="biaodan_xz_1"><i></i>第1个字</label>
+                            <label for="biaodan__xz_2"><input type="radio" name="biaodan_xz" value="2" id="biaodan__xz_2"><i></i>第2个字</label>
+                            <label for="biaodan__xz_all"><input type="radio" name="biaodan_xz" value="9" id="biaodan__xz_all" checked><i></i>包含</label>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="qw_biaoti">期望(选填):</span>
+                        <div class="ibox-content shortcut-box guding col-xs-4 col-sm-4 col-md-3 col-lg-3"
+                             data-toggle="modal" data-target="#myModal">
+                        </div>
+                        <div class="qiwangbiaoqian fr">
+                            <div class="qw_biaoqian fl">
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                                        <div class="ibox float-e-margins">
+                                            <div class="ibox-content">
+                                                <ul class="shortcut-box shortcut-box-dingzi clearfix">
+                                                    <li class="col-xs-4 col-sm-4 col-md-3 col-lg-3" data-toggle="modal"
+                                                        data-target="#myModal">
+                                                        <div>
+                                                            <i class="fa fa00"></i>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+                                     aria-labelledby="myModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header clearfix mid">
+                                                <button type="button" class="qiwang_tc_close close mid" data-d ismiss="modal"
+                                                        aria-hidden="true">×
+                                                </button>
+                                                <h4 class="modal-title shortcut-modal-title mid" id="myModalLabel">
+                                                    您的期望（建议最多选4个标签）</h4>
+                                            </div>
+                                            <div class="modal-body shortcut-add-box">
+                                                <div class="shortcut-add-box-left">
+                                                    <ul>
+                                                        <li class="active">
+                                                            <i class="fa fa01"></i>
+                                                            <span>优雅</span>
+                                                            <input type="hidden" name="" value="1">
+                                                        </li>
+                                                        <li>
+                                                            <i class="fa fa02"></i>
+                                                            <span>爱国</span>
+                                                            <input type="hidden" name="" value="2">
+                                                        </li>
+                                                        <li>
+                                                            <i class="fa fa03"></i>
+                                                            <span>吉祥</span>
+                                                            <input type="hidden" name="" value="3">
+                                                        </li>
+                                                        <li>
+                                                            <i class="fa fa04"></i>
+                                                            <span>美好</span>
+                                                            <input type="hidden" name="" value="4">
+                                                        </li>
+                                                        <li>
+                                                            <i class="fa fa05"></i>
+                                                            <span>明理</span>
+                                                            <input type="hidden" name="" value="5">
+                                                        </li>
+                                                        <li>
+                                                            <i class="fa fa06"></i>
+                                                            <span>美德</span>
+                                                            <input type="hidden" name="" value="7">
+                                                        </li>
+                                                        <li>
+                                                            <i class="fa fa07"></i>
+                                                            <span>幸福</span>
+                                                            <input type="hidden" name="" value="8">
+                                                        </li>
+                                                        <li>
+                                                            <i class="fa fa08"></i>
+                                                            <span>浩大</span>
+                                                            <input type="hidden" name="" value="13">
+                                                        </li>
+                                                        <li>
+                                                            <i class="fa fa09"></i>
+                                                            <span>英俊</span>
+                                                            <input type="hidden" name="" value="14">
+                                                        </li>
+                                                        <li>
+                                                            <i class="fa fa10"></i>
+                                                            <span>健壮</span>
+                                                            <input type="hidden" name="" value="15">
+                                                        </li>
+                                                    </ul>
+                                                    <ul>
+                                                        <li>
+                                                            <i class="fa fa11"></i>
+                                                            <span>美丽</span>
+                                                            <input type="hidden" name="" value="16">
+                                                        </li>
+                                                        <li>
+                                                            <i class="fa fa12"></i>
+                                                            <span>安康</span>
+                                                            <input type="hidden" name="" value="17">
+                                                        </li>
+                                                        <li>
+                                                            <i class="fa fa13"></i>
+                                                            <span>年轻</span>
+                                                            <input type="hidden" name="" value="18">
+                                                        </li>
+                                                        <li>
+                                                            <i class="fa fa14"></i>
+                                                            <span>快乐</span>
+                                                            <input type="hidden" name="" value="19">
+                                                        </li>
+                                                        <li>
+                                                            <i class="fa fa15"></i>
+                                                            <span>灵巧</span>
+                                                            <input type="hidden" name="" value="20">
+                                                        </li>
+                                                        <li>
+                                                            <i class="fa fa16"></i>
+                                                            <span>勇敢</span>
+                                                            <input type="hidden" name="" value="21">
+                                                        </li>
+                                                        <li>
+                                                            <i class="fa fa17"></i>
+                                                            <span>坚强</span>
+                                                            <input type="hidden" name="" value="22">
+                                                        </li>
+                                                        <li>
+                                                            <i class="fa fa18"></i>
+                                                            <span>稳重</span>
+                                                            <input type="hidden" name="" value="23">
+                                                        </li>
+                                                        <li>
+                                                            <i class="fa fa19"></i>
+                                                            <span>文静</span>
+                                                            <input type="hidden" name="" value="24">
+                                                        </li>
+                                                        <li>
+                                                            <i class="fa fa20"></i>
+                                                            <span>贤淑</span>
+                                                            <input type="hidden" name="" value="25">
+                                                        </li>
+                                                    </ul>
+                                                    <ul>
+                                                        <li>
+                                                            <i class="fa fa21"></i>
+                                                            <span>才华</span>
+                                                            <input type="hidden" name="" value="26">
+                                                        </li>
+                                                        <li>
+                                                            <i class="fa fa22"></i>
+                                                            <span>智慧</span>
+                                                            <input type="hidden" name="" value="27">
+                                                        </li>
+                                                        <li>
+                                                            <i class="fa fa23"></i>
+                                                            <span>谦虚</span>
+                                                            <input type="hidden" name="" value="28">
+                                                        </li>
+                                                        <li>
+                                                            <i class="fa fa24"></i>
+                                                            <span>正直</span>
+                                                            <input type="hidden" name="" value="29">
+                                                        </li>
+                                                        <li>
+                                                            <i class="fa fa25"></i>
+                                                            <span>纯洁</span>
+                                                            <input type="hidden" name="" value="30">
+                                                        </li>
+                                                        <li>
+                                                            <i class="fa fa26"></i>
+                                                            <span>志向</span>
+                                                            <input type="hidden" name="" value="31">
+                                                        </li>
+                                                        <li>
+                                                            <i class="fa fa27"></i>
+                                                            <span>杰出</span>
+                                                            <input type="hidden" name="" value="33">
+                                                        </li>
+                                                        <li>
+                                                            <i class="fa fa28"></i>
+                                                            <span>上进心</span>
+                                                            <input type="hidden" name="" value="34">
+                                                        </li>
+                                                        <li>
+                                                            <i class="fa fa29"></i>
+                                                            <span>财富</span>
+                                                            <input type="hidden" name="" value="35">
+                                                        </li>
+                                                        <li>
+                                                            <i class="fa fa30"></i>
+                                                            <span>优秀</span>
+                                                            <input type="hidden" name="" value="36">
+                                                        </li>
+                                                        {#                                                        <div class="lanPos" style="top: 0px;"></div>#}
+                                                    </ul>
+                                                    <ul>
+                                                        <li>
+                                                            <i class="fa fa31"></i>
+                                                            <span>温顺</span>
+                                                            <input type="hidden" name="" value="37">
+                                                        </li>
+                                                        <li>
+                                                            <i class="fa fa32"></i>
+                                                            <span>担当</span>
+                                                            <input type="hidden" name="" value="38">
+                                                        </li>
+                                                        <li>
+                                                            <i class="fa fa33"></i>
+                                                            <span>传承</span>
+                                                            <input type="hidden" name="" value="40">
+                                                        </li>
+                                                        <li>
+                                                            <i class="fa fa34"></i>
+                                                            <span>善良</span>
+                                                            <input type="hidden" name="" value="41">
+                                                        </li>
+                                                        {#                                                        <div class="lanPos" style="top: 0px;"></div>#}
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-primary" id="shortcutEnter">确认
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!--<audio controls="controls" style="display: none;"></audio>-->
+                            </div>
+                            <div class="daosnajiao fr"></div>
+                        </div>
+                    </li>
+                    <li>
+                        <span id="cssj_js">预产期:</span>
+                        <div id="jquery_riqi">
+                            <div id="wrap">
+                                <div class="input-group">
+                                    <input type="radio" name="position" id="position-1" value='true' hidden checked>
+                                    <label for="position-1" class="my-checkbox"></label>
+                                </div>
+                                <div style='display: block;'>
+                                    <input type="text" id='date-input' name="birthtime"
+                                           style='width:20em;height:42px;display: block;outline: none;border: none'
+                                           ;autocomplete="off">
+                                </div>
+                            </div>
+                            <script>
+                                //调用日期插件
+                                $("#date-input").myDatePicker({
+                                    'startDate': '1949-01-01 00:00:00',
+                                    'endDate': (new Date()).Format("yyyy-mm-dd hh:ii:ss"),
+                                    //指定父元素，不指定默认为body
+                                    parent: $("#date-input").parent(),
+                                    //定位方式是否用fixed
+                                    positionFixed: $("#position-1").is(':checked'),
+                                });
+                                /**
+                                 * 监听日期类型变化
+                                 */
+                                ;(function listenDatePicker() {
+                                    let _radio = $(" input[name='dateType']");
+                                    let _radio2 = $("input[name='position']");
+                                    let _input = $(" #date-input");
+                                    _radio.on('change', function () {
+                                        let view = parseInt($(this).val());
+                                        // 0 - 4 年 月 日 周 季
+                                        _input[0].resetDatePicker({
+                                            'view': view,
+                                        });
+                                        _input.focus();
+                                    });
+                                    //重置定位是fixed还是absolute
+                                    _radio2.on('change', function () {
+                                        _input[0].resetDatePicker({
+                                            positionFixed: $("#position-1").is(':checked'),
+                                        });
+                                    });
+                                })();
+                            </script>
+                            <div class="daosnajiao fr"></div>
+                        </div>
+                    </li>
+                    <li>
+                        <span>出生地:</span>
+                        <div id="chushengdi_jquery">
+                            <div class="leftPark">
+                                <input type="button" name="birthplace" id="btn1" class="area_input">
+                            </div>
+                            <script type="text/javascript">
+                                $('#btn1').areaSelector();
+                            </script>
+                            <div class="area_content diqubankuai" id="btn1AreaContent isBlock"
+                                 style="top: 614.5px; left: 28px;">
+                                <div class="area_menu">
+                                    <ul>
+                                        <li class="">省份</li>
+                                        <li class="">城市</li>
+                                        <li class="isClick">县区</li>
+                                    </ul>
+                                </div>
+                                <div class="area_data_content">
+                                    <div class="area_data data_province">
+                                        <div class="data_Part part_one"><a class="part_type">A-G</a>
+                                            <ul>
+                                                <li><a>北京市<input value="11" style="display:none"></a></li>
+                                                <li><a>重庆市<input value="50" style="display:none"></a></li>
+                                                <li><a>安徽省<input value="34" style="display:none"></a></li>
+                                                <li><a>福建省<input value="35" style="display:none"></a></li>
+                                                <li><a>广东省<input value="44" style="display:none"></a></li>
+                                                <li><a>广西<input value="45" style="display:none"></a></li>
+                                                <li><a>贵州省<input value="52" style="display:none"></a></li>
+                                                <li><a>甘肃省<input value="62" style="display:none"></a></li>
+                                                <li><a>澳门<input value="82" style="display:none"></a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="data_Part part_two"><a class="part_type">H-N</a>
+                                            <ul>
+                                                <li><a>河北省<input value="13" style="display:none"></a></li>
+                                                <li><a>内蒙古<input value="15" style="display:none"></a></li>
+                                                <li><a>辽宁省<input value="21" style="display:none"></a></li>
+                                                <li><a>吉林省<input value="22" style="display:none"></a></li>
+                                                <li><a>黑龙江省<input value="23" style="display:none"></a></li>
+                                                <li><a>江苏省<input value="32" style="display:none"></a></li>
+                                                <li><a>江西省<input value="36" style="display:none"></a></li>
+                                                <li><a>河南省<input value="41" style="display:none"></a></li>
+                                                <li><a>湖北省<input value="42" style="display:none"></a></li>
+                                                <li><a>湖南省<input value="43" style="display:none"></a></li>
+                                                <li><a>海南省<input value="46" style="display:none"></a></li>
+                                                <li><a>宁夏<input value="64" style="display:none"></a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="data_Part part_three isBlock"><a class="part_type">O-U</a>
+                                            <ul>
+                                                <li><a>天津市<input value="12" style="display:none"></a></li>
+                                                <li><a>山西省<input value="14" style="display:none"></a></li>
+                                                <li><a>上海市<input value="31" style="display:none"></a></li>
+                                                <li><a>山东省<input value="37" style="display:none"></a></li>
+                                                <li><a>四川省<input value="51" style="display:none"></a></li>
+                                                <li><a>陕西省<input value="61" style="display:none"></a></li>
+                                                <li><a>青海<input value="63" style="display:none"></a></li>
+                                                <li><a>台湾<input value="71" style="display:none"></a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="data_Part part_four"><a class="part_type part_four">V-Z</a>
+                                            <ul>
+                                                <li><a>浙江省<input value="33" style="display:none"></a></li>
+                                                <li><a>云南省<input value="53" style="display:none"></a></li>
+                                                <li><a>西藏<input value="54" style="display:none"></a></li>
+                                                <li><a>新疆<input value="65" style="display:none"></a></li>
+                                                <li><a>香港<input value="81" style="display:none"></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="area_data data_region">
+                                        <div class="data_Part part_one"><a class="part_type">A-G</a>
+                                            <ul>
+                                                <li><a>高雄<input value="02" style="display:none"></a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="data_Part part_two"><a class="part_type">H-N</a>
+                                            <ul>
+                                                <li><a>基隆<input value="03" style="display:none"></a></li>
+                                                <li><a>嘉义<input value="07" style="display:none"></a></li>
+                                                <li><a>苗栗<input value="10" style="display:none"></a></li>
+                                                <li><a>南投<input value="12" style="display:none"></a></li>
+                                                <li><a>花莲<input value="16" style="display:none"></a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="data_Part part_three isBlock"><a class="part_type">O-U</a>
+                                            <ul>
+                                                <li><a>台北<input value="01" style="display:none"></a></li>
+                                                <li><a>台中<input value="04" style="display:none"></a></li>
+                                                <li><a>台南<input value="05" style="display:none"></a></li>
+                                                <li><a>桃园<input value="09" style="display:none"></a></li>
+                                                <li><a>屏东<input value="14" style="display:none"></a></li>
+                                                <li><a>台东<input value="15" style="display:none"></a></li>
+                                                <li><a>澎湖<input value="17" style="display:none"></a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="data_Part part_four"><a class="part_type part_four">V-Z</a>
+                                            <ul>
+                                                <li><a>新竹<input value="06" style="display:none"></a></li>
+                                                <li><a>宜兰<input value="08" style="display:none"></a></li>
+                                                <li><a>彰化<input value="11" style="display:none"></a></li>
+                                                <li><a>云林<input value="13" style="display:none"></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="area_data data_city isBlock">
+                                        <div class="data_Part part_one"><a class="part_type">A-G</a>
+                                            <ul></ul>
+                                        </div>
+                                        <div class="data_Part part_two"><a class="part_type">H-N</a>
+                                            <ul></ul>
+                                        </div>
+                                        <div class="data_Part part_three isBlock"><a class="part_type">O-U</a>
+                                            <ul></ul>
+                                        </div>
+                                        <div class="data_Part part_four"><a class="part_type part_four">V-Z</a>
+                                            <ul></ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <audio controls="controls" style="display: none;"></audio>
+                            <div class="daosnajiao fr"></div>
+                        </div>
+                    </li>
+                </ul>
+                <input type="submit" id="form_tijiao" name="立即取名" value="立即取名">
+            </form>
+        </div>
+    </div>
+</div>
+<div id="jiudalilunn">
+    <div class="jiudabt">
+        <h3>九大起名理论</h3>
+    </div>
+    <div class="jiuda_neirong">
+        <p>
+            从诗词名句中汲取精华。经过历史长流的筛选，流传下来的难以数计的国学精髓中蕴藏了古人无限的智慧，而其中的优美诗词名句同时也就成为了我们起名时使用的大数据素材。巧用国学中的典故起名；典故是指那些在典籍中出现过的有故事有出处的词语。利用典故起名，区区两个字，可起数百字的效果，有“四两拨千斤”的功效。“男楚辞，女诗经”这个起名方法流传已久，楚辞诗经作为国学中重要的一部分，早已成为人们取名的重要参考文献。而本平台更好的将这种理论融入到人工智能算法中，为您提供最合适的名字！</p>
+    </div>
+    <div class="lilunleixing"></div>
+    <a href="#md_ptys" name="md_ptys"></a>
+</div>
+<div id="pingtaiyoushi">
+    <div class="pt_neirong">
+        <div class="ptys fl">
+            <div class="ptys_bj fl"></div>
+            <p>赐子千金，不如教子一艺</p>
+            <p>教子一艺，不如赐子好名</p>
+            <input type="button" class="lijiquming" value="立即取名">
+            <a href="#md_qmzy" name="md_qmzy"></a>
+        </div>
+
+        <div class="fourleixing fr">
+            <div class="fl">
+                <ul>
+                    <li class="leixing_1 ptys_gxbj">
+                        <div class="yuanquan_big">
+                            <div class="yuanquan_small"></div>
+                        </div>
+                        <h4>专业快捷</h4>
+                        <p>多年起名改名经验研发</p>
+                        <p>只需输入姓氏、出生地、出生信息、个性期望</p>
+                        <p>1分钟生成简单方便又高效。名字好听又时尚</p>
+                    </li>
+                    <li class="leixing_2 ptys_gxbj">
+                        <div class="yuanquan_big">
+                            <div class="yuanquan_small"></div>
+                        </div>
+                        <h4>专一所以更专业</h4>
+                        <p>我们只做起名服务</p>
+                        <p>专注专一研究起名理论，经验丰富</p>
+                        <p>用心帮助每一位缘主取到满意的好名</p>
+                    </li>
+                </ul>
+            </div>
+            <div class="fl">
+                <ul>
+                    <li class="leixing_1 ptys_gxbj">
+                        <div class="yuanquan_big">
+                            <div class="yuanquan_small"></div>
+                        </div>
+                        <h4>全面综合</h4>
+                        <p>八个纬度起名考虑</p>
+                        <p>对音形义有更高的筛选机制</p>
+                        <p>确保每一个名字的含金量</p>
+                    </li>
+                    <li class="leixing_2 ptys_gxbj">
+                        <div class="yuanquan_big">
+                            <div class="yuanquan_small"></div>
+                        </div>
+                        <h4>好听时尚</h4>
+                        <p>结合互联网大数据</p>
+                        <p>让名字寓意美好又紧跟时代潮流，摒弃流俗名字，</p>
+                        <p>综合诗词典故，让名字更加个性鲜明。</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="mzys_zongti">
+
+    <div class="mzys_xbk">
+        <div class="mzys_mzys_wenan fr">
+            <div class="wenan_biaoti"></div>
+            <ul>
+                <li><p>名不正则言不顺</p></li>
+                <li><p>自古以来</p></li>
+                <li><p>人们对自己姓名十分珍视</p></li>
+                <li><p>我国的姓与名</p></li>
+                <li><p>经历了漫长的演变过程</p></li>
+                <li><p>才发展到了今天人们所惯用的姓名</p></li>
+                <li><p>作为一个符号的姓与名</p></li>
+                <li><p>带有时代的信息</p></li>
+                <li><p>留下了家族血统的烙印</p></li>
+                <li><p>凝聚着父母对孩子的深情厚意和殷切期望</p></li>
+                <li><p>它对人生起着潜移默化的作用</p></li>
+                <li><p>是父母对孩子人生前景灌注着人生信念的名字</p></li>
+                <li><p>名字是家庭教育的起步</p></li>
+                <li><p>将规范、作用和影响着人的一生</p></li>
+            </ul>
+        </div>
+        <div class="mzys_lb">
+            <div class="Cooldog_container">
+                <div class="Cooldog_content">
+                    <ul>
+                        <li class="p1">
+                            <h3>忌拗口、奇怪的名字</h3>
+                            <p>往往过于注重五行八字、字义、字形，从而忽略了名字音律，以致于宝宝的名字很拗口或者很容易被读错。</p>
+                        </li>
+                        <li class="p2">
+                            <h3>起名不是缺啥补啥</h3>
+                            <p>八字要看的是“喜用五行”而不是缺什么补什么。我们一定要记住这个概念。</p>
+                        </li>
+                        <li class="p3">
+                            <h3>孩子的名字不是越大越好</h3>
+                            <p>名字格局太大，引人注意；人名不符，容易被人过分解读；名字太大怕压不住。</p>
+                        </li>
+                        <li class="p4">
+                            <h3>忌完全西方化</h3>
+                            <p>给孩子取过于“洋气化”的名字，如约翰、玛丽、大卫等，如果实在偏爱欧美风格的名字，建议父母可以给宝宝起个英文小名或中西结合的好名。如：之诺 Zeno、嘉立
+                                Scarlett、舒格Sugar、乐祺 Lucky。</p>
+                        </li>
+                        <li class="p5">
+                            <h3>需注意字型结构有变化</h3>
+                            <p>名字不但常读，而且常写，像"国园园"、"林杨桦"、"吕昌晏"这些名字写起来略显单调，缺乏变化的美感，还可能影响人们对签名的识别。</p>
+                        </li>
+                        <li class="p5">
+                            <h3>不宜多音字</h3>
+                            <p>专家指出，多音字让人读起来无所适从，在起名时最好避免。</p>
+                        </li>
+                        <li class="p5">
+                            <h3>不宜多音字</h3>
+                            <p>专家指出，多音字让人读起来无所适从，在起名时最好避免。</p>
+                        </li>
+                    </ul>
+                </div>
+                <a href="javascript:;" class="btn_left">
+                    <i class="iconfont icon-zuoyoujiantou"></i>
+                </a>
+                <a href="javascript:;" class="btn_right">
+                    <i class="iconfont icon-zuoyoujiantou-copy-copy"></i>
+                </a>
+                <!--<a href="javascript:;" class="btn_close">-->
+                <!--<i class="iconfont icon-icon-test"></i>-->
+                <!--</a>-->
+                <div class="buttons clearfix">
+                    <a href="javascript:;" class="color"></a>
+                    <a href="javascript:;"></a>
+                    <a href="javascript:;"></a>
+                    <a href="javascript:;"></a>
+                    <a href="javascript:;"></a>
+                    <a href="javascript:;"></a>
+                    <a href="javascript:;"></a>
+                </div>
+            </div>
+            <script src="{{ url_for("static",filename="static/js/Cooldog.js") }}"></script>
+        </div>
+        <a href="#md_hmbz" name="md_hmbz"></a>
+    </div>
+</div>
+<div id="heweihaoming">
+    <div id="mzys">
+        <div id='main'>
+            <div id="beijing"></div>
+            <!--轮播图片区   在取名时，因为各有所长(分别取名slide1-5)，有共有特性(banner-slide)，所以，取多个类名-->
+            <div id='banner'>
+                <!--图1-->
+                <div class='banner-slide  slide1 slide-active'>
+                    <span class="numbersss">1</span>
+                    <sapn>
+                        <h4>一、生辰八字之喜忌 准确运用阴阳五行相生相克的关系</h4>
+                        <hr class="fenge">
+                        <p>阴阳五行相生相克，运用得当，即可弥补先天八字不足，命运由坏转好；反之，助纣为虐，更甚带来严重灾祸。
+
+                            正所谓：“一命、二运、三风水、四名号、五读书”。在实际操作中，取名时应先排出当事人的生辰八字，看其喜、忌，喜用神在取名字时要优先考虑。切不可将忌神排在姓名中，否则，将杀人于无形之中。</p>
+                    </sapn>
+                </div>
+                <div class='banner-slide  slide2'>
+                    <span class="numbersss">2</span>
+                    <sapn>
+                        <h4>合理按照五格剖象姓名学计算方法进行搭配</h4>
+                        <hr class="fenge">
+                        <p>五格剖象法是目前较有影响的一种取名法”，其核心就是将人的姓名按五格剖象法来解释。</p>
+                    </sapn>
+                </div>
+                <div class='banner-slide  slide3'>
+                    <span class="numbersss">3</span>
+                    <sapn>
+                        <h4>出生年干犹如一颗树的树根，需要照料、呵护</h4>
+                        <hr class="fenge">
+                        <p>在取名时，千万不可伤其根：年干。并在此基础上，还应多于呵护，多于照料，才能这棵生命之树经风雨吹打而不折不挠，经阳光雨露而枝繁叶茂。</p>
+                    </sapn>
+                </div>
+                <div class='banner-slide  slide4'>
+                    <span class="numbersss">4</span>
+                    <sapn>
+                        <h4>生肖属相代表不同的信息，不同的能量，每个属相都应该避免取相冲的字型</h4>
+                        <hr class="fenge">
+                        <p>
+                            十二属相，是木星在地球当年的方位。它代表着不同的信息，不同的能量，我们祖先则用“子、丑、寅、卯、辰、巳、午、未、申、酉、戍、亥”这十二个字来表达，这就是所谓的十二属相。因为它的作用原理是天体对球的引力，属于天文学的知识体系，所以它有着十分科学的理论依据。</p>
+                    </sapn>
+                </div>
+                <div class='banner-slide  slide5'>
+                    <span class="numbersss">5</span>
+                    <sapn>
+                        <h4>字义字形 好的名字寓意着希望和企盼，因此需要避免一些消极负面意义的字</h4>
+                        <hr class="fenge">
+                        <p>
+                            凡在取名时，人们均寄托着美好的希望和企盼。尤其是父母给自己小孩取名，望子成龙，乃天下父母的心愿。每个家庭都会根据自己家庭的喜恶对小孩寄予满腔希望。因此切忌：应避开一些过于丰满，过于缩小的字型，如艳、卜字；不要取太俗气的名字。如王有财、李富贵、张狗蛋、何翠花、王菜姑等；不要用生僻字。如蘧、赜等。</p>
+                    </sapn>
+                </div>
+                <div class='banner-slide  slide6'>
+                    <span class="numbersss">6</span>
+                    <sapn>
+                        <h4>读音 要朗朗上口，易读易记</h4>
+                        <hr class="fenge">
+                        <p>读音好的名字，能给人以其直爽坦诚、和蔼可亲之感。取名时，姓名应易读易记，朗朗上口，好听响亮。</p>
+                    </sapn>
+                </div>
+                <div class='banner-slide  slide7'>
+                    <span class="numbersss">7</span>
+                    <sapn>
+                        <h4>阴阳 奇数为阴，偶数为阳 需要合理搭配</h4>
+                        <hr class="fenge">
+                        <p>
+                            在易学理论中，纯阴不发，孤阳不长。同理在取名时，纯阴纯阳都不利发展，不利命运。所以，阴阳平衡理论在取名时同样重要。一般以三个字的姓名为例，阴阳阳，阳阴阴最吉；阴阳阴、阳阴阳次吉；阴阴阴、阳阳阳最凶，余此类推。</p>
+                    </sapn>
+                </div>
+                <div class='banner-slide  slide8'>
+                    <span class="numbersss">8</span>
+                    <sapn>
+                        <h4>五行与八字 五行相生，则象征凡事通达血气流畅；五相相克，则象征凡事阻隔，做事不顺，身体不佳</h4>
+                        <hr class="fenge">
+                        <p>
+                            姓名学中的数理五行，是以十天干：甲、乙、丙、丁、戊、己、庚、辛、壬、癸为依据，1、2为木，3、4为火，5、6为土，7、8为金，9、10为水。其中奇数为阳，偶数为阴。这种阴阳的关系在我们人体内的表示为：1、2为肝胆系统，3、4为心血管系统，5、6为脾胃消化系统，7、8为肺等呼吸系统，9、10为肾、泌尿系统。</p>
+                    </sapn>
+                </div>
+                <div class='banner-slide  slide9'>
+                    <span class="numbersss">9</span>
+                    <sapn>
+                        <h4>姓名卦理 八卦六爻占卜凶吉</h4>
+                        <hr class="fenge">
+                        <p>
+                            八卦六爻，是人们用以预测的一种常用方法。用这种方法，则可证明所取名字的凶吉，预测何时发生什么事等。其起卦的方法有多种，其中常见的方法有：以人格数作上卦，以地格数作下卦可预测其姓名是吉凶；以总格数上卦，以地格数为下卦，可预测一生中的吉凶。再根据其六爻变化的法则，便能准确预测何年何月何日发生何事。</p>
+                    </sapn>
+                </div>
+                <div class='banner-slide  slide10'>
+                    <span class="numbersss">10</span>
+                    <sapn>
+                        <h4>姓名与父母的生肖 要兼顾父母生肖属相，避免相冲</h4>
+                        <hr class="fenge">
+                        <p>
+                            根据十二地支相生相克，相刑相合，相冲相害的理论，在小孩取名时，要兼顾其父母的生肖属相。如假如其父母有一个是肖马的，则因子午相冲，这小孩的姓名中就不能带“子”字，如：“孜、字”等；不能带“丑”字，因为丑午相害；如“牧、牡”等；不能带“马、午”，因为“午午”自刑。</p>
+                    </sapn>
+                </div>
+                <div class='banner-slide  slide11'>
+                    <span class="numbersss">11</span>
+                    <sapn>
+                        <h4>不能与父辈同字</h4>
+                        <hr class="fenge">
+                        <p>
+                            小孩取名一般而言不能与父母、祖父母，舅舅等同字，以视对长辈的尊敬。但也有特殊情况，可巧妙化解此类问题，使小孩起名带有纪念意义，如父亲名叫“王大海”，小孩则可取“王敬海”，则象征晚辈对父辈的敬仰推崇。</p>
+                    </sapn>
+                </div>
+                <div class='banner-slide  slide12'>
+                    <span class="numbersss">12</span>
+                    <sapn>
+                        <h4>符合三才配置 要把天时、地利、人和三个方面的因素融合到名字中去</h4>
+                        <hr class="fenge">
+                        <p>
+                            在取名时，通过考虑本人的八字等基本信息之外，还有更重要的一点，就是要把天时、地利、人和三个方面的因素融合到名字中去，最终取好的名字能规避一些伤灾、使人生之路更顺畅，起到增运的效果。</p>
+                    </sapn>
+                </div>
+
+            </div>
+            <!--
+                移动数字绑定图片
+                必然的是，和图片数量是对等的
+            -->
+            <div class="dots">
+                <ul id='dots'>
+                    <li class="li1"></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+                <!--
+                    上、下一张按钮
+                -->
+                <!--<div id="left-right">-->
+                <!--<div class="move" id="prev">&lsaquo;</div>-->
+                <!--<div class="move" id="next">&rsaquo;</div>-->
+            </div>
+
+            <div class="dotss">
+                <h3>好名标准</h3>
+                <p class="jieshi">一个好的名字应该兼顾以下十二个方面的要素：</p>
+                <ul id="dotss">
+                    <li class="li2">一、生辰八字之喜忌 准确运用阴阳五行相生相克的关系</li>
+                    <li>二、合理按照五格剖象姓名学计算方法进行搭配</li>
+                    <li>三、出生年干犹如一颗树的树根，需要照料、呵护</li>
+                    <li>四、生肖属相代表不同的信息，不同的能量，每个属相都应该避免取相冲的字型</li>
+                    <li>五、字义字形 好的名字寓意着希望和企盼，因此需要避免一些消极负面意义的字</li>
+                    <li>六、读音 要朗朗上口，易读易记</li>
+                    <li>七、阴阳 奇数为阴，偶数为阳 需要合理搭配</li>
+                    <li>八、五行与八字 五行相生，则象征凡事通达血气流畅；五相相克，则象征凡事阻隔，做事不顺，身体不佳</li>
+                    <li>九、姓名卦理 八卦六爻占卜凶吉</li>
+                    <li>十、姓名与父母的生肖 要兼顾父母生肖属相，避免相冲</li>
+                    <li>十一、不能与父辈同字</li>
+                    <li>十二、符合三才配置 要把天时、地利、人和三个方面的因素融合到名字中去</li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+    <script>
+        function byid(id) {
+            return typeof(id) === 'string' ? document.getElementById(id) : id;
+//	相当于 return if(typeof(id)==='string'){
+//		document.getElementById(id);
+//	}else{
+//		id;
+//	}
+        }
+
+        //接下来开始轮播图脚本了。
+        //为了使得函数很多变量能互相使用，所以我们需要在wai
+        //定义好全局变量。
+        //len的设定   ：  由于长度上的计算很少，而且图片和数字移动数量相同，只需设置一个
+        // index的设定：  设置记数变量，因为数字从0开始计算。
+        var main = byid('main'),
+            pics = byid('banner').getElementsByTagName('div'),
+            dots = byid('dots').getElementsByTagName('li'),
+            dotss = byid('dotss').getElementsByTagName('li'),
+            prev = byid('prev'),
+            next = byid('next'),
+            len = pics.length,
+            index = 0,
+            timer = null;//timer是为了进行定时器的设置挺与开
+        //定时器的关注
+        function solide() {
+//轮播定时器（是整个容器即main）：移入鼠标停止，和移出继续轮播
+//先来个划入清除定时器
+            banner.onmouseover = function () {
+                if (timer) {//即timer不为null，为真
+                    clearInterval(timer);//清除setinterval，并且此时timer又为false，不过，随着循环（即师表
+                    //移开banner，循环继续又变回 setinterval。
+                }
+            }
+//再写一个划出继续启动定时器
+            banner.onmouseout = function () {
+                timer = setInterval(function () {
+                    index++;
+                    if (index >= len) {
+                        index = 0;
+                    }//注意因为index表示的是图片的标号，最大为4！！
+                    //有了index就可以进行轮播了，可是我们没有执行图片变化的番薯
+                    //设置一个，在全局作用域中。
+                    changImg();
+                }, 30000);//setInterval为延时不停息的执行
+            }
+            banner.onmouseout();//这样子直接运行function，可以不用在鼠标移出才进行，进入页面同时就开始轮播
+//接下来我们开始数字下标绑定图片移动；
+            for (var j = 0; j < len; j++) {
+                //在开始前，我们需要知道，函数是可以独立作用域之外的。
+                dots[j].index = j;//为所以dots属性添加id，分别为0，1，2，3，4。
+                //不太推荐使用这样，毕竟id名字取数字开头不好，不太合规矩。
+                dots[j].onclick = function () {
+                    index = this.index;//(引用id的是dots,及dots的id);
+                    changImg();
+                }
+            }
+            for (var j = 0; j < len; j++) {
+                //在开始前，我们需要知道，函数是可以独立作用域之外的。
+                dotss[j].index = j;//为所以dots属性添加id，分别为0，1，2，3，4。
+                //不太推荐使用这样，毕竟id名字取数字开头不好，不太合规矩。
+                dotss[j].onclick = function () {
+                    index = this.index;//(引用id的是dots,及dots的id);
+                    changImg();
+                }
+            }
+//然后是上、下一张
+            prev.onclick = function () {
+                index--;
+                if (index < 0) {
+                    index = len - 1;
+                }
+                changImg();
+            }
+            next.onclick = function () {
+                index++;
+                if (index >= len) {
+                    index = 0;
+                }
+                changImg();
+            }
+        }
+
+        solide();//提前写上，开始方法，才有轮播效果
+        //图片自动切换
+        function changImg() {
+//     for(var i=0;i<len;i++){
+//     moveElement('pics[i]', 0, 0, 5);
+//     classNormal('ifocus_btn', 'ifocus_tx');
+//     classCurrent('ifocus_btn', 'ifocus_tx', 0);
+// }
+            for (var i = 0; i < len; i++) {
+                pics[i].style.display = 'none';
+                dots[i].className = "";
+            }
+            pics[index].style.display = 'block';
+            dots[index].className = 'li1';
+        }
+    </script>
+    <div id="pc_qmgl">
+        <div class="qmgl_title">
+            <a class="qmgk" href="/qmgl"><h3>起名攻略</h3></a>
+            <a class="qmgl_title_a" href="{{ url_for('qmgl') }}">更多<img src="../static/images/csjg_kaitong.svg" alt=""></a>
+        </div>
+        <div id="qmgl_lanmu_title">
+            <ul>
+                <li class="lanmu_name lanmu_name_0 selected" ><a href="{{ url_for('zhuanshu_lanmu',lm_lujin=lanmu[0].lanmu_lujin) }}">{{ lanmu[0].lanmuname }}</a></li>
+                {% for i in range(1,8) %}
+                    <li class="lanmu_name lanmu_name_{{ i }} " ><a href="{{ url_for('zhuanshu_lanmu',lm_lujin=lanmu[i].lanmu_lujin) }}">{{ lanmu[i].lanmuname  }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div lass="qmgl_content">
+            {% for i in range(0,8) %}
+                <div class="fenlei fenlei_{{ i }}" >
+                    {% if lanmu[i].xxxx|length<12  %}
+                        {% for k in range(0,lanmu[i].xxxx|length) %}
+                            <a href="{{ url_for('wzxq',article_idid=article_id[k]) }}">
+                                <h5>{{ lanmu[i].xxxx[k].title }}</h5>
+                                <p>{{ lanmu[i].xxxx[k].description[:100]}}</p>
+                            </a>
+                        {% endfor %}
+                    {% else %}
+                        {% for k in range(0,12) %}
+                            <a href="{{ url_for('wzxq',article_idid=article_id[k]) }}">
+                                <h5>{{ lanmu[i].xxxx[k].title }}</h5>
+                                <p>{{ lanmu[i].xxxx[k].description[:100] }}</p>
+                            </a>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<div id="sy_footer">
+    <p>弘扬传统文化，破除迷信宿命，倡导科学起名，促进社会和谐。</p>
+    <p><span>Copyright © 2013-2020&nbsp;&nbsp;</span><a href="http://www.qmg365.com/">起名宝典</a>&nbsp;&nbsp;(本网站部分图片和视频来源于网络，如有侵权，请及时联系我们删除)。<a
+            href="#" rel="nofollow" target="_blank">&nbsp;&nbsp;渝ICP备20002651号&nbsp;&nbsp;</a></p>
+</div>
+<div id="zuoyou_zhuangshi">
+    <div class="zuo1"></div>
+    <div class="zuo2"></div>
+    <div class="zuo3"></div>
+    <div class="you1"></div>
+    <div class="you2"></div>
+</div>
+</body>
+</html>

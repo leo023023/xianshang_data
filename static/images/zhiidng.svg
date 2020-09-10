@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="88px" height="52px" viewBox="0 0 88 52" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.1 (51147) - http://www.bohemiancoding.com/sketch -->
+    <title>置顶</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="33.6029329%" y1="0%" x2="89.2974141%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#FF575D" offset="0%"></stop>
+            <stop stop-color="#EA2226" offset="100%"></stop>
+        </linearGradient>
+        <rect id="path-2" x="0" y="0" width="72" height="36" rx="2"></rect>
+        <filter x="-20.8%" y="-25.0%" width="141.7%" height="183.3%" filterUnits="objectBoundingBox" id="filter-3">
+            <feOffset dx="0" dy="6" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="4" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 1   0 0 0 0 0.0352941176   0 0 0 0 0.317647059  0 0 0 0.176800272 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="侧边栏" transform="translate(-1829.000000, -796.000000)">
+            <g id="置顶" transform="translate(1837.000000, 798.000000)">
+                <g id="Rectangle-17-Copy">
+                    <use fill="black" fill-opacity="1" filter="url(#filter-3)" xlink:href="#path-2"></use>
+                    <use fill="url(#linearGradient-1)" fill-rule="evenodd" xlink:href="#path-2"></use>
+                </g>
+                <path d="M43.8847763,23.6923882 L36.1923882,16 L28.5,23.6923882 L27,22.1923882 L36.1923882,13 L45.3847763,22.1923882 L43.8847763,23.6923882 Z" id="Combined-Shape" fill="#FFFFFF"></path>
+            </g>
+        </g>
+    </g>
+</svg>

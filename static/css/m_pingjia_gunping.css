@@ -1,0 +1,42 @@
+.myscroll {
+    /*width: 300px;*/
+    height:280px;
+    margin: 0 auto;
+    line-height: 26px;
+    font-size: 12px;
+    overflow: hidden;
+}
+
+.myscroll li {
+    height: 52px;
+    margin-left: 1.5vw;
+}
+.myscroll li>p{
+    width: auto;
+    overflow:hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+.myscroll a {
+    color: #333;
+    text-decoration: none;
+}
+
+.myscroll a:hover {
+    color: #ED5565;
+    text-decoration: underline;
+}
+li{
+    text-decoration: none;
+    list-style: none;
+}
+.pingjia_content{
+    color: #0C1222;
+    line-height:20px;
+}
+.pingjia_shijian{
+    line-height:22px ;
+}
