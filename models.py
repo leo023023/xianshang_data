@@ -22,6 +22,8 @@ class Article(db.Model):
     lanmu_id = db.Column(db.INTEGER,db.ForeignKey('lanmu.id'))
     authorkkk = db.relationship('Lanmu', backref=db.backref('xxxx'))
     author_name = db.Column(db.String(100), nullable=False)
+    article_yuedu = db.Column(db.String(100), nullable=False)
+    article_time = db.Column(db.String(100), nullable=False)
 
 class Author(db.Model):
     __tablename__ = 'author'

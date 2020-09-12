@@ -75,6 +75,8 @@ def qmgl():
     article_content = []
     article_id_old = []
     article_author = []
+    article_yuedu = []
+    article_time = []
     geishi = '.html'
     for i in range(0, len(kk)):
         zzz = Lanmu.query.filter(Lanmu.lanmuname == kk[i].lanmuname).first()
@@ -82,10 +84,12 @@ def qmgl():
         for i in range(len(kkkasd) - 1, len(kkkasd) - 6, -1):
             article_title.append(kkkasd[i].title)
             tqnr_tqnr = re.sub(r'<.*?>', '', kkkasd[i].content)[:100]
-            print(tqnr_tqnr)
+            # print(tqnr_tqnr)
             article_content.append(tqnr_tqnr)
             article_id_old.append(kkkasd[i].id)
             article_author.append(kkkasd[i].author_name)
+            article_yuedu.append(kkkasd[i].article_yuedu)
+            article_time.append(kkkasd[i].article_time)
     for i in range(len(article_id_old)):
         article_id_old[i] = str(article_id_old[i]) + geishi
     article_id = article_id_old
@@ -97,6 +101,8 @@ def qmgl():
         'article_content': article_content,
         'article_id': article_id,
         'article_author':article_author,
+        'article_yuedu':article_yuedu,
+        'article_time':article_time,
     }
 
     reg_b = re.compile(
@@ -140,20 +146,20 @@ def wzxq(article_idid):
     for i in range(5, -1, -1):
         article_id_ls.append(article_wzxq[i].id)
         article_title_ls.append(article_wzxq[i].title)
-    print('这个是相关文章的长度 %s' % len(article_id_ls))
+
 
     # 剔除这篇文章，不让在相关文章中调用
     if int(new_article_idid) in article_id_ls:
 
         kk = article_id_ls.index(int(new_article_idid))
-        print('kkkk % s' % kk)
+        # print('kkkk % s' % kk)
         article_title_ls.remove(article_title_ls[kk])
         article_id_ls.remove(article_id_ls[kk])
     else:
         pass
     # article_id_ls.remove()
 
-    print('这个是剔除后的ID %s' % article_id_ls)
+    # print('这个是剔除后的ID %s' % article_id_ls)
     # 给相关文章的id加上后缀
     for m in range(len(article_id_ls)):
         article_id_ls[m] = str(article_id_ls[m]) + houzhui
@@ -168,12 +174,12 @@ def wzxq(article_idid):
             more_qmgl_title.append(quanbuwenzhang[i].title)
         else:
             pass
-    print('全部i的列表 %s' % more_qmgl_id)
-    print('传输的id % s' % int(new_article_idid))
-    print('这个是全部标题的长度 % s' % len(more_qmgl_title))
+    # print('全部i的列表 %s' % more_qmgl_id)
+    # print('传输的id % s' % int(new_article_idid))
+    # print('这个是全部标题的长度 % s' % len(more_qmgl_title))
     if int(new_article_idid) in more_qmgl_id:
         kk = more_qmgl_id.index(int(new_article_idid))
-        print('gengduobiaoti % s' % kk)
+        # print('gengduobiaoti % s' % kk)
         more_qmgl_id.remove(int(new_article_idid))
         more_qmgl_title.remove(more_qmgl_title[kk])
     else:
@@ -221,18 +227,21 @@ def zhuanshu_lanmu(lm_lujin):
         # print('zhdge shi lanmu name  % s' % lanmu.lanmuname)
         # lanmu_name = lanmu.lanmuname
         lanmu_qbwz = lanmu.xxxx
-        print('zhegshi shi schangdu % s' % lanmu_qbwz)
 
         qbwz_jieduan = []
         title = []
         artilce_id = []
         article_author = []
+        article_yuedu = []
+        article_time = []
         for i in range(len(lanmu_qbwz) - 1, 0, -1):
-            tqnr_tqnr = re.sub(r'<.*?>', '', lanmu_qbwz[i].content)[:100]
+            tqnr_tqnr = re.sub(r'<.*?>', '', lanmu_qbwz[i].content)[:200]
             qbwz_jieduan.append(tqnr_tqnr)
             title.append(lanmu_qbwz[i].title)
             artilce_id.append(lanmu_qbwz[i].id)
             article_author.append(lanmu_qbwz[i].author_name)
+            article_yuedu.append(lanmu_qbwz[i].article_yuedu)
+            article_time.append(lanmu_qbwz[i].article_time)
         houzhui = '.html'
         for i in range(len(artilce_id)):
             artilce_id[i] = str(artilce_id[i]) + houzhui
@@ -247,6 +256,8 @@ def zhuanshu_lanmu(lm_lujin):
             'artilce_id': article_new_id,
             'len_id': len_id,
             'article_author':article_author,
+            'article_yuedu':article_yuedu,
+            'article_time':article_time,
         }
         reg_b = re.compile(
             r"(android|bb\\d+|meego).+mobile|avantgo|bada\\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge|maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\\.(browser|link)|vodafone|wap|windows ce|xda|xiino",
@@ -295,7 +306,7 @@ def csjg():
             qiwang_dt_nb_new = ""
             qiwang_zhuanhuan = "未选择"
 
-        print("这个是qiwang_dt_nb %s" % qiwang_dt_nb)
+        # print("这个是qiwang_dt_nb %s" % qiwang_dt_nb)
 
         xing = request.form.get("xing")
 
@@ -307,7 +318,7 @@ def csjg():
 
         biaodan_xz = request.form.get("biaodan_xz")
         mizi_ku_nm = request.form.get("mizi_ku_nm")
-        print("这个是提交的名字： %s" % mizi_ku_nm)
+        # print("这个是提交的名字： %s" % mizi_ku_nm)
         # print(type(mizi_ku_nm))
         birthtime = request.form.get("birthtime")
         # birthtime = '2020-04-04 13:32'
@@ -553,12 +564,12 @@ def csjg():
             session['name_ku'] = lt_lt_mz
             session.permanent = True
             if lt_lt_mz:
-                print('名字列表7月27日lt_lt_mz名字列表 %s' % lt_lt_mz)
+                # print('名字列表7月27日lt_lt_mz名字列表 %s' % lt_lt_mz)
                 vip_regex = request.form.get("xing") + "(.)"
-                print('vip_regex %s' % vip_regex)
+                # print('vip_regex %s' % vip_regex)
 
                 vip_mzku_noxing = re.sub(vip_regex, '*', str(lt_lt_mz))
-                print("将名字中间一个字替换成*: %s" % vip_mzku_noxing)
+                # print("将名字中间一个字替换成*: %s" % vip_mzku_noxing)
                 # print(type(vip_mzku_noxing))
 
                 vip1_mzku_noxing = ast.literal_eval(vip_mzku_noxing)
@@ -575,17 +586,17 @@ def csjg():
 
                 # 清洗正则提取名字印象
                 mz_yx_lt_qx = re.sub(r"[(\[a-z\])(\-)(=)(')( )(<span>)]", '', str(mz_yx_lt))
-                print(mz_yx_lt_qx)
-                print(type(mz_yx_lt_qx))
+                # print(mz_yx_lt_qx)
+                # print(type(mz_yx_lt_qx))
                 session['mz_yx_lt_qx'] = mz_yx_lt_qx
                 session.permanent = True
                 # 如果直接由html提交表单过来，才是的名字印象取第一个，否则取对应的名字的索引
                 mz_yx_lt_qx = ast.literal_eval(mz_yx_lt_qx)[0]
 
-                print('这是个啥 %s' % mz_yx_lt_qx)
+                # print('这是个啥 %s' % mz_yx_lt_qx)
 
                 mz_yx_lt_qx_qp = mz_yx_lt_qx.split('/')[0:-3]
-                print("对应名字的名字印象 %s" % mz_yx_lt_qx_qp)
+                # print("对应名字的名字印象 %s" % mz_yx_lt_qx_qp)
                 # print(type(mz_yx_lt_qx_qp))
 
                 global li_lt_mz_noxing_1, q_m_pingying, neirog
@@ -952,8 +963,8 @@ def csjg():
                     city_fenzu.append(obj_city)
                     h = h + m
 
-                print('这个是评价分组的长度 % s' % len(pingjia_fenzhu))
-                print('这个是评价分组的长度 % s' % type(pingjia_fenzhu[0]))
+                # print('这个是评价分组的长度 % s' % len(pingjia_fenzhu))
+                # print('这个是评价分组的长度 % s' % type(pingjia_fenzhu[0]))
 
                 # beforeOfDay=random.randint(1, 3)
                 today = datetime.datetime.now()
@@ -1165,9 +1176,9 @@ def m_ajax():
         birthtime = request.form.get("birthtime")
         qi_ming_url = "https://qm.qumingdashi.com/newqiming/index/index"
         xing = mizi_ku_nm[0]
-        print(xing)
+        # print(xing)
         li_lt_mz_noxing_1 = mizi_ku_nm[1:]
-        print(li_lt_mz_noxing_1)
+        # print(li_lt_mz_noxing_1)
 
         name = session.get('name_ku')
         mingzi_sy = name.index(mizi_ku_nm)
@@ -1250,12 +1261,12 @@ def m_ajax():
         # 发送请求，获取响应
         q_m_mz_xq_response = q_M_opener.open(q_m_xq_request).read().decode()
 
-        print('这个是获取的响应对象q_m_mz_xq_response % s' % q_m_mz_xq_response)
+        # print('这个是获取的响应对象q_m_mz_xq_response % s' % q_m_mz_xq_response)
         # 开始正则，对响应的内容进行数据的提取
         # 首先提取的是拼音
         q_m_pingying_b = re.search(r'的读音是(.*?)，声调为', str(q_m_mz_xq_response), re.M).group(1)
         q_m_pingying = re.sub('、', ' ', q_m_pingying_b)
-        print('首先提取的是拼音 %s' % q_m_pingying)
+        # print('首先提取的是拼音 %s' % q_m_pingying)
 
         # 接着是字义内涵
         q_m_hanyi_quanbu = re.search(r'class="co_s">(.：.*)</p>', str(q_m_mz_xq_response)).group(1)
@@ -1264,33 +1275,33 @@ def m_ajax():
         # print(type(q_m_hanyi_1))
         # print("第一个名未清洗: %s" % q_m_hanyi_1)
         q_m_hanyi_1_1 = re.sub('</span>', '', str(q_m_hanyi_1))
-        print("第一个名已清洗: %s" % q_m_hanyi_1_1)
+        # print("第一个名已清洗: %s" % q_m_hanyi_1_1)
 
         q_m_hanyi_2 = re.search(r'<span class="co_s">(.*)', str(q_m_hanyi_quanbu), re.S).group(1)
         q_m_hanyi_2_2 = re.sub('[(<span>)(\[a-z\])(<>_")(\/)( )]', '', str(q_m_hanyi_2))
-        print("第二个名已清洗: %s" % q_m_hanyi_2_2)
+        # print("第二个名已清洗: %s" % q_m_hanyi_2_2)
 
         # 开始正则打分项
         q_m_zh_df = re.search(r'综合评分</p><span>(.*?)</span>', str(q_m_mz_xq_response), re.S).group(1)
-        print("综合打分 %s" % q_m_zh_df)
+        # print("综合打分 %s" % q_m_zh_df)
         # 其他打分项
         q_m_qt_df = re.compile(r'\d+分</b></div>').findall(q_m_mz_xq_response)
         q_m_qt_df_qx = re.sub("</b></div>", "", str(q_m_qt_df))
         q_m_qt_df_qx_lt = ast.literal_eval(q_m_qt_df_qx)
 
-        print('其他打分项 % s' % q_m_qt_df_qx_lt)
+        # print('其他打分项 % s' % q_m_qt_df_qx_lt)
         # 引经据典
         q_m_yjjd = re.compile(r'<p>来自(.*?)</p>').findall(q_m_mz_xq_response)
         q_m_yjjd_qx_1 = re.sub('<span class="co_red">', '', str(q_m_yjjd))
         q_m_yjjd_qx_2 = re.sub('</span>', '', str(q_m_yjjd_qx_1))
         q_m_yjjd_qx_3 = ast.literal_eval(q_m_yjjd_qx_2)
-        print("引经据典: %s" % q_m_yjjd_qx_3)
+        # print("引经据典: %s" % q_m_yjjd_qx_3)
 
         # 八字开运
         q_m_bzky = re.search(r'(八字偏.*\s.*)，', str(q_m_mz_xq_response), re.M).group(1)
         # print("八字开运: %s" % q_m_bzky)
         q_m_bzky_qx = re.sub(r'[(<>)(\/)( )(\[a-z\])(_\"=)]', '', q_m_bzky)
-        print("八字开运清洗后数据: %s" % q_m_bzky_qx)
+        # print("八字开运清洗后数据: %s" % q_m_bzky_qx)
 
         # 大师点评
         q_m_dsdp = re.search(r'大师点评：.*\s.*\s.*<p>(.*)</p>', str(q_m_mz_xq_response), re.M).group(1)
@@ -1301,14 +1312,14 @@ def m_ajax():
         # 生肖性格优势标签
         q_m_sxxg = re.search(r'性格优点：</dt>\s.*\.*(\s.*\s.*\s.*\s*\s.*\s.*?)</span>', str(q_m_mz_xq_response),
                              re.M).group(1)
-        print('生肖性格优势标签 %s' % q_m_sxxg)
+        # print('生肖性格优势标签 %s' % q_m_sxxg)
 
         q_m_sxxg_qx = re.sub(r'[(<span>)( )(<dd class="p_b30 youdisn clearfix">)]', '', str(q_m_sxxg))
         q_m_sxxg_qp_1 = q_m_sxxg_qx.split('</span>')
         q_m_sxxg_qp_2 = re.sub(r'[(n)(r)(\\\)(\')(\[)(\])]', '', str(q_m_sxxg_qp_1))
-        print('生肖性格优势标签q_m_sxxg_qp_2 切片 %s' % q_m_sxxg_qp_2)
+        # print('生肖性格优势标签q_m_sxxg_qp_2 切片 %s' % q_m_sxxg_qp_2)
         q_m_sxxg_qp = q_m_sxxg_qp_2.split("/")
-        print("生肖性格优点q_m_sxxg_qp %s" % q_m_sxxg_qp)
+        # print("生肖性格优点q_m_sxxg_qp %s" % q_m_sxxg_qp)
         # print(type(q_m_sxxg_qp))
 
         # 生肖性格缺点标签啊
@@ -1319,16 +1330,16 @@ def m_ajax():
         q_m_sxxg_qd_qp = q_m_sxxg_qd_qx.split('</span>')
         q_m_sxxg_qd_qp_1 = re.sub(r"[(n)(r)(\\\)(\')(\[)(\])]", '', str(q_m_sxxg_qd_qp))
         q_m_sxxg_qd_qp_2 = q_m_sxxg_qd_qp_1.split('/')
-        print("生肖性格缺点 %s" % q_m_sxxg_qd_qp_2)
+        # print("生肖性格缺点 %s" % q_m_sxxg_qd_qp_2)
         # print(type(q_m_sxxg_qd_qp_2))
         # 生肖评分解释
         q_m_sxxg_jies1 = re.search(r'生肖评分解释：(.*)</p>', str(q_m_mz_xq_response), re.M).group(1)
         q_m_sxxg_jies = re.sub(r'[(\[a-z\])(\d)(")(_)(\/)(<>)( )]', '', str(q_m_sxxg_jies1))
-        print("生肖评分解释 %s" % q_m_sxxg_jies)
+        # print("生肖评分解释 %s" % q_m_sxxg_jies)
         # 什么星座
         q_m_sm_xz = re.search(r'class="f_s16 f_w700 p_b15">星座：(.*)<span class="co_999 f_s14 f_w400">',
                               str(q_m_mz_xq_response), re.M).group(1)
-        print("什么星座 %s" % q_m_sm_xz)
+        # print("什么星座 %s" % q_m_sm_xz)
         #  星座性格优势
         q_m_sm_xz_yd = re.search(r'dd class="p_b30 youdisn clearfix">.*((\s.*){7})</span>', str(q_m_mz_xq_response),
                                  re.M).group(1)
@@ -1336,7 +1347,7 @@ def m_ajax():
         q_m_sm_xz_yd_qx = re.sub(r'[(<span>)(\\)( )(\n)(\r)(\')(\[)(\])]', '', str(q_m_sm_xz_yd))
         # print(q_m_sm_xz_yd_qx)
         q_m_sm_xz_yd_qx_qp = q_m_sm_xz_yd_qx.split('/')
-        print("星座性格优势 %s" % q_m_sm_xz_yd_qx_qp)
+        # print("星座性格优势 %s" % q_m_sm_xz_yd_qx_qp)
         # print(type(q_m_sm_xz_yd_qx_qp))
 
         # 星座缺点
@@ -1347,49 +1358,49 @@ def m_ajax():
         # print("星座缺点清洗后的数据: %s" % q_m_sm_xz_qd_qx)
         q_m_sm_xz_qd_qp = q_m_sm_xz_qd_qx.split("/")
         q_m_sm_xz_qd_qp = q_m_sm_xz_qd_qp[0:-1]
-        print("星座缺点切片: %s" % q_m_sm_xz_qd_qp)
+        # print("星座缺点切片: %s" % q_m_sm_xz_qd_qp)
 
         # 星座评分解释
         q_m_xz_pfjs = re.search(r'星座评分解释(.*)</p>', str(q_m_mz_xq_response), re.M).group(1)
         q_m_xz_pfjs_pf = re.sub(r'：', '', str(q_m_xz_pfjs))
-        print("星座评分解释 %s" % q_m_xz_pfjs_pf)
+        # print("星座评分解释 %s" % q_m_xz_pfjs_pf)
 
         # 三才五格正则
         # 名字的前两个格
         q_m_scwg_qb = re.compile(r'<p>(. \d+)</p>').findall(q_m_mz_xq_response)
-        print("全部三才五格q_m_scwg_qb %s" % q_m_scwg_qb)
+        # print("全部三才五格q_m_scwg_qb %s" % q_m_scwg_qb)
         # 第二个名
         q_m_scwg_ming_2 = re.search(r'<p>(.&nbsp;\d+) </p>', str(q_m_mz_xq_response), re.M).group(1)
         q_m_scwg_ming_2_qx = re.sub(r'&nbsp;', ' ', str(q_m_scwg_ming_2))
-        print('最后一个名的格 %s' % q_m_scwg_ming_2_qx)
+        # print('最后一个名的格 %s' % q_m_scwg_ming_2_qx)
 
         # 天格
         q_m_scwg_tiange = re.search(r'<p>天格(.*)</p>', str(q_m_mz_xq_response), re.M).group(1)
-        print("天格 %s" % q_m_scwg_tiange)
+        # print("天格 %s" % q_m_scwg_tiange)
         # 地格
         q_m_scwg_dige = re.search(r'<p>人格(.*)</p>', str(q_m_mz_xq_response), re.M).group(1)
-        print("地格 %s" % q_m_scwg_dige)
+        # print("地格 %s" % q_m_scwg_dige)
         # 人格
         q_m_scwg_renge = re.search(r'<p>地格(.*)</p>', str(q_m_mz_xq_response), re.M).group(1)
-        print("人格 %s" % q_m_scwg_renge)
+        # print("人格 %s" % q_m_scwg_renge)
         # 外格
         q_m_scwg_waige = re.search(r'<em>外格(.*)</em>', str(q_m_mz_xq_response), re.M).group(1)
-        print("外格 %s" % q_m_scwg_waige)
+        # print("外格 %s" % q_m_scwg_waige)
         # 总格
         q_m_scwg_zongge = re.search(r'总格.(\d+)', str(q_m_mz_xq_response), re.M).group(1)
-        print("总格 %s" % q_m_scwg_zongge)
+        # print("总格 %s" % q_m_scwg_zongge)
         # 天格解释
         q_m_scwg_tiange_jx = re.search(r'天格\d+.*h170">(.*)</div>', str(q_m_mz_xq_response), re.M).group(1)
-        print("天格解释 %s" % q_m_scwg_tiange_jx)
+        # print("天格解释 %s" % q_m_scwg_tiange_jx)
         # 地格解释
         q_m_scwg_dige_jx = re.search(r'地格\d+.*h170">(.*)</div>', str(q_m_mz_xq_response), re.M).group(1)
-        print("地格解释 %s" % q_m_scwg_dige_jx)
+        # print("地格解释 %s" % q_m_scwg_dige_jx)
         # 人格解释
         q_m_scwg_renge_jx = re.search(r'人格\d+.*h170">(.*)</div>', str(q_m_mz_xq_response), re.M).group(1)
-        print("人格解释 %s" % q_m_scwg_renge_jx)
+        # print("人格解释 %s" % q_m_scwg_renge_jx)
         # 外格解释
         q_m_scwg_waige_jx = re.search(r'外格\d+.*h170">(.*)</div>', str(q_m_mz_xq_response), re.M).group(1)
-        print("外格解释 %s" % q_m_scwg_waige_jx)
+        # print("外格解释 %s" % q_m_scwg_waige_jx)
         # 总格解释
 
         # 姓名的姓的五格
@@ -1398,22 +1409,22 @@ def m_ajax():
         # print('名字的五格detail_title %s ' % name_detail_title)
 
         q_m_scwg_zongge_jx = re.search(r'总格\d+.*h170">(.*)</div>', str(q_m_mz_xq_response), re.M).group(1)
-        print("总格解释 %s" % q_m_scwg_zongge_jx)
+        # print("总格解释 %s" % q_m_scwg_zongge_jx)
         # 三才解析
         q_m_scwg_scwg_jx = re.search(r'三才解析.*\s(.*)</div>', str(q_m_mz_xq_response), re.M).group(1)
-        print("三才解析 %s" % q_m_scwg_scwg_jx)
+        # print("三才解析 %s" % q_m_scwg_scwg_jx)
         # 基础运解析
         q_m_scwg_jcy_jx = re.search(r'基础运解析.*\s(.*)</div>', str(q_m_mz_xq_response), re.M).group(1)
-        print("基础运解析 %s" % q_m_scwg_jcy_jx)
+        # print("基础运解析 %s" % q_m_scwg_jcy_jx)
         # 成功运解析
         q_m_scwg_cgy_jx = re.search(r'成功运解析.*\s(.*)</div>', str(q_m_mz_xq_response), re.M).group(1)
         print("成功运解析 %s" % q_m_scwg_cgy_jx)
         # 人际关系解析
         q_m_scwg_rjgx_jx = re.search(r'人际关系解析.*\s(.*)</div>', str(q_m_mz_xq_response), re.M).group(1)
-        print("人际关系解析 %s" % q_m_scwg_rjgx_jx)
+        # print("人际关系解析 %s" % q_m_scwg_rjgx_jx)
         # 性格影响解析
         q_m_scwg_xg_jx = re.search(r'性格影响解析.*_h170">(.*)</div>', str(q_m_mz_xq_response), re.M).group(1)
-        print("性格影响解析 %s" % q_m_scwg_xg_jx)
+        # print("性格影响解析 %s" % q_m_scwg_xg_jx)
 
         # 周易八卦正则
 
@@ -1424,7 +1435,7 @@ def m_ajax():
             '', str(q_m_gx_jx))
         q_m_gx_jx_qp = q_m_gx_jx_qx.split("/")
         q_m_gx_jx_qp_2 = q_m_gx_jx_qp[0:-3]
-        print("名字卦象解析q_m_gx_jx_qp_2: %s" % q_m_gx_jx_qp_2)
+        # print("名字卦象解析q_m_gx_jx_qp_2: %s" % q_m_gx_jx_qp_2)
 
         # #解卦
         q_m_zybg_jg = re.search(r'专家解卦</div>(\s.*)<div class="f_s16 f_w700">卦象运势解析', str(q_m_mz_xq_response),
@@ -1434,79 +1445,79 @@ def m_ajax():
         # print("专家解卦2：%s" % q_m_zybg_jg_qx)
         q_m_zybg_jg_qx2 = q_m_zybg_jg_qx.split("/")[0:-2]
         del q_m_zybg_jg_qx2[1]
-        print("专家解卦3q_m_zybg_jg_qx2：%s" % q_m_zybg_jg_qx2)
+        # print("专家解卦3q_m_zybg_jg_qx2：%s" % q_m_zybg_jg_qx2)
 
         # 卦象运势解析
         q_m_gxys_jx_dx = re.search(r'大象：</dt>\s.*p_b10">(.*)总论：</dt>', str(q_m_mz_xq_response), re.S).group(1)
         q_m_gxys_dx_qx = re.sub(r'[(\[a-z\])(\/_"\r\n)( )(=)(\d)(<>)]', '', str(q_m_gxys_jx_dx))
-        print("大象 %s" % q_m_gxys_dx_qx)
+        # print("大象 %s" % q_m_gxys_dx_qx)
         q_m_gxys_jx_zl = re.search(r'总论：</dt>\s.*p_b10">(.*)建议：</dt>', str(q_m_mz_xq_response), re.S).group(1)
         q_m_gxys_zl_qx = re.sub(r'[(\[a-z\])(\/_"\r\n)( )(=)(\d)(<>)]', '', str(q_m_gxys_jx_zl))
-        print("总论 %s" % q_m_gxys_zl_qx)
+        # print("总论 %s" % q_m_gxys_zl_qx)
         q_m_gxys_jx_jy = re.search(r'建议：</dt>\s.*p_b10">(.*)事业：</dt>', str(q_m_mz_xq_response), re.S).group(1)
         q_m_gxys_jy_qx = re.sub(r'[(\[a-z\])(\/_"\r\n)( )(=)(\d)(<>)]', '', str(q_m_gxys_jx_jy))
         print("建议 %s" % q_m_gxys_jy_qx)
         q_m_gxys_jx_sy = re.search(r'事业：</dt>\s.*p_b10">(.*)经商：</dt>', str(q_m_mz_xq_response), re.S).group(1)
         q_m_gxys_sy_qx = re.sub(r'[(\[a-z\])(\/_"\r\n)( )(=)(\d)(<>)]', '', str(q_m_gxys_jx_sy))
-        print("事业 %s" % q_m_gxys_sy_qx)
+        # print("事业 %s" % q_m_gxys_sy_qx)
         q_m_gxys_jx_js = re.search(r'经商：</dt>\s.*p_b10">(.*)求名：</dt>', str(q_m_mz_xq_response), re.S).group(1)
         q_m_gxys_js_qx = re.sub(r'[(\[a-z\])(\/_"\r\n)( )(=)(\d)(<>)]', '', str(q_m_gxys_jx_js))
-        print("经商 %s" % q_m_gxys_js_qx)
+        # print("经商 %s" % q_m_gxys_js_qx)
         q_m_gxys_jx_qm = re.search(r'求名：</dt>\s.*p_b10">(.*)婚恋：</dt>', str(q_m_mz_xq_response), re.S).group(1)
         q_m_gxys_qm_qx = re.sub(r'[(\[a-z\])(\/_"\r\n)( )(=)(\d)(<>)]', '', str(q_m_gxys_jx_qm))
-        print("求名 %s" % q_m_gxys_qm_qx)
+        # print("求名 %s" % q_m_gxys_qm_qx)
         q_m_gxys_jx_hl = re.search(r'婚恋：</dt>\s.*p_b10">(.*)没有下一条', str(q_m_mz_xq_response), re.S).group(1)
         q_m_gxys_hl_qx = re.sub(r'[(\[a-z\])(\/_"\r\n)( )(=)(\d)(<>)(:C;)]', '', str(q_m_gxys_jx_hl))
-        print("婚恋 %s" % q_m_gxys_hl_qx)
+        # print("婚恋 %s" % q_m_gxys_hl_qx)
 
         # 音形义详解
         # 名字拆分
         q_m_yxy_ming = re.compile(r'<em class="zis">(.)</em>').findall(q_m_mz_xq_response)
-        print("名字拆分 %s" % q_m_yxy_ming)
+        # print("名字拆分 %s" % q_m_yxy_ming)
 
         # 字义解释
         q_m_yxy_zyjs = re.search(r'字义解释：</dt>(\s.*?\s.*)用字解释：</dt>', str(q_m_mz_xq_response), re.S).group(1)
         # 字义解释一
         q_m_yxy_zyjs1 = re.compile(r'p_b10">(.*)</dd>').findall(q_m_yxy_zyjs)[0]
-        print("字义解释1则： %s" % q_m_yxy_zyjs1)
+        # print("字义解释1则： %s" % q_m_yxy_zyjs1)
         # 字义解释二
         q_m_yxy_zyjs2 = re.compile(r'p_b10">(.*)</dd>').findall(q_m_yxy_zyjs)[-1]
-        print("字义解释2则： %s" % q_m_yxy_zyjs2)
+        # print("字义解释2则： %s" % q_m_yxy_zyjs2)
 
         # 用字解释
         q_m_yxy_yzjs = re.search(r'用字解释：</dt>(.*)来源解释：</dt>', str(q_m_mz_xq_response), re.S).group(1)
         q_m_yxy_yzjs1 = re.compile(r'p_b10">(.*)</dd>').findall(q_m_yxy_yzjs)[0]
         q_m_yxy_yzjs1_qx = re.sub(r'[(<> =_"\/)(\[a-z\])()()()]', '', str(q_m_yxy_yzjs1))
-        print("用字解释1最终版q_m_yxy_yzjs1_qx： %s" % q_m_yxy_yzjs1_qx)
+        # print("用字解释1最终版q_m_yxy_yzjs1_qx： %s" % q_m_yxy_yzjs1_qx)
         q_m_yxy_yzjs2_qx = re.search(r'用字解释：</dt>(\s.*\s.*)', str(q_m_yxy_yzjs), re.S).group(1)
         q_m_yxy_yzjs22_qx = re.sub(r'[(<> =_"\/)(\[a-z\])(\n)(\r)(\d+)]', '', str(q_m_yxy_yzjs2_qx))
-        print("用字解释2最终版q_m_yxy_yzjs22_qx： %s" % q_m_yxy_yzjs22_qx)
+        # print("用字解释2最终版q_m_yxy_yzjs22_qx： %s" % q_m_yxy_yzjs22_qx)
 
         # 来源解释已经有了，不需要在单独提取
 
         # 字义分析
         q_m_yxy_zyfx = re.search(r'字义分析：</dt>(.*)音律分析：</dt>', str(q_m_mz_xq_response), re.S).group(1)
         q_m_yxy_zyfx_qx1 = re.compile(r'<p>(.*)</p>').findall(q_m_yxy_zyfx)
-        print("字义分析列表： %s" % q_m_yxy_zyfx_qx1)
+        # print("字义分析列表： %s" % q_m_yxy_zyfx_qx1)
 
         # 音律分析
         q_m_yxy_ylfx = re.search(r'音律分析：</dt>(.*)字型分析：</dt>', str(q_m_mz_xq_response), re.S).group(1)
-        print("音律分析： %s" % q_m_yxy_ylfx)
+        # print("音律分析： %s" % q_m_yxy_ylfx)
         q_m_yxy_ylfx_qx = re.search(r'p_b10">(.*)</dd>', str(q_m_yxy_ylfx), re.S).group(1)
-        print("音律分析最终版： %s" % q_m_yxy_ylfx_qx)
+        # print("音律分析最终版： %s" % q_m_yxy_ylfx_qx)
 
         # 字型分析
         q_m_yxy_zxfx = re.search(r'字型分析：</dt>(.*)大师点评</div>', str(q_m_mz_xq_response), re.S).group(1)
         q_m_yxy_zxfx_lt = re.compile(r'<p>(.*)</p>', re.S).findall(q_m_yxy_zxfx)
         q_m_yxy_zxfx_lt2 = re.sub(r'[(\r\n<>p  \\)(\[\])(\')(rn)( )(\[a-z\])(\d+)(;)(")(_=)]', '',
                                   str(q_m_yxy_zxfx_lt)).split("/")
-        print("字型分析列表2： %s" % q_m_yxy_zxfx_lt2)
+        # print("字型分析列表2： %s" % q_m_yxy_zxfx_lt2)
 
         # 大师点评
         q_m_yxy_dsdp = re.search(r'大师点评</div>(.*)下一条，八字五行分析', str(q_m_mz_xq_response), re.S).group(1)
-        print("大师点评： %s" % q_m_yxy_dsdp)
+        # print("大师点评： %s" % q_m_yxy_dsdp)
         q_m_yxy_dsdp_qx = re.sub(r'[(<> =_"\/)(\[a-z\])(\n)(\r)(\d+)(:I;)]', '', str(q_m_yxy_dsdp))
-        print("总结点评数据清洗： %s" % q_m_yxy_dsdp_qx)
+        # print("总结点评数据清洗： %s" % q_m_yxy_dsdp_qx)
 
         neirog = {
             'q_m_pingying': q_m_pingying,  # 名字的拼音
@@ -1652,18 +1663,18 @@ def vip_hd():
         order_id_hd = request.form.get('order_id')
         session['vip_tele'] = order_id_hd
         session.permanent = True
-        print("这个是回调回来的订单号postpost %s" % order_id_hd)
+        # print("这个是回调回来的订单号postpost %s" % order_id_hd)
         user = User(telephone=order_id_hd, )
         db.session.add(user)
         db.session.commit()
         asdsakkk = session.get('vip_tele')
-        print("检查一下是否写入了session %s" % asdsakkk)
+        # print("检查一下是否写入了session %s" % asdsakkk)
         return redirect(url_for('helloWorld'))
     else:
 
         session['vip_tele'] = order_id_hd
         #   # vip_tele_zzz = session.get('vip_tele')
-        print("这个是回调回getgetgetget来的订单号yyyy %s" % order_id_hd)
+        # print("这个是回调回getgetgetget来的订单号yyyy %s" % order_id_hd)
 
         return redirect(url_for('order_cx'))
     # pass
@@ -1673,7 +1684,7 @@ def vip_hd():
 def zxcqweabc():
     if request.method == 'GET':
         vip_tele = session.get('vip_tele')
-        print("检查一下是否写入了session %s" % vip_tele)
+        # print("检查一下是否写入了session %s" % vip_tele)
         return redirect(url_for('vip_hd'))
     else:
         pass
@@ -1729,7 +1740,6 @@ def order_cx():
 def my_context_processor():
     global vip_tele
     vip_tele = session.get('vip_tele')
-    print('全局打印的session %s' % vip_tele)
     if vip_tele:
         vip_tele1 = User.query.filter(User.telephone == vip_tele).first()
         if vip_tele1:
@@ -1751,21 +1761,46 @@ def pao_author():
     return '写入成功'
 
 
-@app.route('/pao_des/')
+@app.route('/pao_yuedu/')
 def pao_des():
-    article = Article.query.all()
-    article_len = len(article)
-    print(article_len)
-    for i in range(0, article_len):
-        content_aa = article[i].content
-        print(type(content_aa))
-        print(i, content_aa)
-        ttaa = re.sub(r'<.*?>', '', content_aa)[:150]
-        print(ttaa)
-        content_aa_aa = Article.query.filter(Article.id == i + 1).first()
-        content_aa_aa.description = ttaa
+    article_len = len(Article.query.all()) + 1
+    for i in range(1, article_len):
+        suijishu = random.randint(500, 3000)
+        article = Article.query.filter(Article.id == i).first()
+        article.article_yuedu = str(suijishu)
         db.session.commit()
+    return '描述写入完成'
 
+@app.route('/pao_fabutime/')
+def pao_fabutime():
+    article_len = len(Article.query.all()) + 1
+    for i in range(1, article_len):
+        moth = random.randint(7, 9)
+        dayday = random.randint(1, 30)
+        hourhour = random.randint(00, 24)
+        minuteminute = random.randint(00, 60)
+
+        riqi = '2020-'+str(moth)+'-'+str(dayday)+' '+str(hourhour)+':'+str(minuteminute)
+        print('生成的日期是',riqi)
+        article = Article.query.filter(Article.id == i).first()
+        article.article_time = str(riqi)
+        db.session.commit()
+    return '描述写入完成'
+
+
+@app.route('/dqtime/')
+def dqtime():
+    for i in range(1, 100):
+        moth = random.randint(7, 9)
+        dayday = random.randint(1, 30)
+        hourhour = random.randint(00, 24)
+        minuteminute = random.randint(00, 60)
+
+        riqi = '2020-'+str(moth)+'-'+str(dayday)+' '+str(hourhour)+':'+str(minuteminute)
+        print('生成的日期是',riqi)
+        article = Article.query.filter(Article.id == i).first()
+        article.article_time = str(riqi)
+        db.session.commit()
     return '描述写入完成'
 
 

@@ -6,7 +6,9 @@
     <link rel="stylesheet" href="../static/css/dibuad.css">
     <link rel="stylesheet" href="../static/css/pc_qiminggonglue.css">
     <link rel="stylesheet" href="../static/css/quanju.css">
-
+    <title>起名攻略-更专业的宝宝起名平台</title>
+    <meta name="keywords" content="免费起名字,宝宝起名网,起名字大全,起名网,取名" />
+    <meta name="description" content="起名宝典是以传统周易学、汉语语言文学、诗词国学、统计学(千万级大数据分析)、心理学结合大数据为理论基础,起名宝典主要有男孩起名、女孩起名、诗词起名、传统起名名等在线起名等功能，是起名必备工具!" />
     <link rel="stylesheet" href="../static/css/pc_biaodn_quanju.css">
     <link rel="icon" href="../images/favicon.ico" type="image/x-icon"/>
     <link rel="stylesheet" href="../static/css/qiwang_biaoqian.css">
@@ -38,10 +40,10 @@
         <div class="logo fl"></div>
         <div class="right_nav fr">
             <ul class="fl">
-                <li><a href="#md_hmbz">好名标准</a></li>
-                <li><a href="#md_qmzy">起名注意</a></li>
-                <li><a href="#md_ptys">平台优势</a></li>
-                <li><a href="#md_qmll">起名理论</a></li>
+                <li><a href="{{ url_for('helloWorld') }}#md_hmbz">好名标准</a></li>
+                <li><a href="{{ url_for('helloWorld') }}#md_qmzy">起名注意</a></li>
+                <li><a href="{{ url_for('helloWorld') }}#md_ptys">平台优势</a></li>
+                <li><a href="{{ url_for('helloWorld') }}#md_qmll">起名理论</a></li>
             </ul>
             {% if vip_tele %}
                 <a class="btn fr vip_login_btn" href="#">VIP登录</a>
@@ -67,9 +69,9 @@
                     <a class="wenzhang_list" href="{{ url_for('wzxq',article_idid=article_id[m]) }}">
                         <h5>{{ article_title[m] }}</h5>
                         <p class="artice_author">
-                            <span>2020-07-08 17:21</span>
+                            <span>{{ article_time[m] }}</span>
                             <span>{{ article_author[m] }}</span>
-                            <span>阅读:</span>
+                            <span>阅读:{{ article_yuedu[m] }}</span>
                         </p>
                         <p>{{ article_content[m] }}</p>
                     </a>

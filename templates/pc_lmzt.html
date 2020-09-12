@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="../static/css/dibuad.css">
     <link rel="stylesheet" href="../static/css/pc_lmzt.css">
     <link rel="stylesheet" href="../static/css/quanju.css">
-
+    <link rel="icon" href="../static/images/favicon.ico" type="image/x-icon"/>
     <link rel="stylesheet" href="../static/css/pc_biaodn_quanju.css">
     <link rel="icon" href="../images/favicon.ico" type="image/x-icon"/>
     <link rel="stylesheet" href="../static/css/qiwang_biaoqian.css">
@@ -17,7 +17,7 @@
     <script src="../static/js/myDatepicker.js"></script>
     <script src="../static/js/bootstrap.min.js"></script>
     <script src="../static/js/qiwangtanchuang.js"></script>
-    <script src="../static/js/vue.min.js"></script>
+    <script src="../static/js/vue.min.js"></script>全局打印的
     <script src="../static/js/charfirstPinyin.js"></script>
     <script src="../static/js/area.js"></script>
     <script src="../static/js/m_db_ad_close.js"></script>
@@ -35,13 +35,15 @@
 </div>
 <div id="headnav">
     <div class="nav_neirong">
-        <div class="logo fl"></div>
+        <a href="/">
+            <div class="logo fl"></div>
+        </a>
         <div class="right_nav fr">
             <ul class="fl">
-                <li><a href="#md_hmbz">好名标准</a></li>
-                <li><a href="#md_qmzy">起名注意</a></li>
-                <li><a href="#md_ptys">平台优势</a></li>
-                <li><a href="#md_qmll">起名理论</a></li>
+                <li><a href="{{ url_for('helloWorld') }}#md_hmbz">好名标准</a></li>
+                <li><a href="{{ url_for('helloWorld') }}#md_qmzy">起名注意</a></li>
+                <li><a href="{{ url_for('helloWorld') }}#md_ptys">平台优势</a></li>
+                <li><a href="{{ url_for('helloWorld') }}#md_qmll">起名理论</a></li>
             </ul>
             {% if vip_tele %}
                 <a class="btn fr vip_login_btn" href="#">VIP登录</a>
@@ -66,9 +68,9 @@
                 <a href="{{ url_for('wzxq',article_idid=artilce_id[i]) }}">
                     <h4>{{ lanmu_title[i] }}</h4>
                     <p class="artice_author">
-                        <span>2020-07-08 17:21</span>
+                        <span>{{  article_time[i] }}</span>
                         <span>{{ article_author[i] }}</span>
-                        <span>阅读:</span>
+                        <span>阅读:{{ article_yuedu[i]}}</span>
                     </p>
                     <p>{{ lanmu_qbwz_jieduan[i] }}</p>
                 </a>

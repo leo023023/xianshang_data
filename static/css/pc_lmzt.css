@@ -118,7 +118,11 @@ a{
 	line-height: 26px;
 }
 .lanmu_list>a>p{
-	line-height: 22px;
+	display: -webkit-box;
+    line-height: 22px;
+    -webkit-line-clamp: 2 !important;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 .lanmu_list .artice_author{
 	line-height: 30px;
