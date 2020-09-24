@@ -11,11 +11,20 @@ import ssl
 import http.cookiejar
 import ast
 import json
+
 import time
 import hashlib
 import webbrowser
 import random
 import datetime
+import math
+
+#生成一个迁移文件会报错的引用
+# '''
+from flask_paginate import Pagination, get_page_parameter
+# '''
+
+
 
 app = Flask(__name__)
 app.config.from_object(config)
@@ -226,7 +235,20 @@ def zhuanshu_lanmu(lm_lujin):
         lanmu = Lanmu.query.filter(Lanmu.lanmu_lujin == lm_lujin).first()
         # print('zhdge shi lanmu name  % s' % lanmu.lanmuname)
         # lanmu_name = lanmu.lanmuname
-        lanmu_qbwz = lanmu.xxxx
+        lanmu_qbwz = Lanmu.query.filter(Lanmu.lanmu_lujin == lm_lujin).first().xxxx
+        print('栏目类型',type(Lanmu))
+        print('栏目全文文章内容长度', len(lanmu_qbwz))
+
+        chushiye = request.args.get('page',default=1)
+        page = int(re.sub('.html', '', str(chushiye)))
+
+
+        if page>len(lanmu_qbwz) or page<1:
+            page=1
+
+        print('当前的页数', page)
+
+        current_page = Pagination(page=page,per_page=10,total=len(lanmu_qbwz))
 
         qbwz_jieduan = []
         title = []
@@ -234,14 +256,25 @@ def zhuanshu_lanmu(lm_lujin):
         article_author = []
         article_yuedu = []
         article_time = []
-        for i in range(len(lanmu_qbwz) - 1, 0, -1):
-            tqnr_tqnr = re.sub(r'<.*?>', '', lanmu_qbwz[i].content)[:200]
-            qbwz_jieduan.append(tqnr_tqnr)
-            title.append(lanmu_qbwz[i].title)
-            artilce_id.append(lanmu_qbwz[i].id)
-            article_author.append(lanmu_qbwz[i].author_name)
-            article_yuedu.append(lanmu_qbwz[i].article_yuedu)
-            article_time.append(lanmu_qbwz[i].article_time)
+        if current_page.has_next==True:
+            print('ifli  de ',page)
+            start_list = len(lanmu_qbwz)-(page-1)*10
+            end_list = start_list-10
+            per_page_content = lanmu_qbwz[end_list : start_list]
+        else:
+            start_list = len(lanmu_qbwz) - (page - 1) * 10
+            per_page_content = lanmu_qbwz[0:start_list]
+
+
+
+        for i in range(len(per_page_content)-1, -1, -1):
+            qbwz_jieduan.append(per_page_content[i].zaiyao)
+            title.append(per_page_content[i].title)
+            artilce_id.append(per_page_content[i].id)
+            article_author.append(per_page_content[i].author_name)
+            article_yuedu.append(per_page_content[i].article_yuedu)
+            article_time.append(per_page_content[i].article_time)
+
         houzhui = '.html'
         for i in range(len(artilce_id)):
             artilce_id[i] = str(artilce_id[i]) + houzhui
@@ -258,6 +291,9 @@ def zhuanshu_lanmu(lm_lujin):
             'article_author':article_author,
             'article_yuedu':article_yuedu,
             'article_time':article_time,
+            'lm_lujin':lm_lujin,
+
+            'current_page':current_page,
         }
         reg_b = re.compile(
             r"(android|bb\\d+|meego).+mobile|avantgo|bada\\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge|maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\\.(browser|link)|vodafone|wap|windows ce|xda|xiino",
@@ -271,6 +307,10 @@ def zhuanshu_lanmu(lm_lujin):
         return render_template('m_lmzt.html', **zidian)
     else:
         return render_template('pc_lmzt.html', **zidian)
+
+
+
+
 
 
 @app.route("/csjg/", methods=["GET", "POST"])

@@ -967,6 +967,7 @@
         <div lass="qmgl_content">
             {% for i in range(0,8) %}
                 <div class="fenlei fenlei_{{ i }}" >
+
                     {% if lanmu[i].xxxx|length<12  %}
                         {% for k in range(0,lanmu[i].xxxx|length) %}
                             <a href="{{ url_for('wzxq',article_idid=article_id[k]) }}">

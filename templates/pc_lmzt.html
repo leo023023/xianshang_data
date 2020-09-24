@@ -64,7 +64,7 @@
             <p>{{ lanmu_desc }}</p>
         </div>
         <div class="lanmu_list">
-            {% for i in range(0,len_id) %}
+            {% for i in range(0,10) %}
                 <a href="{{ url_for('wzxq',article_idid=artilce_id[i]) }}">
                     <h4>{{ lanmu_title[i] }}</h4>
                     <p class="artice_author">
@@ -76,14 +76,20 @@
                 </a>
             {% endfor %}
         </div>
-        <div class="fanye">
-            <a class="weixuanzhong xuanzhong" href="{{ url_for('zhuanshu_lanmu',lm_lujin='nvqm')}}">1</a>
-            <a class="weixuanzhong" href="">2</a>
-            <a class="weixuanzhong" href="">3</a>
-            <a class="weixuanzhong" href="">4</a>
-            <a class="weixuanzhong" href="">5</a>
-            <a class="weixuanzhong last" href="">下一页</a>
-        </div>
+{#        <div class="fanye">#}
+{#            <a rel="nofollow" class="weixuanzhong previous hideen" href="{{ url_for('zhuanshu_lanmu',lm_lujin=lm_lujin)}}?page=next.html">上一页</a>#}
+{#            <a rel="nofollow" class="weixuanzhong xuanzhong" href="{{ url_for('zhuanshu_lanmu',lm_lujin=lm_lujin)}}?page=1.html">1</a>#}
+{#            <a rel="nofollow" class="weixuanzhong" href="{{ url_for('zhuanshu_lanmu',lm_lujin=lm_lujin)}}?page=2.html">2</a>#}
+{#            <a rel="nofollow" class="weixuanzhong" href="{{ url_for('zhuanshu_lanmu',lm_lujin=lm_lujin)}}?page=3.html">3</a>#}
+{#            <a rel="nofollow" class="weixuanzhong" href="{{ url_for('zhuanshu_lanmu',lm_lujin=lm_lujin)}}?page=4.html">4</a>#}
+{#            <a rel="nofollow" class="weixuanzhong" href="{{ url_for('zhuanshu_lanmu',lm_lujin=lm_lujin)}}?page=5.html">5</a>#}
+{#            <a rel="nofollow" class="weixuanzhong last" href="{{ url_for('zhuanshu_lanmu',lm_lujin=lm_lujin)}}?page=next.html">下一页</a>#}
+{#        </div>#}
+    {{ current_page.links }}
+    <script>
+        obj = document.getElementsByClassName("previous");
+        obj.firstChild.innerHTML = "hello kitty!";
+    </script>
     </div>
     <div class="biaodan fr">
         <h3>科学·传统</h3>

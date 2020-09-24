@@ -147,7 +147,7 @@ a{
 	margin-top: 22px;
 	margin-bottom: 36px;
 }
-.fanye>a{
+.pagination>ul>li{
 	width: 36px;
     height: 36px;
     border: 1px solid #0C1222;
@@ -172,14 +172,39 @@ a{
 	background-color: #0C1222;
 	color: #fff;
 }
+.fanye .hideen{
+	display: none;
+}
 .lanmu_xiangguan{
-	background-color: red;
 	margin-top: 20px;
+}
+.pagination a{
+	padding: 9px;
+	height: 36px;
+
+}
+.pagination .xyunable{
+	display: none;
 }
 .lanmu_hou5{
 	margin-right: 30px;
 }
-
+.pagination{
+	margin: 20px auto !important;
+	margin-left: 69px !important;
+}
+.pagination .active{
+	background-color:#0C1222 ;
+}
+.pagination .active a{
+	color: #FFFFFF;
+}
+.pagination .previous{
+	width: 72px;
+}
+.pagination .next{
+	width: 72px;
+}
 .lanmu_list_a{
 	line-height: 28px;
 	color: #666666;

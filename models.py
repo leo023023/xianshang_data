@@ -19,8 +19,24 @@ class Article(db.Model):
     title = db.Column(db.String(100),nullable=False)
     content = db.Column(db.Text, nullable=False)
     description = db.Column(db.Text, nullable=False)
+    zaiyao = db.Column(db.Text, nullable=False)
     lanmu_id = db.Column(db.INTEGER,db.ForeignKey('lanmu.id'))
     authorkkk = db.relationship('Lanmu', backref=db.backref('xxxx'))
+    author_name = db.Column(db.String(100), nullable=False)
+    article_yuedu = db.Column(db.String(100), nullable=False)
+    article_time = db.Column(db.String(100), nullable=False)
+
+
+
+class Article_zan(db.Model):
+    __tablename__ = 'article_zan'
+    id = db.Column(db.Integer,primary_key=True,autoincrement=True)
+    title = db.Column(db.String(100),nullable=False)
+    content = db.Column(db.Text, nullable=False)
+    description = db.Column(db.Text, nullable=False)
+    zaiyao = db.Column(db.Text, nullable=False)
+    lanmu_id = db.Column(db.INTEGER,db.ForeignKey('lanmu.id'))
+    authorkkk = db.relationship('Lanmu', backref=db.backref('xxxx_zan'))
     author_name = db.Column(db.String(100), nullable=False)
     article_yuedu = db.Column(db.String(100), nullable=False)
     article_time = db.Column(db.String(100), nullable=False)
@@ -39,3 +55,8 @@ class Pingjia(db.Model):
     __tablename__ = 'pingjia'
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     content = db.Column(db.Text, nullable=False)
+
+class Cishu(db.Model):
+    __tablename__ = 'cishu'
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    cishu = db.Column(db.String(100), nullable=False)

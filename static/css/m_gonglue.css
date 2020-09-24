@@ -83,7 +83,8 @@
     color: #666666;
 }
 #qmgl{
-    margin-bottom: 9px;
+    margin-bottom: 22px;
+    background-color: #fff;
 }
 #qmgl .gl_list{
     background: #fff;
@@ -187,4 +188,45 @@ color: #999;
 }
 #m_gl_zhanwei{
     height: 46px;
+}
+
+.pagination a{
+	padding: 9px;
+	height: 36px;
+    font-size: 13px;
+
+}
+.pagination .xyunable{
+	display: none;
+}
+.lanmu_hou5{
+	margin-right: 30px;
+}
+.pagination{
+    padding-left: 7vw;
+    padding-bottom: 14px;
+}
+.pagination li{
+    border: 1px #0C1222 solid;
+    margin: 2px 2px;
+    height: 32px;
+    border-radius: 2px;
+}
+.pagination li a{
+    line-height: 32px;
+}
+.pagination ul{
+    display: flex;
+}
+.pagination .active{
+	background-color:#0C1222 ;
+}
+.pagination .active a{
+	color: #FFFFFF;
+}
+.pagination .previous{
+
+}
+.pagination .next{
+
 }
