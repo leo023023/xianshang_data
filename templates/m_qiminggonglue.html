@@ -9,7 +9,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <title>起名攻略</title>
+    <title>起名攻略-更专业的宝宝起名平台</title>
     <meta name="keywords" content="免费起名字,宝宝起名网,起名字大全,起名网,取名">
     <meta NAME="description"
           content="起名宝典是以传统周易学、汉语语言文学、诗词国学、统计学(千万级大数据分析)、心理学结合大数据为理论基础,起名宝典主要有男孩起名、女孩起名、诗词起名、传统起名名等在线起名等功能，是起名必备工具!">
@@ -160,7 +160,7 @@
 </div>
 <div id="breadcrumb">
     <a href="http://127.0.0.1:5000/">首页</a>
-    <a href="{{ url_for('') }};">起名攻略</a>
+    <a href="{{ url_for('zhuanshu_lanmu',lm_lujin='qmgl') }};">起名攻略</a>
 </div>
 <div id="m_index_biaodan">
     <form action="{{ url_for("csjg") }}" method="post" autocomplete="off">
@@ -416,12 +416,21 @@
                 </div>
                 <a class="gl_list_more" href="{{ url_for('zhuanshu_lanmu',lm_lujin=lanmu[i].lanmu_lujin) }}">查看更多</a>
             </div>
-            {% for m in range(i*5,i*5+ 5) %}
-                <a class="gl_content" href="{{ url_for('wzxq',article_idid=article_id[m]) }}">
-                    <h4>{{ article_title[m] }}</h4>
-                    <p>{{ article_content[m] }}</p>
-                </a>
-            {% endfor %}
+            {% if lanmu[i].xxxx|length<6 %}
+            	{% for m in range(lanmu[i].xxxx|length-1,-1,-1) %}
+            		<a class="gl_content" href="{{ url_for('wzxq',article_idid=lanmu[i].xxxx[m].id).html }}">
+                    	<h4>{{ lanmu[i].xxxx[m].title }}</h4>
+                    	<p>{{ lanmu[i].xxxx[m].zaiyao }}</p>
+                	</a>
+            	{% endfor %}
+            {% else %}
+            	{% for m in range(lanmu[i].xxxx|length-1,lanmu[i].xxxx|length-6,-1) %}
+            		<a class="gl_content" href="{{ url_for('wzxq',article_idid=lanmu[i].xxxx[m].id).hmtl }}">
+                    	<h4>{{ lanmu[i].xxxx[m].title }}</h4>
+                    	<p>{{ lanmu[i].xxxx[m].zaiyao }}</p>
+                	</a>
+            	{% endfor %}
+            {% endif %}
         </div>
     {% endfor %}
 </div>

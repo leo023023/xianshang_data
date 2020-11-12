@@ -165,7 +165,7 @@ body{
 	text-align: center;
 }
 #pingtaiyoushi .ptys_bj{
-	background: url(/images/pingtaiyoushi.svg) no-repeat;
+	background: url(../images/pingtaiyoushi.svg) no-repeat;
     width: 234px;
     height: 234px;
     margin-bottom: 30px;

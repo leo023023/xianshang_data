@@ -1,10 +1,10 @@
 # coding=utf-8
 from flask import Flask, render_template, request, redirect, url_for, session, make_response
 import config
+import requests
 from models import *
 from exts import db
-import urllib.parse
-import urllib.request
+from flask_paginate import Pagination
 import re
 import os
 import ssl
@@ -18,10 +18,13 @@ import webbrowser
 import random
 import datetime
 import math
+import paowenz_1009
+import namedafeng
 
 #生成一个迁移文件会报错的引用
 # '''
-from flask_paginate import Pagination, get_page_parameter
+import urllib.parse
+import urllib.request
 # '''
 
 
@@ -76,57 +79,6 @@ def helloWorld():
     # return render_template('m_index.html')
 
 
-@app.route('/qmgl/')
-def qmgl():
-    kk = Lanmu.query.all()
-    len_kk = len(kk)
-    article_title = []
-    article_content = []
-    article_id_old = []
-    article_author = []
-    article_yuedu = []
-    article_time = []
-    geishi = '.html'
-    for i in range(0, len(kk)):
-        zzz = Lanmu.query.filter(Lanmu.lanmuname == kk[i].lanmuname).first()
-        kkkasd = zzz.xxxx
-        for i in range(len(kkkasd) - 1, len(kkkasd) - 6, -1):
-            article_title.append(kkkasd[i].title)
-            tqnr_tqnr = re.sub(r'<.*?>', '', kkkasd[i].content)[:100]
-            # print(tqnr_tqnr)
-            article_content.append(tqnr_tqnr)
-            article_id_old.append(kkkasd[i].id)
-            article_author.append(kkkasd[i].author_name)
-            article_yuedu.append(kkkasd[i].article_yuedu)
-            article_time.append(kkkasd[i].article_time)
-    for i in range(len(article_id_old)):
-        article_id_old[i] = str(article_id_old[i]) + geishi
-    article_id = article_id_old
-
-    seo_article = {
-        'len_kk': len_kk,
-        'lanmu': kk,
-        'article_title': article_title,
-        'article_content': article_content,
-        'article_id': article_id,
-        'article_author':article_author,
-        'article_yuedu':article_yuedu,
-        'article_time':article_time,
-    }
-
-    reg_b = re.compile(
-        r"(android|bb\\d+|meego).+mobile|avantgo|bada\\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge|maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\\.(browser|link)|vodafone|wap|windows ce|xda|xiino",
-        re.I | re.M)
-    use_agent = request.headers.get('User-Agent')
-    # print(type(use_agent))
-    # print("这个是UA %s" % use_agent)
-    basda = reg_b.search(use_agent)
-    # jieguo = Article.query.filter(Article.title == "aaa").all()
-
-    if basda:
-        return render_template('m_qiminggonglue.html', **seo_article)
-    else:
-        return render_template('pc_qiminggonglue.html', **seo_article)
 
 
 #
@@ -139,23 +91,28 @@ def qmgl():
 def wzxq(article_idid):
     quanbuwenzhang = Article.query.all()
     new_article_idid = article_idid.replace('.html', '')
+    print('获取到的文章id是',new_article_idid)
     # 找到了对应id的文章详情
     article = Article.query.filter(Article.id == new_article_idid).first()
     lanmu = article.authorkkk.lanmuname
     zzz = Lanmu.query.filter(Lanmu.lanmuname == lanmu).first()
     # 找到同一个栏目下的全部文章
     article_wzxq = zzz.xxxx
-
+    print('这个是文章的长度',len(article_wzxq))
     article_title_ls = []
     # 相关的5篇文章id不带后缀的
     article_id_ls = []
     houzhui = '.html'
 
     # 这里是生成的相关文章
-    for i in range(5, -1, -1):
-        article_id_ls.append(article_wzxq[i].id)
-        article_title_ls.append(article_wzxq[i].title)
-
+    if  len(article_wzxq)>5:
+        for i in range(len(article_wzxq)-1, len(article_wzxq)-6, -1):
+            article_id_ls.append(article_wzxq[i].id)
+            article_title_ls.append(article_wzxq[i].title)
+    else:
+    	for i in range(len(article_wzxq)-1,-1,-1):
+            article_id_ls.append(article_wzxq[i].id)
+            article_title_ls.append(article_wzxq[i].title)
 
     # 剔除这篇文章，不让在相关文章中调用
     if int(new_article_idid) in article_id_ls:
@@ -197,6 +154,7 @@ def wzxq(article_idid):
     for i in range(len(more_qmgl_id)):
         more_qmgl_id[i] = str(more_qmgl_id[i]) + houzhui
     new_more_qmgl_id = more_qmgl_id
+    zhuanyi_div=''
     article_content = {
         'article_content': article.content,
         'article_title': article.title,
@@ -205,7 +163,10 @@ def wzxq(article_idid):
         'more_qmgl_title': more_qmgl_title,
         'more_qmgl_id': new_more_qmgl_id,
         'article': article.author_name,
+        'article_time': article.article_time,
+        'article_yuedu': article.article_yuedu,
         'new_article_id_ls': new_article_id_ls,  # 这个是带有后缀的相关文章id
+        'zhuanyi_div':zhuanyi_div,
     }
     reg_b = re.compile(
         r"(android|bb\\d+|meego).+mobile|avantgo|bada\\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge|maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\\.(browser|link)|vodafone|wap|windows ce|xda|xiino",
@@ -225,49 +186,120 @@ def wzxq(article_idid):
 @app.route('/<lm_lujin>/')
 def zhuanshu_lanmu(lm_lujin):
     lanmu_canshu = 'robots.txt'
+    lanmu_canshu_2 = 'qmgl'
+    
     if lm_lujin == lanmu_canshu:
         base_dir = os.path.dirname(__file__)
         resp = make_response(open(os.path.join(base_dir, 'robots.txt')).read())
         resp.headers["Content-type"] = "text/plan;charset=UTF-8"
         return resp
+    elif lm_lujin == lanmu_canshu_2:
+    	print('adasd全部文章')
+    	kk = Lanmu.query.all()
+    	len_kk = len(kk)
+    	print('长度是',len_kk)
+    	print('之歌啥子子',kk[0].xxxx[0].id)
+    	article_title = []
+    	article_content = []
+    	article_id_old = []
+    	article_author = []
+    	article_yuedu = []
+    	article_time = []
+    	geishi = '.html'
+    	for i in range(0, len(kk)):
+            zzz = Lanmu.query.filter(Lanmu.lanmuname == kk[i].lanmuname).first()
+            kkkasd = zzz.xxxx
+            print('这个是文章的长度',kk[i].lanmuname,len(kkkasd))
+            if len(kkkasd)>5:
+	            for i in range(len(kkkasd) - 1, len(kkkasd) - 6, -1):
+	            	article_title.append(kkkasd[i].title)
+	            	tqnr_tqnr = re.sub(r'<.*?>', '', kkkasd[i].content)[:100]
+	                # print(tqnr_tqnr)
+	            	article_content.append(tqnr_tqnr)
+	            	article_id_old.append(kkkasd[i].id)
+	            	article_author.append(kkkasd[i].author_name)
+	            	article_yuedu.append(kkkasd[i].article_yuedu)
+	            	article_time.append(kkkasd[i].article_time)
+            else:
+	            for i in range(len(kkkasd) - 1, 0, -1):
+	            	article_title.append(kkkasd[i].title)
+	            	tqnr_tqnr = re.sub(r'<.*?>', '', kkkasd[i].content)[:100]
+        			# print(tqnr_tqnr)
+	            	article_content.append(tqnr_tqnr)
+	            	article_id_old.append(kkkasd[i].id)
+	            	article_author.append(kkkasd[i].author_name)
+	            	article_yuedu.append(kkkasd[i].article_yuedu)
+	            	article_time.append(kkkasd[i].article_time)
+    	print('未添加格式的样式',article_id_old)
+    	for i in range(0,len(article_id_old)):
+        	article_id_old[i] = str(article_id_old[i]) + geishi
+    	print('已添加格式后的样式',article_id_old)
+    	print('已添加格式后的样式长度',len(article_id_old))
+    	article_id = article_id_old
+
+    	seo_article = {
+            'len_kk': len_kk,
+            'lanmu': kk,
+            'article_title': article_title,
+            'article_content': article_content,
+            'article_id': article_id,
+            'article_author': article_author,
+            'article_yuedu': article_yuedu,
+            'article_time': article_time,
+            'geishipj':'.html',
+        }
+
+    	reg_b = re.compile(
+            r"(android|bb\\d+|meego).+mobile|avantgo|bada\\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge|maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\\.(browser|link)|vodafone|wap|windows ce|xda|xiino",
+            re.I | re.M)
+    	use_agent = request.headers.get('User-Agent')
+        # print(type(use_agent))
+        # print("这个是UA %s" % use_agent)
+    	basda = reg_b.search(use_agent)
+        # jieguo = Article.query.filter(Article.title == "aaa").all()
+
+    	if basda:
+            return render_template('m_qiminggonglue.html', **seo_article)
+    	else:
+            return render_template('pc_qiminggonglue.html', **seo_article)
 
     else:
-        lanmu = Lanmu.query.filter(Lanmu.lanmu_lujin == lm_lujin).first()
+    	print('为什么跑到这里来了')
+    	lanmu = Lanmu.query.filter(Lanmu.lanmu_lujin == lm_lujin).first()
         # print('zhdge shi lanmu name  % s' % lanmu.lanmuname)
         # lanmu_name = lanmu.lanmuname
-        lanmu_qbwz = Lanmu.query.filter(Lanmu.lanmu_lujin == lm_lujin).first().xxxx
-        print('栏目类型',type(Lanmu))
-        print('栏目全文文章内容长度', len(lanmu_qbwz))
+    	lanmu_qbwz_fanxian = Lanmu.query.filter(Lanmu.lanmu_lujin == lm_lujin).first()
+    	print('获取到的栏目路径是0925', lanmu_qbwz_fanxian)
+    	lanmu_qbwz = lanmu_qbwz_fanxian.xxxx
+    	print('栏目类型', type(Lanmu))
+    	print('栏目全文文章内容长度', len(lanmu_qbwz))
 
-        chushiye = request.args.get('page',default=1)
-        page = int(re.sub('.html', '', str(chushiye)))
+    	chushiye = request.args.get('page', default=1)
+    	page = int(re.sub('.html', '', str(chushiye)))
 
+    	if page > len(lanmu_qbwz) or page < 1:
+            page = 1
 
-        if page>len(lanmu_qbwz) or page<1:
-            page=1
+    	print('当前的页数', page)
+        
+    	current_page = Pagination(page=page, per_page=10, total=len(lanmu_qbwz))
 
-        print('当前的页数', page)
-
-        current_page = Pagination(page=page,per_page=10,total=len(lanmu_qbwz))
-
-        qbwz_jieduan = []
-        title = []
-        artilce_id = []
-        article_author = []
-        article_yuedu = []
-        article_time = []
-        if current_page.has_next==True:
-            print('ifli  de ',page)
-            start_list = len(lanmu_qbwz)-(page-1)*10
-            end_list = start_list-10
-            per_page_content = lanmu_qbwz[end_list : start_list]
-        else:
+    	qbwz_jieduan = []
+    	title = []
+    	artilce_id = []
+    	article_author = []
+    	article_yuedu = []
+    	article_time = []
+    	if current_page.has_next == True:
+            print('ifli  de ', page)
+            start_list = len(lanmu_qbwz) - (page - 1) * 10
+            end_list = start_list - 10
+            per_page_content = lanmu_qbwz[end_list: start_list]
+    	else:
             start_list = len(lanmu_qbwz) - (page - 1) * 10
             per_page_content = lanmu_qbwz[0:start_list]
 
-
-
-        for i in range(len(per_page_content)-1, -1, -1):
+    	for i in range(len(per_page_content) - 1, -1, -1):
             qbwz_jieduan.append(per_page_content[i].zaiyao)
             title.append(per_page_content[i].title)
             artilce_id.append(per_page_content[i].id)
@@ -275,38 +307,39 @@ def zhuanshu_lanmu(lm_lujin):
             article_yuedu.append(per_page_content[i].article_yuedu)
             article_time.append(per_page_content[i].article_time)
 
-        houzhui = '.html'
-        for i in range(len(artilce_id)):
+    	houzhui = '.html'
+    	for i in range(len(artilce_id)):
             artilce_id[i] = str(artilce_id[i]) + houzhui
-        article_new_id = artilce_id
-        len_id = len(artilce_id)
+    	article_new_id = artilce_id
+    	len_id = len(artilce_id)
 
-        zidian = {
+    	zidian = {
             'lanmu_name': lanmu.lanmuname,
             'lanmu_desc': lanmu.lanmu_desc,
             'lanmu_qbwz_jieduan': qbwz_jieduan,
             'lanmu_title': title,
             'artilce_id': article_new_id,
             'len_id': len_id,
-            'article_author':article_author,
-            'article_yuedu':article_yuedu,
-            'article_time':article_time,
-            'lm_lujin':lm_lujin,
+            'article_author': article_author,
+            'article_yuedu': article_yuedu,
+            'article_time': article_time,
+            'lm_lujin': lm_lujin,
 
-            'current_page':current_page,
+            'current_page': current_page,
+            'geishipj':'.html',
         }
-        reg_b = re.compile(
+    	reg_b = re.compile(
             r"(android|bb\\d+|meego).+mobile|avantgo|bada\\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge|maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\\.(browser|link)|vodafone|wap|windows ce|xda|xiino",
             re.I | re.M)
-        use_agent = request.headers.get('User-Agent')
+    	use_agent = request.headers.get('User-Agent')
         # print(type(use_agent))
         # print("这个是UA %s" % use_agent)
-        basda = reg_b.search(use_agent)
+    	basda = reg_b.search(use_agent)
 
-    if basda:
-        return render_template('m_lmzt.html', **zidian)
-    else:
-        return render_template('pc_lmzt.html', **zidian)
+    	if basda:
+            return render_template('m_lmzt.html', **zidian)
+    	else:
+            return render_template('pc_lmzt.html', **zidian)
 
 
 
@@ -357,14 +390,16 @@ def csjg():
             dingzhi_2 = ''
 
         biaodan_xz = request.form.get("biaodan_xz")
+        print('biaodan_xz 这是个晒',biaodan_xz)
         mizi_ku_nm = request.form.get("mizi_ku_nm")
+        print('mizi_ku_nm 这是个晒', mizi_ku_nm)
         # print("这个是提交的名字： %s" % mizi_ku_nm)
         # print(type(mizi_ku_nm))
         birthtime = request.form.get("birthtime")
         # birthtime = '2020-04-04 13:32'
         # 将提交的性别进行重现赋值
         ba_mp_sex = request.form.get("xingbie")
-        # print("这个是提交的性别： %s" % ba_mp_sex)
+        print("这个是提交的性别： %s" % ba_mp_sex)
 
         if ba_mp_sex == "1":
             ba_mp_sex_zhon = "男"
@@ -597,23 +632,23 @@ def csjg():
 
             pattern = re.compile(m_z_ku_gz, re.S)
             lt_lt_mz = pattern.findall(response)[0:10]
-            # print("名字库为空的情况 %s" % lt_lt_mz_pd)
-            # print("名字库为空的情况列表 %s" % lt_lt_mz_pd[0])
+
 
             print("这个是名字库名字库名字库名字库0729 %s" % lt_lt_mz)
             session['name_ku'] = lt_lt_mz
             session.permanent = True
             if lt_lt_mz:
                 # print('名字列表7月27日lt_lt_mz名字列表 %s' % lt_lt_mz)
+
                 vip_regex = request.form.get("xing") + "(.)"
-                # print('vip_regex %s' % vip_regex)
+                print('vip_regex是个什么鬼',vip_regex)
 
                 vip_mzku_noxing = re.sub(vip_regex, '*', str(lt_lt_mz))
                 # print("将名字中间一个字替换成*: %s" % vip_mzku_noxing)
                 # print(type(vip_mzku_noxing))
 
                 vip1_mzku_noxing = ast.literal_eval(vip_mzku_noxing)
-                # print("将带*的名转化为列表: %s" % vip1_mzku_noxing)
+                print("将带*的名转化为列表:",vip1_mzku_noxing)
 
                 # print(type(mi_ku_sy))
 
@@ -642,6 +677,7 @@ def csjg():
                 global li_lt_mz_noxing_1, q_m_pingying, neirog
 
                 # 将测算结果页面提交的名字库转化为列表，并
+                print()
                 li_lt_mz_noxing_1 = ast.literal_eval(li_lt_mz_noxing)[0]
                 # print(li_lt_mz_noxing_1)
                 # print("这个是尝试转换的数据 %s" % type(li_lt_mz_noxing_1))
@@ -1018,7 +1054,9 @@ def csjg():
                 pingjia_fenzhu_three_len = len(pingjia_fenzhu[2])
                 pingjia_fenzhu_four_len = len(pingjia_fenzhu[3])
 
+                jieshi = ''
                 neirog = {
+                    'jieshi':jieshi,
                     'mizi_ku_nm': mizi_ku_nm,
                     'xing': xing,
                     'xingbie': ba_mp_sex,
@@ -1050,7 +1088,7 @@ def csjg():
                     "q_m_yjjd_qx_3": q_m_yjjd_qx_3,
                     "q_m_bzky_qx": q_m_bzky_qx,
                     "q_m_dsdp": q_m_dsdp,
-                    "mz_yx_lt_qx_qp": mz_yx_lt_qx_qp,
+                    "mz_yx_lt_qx_qp": mz_yx_lt_qx_qp, #名字印象
                     "ba_mp_bzcs_qp": ba_mp_bzcs_qp,  # 八字五行详解中的八字测算
                     "ba_mp_smth_qp": ba_mp_smth_qp,  # 三命通会
                     "q_m_sxxg_qp": q_m_sxxg_qp,  # 生肖性格优点
@@ -1193,20 +1231,20 @@ def csjg():
             else:
                 kong_tishi = '未生成'
                 return redirect(url_for('helloWorld', goodname=kong_tishi))
-        # return render_template("/csjg.html/", **neirog)
-
     else:
-        # reg_b = re.compile(
-        #     r"(android|bb\\d+|meego).+mobile|avantgo|bada\\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge|maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\\.(browser|link)|vodafone|wap|windows ce|xda|xiino",
-        #     re.I | re.M)
-        # use_agent = request.headers.get('User-Agent')
-        # basda = reg_b.search(use_agent)
-        # if basda:
-        #     return redirect(url_for('helloWorld'))
-        # else:
-        #     return redirect(url_for('helloWorld'))
-
         return redirect(url_for('helloWorld'))
+
+
+
+
+
+@app.route('/qmb_dafeng_qd/', methods=['GET', 'POST'])
+def namedafen_main_qd():
+    if request.method == 'GET':
+        data = namedafeng.namedafen()
+        print('这是个神恶魔东西',data)
+
+        return render_template("qmb_dafeng.html",**data)
 
 
 @app.route('/m_ajax/', methods=['GET', 'POST'])
@@ -1214,6 +1252,9 @@ def m_ajax():
     if request.method == 'POST':
         mizi_ku_nm = request.form.get("mizi_ku_nm")
         birthtime = request.form.get("birthtime")
+        xingbie_js = request.form.get("biaodan_xz")
+        birthplace = request.form.get("birthplace")
+        print('这是提交的数据 ',mizi_ku_nm,birthtime,xingbie_js,birthplace)
         qi_ming_url = "https://qm.qumingdashi.com/newqiming/index/index"
         xing = mizi_ku_nm[0]
         # print(xing)
@@ -1221,9 +1262,25 @@ def m_ajax():
         # print(li_lt_mz_noxing_1)
 
         name = session.get('name_ku')
+        print('这个是提取session中的明你在劣币阿宝kkk',name)
         mingzi_sy = name.index(mizi_ku_nm)
 
+        print('mingzi_sy名字的索引是',mingzi_sy)
+        #这个是提取的名字印象标签
         ttt = session.get('mz_yx_lt_qx')
+        print('这个是sesson提取到的晒张',ttt)
+
+        mz_yx_lt_qx_list = ast.literal_eval(ttt)
+        if len(mz_yx_lt_qx_list)<10:
+            if mingzi_sy==9:
+                mingzi_sy=8
+            else:
+                pass
+        else:
+            pass
+
+        print('处理过后的索引是',mingzi_sy)
+
         mz_yx_lt_qx = ast.literal_eval(ttt)[mingzi_sy]
         mz_yx_lt_qx_qp = mz_yx_lt_qx.split('/')[0:-3]
 
@@ -1557,6 +1614,8 @@ def m_ajax():
         q_m_yxy_dsdp = re.search(r'大师点评</div>(.*)下一条，八字五行分析', str(q_m_mz_xq_response), re.S).group(1)
         # print("大师点评： %s" % q_m_yxy_dsdp)
         q_m_yxy_dsdp_qx = re.sub(r'[(<> =_"\/)(\[a-z\])(\n)(\r)(\d+)(:I;)]', '', str(q_m_yxy_dsdp))
+
+        #这个是字典，ajax不能回传字典
         # print("总结点评数据清洗： %s" % q_m_yxy_dsdp_qx)
 
         neirog = {
@@ -1602,17 +1661,37 @@ def m_ajax():
             'q_m_gxys_js_qx': q_m_gxys_js_qx,  # 经商
             'q_m_gxys_qm_qx': q_m_gxys_qm_qx,  # 求名
             'q_m_gxys_hl_qx': q_m_gxys_hl_qx,  # 婚恋
+            'q_m_yxy_zyjs1':q_m_yxy_zyjs1,#字意解释1
+            'q_m_yxy_zyjs2': q_m_yxy_zyjs2,  # 字意解释1
             'q_m_yxy_yzjs1_qx': q_m_yxy_yzjs1_qx,  # 用字解释1最终版
             'q_m_yxy_yzjs22_qx': q_m_yxy_yzjs22_qx,  # 用字解释2最终版
             'q_m_yxy_zyfx_qx1': q_m_yxy_zyfx_qx1,  # 字义分析列表
             'q_m_yxy_ylfx': q_m_yxy_ylfx,  # q_m_yxy_ylfx_qx
             'q_m_yxy_zxfx_lt2': q_m_yxy_zxfx_lt2,  # 字型分析列表
+            'q_m_yxy_ylfx_qx':q_m_yxy_ylfx_qx,#音律分析
             'q_m_yxy_dsdp_qx': q_m_yxy_dsdp_qx,  # 总结
             'mz_yx_lt_qx_qp': mz_yx_lt_qx_qp  # 这个是名字的印象
         }
+
+        print('这是个啥44444', type(neirog))
+
+        neirog = json.dumps(neirog,ensure_ascii=False)
+
+        print('这个是解码后的内容',neirog)
         return neirog
     else:
         return redirect(url_for('helloWorld'))
+
+
+@app.route('/csadsdasd/', methods=['GET', 'POST'])
+def csadsdasd():
+
+    print('achaxu放放风n')
+    neirong = {
+        'asda':'addad'
+    }
+    return json.dumps(neirong)
+
 
 
 @app.route('/pay/', methods=["GET", "POST"])
@@ -1842,6 +1921,66 @@ def dqtime():
         article.article_time = str(riqi)
         db.session.commit()
     return '描述写入完成'
+    
+    
+@app.route('/fabuwenzhang_jiaob0721en_lanmuid1/')
+def fabuwenz_1():
+    paowenz_1009.lanmu_id_1()
+    return '今天已跑完'
+    
+@app.route('/fabuwenzhang_jiaob0721en_lanmuid2/')
+def fabuwenz_2():
+    paowenz_1009.lanmu_id_2()
+    return '今天已跑完'
+    
+@app.route('/fabuwenzhang_jiaob0721en_lanmuid3/')
+def fabuwenz_3():
+    paowenz_1009.lanmu_id_3()
+    return '今天已跑完'
+    
+@app.route('/fabuwenzhang_jiaob0721en_lanmuid4/')
+def fabuwenz_4():
+    paowenz_1009.lanmu_id_4()
+    return '今天已跑完'    
+    
+@app.route('/fabuwenzhang_jiaob0721en_lanmuid5/')
+def fabuwenz_5():
+    paowenz_1009.lanmu_id_5()
+    return '今天已跑完'    
+    
+@app.route('/fabuwenzhang_jiaob0721en_lanmuid6/')
+def fabuwenz_6():
+    paowenz_1009.lanmu_id_6()
+    return '今天已跑完'    
+    
+@app.route('/fabuwenzhang_jiaob0721en_lanmuid7/')
+def fabuwenz_7():
+    paowenz_1009.lanmu_id_7()
+    return '今天已跑完'    
+    
+@app.route('/fabuwenzhang_jiaob0721en_lanmuid8/')
+def fabuwenz_8():
+    paowenz_1009.lanmu_id_8()
+    return '今天已跑完'   
+    
+@app.route('/fabuwenzhang_jiaob0721en_lanmuid9/')
+def fabuwenz_9():
+    paowenz_1009.lanmu_id_9()
+    return '今天已跑完'    
+    
+
+
+@app.route('/yalicesh/')
+def yalicesh():
+    for  i in range(0,1000):
+        try:
+            url='http://www.qmg365.com/qmgl/'+str(random.randint(1,5000))+'.html'
+            print('请求的URL是',url)
+            current_ip = requests.get(url)
+            print('请求的次数',i)
+        except:
+            yalicesh()
+    return '请求结束'
 
 
 if __name__ == "__main__":

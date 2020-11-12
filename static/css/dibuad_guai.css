@@ -35,6 +35,7 @@
     color: #ffffff;
     /* text-decoration: none !important; */
     position: relative;
+    top: 22px;
 }
 #sy_footer a {
 	text-decoration: none !important;

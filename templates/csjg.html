@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="/static/css/dibuad.css">
     <link rel="stylesheet" href="/static/css/csjg.css">
     <link rel="stylesheet" href="/static/css/quanju.css">
-    <link rel="stylesheet" type="text/css" href="../static/css/pc_loader.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/pc_loader.css">
     <title>起名结果_起名宝典</title>
     <link rel="icon" href="/static/images/favicon.ico" type="image/x-icon"/>
     <script src="/static/js/jquery.cookie.js"></script>
@@ -15,6 +15,7 @@
     <script src="/static/js/Cooldog.js"></script>
     <script src="/static/js/pay_ajax.js"></script>
     <script src="../static/js/pc_csjg_bdtj.js"></script>
+    <script type="text/javascript" src="../static/js/m_flexble.js"></script>
     <script>
         var _hmt = _hmt || [];
         (function () {
@@ -53,7 +54,7 @@
     <div class="tc_bj_bj"></div>
     <div class="pay_bj">
         <div class="pay_left">
-            <img class="vip_icon" src='{{ url_for("static",filename="static/images/vip_icon.svg") }}' alt="">
+            <img class="vip_icon" src='{{ url_for("static",filename="images/vip_icon.svg") }}' alt="">
             <h3>开通起名<span>VIP</span></h3>
             <p class="vip_icon_p">查看更多完整起名报告</p>
             <ul>
@@ -64,18 +65,18 @@
                 </li>
                 <li>
                     <div class="vip_list"></div>
-                    <h5>专业</h5>
-                    <p class="list_p">多年起名经验 大数据智能算法</p>
+                    <h5>全面</h5>
+                    <p class="list_p">结合传统起名方式和现代起名科学</p>
                 </li>
                 <li>
                     <div class="vip_list"></div>
-                    <h5>专业</h5>
-                    <p class="list_p">多年起名经验 大数据智能算法</p>
+                    <h5>免费</h5>
+                    <p class="list_p">免费为您提供一个优质好名</p>
                 </li>
                 <li>
                     <div class="vip_list"></div>
-                    <h5>专业</h5>
-                    <p class="list_p">多年起名经验 大数据智能算法</p>
+                    <h5>超值</h5>
+                    <p class="list_p">一次开通不限次数使用</p>
                 </li>
             </ul>
         </div>
@@ -339,9 +340,9 @@
                         <p class="xiangmu">三才五格</p>
                     </li>
                     <li class="zybg">
-                        <p class="fenshu">{{ q_m_qt_df_qx_lt[5] }}</p>
+                        <p class="fenshu q_m_qt_df_qx_lt_5">{{ q_m_qt_df_qx_lt[5] }}</p>
                         <hr>
-                        <p class="xiangmu q_m_qt_df_qx_lt_5_5">周易卦象</p>
+                        <p class="xiangmu">周易卦象</p>
                     </li>
                     <li class="zybg2">
                         <p class="fenshu q_m_qt_df_qx_lt_0_0">{{ q_m_qt_df_qx_lt[0] }}</p>
@@ -515,7 +516,7 @@
                         </div>
                         <div class="bzwx_zhbt_1">
                             <div class="rzml_xbt_fl fl"><h4 class="bz_xj_xbt">生肖性格优点:</h4></div>
-                            <div class="rzml_xbt_fr fr">
+                            <div class="rzml_shengxiao_abcd rzml_xbt_fr fr">
                                 {% for q_m_sxxg_qp_n in q_m_sxxg_qp %}
                                     <p class="sxsx_xingge sxsx_xingge sxsx_xingge_{{ q_m_sxxg_qp.index(q_m_sxxg_qp_n)}}">{{ q_m_sxxg_qp_n }}</p>
                                 {% endfor %}
@@ -523,7 +524,7 @@
                         </div>
                         <div class="bzwx_zhbt_1">
                             <div class="rzml_xbt_fl fl"><h4 class="bz_xj_xbt">生肖性格缺点:</h4></div>
-                            <div class="rzml_xbt_fr fr">
+                            <div class="rzml_xbt_fr_bcde rzml_xbt_fr fr">
                                 {% for q_m_sxxg_qd_qp_m in q_m_sxxg_qd_qp %}
                                     <p class="sxsx_xingge sxsx_xingge sxsx_xgqd_{{ q_m_sxxg_qd_qp.index(q_m_sxxg_qd_qp_m)}}">{{ q_m_sxxg_qd_qp_m }}</p>
                                 {% endfor %}
@@ -532,7 +533,7 @@
                         <div class="bzwx_zhbt_1">
                             <div class="rzml_xbt_fl fl"><h4 class="bz_xj_xbt">生肖评分解释:</h4></div>
                             <div class="rzml_xbt_fr fr">
-                                <p>{{ q_m_sxxg_jies }}</p>
+                                <p class="q_m_sxxg_jies">{{ q_m_sxxg_jies }}</p>
                             </div>
                         </div>
                     </div>
@@ -552,7 +553,7 @@
                         </div>
                         <div class="bzwx_zhbt_1">
                             <div class="xz_xbt_fl fl"><h4 class="bz_xj_xbt">该星座优点:</h4></div>
-                            <div class="rzml_xbt_fr fr">
+                            <div class="rzml_xbt_fr_abcd rzml_xbt_fr fr">
                                 {% for foo in q_m_sm_xz_yd_qx_qp %}
                                     <p class="xz_xingge xz_xingge xz_xingge_{{ q_m_sm_xz_yd_qx_qp.index(foo) }}">{{ foo }}</p>
                                 {% endfor %}
@@ -560,7 +561,7 @@
                         </div>
                         <div class="bzwx_zhbt_1">
                             <div class="xz_xbt_fl fl"><h4 class="bz_xj_xbt">该星座缺点:</h4></div>
-                            <div class="rzml_xbt_fr fr">
+                            <div class="rzml_xbt_fr_defg rzml_xbt_fr fr">
                                 {% for foo in q_m_sm_xz_qd_qp %}
                                     <p class="xz_xingge xz_xingge xz_xinggeqd_{{ q_m_sm_xz_qd_qp.index(foo) }}">{{ foo }}</p>
                                 {% endfor %}
@@ -711,7 +712,7 @@
                         </div>
                         <div class="bzwx_zhbt_1">
                             <div class="xz_xbt_fl fl"><h4 class="bz_xj_xbt">解卦:</h4></div>
-                            <div class="xz_xbt_fr fr">
+                            <div class="xz_xbt_fr_jg_list xz_xbt_fr fr">
                                 {% for foo in q_m_zybg_jg_qx2 %}
                                     <p class="gx_rzml_p gx_rzml_p_{{ q_m_zybg_jg_qx2.index(foo) }}">{{ foo }}</p>
                                 {% endfor %}
@@ -785,7 +786,7 @@
                         <hr class="yxy_xj_fgx">
                         <div class="bzwx_zhbt_1">
                             <div class="xz_xbt_fl fl"><h4 class="bz_xj_xbt">字义分析:</h4></div>
-                            <div class="xz_xbt_fr fr">
+                            <div class="xz_xbt_fr_fghi xz_xbt_fr fr">
                                 {% for foo in q_m_yxy_zyfx_qx1 %}
                                     <p class="zyfx_p zyfx_p_0_{{ q_m_yxy_zyfx_qx1.index(foo) }}">{{ foo }}</p>
                                 {% endfor %}
@@ -799,7 +800,7 @@
                         </div>
                         <div class="bzwx_zhbt_1">
                             <div class="xz_xbt_fl fl"><h4 class="bz_xj_xbt">字型分析:</h4></div>
-                            <div class="xz_xbt_fr fr">
+                            <div class="xz_list_zsfx xz_xbt_fr fr">
                                 {% for foo in q_m_yxy_zxfx_lt2 %}
                                     <p class="zyfx_p zyfx_p_1_{{ q_m_yxy_zxfx_lt2.index(foo) }}">{{ foo }}</p>
                                 {% endfor %}
@@ -821,43 +822,39 @@
             <ul class="pinglun_1">
                 <li>
                     <div class="pinglun_yonghu">
-                        <img src="{{ url_for("static",filename="static/images/pinglun_touxiang.svg") }}" alt="">
+                        <img src="{{ url_for("static",filename="images/toubu_touxiang.svg") }}" alt="">
 
-                        <h5>134****123</h5>
+                        <h5>172****6745</h5>
                     </div>
                     <p class="yonghu_neirong">
-                        一直都很相信周易的，我开始也是在别的网站上起得名字，但是不是很满意，看到贵站的大师都是易学大师后，就选择了智能起名的一款，第一次的起名结果家人意见不太统一，后来选择大师起名，家人最后都还同意了，孩子的名字总算选好了，心里的石头终于落下了.</p>
-                    <p class="pinglun_time">2019-12-14 07:32</p>
+                        很不错的起名网站，起的名字很大气，个个都是98分以上的好名字</p>
                     <hr class="pinglun_xian">
                 </li>
                 <li>
                     <div class="pinglun_yonghu">
-                        <img src="{{ url_for("static",filename="static/pinglun_touxiang.svg") }}" alt="">
+                        <img src="{{ url_for("static",filename="images/toubu_touxiang.svg") }}" alt="">
 
-                        <h5>134****123</h5>
+                        <h5>136****1763</h5>
                     </div>
                     <p class="yonghu_neirong">
-                        一直都很相信周易的，我开始也是在别的网站上起得名字，但是不是很满意，看到贵站的大师都是易学大师后，就选择了智能起名的一款，第一次的起名结果家人意见不太统一，后来选择大师起名，家人最后都还同意了，孩子的名字总算选好了，心里的石头终于落下了</p>
-                    <p class="pinglun_time">2019-12-14 07:32</p>
+                        客服很有耐心，不厌其烦的帮我分析名字，服务态度值得称赞</p>
                     <hr class="pinglun_xian">
                 </li>
                 <li>
                     <div class="pinglun_yonghu">
-                        <img src="{{ url_for("static",filename="static/pinglun_touxiang.svg") }}" alt="">
-                        <h5>134****123</h5>
+                        <img src="{{ url_for("static",filename="images/toubu_touxiang.svg") }}" alt="">
+                        <h5>156****7233</h5>
                     </div>
                     <p class="yonghu_neirong">
-                        一直都很相信周易的，我开始也是在别的网站上起得名字，但是不是很满意，看到贵站的大师都是易学大师后，就选择了智能起名的一款，第一次的起名结果家人意见不太统一，后来选择大师起名，家人最后都还同意了，孩子的名字总算选好了，心里的石头终于落下了</p>
-                    <p class="pinglun_time">2019-12-14 07:32</p>
+                        师傅根据出生日期，评估了五行，然后帮忙选了很多可以参照的名字，终于选到了心仪的名字，感谢！！！了</p>
                     <hr class="pinglun_xian">
                 </li>
                 <li>
                     <div class="pinglun_yonghu">
-                        <img src="{{ url_for("static",filename="static/pinglun_touxiang.svg") }}" alt="">
-                        <h5>134****123</h5>
+                        <img src="{{ url_for("static",filename="images/toubu_touxiang.svg") }}" alt="">
+                        <h5>138****5373</h5>
                     </div>
                     <p class="yonghu_neirong">一直都很相信周易的，我开始也是在别的网站上起得名字.</p>
-                    <p class="pinglun_time">2019-12-14 07:32</p>
                     <hr class="pinglun_xian">
                 </li>
             </ul>

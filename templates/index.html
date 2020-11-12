@@ -8,7 +8,11 @@
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="Cache" content="no-cache">
     <meta name="baidu-site-verification" content="1Hzl4pOsBn"/>
+    <meta name="google-site-verification" content="_VIv8Nn23_7nRWgjY7F6FjFSYhQspwLhghPFHhNcDpg"/>
+    <meta name="360-site-verification" content="b1d20434dd2b78e6388c4c2127ce3cdf"/>
     <title>宝宝起名_免费测名_在线起名_起名宝典</title>
+    <meta name="sogou_site_verification" content="NkAsPh7wRY"/>
+
     <meta name="keywords" content="免费起名字,宝宝起名网,起名字大全,起名网,取名">
     <meta NAME="description"
           content="起名宝典是以传统周易学、汉语语言文学、诗词国学、统计学(千万级大数据分析)、心理学结合大数据为理论基础,起名宝典主要有男孩起名、女孩起名、诗词起名、传统起名名等在线起名等功能，是起名必备工具!">
@@ -106,27 +110,38 @@
         <div class="biaodan_index biaodan fr">
             <h3>科学·传统</h3>
             <p>一键解决当下取名“难”、“俗”、“大众化”等问题</p>
+            <div class="qiminordafen">
+                <div class="fl bd_grqm active">个人起名</div>
+                <div class="fr bd_mzdf ">名字打分</div>
+            </div>
             <form action="{{ url_for("csjg") }}" method="post" autocomplete="off">
                 <ul class="biaodan_neirong">
                     <li>
-                        <span>请输入姓氏:</span>
-                        <div class=" shuru fr">
-                            <input class="name" name="xing" required type="text">
-                            <label for="biaodan_xb_nan" class="xb_xz_class"><input type="radio" name="xingbie" value="1" id="biaodan_xb_nan"><i></i>男</label>
-                            <label for="biaodan__xb_nv" class="xb_xz_class"><input type="radio" name="xingbie" value="0" id="biaodan__xb_nv"><i></i>女</label>
-                            <label for="biaodan__xb_nobirth" class="xb_xz_class"><input type="radio" name="xingbie" value="9" id="biaodan__xb_nobirth" checked><i></i>未出生</label>
+                        <span class="qiwangtanchuang_js_name">请输入姓氏:</span>
+                        <div class="shuru fr shuru_name">
+                            <input class="name name_xingming" name="xing" required type="text" value="">
+                            <label for="biaodan_xb_nan" class="xb_xz_df_nan xb_xz_class"><input type="radio" name="xingbie" value="1"
+                                                                                   id="biaodan_xb_nan"><i></i>男</label>
+                            <label for="biaodan__xb_nv" class="xb_xz_df_nv xb_xz_class"><input type="radio" name="xingbie" value="0"
+                                                                                   id="biaodan__xb_nv"><i></i>女</label>
+                            <label for="biaodan__xb_nobirth" class="xb_xz_df_wcs    xb_xz_class_cs xb_xz_class"><input type="radio" name="xingbie"
+                                                                                        value="9"
+                                                                                        id="biaodan__xb_nobirth"
+                                                                                        checked><i></i>未出生</label>
                         </div>
                     </li>
-                    <li>
+                    <li class="dingzixuantian_1">
                         <span>定字(选填):</span>
-                        <div class="shuru fr">
+                        <div class="shuru shuru_dingzi fr">
                             <input class="dingzhi" name="dingzhi">
-                            <label for="biaodan_xz_1"><input type="radio" name="biaodan_xz" value="1" id="biaodan_xz_1"><i></i>第1个字</label>
-                            <label for="biaodan__xz_2"><input type="radio" name="biaodan_xz" value="2" id="biaodan__xz_2"><i></i>第2个字</label>
-                            <label for="biaodan__xz_all"><input type="radio" name="biaodan_xz" value="9" id="biaodan__xz_all" checked><i></i>包含</label>
+                            <label for="biaodan_xz_1"><input type="radio" name="biaodan_xz" value="1" id="biaodan_xz_1"><i class="dingzhi_i"></i>第1个字</label>
+                            <label for="biaodan__xz_2"><input type="radio" name="biaodan_xz" value="2"
+                                                              id="biaodan__xz_2"><i class="dingzhi_i"></i>第2个字</label>
+                            <label for="biaodan__xz_all"><input type="radio" name="biaodan_xz" value="9"
+                                                                id="biaodan__xz_all" checked><i class="dingzhi_i"></i>包含</label>
                         </div>
                     </li>
-                    <li>
+                    <li class="bd_qiwang ">
                         <span class="qw_biaoti">期望(选填):</span>
                         <div class="ibox-content shortcut-box guding col-xs-4 col-sm-4 col-md-3 col-lg-3"
                              data-toggle="modal" data-target="#myModal">
@@ -154,7 +169,8 @@
                                     <div class="modal-dialog">
                                         <div class="modal-content">
                                             <div class="modal-header clearfix mid">
-                                                <button type="button" class="qiwang_tc_close close mid" data-d ismiss="modal"
+                                                <button type="button" class="qiwang_tc_close close mid" data-d
+                                                        ismiss="modal"
                                                         aria-hidden="true">×
                                                 </button>
                                                 <h4 class="modal-title shortcut-modal-title mid" id="myModalLabel">
@@ -354,7 +370,7 @@
 
                                 <!--<audio controls="controls" style="display: none;"></audio>-->
                             </div>
-                            <div class="daosnajiao fr"></div>
+                            <div class="daosnajiao_dafen daosnajiao fr"></div>
                         </div>
                     </li>
                     <li>
@@ -407,7 +423,7 @@
                             <div class="daosnajiao fr"></div>
                         </div>
                     </li>
-                    <li>
+                    <li class="bd_csd_class">
                         <span>出生地:</span>
                         <div id="chushengdi_jquery">
                             <div class="leftPark">
@@ -536,6 +552,9 @@
                 </ul>
                 <input type="submit" id="form_tijiao" name="立即取名" value="立即取名">
             </form>
+            <div class="bd_lijiceming bd_lijiceming_hide">
+                <input class="bd_lijiceming_in" type="submit" value="立即测名" name="lijiceming">
+            </div>
         </div>
     </div>
 </div>
@@ -666,10 +685,13 @@
                     </ul>
                 </div>
                 <a href="javascript:;" class="btn_left">
-                    <i class="iconfont icon-zuoyoujiantou"><img class="i_jiantou_left" src="../static/images/ljiantou.svg" alt=""></i>
+                    <i class="iconfont icon-zuoyoujiantou"><img class="i_jiantou_left"
+                                                                src="../static/images/ljiantou.svg" alt=""></i>
                 </a>
                 <a href="javascript:;" class="btn_right">
-                    <i class="iconfont icon-zuoyoujiantou-copy-copy"><img class="i_jiantou_right" src="../static/images/rjiantou.svg" alt=""></i>
+                    <i class="iconfont icon-zuoyoujiantou-copy-copy"><img class="i_jiantou_right"
+                                                                          src="../static/images/rjiantou.svg"
+                                                                          alt=""></i>
                 </a>
                 <!--<a href="javascript:;" class="btn_close">-->
                 <!--<i class="iconfont icon-icon-test"></i>-->
@@ -953,31 +975,35 @@
     </script>
     <div id="pc_qmgl">
         <div class="qmgl_title">
-            <a class="qmgk" href="/qmgl"><h3>起名攻略</h3></a>
-            <a class="qmgl_title_a" href="{{ url_for('qmgl') }}">更多<img src="../static/images/csjg_kaitong.svg" alt=""></a>
+            <a class="qmgk" href="/qmgl/"><h3>起名攻略</h3></a>
+            <a class="qmgl_title_a" href="/qmgl/">更多<img src="../static/images/csjg_kaitong.svg" alt=""></a>
         </div>
         <div id="qmgl_lanmu_title">
             <ul>
-                <li class="lanmu_name lanmu_name_0 selected" ><a href="{{ url_for('zhuanshu_lanmu',lm_lujin=lanmu[0].lanmu_lujin) }}">{{ lanmu[0].lanmuname }}</a></li>
+                <li class="lanmu_name lanmu_name_0 selected"><a
+                        href="{{ url_for('zhuanshu_lanmu',lm_lujin=lanmu[0].lanmu_lujin) }}">{{ lanmu[0].lanmuname }}</a>
+                </li>
                 {% for i in range(1,8) %}
-                    <li class="lanmu_name lanmu_name_{{ i }} " ><a href="{{ url_for('zhuanshu_lanmu',lm_lujin=lanmu[i].lanmu_lujin) }}">{{ lanmu[i].lanmuname  }}</a></li>
+                    <li class="lanmu_name lanmu_name_{{ i }} "><a
+                            href="{{ url_for('zhuanshu_lanmu',lm_lujin=lanmu[i].lanmu_lujin) }}">{{ lanmu[i].lanmuname }}</a>
+                    </li>
                 {% endfor %}
             </ul>
         </div>
         <div lass="qmgl_content">
             {% for i in range(0,8) %}
-                <div class="fenlei fenlei_{{ i }}" >
+                <div class="fenlei fenlei_{{ i }}">
 
-                    {% if lanmu[i].xxxx|length<12  %}
-                        {% for k in range(0,lanmu[i].xxxx|length) %}
-                            <a href="{{ url_for('wzxq',article_idid=article_id[k]) }}">
+                    {% if lanmu[i].xxxx|length<12 %}
+                        {% for k in range(lanmu[i].xxxx|length-1,-1,-1) %}
+                            <a href="{{ url_for('wzxq',article_idid=lanmu[i].xxxx[k].id) }}.html">
                                 <h5>{{ lanmu[i].xxxx[k].title }}</h5>
-                                <p>{{ lanmu[i].xxxx[k].description[:100]}}</p>
+                                <p>{{ lanmu[i].xxxx[k].description[:100] }}</p>
                             </a>
                         {% endfor %}
                     {% else %}
-                        {% for k in range(0,12) %}
-                            <a href="{{ url_for('wzxq',article_idid=article_id[k]) }}">
+                        {% for k in range(lanmu[i].xxxx|length-1,lanmu[i].xxxx|length-13,-1) %}
+                            <a href="{{ url_for('wzxq',article_idid=lanmu[i].xxxx[k].id) }}.html">
                                 <h5>{{ lanmu[i].xxxx[k].title }}</h5>
                                 <p>{{ lanmu[i].xxxx[k].description[:100] }}</p>
                             </a>

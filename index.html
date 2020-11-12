@@ -1,11 +1,1318 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="format-detection" content="telephone=no">
+<meta name="applicable-device" content="pc,mobile">
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>张郑昊智能起名名字测试详解免费体验</title>
+<meta name="keywords" content="宝宝起名,孩子起名,男宝宝起名,女宝宝取名,男孩取名,女孩取名" />
+<meta name="description" content="智能宝宝起名系统是起名网十年潜心开发的智能宝宝起名取名系统，系统综合了网上流行的五格起名，生辰八字起名，周易卦象起名，生肖起名，以及现代的音形义起名为一体的多维综合智能起名系统，并加入了真太阳时较对，让孩子起名更准确，更好听更吉祥。" />
+
+<script src="//static.quwangming.com/gsqm/js/jquery.min.js" type="text/javascript"></script>
+<link href="//static.quwangming.com/newqiming/css/tradition/public.css" rel="stylesheet" type="text/css">
+<link href="//static.quwangming.com/newqiming/css/tradition/alone.css" rel="stylesheet" type="text/css">
+
+    <script src="//static.quwangming.com/fingerprint.js" type="text/javascript"></script>
+<script type="text/javascript">
+    (function ($) {
+        $.rand= function(min, max) {
+            let ran = (new Date()).valueOf() + Math.floor(Math.random() * (max - min)) + min;
+            return 'token_'+ran;
+        };
+        $.getToken=function() {
+            let token = localStorage.getItem('token');
+            if(!token){
+                if (typeof Fingerprint!=undefined) {
+                    var fingerPrint = new Fingerprint().get();
+                    let token = 'token_'+fingerPrint;
+                    localStorage.setItem('token',token);
+                    return token;
+                } else {
+                    let token = this.rand();
+                    localStorage.setItem('token',this.rand());
+                    return token;
+                }
+            } else {
+                return token;
+            }
+            return "";
+        };
+        $.isNeed=function(arr){
+            for (let i = 0; i < arr.length; i++) {
+                if(document.referrer.indexOf(arr[i])>-1){
+                    return false;
+                }
+            }
+            return true;
+        };
+
+
+        $.getToken();
+
+        // let target=['yw11.com','liemingwang.com','qumingdashi.com'];
+        // if($.isNeed(target)){
+        //     $.ajax({
+        //         url:'https://qm.qumingdashi.com/v5/log/index',
+        //         type: 'post',
+        //         data:{
+        //             referer : document.referrer,
+        //             url: location.href,
+        //             token:  $.getToken()
+        //         }
+        //     });
+        // }
+
+    })(jQuery)
+</script>
 </head>
 <body>
-<p>test中 的文件dasdas啊啊啊啊啊啊啊啊啊啊啊啊重中之重</p>
+    <style type="text/css">
+		body{ background:#f6f6f6; }
 
+		.news_tishi{ height: 25px; line-height: 25px; }
+		.news_tishi ul li{ padding: 0 !important; border: 0 !important; line-height: 25px !important;}
+	</style>
+    <div class="headbox">
+    <div class="z_header">
+        <div class="w1200 clearfix">
+            <h1 class="f_l logo"><a href="/newqiming"><img src="//static.quwangming.com/gsqm/images/logo.png"></a></h1>
+            <div class="po_abs login">
+    <!-- 未登录 -->
+    <div class="wdl "><a href="javascript:login();"><img src="//static.quwangming.com/newqiming/images/icon_wx.png"><span>微信登录</span></a></div>
+    <!-- 已登录 -->
+    <div class="ydl none">
+        <a href="javascript:" class="hd">
+            <img src="" id="portrait">
+            <span id="nick_name"></span>
+        </a>
+        <div class="bd none">
+            <div>
+                <ul>
+                    <i class="icon_jiao icon_jiao01"></i>
+                    <i class="icon_jiao icon_jiao02"></i>
+                    <i class="icon_jiao icon_jiao03"></i>
+                    <i class="icon_jiao icon_jiao04"></i>
+                    <li><a href="/member/index/index">个人中心</a></li>
+                    <li><a href="/member/index/index">订单查询</a></li>
+                    <li><a href="/newqiming/ceming/logout">退出登录</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="login_bj none"></div>
+<div class="login_rwm none">
+    <a href="javascript:off_login();" class="close">×</a>
+    <div class="price">微信登录查看</div>
+    <div class="rwm"><img id="pay_img" src="" width="256" height="256"></div>
+    <div class="fot">
+        <i></i>
+        <p>请使用<span class="pay">微信</span>扫一扫<br>扫描二维码登录看结果</p>
+    </div>
+    <input type="hidden" id="key" value="">
+</div>
+
+<script type="text/javascript">
+    $('.login .ydl').hover(function(){
+        $(this).find('.bd').stop().slideToggle(200)
+    });
+    function login(){
+        $(".login_bj,.login_rwm").removeClass("none");
+        $.ajax({
+            type:"GET",
+            url:"/api/wechat/get_qrcode",
+            data:{app:1,appflag:'qmqmgzh'},
+            datatype: "json",
+            success:function(data){
+                if (data.code == 1) {
+                    $("#pay_img").attr("src","https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket="+data.data.ticket);
+                    $("#key").val(data.data.key);
+
+                    $(function(){
+                        if(typeof window.queen_id != "undefined"){
+                            window.clearInterval(window.queen_id);
+                        }
+                        window.queen_id = setInterval(function ()
+                        {
+                            var random = Math.random();
+                            $.get("/api/wechat/check_login", { app:1, key:data.data.key, v : random},
+                                function(result_data){
+                                    if( result_data.code == 1 ) {
+                                        window.clearInterval(window.queen_id);
+                                        location.href = "/newqiming/index/index?key="+data.data.key;
+                                    }
+                                }
+                            );
+                        },3000);
+                    });
+                    return true;
+                } else {
+                    alert(data.data.msg);
+                    return false;
+                }
+            },
+            //调用出错执行的函数
+            error: function(){
+                //请求出错处理
+            }
+        });
+    }
+
+    function off_login(){
+        $(".login_bj,.login_rwm").addClass("none");
+        window.clearInterval(window.queen_id);
+    }
+</script>
+            <div class="f_r nav">
+                <ul>
+                    <li><span>个人起名<i></i></span></li>
+                    <li><span>公司起名<i></i></span></li>
+                    <li><span>名字测试<i></i></span></li>
+                    <li><span>订单查询<i></i></span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="z_head_box none">
+    <div class="w1140 clearfix text_a_c f_s0 con">
+        <div class="item first">
+            <div class="p_t15 p_b15">
+                <p><a href="/newqiming" target="_blank">智能八字起名</a><i>hot</i></p>
+                <p><a href="/expert" target="_blank">专家手工起名</a><i>hot</i></p>
+                <p><a href="/child_name/pc" target="_blank">起小名乳名</a></p>
+                <p><a href="/english" target="_blank">起英文名</a></p>
+                <p><a href="/wangming" target="_blank">起网名微信名</a></p>
+                <p><a href="/pet_name" target="_blank">宠物起名</a><i class="new">new</i></p>
+            </div>
+        </div>
+        <div class="item m_r160">
+            <div class="p_t15 p_b15">
+                <p><a href="/gsqm" target="_blank">公司起名</a></p>
+                <p><a href="/dashi_gongsi" target="_blank">专家公司起名</a><i>hot</i></p>
+                <p><a href="/gsqm/ceming/index" target="_blank">公司测名</a></p>
+                <p><a href="/shop" target="_blank">店铺起名</a></p>
+                <p><a href="/dashi_shop" target="_blank">专家店铺起名</a><i>hot</i></p>
+                <p><a href="/shop/ceming/index" target="_blank">店铺测名</a></p>
+            </div>
+        </div>
+        <div class="item">
+            <div class="p_t15 p_b15">
+                <p><a href="/newqiming/ceming/index" target="_blank">名字测试打分</a></p>
+                <p><a href="/child/ceming/index" target="_blank">小名乳名测试</a></p>
+                <p><a href="/english" target="_blank">英文名测试</a></p>
+                <p><a href="/dashi_ceming" target="_blank">专家手工测名</a></p>
+                <p><a href="/pets/ceming/index" target="_blank">宠物测名打分</a></p>
+            </div>
+        </div>
+        <div class="item">
+            <div class="p_t15 p_b15">
+                <p><a href="http://qmz5.com" target="_blank">查智能起名</a></p>
+                <p><a href="/expert/index/orderquery" target="_blank">查专家起名</a></p>
+                <p><a href="/child_name/pc/order_query.html" target="_blank">查小名乳名</a></p>
+                <p><a href="/english/index/orderquery" target="_blank">查英文名</a></p>
+                <p><a href="/wangming/order/net_order_query" target="_blank">查网名微信名</a></p>
+                <p><a href="/expert/company/orderquery" target="_blank">查专家公司起名</a></p>
+                <p><a href="/gsqm/order/order_query" target="_blank">查智能公司起名</a></p>
+                <p><a href="/expert/shop/orderquery" target="_blank">查专家店铺起名</a></p>
+                <p><a href="/shop/order/order_query" target="_blank">查智能店铺起名</a></p>
+                <p><a href="/pet_name/pc/order_query.html" target="_blank">查宠物起名</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+</div>    <div class="w1200 full">
+        <div class="path path clearfix">
+            <i class="icon"></i>
+            <ul>
+                <li><a href="/newqiming">首页</a><span>&gt;</span></li>
+                <li>名字详情</li>
+            </ul>
+        </div>
+        <div class="clearfix p_b20">
+            <div class="main-left f_l">
+                <div class="name-list">
+                    <div class="border3_000 p3 back_fff po_rel">
+                        <div class="border1_000 p1r13 ptb20">
+                            <div class="fraction"><a href="/expert">大师起名</a><i></i></div>
+                            <div class="zi-info">
+                                <ul class="clearfix">
+                                    <li class="f_l">
+                                        <span class="f_l zi">张</span>
+                                        <div class="f_l">
+                                            <p class="co_999"><em class="f_s12">笔画：</em><em class="co_666">11画</em></p>
+                                            <p class="co_999"><em class="f_s12">五行：</em><em class="co_666">火</em></p>
+                                            <p class="co_999"><em class="f_s12">拼音：</em><em class="co_666 pyins">
+                                                        <span class="hd"><em>zhāng</em><i></i></span><span class="bd"><i></i>                                                        <span>zhàng</span>                                                        </span>                                                    </em>
+                                                                                            </p>
+                                        </div>
+                                    </li>
+                                                                        <li class="f_l">
+                                        <span class="f_l zi">郑</span>
+                                        <div class="f_l">
+                                            <p class="co_999"><em class="f_s12">笔画：</em><em class="co_666">19画</em></p>
+                                            <p class="co_999"><em class="f_s12">五行：</em><em class="co_666">火</em></p>
+                                            <p class="co_999"><em class="f_s12">拼音：</em><em class="co_666">zhèng</em>                                            </p>
+                                        </div>
+                                    </li>
+                                                                        <li class="f_l">
+                                        <span class="f_l zi">昊</span>
+                                        <div class="f_l">
+                                            <p class="co_999"><em class="f_s12">笔画：</em><em class="co_666">8画</em></p>
+                                            <p class="co_999"><em class="f_s12">五行：</em><em class="co_666">火</em></p>
+                                            <p class="co_999"><em class="f_s12">拼音：</em><em class="co_666">hào</em>                                            </p>
+                                        </div>
+                                    </li>
+                                                                    </ul>
+                            </div>
+                            <div class="m_t20 line"></div>
+                            <div class="p_t25 po_rel text_a_c pfen"><i class="sj"></i><p class="f_s16 p_b5 co_666">综合评分</p><span>88</span>分</div>
+                            <div id="chart_axis" class="chart"></div>
+                            <div class="df-info p_t20">
+                                <ul class="text_a_c">
+                                    <li class="clearfix dis_inblock p_l0" onclick="detailItem(0);">
+                                        <span class="f_l co_999 p_r10 f_s14">好听内涵</span>
+                                        <div class="f_l fs"><em class="f_l"><i class="back_b6cee9" style="width: 87%"></i></em><b class="f_l co_dark f_s16 b">87分</b></div>
+                                    </li>
+                                    <li class="clearfix dis_inblock" onclick="detailItem(1);">
+                                        <span class="f_l co_999 p_r10 f_s14">八字五行</span>
+                                        <div class="f_l fs"><em class="f_l"><i class="back_b6dace" style="width: 88%"></i></em><b class="f_l co_dark f_s16 b">88分</b></div>
+                                    </li>
+                                    <li class="clearfix dis_inblock" onclick="detailItem(3);">
+                                        <span class="f_l co_999 p_r10 f_s14">生肖打分</span>
+                                        <div class="f_l fs"><em class="f_l"><i class="back_b6b7da" style="width: 83%"></i></em><b class="f_l co_dark f_s16 b">83分</b></div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="df-info p_t10">
+                                <ul class="text_a_c">
+                                    <li class="clearfix dis_inblock p_l0" onclick="detailItem(2);">
+                                        <span class="f_l co_999 p_r10 f_s14">星座打分</span>
+                                        <div class="f_l fs"><em class="f_l"><i class="back_ffc5c5" style="width: 98%"></i></em><b class="f_l co_dark f_s16 b">98分</b></div>
+                                    </li>
+                                    <li class="clearfix dis_inblock" onclick="detailItem(4);">
+                                        <span class="f_l co_999 p_r10 f_s14">五格数理</span>
+                                        <div class="f_l fs"><em class="f_l"><i class="back_cbc29a" style="width: 76%"></i></em><b class="f_l co_dark f_s16 b">76分</b></div>
+                                    </li>
+                                    <li class="clearfix dis_inblock" onclick="detailItem(5);">
+                                        <span class="f_l co_999 p_r10 f_s14">周易卦象</span>
+                                        <div class="f_l fs"><em class="f_l"><i class="back_abdcee" style="width: 100%"></i></em><b class="f_l co_dark f_s16 b">100分</b></div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="bor_radius10 border1_f3efef back_fcfcfc p_l15 p_r15 p_t15 p_b15 m_t20 zi-jx">
+                                <ul>
+                                    <li class="clearfix co_dark f_s15 first">
+                                        <b class="f_l line_h170">字义内涵：</b>
+                                        <p class="over_hidden line_h170"><span class="co_s">郑：</span>中国周代诸侯国名，在今河南省新郑县一带；郑重、慎重，姓氏。用作人名意指慎重、细心、小心翼翼之义；                                            <span class="co_s">昊：</span>大，形容广阔无限的意思。用作人名意指胸襟开阔、开明、潇洒之义；                                            </p>
+                                                </li>
+                                                <li class="clearfix co_dark f_s15">
+                                                    <b class="f_l line_h170">音律字型：</b>
+                                                    <p class="over_hidden line_h170"><span class="co_blue">张郑昊</span>的读音是zhāng、zhàng、zhèng、hào，
+                                            声调为阴平、去声、去声，音律优美，悦耳动听，朗朗上口。字型为:左右结构、左右结构、上下结构，字型优美，笔画搭配合理，利于书写和美观。</p>
+                                    </li>
+                                    <li class="clearfix co_dark f_s15">
+                                        <b class="f_l line_h170">八字开运：</b>
+                                        <p class="over_hidden line_h170"><span class="co_blue">八字偏弱， </span>八字喜「<span class="co_red">土</span>」，「<span class="co_red">土</span>」就是此命的「喜神」。用五行属
+                                        <span class="co_red">土</span> 的字起名，
+                                                                                </p>
+                                    </li>
+                                    <li class="clearfix co_dark f_s15">
+                                        <b class="f_l line_h170">周易卦象：</b>
+                                        <p class="over_hidden line_h170">名字张郑昊周易卦象为大有卦（火天大有）。喻指
+日丽中天，遍照万物；盛大富有，持盈保泰。
+得此卦者，正当好运，事事吉祥，大有收获，但防物极必反，盛极转衰。
+</p>
+                                    </li>
+                                    <li class="clearfix co_dark f_s15">
+                                        <b class="f_l line_h170">三才五格：</b>
+                                        <p class="over_hidden line_h170">该名字天人地三才为“<span class="co_m">木</span><span class="co_s">水</span><span class="co_j">金</span>”，配置佳。五格笔画搭配为：11-19-8，五格大吉。</p>
+                                    </li>
+                                    <li class="clearfix co_dark f_s15">
+                                        <b class="f_l line_h170">生肖吉祥：</b>
+                                        <p class="over_hidden line_h170">从生肖上看，生肖为鼠，该名字与生肖匹配度一般，没有存在部首宜忌冲突。 从现代生肖性格心里学来看，名字有勇敢,宽容,爱学习的字义，能改善生肖的胆小怕事,多疑保守,无远见的性格缺点。</p>
+                                    </li>
+                                    <li class="clearfix co_dark f_s15">
+                                        <b class="f_l line_h170">星座起名：</b>
+                                        <p class="over_hidden line_h170">名字“郑昊”具有正直,善良,宽容的字义暗示，能有效的改善天蝎座城府,嫉妒,好强,多疑的性格缺点。</p>
+                                    </li>
+                                    <li class="clearfix co_dark f_s15 lasts">
+                                        <b class="f_l line_h170 co_red">大师点评：</b>
+                                        <div class="over_hidden line_h170">
+                                        	<p>火火组合，两火比和，火旺。这种组合的人外表乐观而豪爽，人缘很好，但个性喜怒无常，感情忽冷忽热，容易意气用事。其人意志坚定，可依靠自己的努力，取得成功，声名远播。                                        </p>
+                                        	<p class="p_t15 line_h100"><a href="/dashi_ceming" class="f_s17 a16blue" target="_blank">更详细专业姓名测试可找林大师手工测名 &gt;&gt;</a></p>
+                                        	<p class="p_t10"><a href="/dashi_ceming" class="btn" target="_blank">林大师手工姓名测试打分</a></p>
+                                        	<div class="m_t5 clearfix">
+                                        		<span class="f_l co_999">已有 <b>85463</b> 人选择林大师手工测名　满意度 <em class="co_caa456">99.8%</em></span>
+                                        		<div class="f_l text_a_l co_999 news_tishi txt_scroll_top">
+                                        			<div class="bd">
+                                        				<ul id="order-infos">
+                                        					<li><span>2秒前</span>林先生找林大师手工测名</li>
+                                        					<li><span>6秒前</span>刘女士正在下单智能起名服务</li>
+                                        					<li><span>5秒前</span>张先生正在下单智能起名服务</li>
+                                        					<li><span>2秒前</span>田先生正在下单智能起名服务</li>
+                                        					<li><span>1秒前</span>张先生正在下单智能起名服务</li>
+                                        					<li><span>3秒前</span>陈女士正在下单智能起名服务</li>
+                                        					<li><span>4秒前</span>王先生正在下单智能起名服务</li>
+                                        					<li><span>5秒前</span>揭女士正在下单智能起名服务</li>
+                                        					<li><span>5秒前</span>刘女士正在使用智能起名服务</li>
+                                        					<li><span>4秒前</span>胡先生正在使用智能起名服务</li>
+                                        				</ul>
+                                        			</div>
+                                        		</div>
+                                        	</div>
+                                    	</div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                                <div class="p_t30"><h3 class="big-title f_s22 f_w400 p_l15 line_h100">基于大数据“郑昊”名字潮流分析<span class="f_s15 co_999">（近50年）</span></h3></div>
+                <div class="m_t20 border3_000 p3 back_fff po_rel">
+                    <div class="border1_000 p1r13 ptb20 clearfix">
+                        <div class="clearfix">
+                            <div class="f_l" style="width: 500px;">
+                                <div id="chart_cate" class="chart"></div>
+                            </div>
+                            <div class="f_r xb_fenxi">
+                                <h3 class="f_s15 f_w400">基于大数据分析，近十年来，"郑昊"的男性使用率居多，比例占</h3>
+                                <ul class="clearfix">
+                                    <li class="item01">
+                                        <span class="f_l"><i class="icon"></i></span><em class="f_l">93.8<font>%</font></em>
+                                    </li>
+                                    <li class="item02">
+                                        <span class="f_r"><i class="icon"></i></span><em class="f_r">6.2<font>%</font></em>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="clearfix p_t20">
+                            <div class="f_l text_a_c" style="width:50%">
+                                <h3 class="f_s17 f_w400">“郑”在名字首字中使用排名趋势</h3>
+                                <div id="chart_first" class="chart"></div>
+                            </div>
+                                                        <div class="f_r text_a_c" style="width:50%;">
+                                <h3 class="f_s17 f_w400">“昊”在名字第二个字使用排名趋势</h3>
+                                <div id="chart_second" class="chart"></div>
+                            </div>
+                                                    </div>
+                    </div>
+                </div>
+                <div class="p_t30"><h3 class="big-title f_s22 f_w400 p_l15 line_h100">“郑昊”名字分析</h3></div>
+                <div class="border3_000 p3 m_t20 back_fff po_rel name_xinxi">
+                    <div class="border1_000 p1r13 ptb20 clearfix hd">
+                        <div class="f_l"><b>音形义起名详解</b><em class="p_l15 p_r15"><span><b>87</b></span>分</em><em class="co_999">占综合评分<b>30</b>%<i class="f_s14 p_l15 f_w400">（主要参考成语、诗词、名言、名人用字等）</i></em></div>
+                        <div class="f_r"><b>展开查看</b><i></i></div>
+                        <a href="javascript:detailItem(0);"></a>
+                    </div>
+                </div>
+                <div class="border3_000 p3 m_t10 back_fff po_rel name_xinxi">
+                    <div class="border1_000 p1r13 ptb20 clearfix hd">
+                        <div class="f_l"><b>八字五行起名详解</b><em class="p_l15 p_r15"><span><b>88</b></span>分</em><em class="co_999">占综合评分<b>30</b>%<i class="f_s14 p_l15 f_w400">（主要以生辰八字喜用神与名字五行的开运指标）</i></em></div>
+                        <div class="f_r"><b>展开查看</b><i></i></div>
+                        <a href="javascript:detailItem(1);"></a>
+                    </div>
+                </div>
+                <div class="border3_000 p3 m_t10 back_fff po_rel name_xinxi">
+                    <div class="border1_000 p1r13 ptb20 clearfix hd">
+                        <div class="f_l"><b>星座起名详解</b><em class="p_l15 p_r15"><span><b>98</b></span>分</em><em class="co_999">占综合评分<b>10</b>%<i class="f_s14 p_l15 f_w400">（主要参考星座性格缺点，基于24种性格特质起名）</i></em></div>
+                        <div class="f_r"><b>展开查看</b><i></i></div>
+                        <a href="javascript:detailItem(2);"></a>
+                    </div>
+                </div>
+                <div class="border3_000 p3 m_t10 back_fff po_rel name_xinxi">
+                    <div class="border1_000 p1r13 ptb20 clearfix hd">
+                        <div class="f_l"><b>生肖起名详解</b><em class="p_l15 p_r15"><span><b>83</b></span>分</em><em class="co_999">占综合评分<b>10</b>%<i class="f_s14 p_l15 f_w400">（主要参考生肖喜忌开运和生肖性格缺点弥补）</i></em></div>
+                        <div class="f_r"><b>展开查看</b><i></i></div>
+                        <a href="javascript:detailItem(3);"></a>
+                    </div>
+                </div>
+                <div class="border3_000 p3 m_t10 back_fff po_rel name_xinxi">
+                    <div class="border1_000 p1r13 ptb20 clearfix hd">
+                        <div class="f_l"><b>三才五格起名详解</b><em class="p_l15 p_r15"><span><b>76</b></span>分</em><em class="co_999">占综合评分<b>10</b>%<i class="f_s14 p_l15 f_w400">（主要参考名字笔画的三才和五格数理）</i></em></div>
+                        <div class="f_r"><b>展开查看</b><i></i></div>
+                        <a href="javascript:detailItem(4);"></a>
+                    </div>
+                </div>
+                <div class="border3_000 p3 m_t10 back_fff po_rel name_xinxi">
+                    <div class="border1_000 p1r13 ptb20 clearfix hd">
+                        <div class="f_l"><b>周易卦象起名详解</b><em class="p_l15 p_r15"><span><b>100</b></span>分</em><em class="co_999">占综合评分<b>10</b>%<i class="f_s14 p_l15 f_w400">（主要参考易经的六十四卦象进行周易卦象开运起名）</i></em></div>
+                        <div class="f_r"><b>展开查看</b><i></i></div>
+                        <a href="javascript:detailItem(5);"></a>
+                    </div>
+                </div>
+                <div class="border3_000 p3 back_fff po_rel text_a_c m_t30">
+                    <div class="border1_000 p1r13 ptb20">
+                                                    <p>以上是起名网为您生成的免费体验名字之一，<b class="f_s18">打破行业先付款再起名潜规则</b>，先试用体验再付款，好系统用数据说话！</p>
+                            <p class="p_t10"><a href="/newqiming/order/view" class="btn">立即下单查看更多好名字</a></p>
+                                            </div>
+                </div>
+                <div class="p_t30"><h3 class="big-title f_s22 f_w400 p_l15 line_h100">用户评论</h3></div>
+                <div class="m_t20 border3_000 p3 back_fff po_rel">
+                    <div class="border1_000 p1r13 ptb20">
+                        <input type="hidden" id="imgPath" value="//static.quwangming.com/newqiming/images">
+<div class="pinlun" id="evaluate_more"></div>
+<script type="text/javascript">
+    // 异步加载完所有的评价，然后js拼接DOM元素
+    $.ajax({
+        url     :  '/newqiming/order/order_comment',
+        data    :  {id:'comment'},
+        type    :  'POST',
+        dataType:  'JSON',
+        success:function(msg){
+            if (msg.length > 1) {
+                var imgPath = $('#imgPath').val() + '/avatar.png';
+                var htmlResult = '', htmlMore = '';
+                var length = msg.length;
+
+                for (var j_more = 0; j_more < length; j_more++) {
+                    var mobile_more = msg[j_more].mobile.toString();
+                    var createTime_more = msg[j_more].create_time;
+                    var content_more = msg[j_more].content;
+                    var orderSn_more = msg[j_more].order_sn;
+                    var clas = '';
+                    if(j_more == 0){clas=' first'}else if(j_more == length-1){clas=' last'}
+                    htmlMore += '<div class="item'+clas+'"><div class="clearfix">'+
+                        '<img src="' + imgPath + '" width="45" height="45" class="f_l m_r10">'+
+                        '<div class="fl_l">'+
+                        '<h3 class="f_s17">' + mobile_more.substr(0, 3) + '***' + mobile_more.substr(-2) +'</h3>'+
+                        '<p class="f_s15 co_999">订单号：' + orderSn_more.substr(0, 5) + '***' + orderSn_more.substr(-5) + '</p>'+
+                        '</div></div>'+
+                        '<div class="f_s14 co_777 line_h200">' + content_more + '</div></div>';
+                }
+                $('#evaluate_more').empty();
+                $('#evaluate_more').append(htmlMore);
+            }
+        },
+        error:function(msg){
+            console.log('error');
+        }
+    });
+</script>                    </div>
+                </div>
+                <div class="p_t30"><h3 class="big-title f_s22 f_w400 p_l15 line_h100">常见问题</h3></div>
+                <div class="m_t20 border3_000 p3 back_fff po_rel">
+                    <div class="border1_000 p1r13 ptb20" style="padding-bottom:5px;">
+                        <div class="ask-question">
+    <div class="item p_b15">
+        <div class="hd dis_inblock"><span class="dis_inblock">问</span>付了款不能起名或不记得订单怎么办？</div>
+        <div class="bd back_fcfcfc bor_radius5 p_t15 p_b15 p_l20 p_r20 f_s14 co_777 line_h170 p_t15 m_t15" style="display: block;">付款成功后会发一条短信，里面有订单号和专属起名地址，点击短信中地址即可查看起名结果，如果没收到短信，请点 订单查询 去查询订单，输入你下单时填写的手机号，查到订单号点击订单号即可查看起名结果。如果付款无短信也查不到订单。请加我们公众号“ bazimingzi ” 把支付凭证和手机号发给我们，技术为您处理订单。</div>
+    </div>
+    <div class="item p_b15">
+        <div class="hd dis_inblock"><span class="dis_inblock">问</span>什么是喜用神？</div>
+        <div class="bd back_fcfcfc bor_radius5 p_t15 p_b15 p_l20 p_r20 f_s14 co_777 line_h170 p_t15 m_t15">八字喜用神就是对自己有利的用神。一个人的命局讲究五行平衡。如某人八字日干身弱，五行忌火，就不能取属火的名字。或许会有人问到，五行所缺和喜用神不同怎么办呢？如某人五行缺木，而喜用神为火。那么起名取火为宜而不是缺什么补什么。</div>
+    </div>
+    <div class="item p_b15">
+        <div class="hd dis_inblock"><span class="dis_inblock">问</span>什么真太阳时？</div>
+        <div class="bd back_fcfcfc bor_radius5 p_t15 p_b15 p_l20 p_r20 f_s14 co_777 line_h170 p_t15 m_t15">真太阳时=平太阳时+真平太阳时差。大家平时用的钟表时间为北京时间，是标准时区的平均太阳时，起名时，须按照出生地点，先推算出当地平太阳时，再推算出真太阳时，以真太阳时为准起名，不要直接采用北京时间，以免因时间偏差搞错时辰。更多详情</div>
+    </div>
+    <div class="item p_b15">
+        <div class="hd dis_inblock"><span class="dis_inblock">问</span>付款与免费的区别在哪？</div>
+        <div class="bd back_fcfcfc bor_radius5 p_t15 p_b15 p_l20 p_r20 f_s14 co_777 line_h170 p_t15 m_t15">起名网是起名行业标杆企业，打破行业先付款再起名，首推让用户先体验试用，满意再付款，所以免费和付款在功能上是完全相同，只是免费用户只能看一页5个名字，付费用户则可以查看挑选更多美名。如智能起名39元可以看100个名字。</div>
+    </div>
+    <div class="item p_b15">
+        <div class="hd dis_inblock"><span class="dis_inblock">问</span>智能起名是怎么来起名的？</div>
+        <div class="bd back_fcfcfc bor_radius5 p_t15 p_b15 p_l20 p_r20 f_s14 co_777 line_h170 p_t15 m_t15">智能起名是以真太阳时核对的精准生辰八字起名为基础，结合三才五格数理，周易卦象，生肖喜忌，以及现代起名的好听，好写，内涵，以及古典唐诗、宋词、成语、诗经、楚辞等为一体的综合智能起名系统。真正让名字吉祥，好听，有内涵。</div>
+    </div>
+    <div class="item p_b15">
+        <div class="hd dis_inblock"><span class="dis_inblock">问</span>贵公司与其它网站起名系统区别在哪？</div>
+        <div class="bd back_fcfcfc bor_radius5 p_t15 p_b15 p_l20 p_r20 f_s14 co_777 line_h170 p_t15 m_t15">第一：起名网是全国最大的起名行业网站，名字基于大数据分析起名用字趋势，名字流行度分析，避免太热重名的名字和老旧过时的名字。 第二：首创多维智能起名，真正以生辰八字和音形义为基准，结合三才五格数理，周易卦象，生肖喜忌，古典诗词成语而来的综合智能起名，非其它网站的单一八字起名和简单的三才五格系统。 第三：名字基于起名网十年经验积累研发，更系统、精准、专业。</div>
+    </div>
+</div>
+<script type="text/javascript">
+    $('.ask-question .hd').click(function(){
+        if($(this).next().css('display') == 'block'){
+            $(this).next().removeAttr('style')
+        }else{
+            $(this).next().fadeIn(200).parent().siblings().find('.bd').removeAttr('style')
+        }
+    })
+</script>                    </div>
+                </div>
+            </div>
+            <div class="main-right f_r">
+                <div class="service">
+                    <div class="ad">
+                                                <a href="/expert"><img src="//static.quwangming.com/newqiming/images/tradition/ad_img.jpg" style="vertical-align: top;"></a>
+                                            </div>
+                                        <div class="p_t25"><h3 class="big-title f_s19 f_w400 p_l15 line_h100">其它体验名字</h3></div>
+                    <div class="m_t15 border3_000 p3 back_fff po_rel">
+                        <div class="border1_000 p1r13 ptb20 clearfix other-name">
+                            <ul>
+                                                                <li class="clearfix"><a href="/newqiming/index/detail?name_id=19183&surname=张&name=峻豪"><span class="zis">张</span><span class="zis">峻</span><span class="zis">豪</span></a><span class="f_r p_t5 f_s12 co_999"><b class="f_s20 co_red">95</b>分</span></li>
+                                                                <li class="clearfix"><a href="/newqiming/index/detail?name_id=1031&surname=张&name=文俊"><span class="zis">张</span><span class="zis">文</span><span class="zis">俊</span></a><span class="f_r p_t5 f_s12 co_999"><b class="f_s20 co_red">92</b>分</span></li>
+                                                                <li class="clearfix"><a href="/newqiming/index/detail?name_id=7968&surname=张&name=洪伟"><span class="zis">张</span><span class="zis">洪</span><span class="zis">伟</span></a><span class="f_r p_t5 f_s12 co_999"><b class="f_s20 co_red">94</b>分</span></li>
+                                                            </ul>
+                        </div>
+                    </div>
+                                                            <a href="/newqiming/order/view">
+                        <div class="border3_fff p3 m_t10 back_000040 po_rel m_t15">
+                            <div class="border1_fff p1r13 p_t20 p_b20"><h3 class="f_s20 co_fff line_h100 text_a_c">查看更多好名字</h3></div>
+                        </div>
+                    </a>
+                                    </div>
+                <script type="text/javascript">
+                    // 悬浮客服跟随
+                    var right = $('.main-right'),
+                        service = $('.service')
+                    function ser_scroll(){
+                        service_t = right.offset().top-20
+                        scrollTop = $(window).scrollTop()
+                        if( scrollTop >= service_t ){
+                            service.addClass('fixed')
+                        }else{
+                            service.removeClass('fixed')
+                        }
+                    }
+                    ser_scroll()
+                    $(window).scroll(ser_scroll);
+                </script>
+            </div>
+        </div>
+    </div>
+
+    <div class="fixed_info">
+        <div class="info_box">
+            <div class="ajax_box">
+                <div class="hd"><img src="//static.quwangming.com/common/topic/images/dsqm/logo.png"><span>“郑昊”——<em>音形义详解</em><b class="co_red p_l10">100分</b><p class="dis_inblock p_l30 f_w400 f_s14 co_ccc"><i>音形义</i>对名字<s style="text-decoration:none;">很重要</s>，占综合评分<b>30</b>%</p></span><a href="javascript:detailClose();" class="close"><i></i></a></div>
+                <div class="bd">
+                    <div class="bd_box">
+                        <div class="info_con">
+                            <div class="item none">
+                                <div class="clearfix">
+                                    <div class="f_l mz_js" style="width:50%;">
+                                        <div class="clearfix mz_js_h">
+                                            <h3 class="f_l"><div class="mingzi"><span><em class="zis">郑</em></span></div></h3>
+                                            <p class="f_l p_t30 co_666"><span class="p_l10">（鄭）</span><span class="p_l5">zhèng</span></p>
+                                        </div>
+                                        <div class="clearfix p_t20">
+                                            <dl>
+                                                <dt class="f_l line_h170 co_999">字义解释：</dt>
+                                                <dd class="over_hidden line_h170 p_b10">中国周代诸侯国名，在今河南省新郑县一带；郑重、慎重，姓氏。用作人名意指慎重、细心、小心翼翼之义；</dd>
+                                                <dt class="f_l line_h170 co_999">用字解释：</dt>
+                                                <dd class="over_hidden line_h170 p_b10">此字能较好地与起名用字张搭配。</dd>
+                                                <dt class="f_l line_h170 co_999">来源解释：</dt>
+                                                <dd class="over_hidden line_h170 p_b10">
+                                                    <p>来自宋词：苏轼 所著 《南歌子》 窈窕高明玉，风流<span class="co_red">郑</span>季庄。</p>                                                                            </dd>
+                                            </dl>
+                                        </div>
+                                    </div>
+                                                                        <div class="f_r mz_js" style="width:50%;">
+                                        <div class="clearfix mz_js_h">
+                                            <h3 class="f_l">
+                                                <div class="mingzi"><span><em class="zis">昊</em></span></div>
+                                            </h3>
+                                            <p class="f_l p_t30 co_666"><span class="p_l10">（昊）</span><span class="p_l5">hào</span></p>
+                                        </div>
+                                        <div class="clearfix p_t15">
+                                            <dl>
+                                                <dt class="f_l line_h170 co_999">字义解释：</dt>
+                                                <dd class="over_hidden line_h170 p_b10">昊：大，形容广阔无限的意思。用作人名意指胸襟开阔、开明、潇洒之义；</dd>
+                                                <dt class="f_l line_h170 co_999">用字解释：</dt>
+                                                <dd class="over_hidden line_h170 p_b10">
+                                                    此字能较好地与起名用字郑搭配。                                                </dd>
+                                                <dt class="f_l line_h170 co_999">来源解释：</dt>
+                                                <dd class="over_hidden line_h170 p_b10">
+                                                    <p>来自宋词：王之道 所著 《点绛唇》 把酒呼晴<span class="co_red">昊</span>。</p>                                                                                                                                                                                                                                                                                </dd>
+                                            </dl>
+                                        </div>
+                                    </div>
+                                                                    </div>
+                                <div style="border-top: 1px dashed #efefef;height: 0;" class="m_t10"></div>
+                                <div class="clearfix p_t20">
+                                    <div class="f_s16 f_w700">音形义分析</div><div class="p_t15">
+                                        <dl>
+                                            <dt class="f_l line_h170 co_999">字义分析：</dt>
+                                            <dd class="over_hidden line_h170 p_b10">
+                                                <p>郑：认真、郑国、郑姓、郑州,意指一丝不苟、谦虚谨慎、谨小慎微。</p>
+                                                <p>昊：广阔、胸襟、开朗、英俊,意指昂霄耸壑、溥博如天、义薄云天。</p>
+                                            </dd>
+                                            <dt class="f_l line_h170 co_999">音律分析：</dt>
+                                            <dd class="over_hidden line_h170 p_b10">张、郑、昊的读音是zhāng、zhàng、zhèng、hào，声调为阴平、去声、去声，音律优美，悦耳动听。</dd>
+                                            <dt class="f_l line_h170 co_999">字型分析：</dt>
+                                            <dd class="over_hidden line_h170 p_b10">
+                                                <p>张为左右结构 ，姓名学笔画11 画；
+                                                        </p>
+                                                <p>郑为左右结构 ，姓名学笔画19 画；
+                                                        昊为上下结构 ，姓名学笔画8 画；字型优美，笔画搭配合理，利于书写和美观。</p>
+                                            </dd>
+                                        </dl>
+                                    </div>
+                                </div>
+                                                                <div style="border-top: 1px dashed #efefef;height: 0;" class="m_t10"></div>
+                                <div class="clearfix p_t20">
+                                    <div class="f_s16 f_w700">大师点评</div>
+                                    <div class="p_t15">
+                                        火火组合，两火比和，火旺。这种组合的人外表乐观而豪爽，人缘很好，但个性喜怒无常，感情忽冷忽热，容易意气用事。其人意志坚定，可依靠自己的努力，取得成功，声名远播。                                                                            </div>
+                                </div>
+                                <p class="p_t20 text_a_c"><a href="javascript:detailItem(1);" class="btn">下一条，八字五行分析<em class="p_l10">88分</em></a></p>
+                            </div>
+                            <div class="item none">
+                                <div class="basic p_b20">
+                                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                        <tbody>
+                                            <tr>
+                                                <th>真太阳时公历</th>
+                                                <td>2020年</td>
+                                                <td>11月</td>
+                                                <td>12日</td>
+                                                <td>12点</td>
+                                            </tr>
+                                            <tr>
+                                                <th>真太阳时农历</th>
+                                                <td>庚子年</td>
+                                                <td>九月</td>
+                                                <td>廿七</td>
+                                                <td>午时</td>
+                                            </tr>
+                                            <tr>
+                                                <th>八　　字：</th>
+                                                <td>庚子</td>
+                                                <td>丁亥</td>
+                                                <td>己未</td>
+                                                <td>庚午</td>
+                                            </tr>
+                                            <tr>
+                                                <th>五　　行：</th>
+                                                <td>金水</td>
+                                                <td>火水</td>
+                                                <td>土土</td>
+                                                <td>金火</td>
+                                            </tr>
+                                            <tr>
+                                                <th>纳　　音：</th>
+                                                <td>壁上土</td>
+                                                <td>屋上土</td>
+                                                <td>天上火</td>
+                                                <td>路旁土</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div style="border-top: 1px dashed #efefef;height: 0;" class="m_t10"></div>
+                                <div class="f_s16 f_w700 p_t20 p_b15">五行强弱分析</div>
+                                <div class="wuxing">
+                                    <div class="tu">
+                                        <ul class="clearfix">
+                                            <li class="wx_j"><span class="co_j p_r5">金</span><span class="back"><i style="width: 24%"></i></span><span class="p_l5">24%</span></li>
+                                            <li class="wx_m"><span class="co_m p_r5">木</span><span class="back"><i style="width: 7%"></i></span><span class="p_l5">7%</span></li>
+                                            <li class="wx_s"><span class="co_s p_r5">水</span><span class="back"><i style="width: 23%"></i></span><span class="p_l5">23%</span></li>
+                                            <li class="wx_h"><span class="co_h p_r5">火</span><span class="back"><i style="width: 28%"></i></span><span class="p_l5">28%</span></li>
+                                            <li class="wx_t"><span class="co_t p_r5">土</span><span class="back"><i style="width: 18%"></i></span><span class="p_l5">18%</span></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="basic line_h170 p_b10">
+                                    <p><b class="co_j">2金</b>,<b class="co_m">0木</b>,<b class="co_s">2水</b>,<b class="co_h">2火</b>,<b class="co_t">2土</b></p>
+                                    <p>此命五行缺木；</p>
+                                    <p>日主天干为<span class="co_t">土</span>
+                                                    同类为：<span class="co_h">火</span><span class="co_t">土</span>；
+                                                    异类为：<span class="co_m">木</span><span class="co_j">金</span><span class="co_s">水</span>。</p>
+                                </div>
+                                <div style="border-top: 1px dashed #efefef;height: 0;" class="m_t10"></div>
+                                <div class="f_s16 f_w700 p_t20 p_b15">八字喜神分析</div><div class="bzxys p_b20">
+                                    <ul>
+                                        <li>
+                                            <span class="fl">〖同类得分〗火:23.78&nbsp;&nbsp;土:15&nbsp;&nbsp;共计38.78分；</span>
+                                            <span>〖异类得分〗木:6&nbsp;&nbsp;金:20&nbsp;&nbsp;水:19.38&nbsp;&nbsp;　共计45.38分；</span>
+                                        </li>
+                                        <li>
+                                            <span class="fl">〖综合旺衰得分〗-6.6分，「<b class="co_green">八字偏弱</b>」</span>
+                                            <span>〖八字喜用神〗八字偏弱，八字喜「<b class="co_s">土</b>」，「<b class="co_s">土</b>」就是此命的「<b>喜神</b>」。</span>
+                                        </li>
+                                        <li>用五行属 <b class="co_s">土</b> 的字起名，对今后健康，事业，婚姻，财运都更加有利。</li>
+                                    </ul>
+                                </div>
+                                <div style="border-top: 1px dashed #efefef;height: 0;" class="m_t10"></div>
+                                <div class="clearfix p_t20">
+                                    <div class="f_s16 f_w700">名字八字分析</div>
+                                    <div class="p_t15">
+                                                                                                                    </div>
+                                </div>
+                                <p class="p_t20 text_a_c"><a href="javascript:detailItem(2);" class="btn">下一条，星座起名分析<em class="p_l10">98分</em></a></p>
+                            </div>
+                            <div class="item none">
+                                <div class="f_s16 f_w700 p_b15">星座：天蝎座<span class="co_999 f_s14 f_w400">（）</span></div>
+                                <div class="clearfix p_b20">
+                                    <div class="f_l wuxing">
+                                        <div class="f_l xz_tx xz_10"></div>
+                                        <div class="over_hidden p_l20 p_t5 xz_text">
+                                            <dl>
+                                                <dt class="f_s12 f_w700 line_h100 p_b10">天蝎座优点：</dt>
+                                                <dd class="p_b30 youdisn clearfix">
+                                                                                                            <span>洞察力</span>
+                                                                                                            <span>领导力</span>
+                                                                                                            <span>有毅力</span>
+                                                                                                            <span>敏锐</span>
+                                                                                                    </dd>
+                                                <dt class="f_s12 f_w700 line_h100 p_b10 co_red">天蝎座缺点：</dt>
+                                                <dd class="clearfix">
+                                                                                                            <span>城府</span>
+                                                                                                            <span>嫉妒</span>
+                                                                                                            <span>好强</span>
+                                                                                                            <span>多疑</span>
+                                                                                                    </dd>
+                                            </dl>
+                                        </div>
+                                    </div>
+                                    <div class="f_r xz_zj" style=" width: 385px;">
+                                        <h3 class="f_w400 text_a_c p_b20">名字星座评分：</h3>
+                                        <div class="xz_zb"><span><i><em></em></i></span><font>98<i>分</i></font></div>
+                                        <div class="back_fbfbfb p_t15 p_b15 p_l15 p_r15 f_s14 line_h170">
+                                            <p>星座评分解释：名字“郑昊”具有正直,善良,宽容的字义暗示，能有效的改善天蝎座城府,嫉妒,好强,多疑的性格缺点。</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="p_t20 text_a_c"><a href="javascript:detailItem(3);" class="btn">下一条，生肖吉凶分析<em class="p_l10">83分</em></a></p>
+                            </div>
+                            <div class="item none">
+                                <div class="f_s16 f_w700 p_b15">生肖：属鼠</div>
+                                <div class="clearfix p_b20">
+                                    <div class="f_l wuxing">
+                                        <div class="f_l sx_tx sx_01"></div>
+                                        <div class="over_hidden p_l20 p_t5 xz_text">
+                                            <dl>
+                                                <dt class="f_s12 f_w700 line_h100 p_b10">属鼠性格优点：</dt>
+                                                <dd class="p_b30 youdisn clearfix">
+                                                                                                            <span>善良</span>
+                                                                                                            <span>宽容</span>
+                                                                                                            <span>才智</span>
+                                                                                                            <span>独立</span>
+                                                                                                    </dd>
+                                                <dt class="f_s12 f_w700 line_h100 p_b10 co_red">属鼠性格缺点：</dt>
+                                                <dd class="clearfix">
+                                                                                                            <span>胆小怕事</span>
+                                                                                                            <span>多疑保守</span>
+                                                                                                            <span>无远见</span>
+                                                                                                    </dd>
+                                            </dl>
+                                        </div>
+                                    </div>
+                                    <div class="f_r xz_zj" style=" width: 385px;">
+                                        <h3 class="f_w400 text_a_c p_b20">名字生肖评分：</h3>
+                                        <div class="xz_zb"><span><i><em></em></i></span><font>83<i>分</i></font></div>
+                                        <div class="back_fbfbfb p_t15 p_b15 p_l15 p_r15 f_s14 line_h170">
+                                            <p>生肖评分解释：传统生肖起名来看，生肖为鼠，该名字与生肖匹配度一般，没有存在部首宜忌冲突。 从现代生肖性格心里学来看，名字有勇敢,宽容,爱学习的字义，能改善生肖的胆小怕事,多疑保守,无远见的性格缺点。</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="p_t20 text_a_c"><a href="javascript:detailItem(4);" class="btn">下一条，五格数理分析<em class="p_l10">76分</em></a></p>
+                            </div>
+                            <div class="item none">
+                                <div class="f_s16 f_w700 p_b15">结构 解析</div>
+                                <div class="clearfix p_b20">
+                                    <div class="f_l wg_tu" style=" padding-left: 50px;">
+                                        <span class="f_l text text01"><em>外格 9</em></span>
+                                        <span class="f_l xian xian01"><em class="line"></em></span>
+                                        <span class="f_l text text02">
+                                            <p>1</p>
+                                            <p>张 11</p>
+                                            <p>郑 19</p>
+                                            <p>昊&nbsp;8 </p>
+                                        </span>
+                                        <span class="f_l xian xian02">
+                                            <em class="line"></em><em class="line"></em><em class="line"></em>
+                                        </span>
+                                        <span class="f_l text text03">
+                                            <p>天格 12</p>
+                                            <p>人格 30</p>
+                                            <p>地格 27</p>
+                                        </span>
+                                        <span class="text04">总格 38</span>
+                                    </div>
+                                    <div class="f_l co_999 line_h200 f_s15 p_t15" style="padding-left:70px">
+                                        <p>天格数是先祖留传下来的，其数理对人影响不大。</p>
+                                        <p>地格数又称前运，影响人中年（36岁）以前的活动力。</p>
+                                        <p>人格数又称主运，是整个姓名的中心点，影响人的一生命运。</p>
+                                        <p>外格又称变格，影响人的社交、智慧等，其数理不用重点去看。</p>
+                                        <p>总格又称后运，影响人中年（36岁）以后的命运。</p>
+                                    </div>
+                                </div>
+                                <div style="border-top: 1px dashed #efefef;height: 0;" class="m_b20"></div>
+                                <div class="clearfix line_h170 p_b20">
+                                    <div class="f_l" style="width:48%">
+                                        <div class="f_s16 f_w700 p_b5">天格12解析</div><div class="f_s16 line_h170">（掘井无泉）无理之数，发展薄弱，虽生不足，难酬志向。(凶)</div>
+                                    </div>
+                                    <div class="f_r" style="width:48%">
+                                        <div class="f_s16 f_w700 p_b5">地格27解析</div><div class="f_s16 line_h170">（增长） 欲望无止，自我强烈，多受毁谤，尚可成功。(半吉)</div>
+                                    </div>
+                                </div>
+                                <div style="border-top: 1px dashed #efefef;height: 0;" class="m_b20"></div><div class="clearfix line_h170 p_b20">
+                                    <div class="f_l" style="width:48%">
+                                        <div class="f_s16 f_w700 p_b5">人格30解析</div><div class="f_s16 line_h170">（非运） 沉浮不定，凶吉难变，若明若暗，大成大败。　(半吉)</div>
+                                    </div>
+                                    <div class="f_r" style="width:48%">
+                                        <div class="f_s16 f_w700 p_b5">外格9解析</h3></div><div class="f_s16 line_h170">（大成之数）大成之数，蕴涵凶险，或成或败，难以把握。(凶)</div>
+                                    </div>
+                                </div>
+                                <div style="border-top: 1px dashed #efefef;height: 0;" class="m_b20"></div><div class="clearfix line_h170 p_b20">
+                                    <div class="f_l" style="width:48%">
+                                        <div class="f_s16 f_w700 p_b5">总格38解析</div><div class="f_s16 line_h170">（磨铁成针）意志薄弱，刻意经营，才识不凡，技艺有成。(半吉)</div>
+                                    </div>
+                                    <div class="f_r" style="width:48%">
+                                        <div class="f_s16 f_w700 p_b5">三才解析</h3></div><div class="f_s16 line_h170">成功运佳,基础安定,财格俱得配置。　　</div>
+                                    </div>
+                                </div>
+                                <div style="border-top: 1px dashed #efefef;height: 0;" class="m_b20"></div><div class="clearfix line_h170 p_b20">
+                                    <div class="f_l" style="width:48%">
+                                        <div class="f_s16 f_w700 p_b5">基础运解析</div><div class="f_s16 line_h170">
+基础稳定,有财运,但难免数理凶,而有不幸不满意之事发生。　　</div>
+                                    </div>
+                                    <div class="f_r" style="width:48%">
+                                        <div class="f_s16 f_w700 p_b5">成功运解析</h3></div><div class="f_s16 line_h170">
+成功顺利,但恐工作忽略家庭。　　</div>
+                                    </div>
+                                </div>
+                                <div style="border-top: 1px dashed #efefef;height: 0;" class="m_b20"></div><div class="clearfix line_h170 p_b20">
+                                    <div class="f_l" style="width:48%">
+                                        <div class="f_s16 f_w700 p_b5">人际关系解析</div><div class="f_s16 line_h170">
+有口才,富侠义,济困救贫,好打抱不平,恐因急躁而惹是非。　　</div>
+                                    </div>
+                                    <div class="f_r" style="width:48%">
+                                        <div class="f_s16 f_w700 p_b5">性格影响解析</h3></div><div class="f_s16 line_h170">其性迟滞不动,欠缺活动力,易受冲动。一旦时机来临,有如山风谷雨,心潮澎湃。有才智,每思不忘功名利禄。</div>
+                                    </div>
+                                </div>
+                                <p class="p_t20 text_a_c"><a href="javascript:detailItem(5);" class="btn">下一条，周易卦象分析<em class="p_l10">100分</em></a></p>
+                            </div>
+                            <div class="item none">
+                                <div class="clearfix p_b20 zygx">
+                                    <ul class="clearfix pl100" style="padding-left:130px">
+                                        <li class="text_box"><span>体卦</span><span>用卦</span></li>
+                                        <li class="kuang kuang_l"><span></span><span></span></li>
+                                        <li class="gx_box">
+                                            <div class="gx">
+                                                <div class="gx_tit">本卦</div>
+                                                <div class="gx_block">
+                                                    <div class="gx_1"><span></span><span></span></div>
+                                                    <div class="gx_0"><span></span><span></span></div>
+                                                    <div class="gx_1"><span></span><span></span></div>
+                                                    <div class="gx_1"><span></span><span></span></div>
+                                                    <div class="gx_0 gx_on"><span></span><span></span></div>
+                                                    <div class="gx_1"><span></span><span></span></div>
+                                                <div>
+                                                <div class="gx_tit_yy">
+                                                    <p class="co_blue">离卦</p>
+                                                    <p class="co_blue">离为火</p>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="kuang kuang_r"><span></span><span></span></li>
+                                        <li class="text_box">
+                                            <span>离火</span>
+                                            <span>离火</span>
+                                        </li>
+                                        <li class="kuang kuang_l"><span></span><span></span></li>
+                                        <li class="gx_box">
+                                            <div class="gx">
+                                                <div class="gx_tit">变卦</div>
+                                                <div class="gx_block">
+                                                    <div class="gx_1"><span></span><span></span></div>
+                                                    <div class="gx_0"><span></span><span></span></div>
+                                                    <div class="gx_1"><span></span><span></span></div>
+                                                    <div class="gx_1"><span></span><span></span></div>
+                                                    <div class="gx_1"><span></span><span></span></div>
+                                                    <div class="gx_1"><span></span><span></span></div>
+                                                <div>
+                                                <div class="gx_tit_yy">
+                                                    <p class="co_red">大有卦</p>
+                                                    <p class="co_red">火天大有</p>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="kuang kuang_r"><span></span><span></span></li>
+                                        <li class="text_box">
+                                            <span>乾金</span>
+                                            <span>离火</span>
+                                        </li>
+                                        <li class="kuang kuang_l"><span></span><span></span></li>
+                                        <li class="gx_box">
+                                            <div class="gx">
+                                                <div class="gx_tit">互卦</div>
+                                                <div class="gx_block">
+                                                    <div class="gx_0"><span></span><span></span></div>
+                                                    <div class="gx_1"><span></span><span></span></div>
+                                                    <div class="gx_1"><span></span><span></span></div>
+                                                    <div class="gx_1"><span></span><span></span></div>
+                                                    <div class="gx_1"><span></span><span></span></div>
+                                                    <div class="gx_0"><span></span><span></span></div>
+                                                </div>
+                                                <div class="gx_tit_yy">
+                                                    <p class="co_blue">大过</p>
+                                                    <p class="co_blue">泽风大过</p>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="kuang kuang_r"><span></span><span></span></li>
+                                        <li class="text_box">
+                                            <span>巽木</span>
+                                            <span>兑金</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div style="border-top: 1px dashed #efefef;height: 0;" class="m_b20"></div>
+                                <div class="f_s16 f_w700 p_b10">名字卦象解析</div>
+                                <div class="f_s16 line_h170">
+                                    <p class="pb5">张郑昊 的姓名本卦为周易卦象离卦（离为火），变卦为周易卦象大有卦（火天大有）。</p>
+
+                                            <p class="pb5">体卦离火，用卦离火，体卦用卦五行相同。</p>
+
+                                            <p>互卦、变卦中有1个火与体卦五行相同。2个金被体卦克。体卦一方强，成功运较佳。</p>
+                                </div>
+                                <div style="border-top: 1px dashed #efefef;height: 0;" class="m_t20"></div>
+                                <div class="f_s16 f_w700 p_t20 p_b10">专家解卦</div>
+                                <div class="f_s16 line_h170">
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>                                </div>
+                                <div style="border-top: 1px dashed #efefef;height: 0;" class="m_t20"></div>
+                                <div class="p_t20">
+                                    <div class="f_s16 f_w700">卦象运势解析</div><div class="p_t15">
+                                        <dl>
+                                            <dt class="f_l line_h170 co_999">大象：</dt>
+</dd>
+                                            <dt class="f_l line_h170 co_999">总论：</dt>
+<br/></dd>
+                                            <dt class="f_l line_h170 co_999">建议：</dt>
+</dd>
+                                            <dt class="f_l line_h170 co_999">事业：</dt>
+</dd>
+                                            <dt class="f_l line_h170 co_999">经商：</dt>
+</dd>
+                                            <dt class="f_l line_h170 co_999">求名：</dt>
+</dd>
+                                            <dt class="f_l line_h170 co_999">婚恋：</dt>
+<br/></dd>
+                                        </dl>
+                                    </div>
+                                </div>
+                                <p class="p_t20 text_a_c"><a href="javascript:detailClose();" class="btn">没有下一条，点击关闭名字分析</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="//static.quwangming.com/newqiming/js/tradition/znqm.js" type="text/javascript"></script>
+    <script src="//static.quwangming.com/newqiming/js/tradition/suspension.js" type="text/javascript"></script>
+    <script src="//static.quwangming.com/newqiming/js/jquery.SuperSlide.2.1.1.js" type="text/javascript"></script>
+    <script src="//static.quwangming.com/newqiming/js/echarts.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        var chart_axis = echarts.init(document.getElementById('chart_axis')),
+            chart_cate = echarts.init(document.getElementById('chart_cate')),
+            chart_first = echarts.init(document.getElementById('chart_first')),
+                        chart_second = echarts.init(document.getElementById('chart_second'));
+                    option_axis = {
+            title: {
+                text: ''
+            },
+            tooltip: {
+                trigger: 'axis'
+            },
+            legend: {
+                x: 'center',
+                data: ['']
+            },
+            radar: [
+                {
+                    indicator: [
+                        {text: '好听内涵', max: 100},
+                        {text: '八字五行', max: 100},
+                        {text: '生肖属相', max: 100},
+                        {text: '星座特性', max: 100},
+                        {text: '五格数理', max: 100},
+                        {text: '周易卦象', max: 100},
+                    ],
+                    center: ['50%', '50%'],
+                    radius: 110
+                }
+            ],
+            series: [
+                {
+                    type: 'radar',
+                    tooltip: {
+                        trigger: 'item'
+                    },
+                    itemStyle: {normal: {areaStyle: {type: 'default'}}},
+                    data: [
+                        {
+                            value: [87, 88, 83, 98,76, 100],
+                            name: '大数据分析'
+                        }
+                    ]
+                }
+            ]
+        };
+        option_cate = {
+            title: {
+                text: ''
+            },
+            tooltip: {
+                trigger: 'axis'
+            },
+            legend: {
+                data: ['女性','男性']
+            },
+            grid: {
+                left: '3%',
+                right: '4%',
+                top: '5%',
+                bottom: '3%',
+                containLabel: true
+            },
+            calculable : true,
+            xAxis: {
+                type: 'category',
+                boundaryGap: false,
+                data: ["1960","1970","1980","1990","2000","2010","2015","2016","2017"]            },
+            yAxis: {
+                type: 'value'
+            },
+
+            series: [
+                {
+                    name: '做为女性名字使用次数',
+                    type: 'line',
+                    smooth: true,
+                    data: [65,141,154,200,162,209,334,415,714]                },
+                {
+                    name: '做为男性名字使用次数',
+                    type: 'line',
+                    smooth: true,
+                    data: [198,448,489,635,510,649,991,1213,2084]                }
+            ]
+        };
+        option_first = {
+            title : {
+                text: ''
+            },
+            tooltip : {
+                trigger: 'axis'
+            },
+            legend: {
+                left: 'center',
+                data:['女性','男性']
+            },
+            grid: {
+                left: '3%',
+                right: '4%',
+                top: '5%',
+                bottom: '3%',
+                containLabel: true
+            },
+            toolbox: {
+                show : true
+            },
+            calculable : true,
+            xAxis : [
+                {
+                    type : 'category',
+                    boundaryGap : false,
+                    data :  ["1960","1970","1980","1990","2000","2010","2015","2016","2017"],
+                    axisLine: { onZero: false }
+                }
+            ],
+            yAxis : [
+                {
+                    type : 'value',
+                    inverse: true
+                }
+            ],
+            series : [
+                {
+                    name: '女性排名',
+                    type: 'line',
+                    data: [5170,2468,2023,1267,2048,1868,2123,2254,1463]                },
+                {
+                    name: '男性排名',
+                    type: 'line',
+                    data: [2833,771,664,459,909,835,1003,1076,819]                }
+            ]
+        };
+        option_second = {
+            title : {
+                text: ''
+            },
+            tooltip : {
+                trigger: 'axis'
+            },
+            legend: {
+                data:['女性','男性']
+            },
+            grid: {
+                left: '3%',
+                right: '4%',
+                top: '5%',
+                bottom: '3%',
+                containLabel: true
+            },
+            toolbox: {
+                show : true
+            },
+            calculable : true,
+            xAxis : [
+                {
+                    type : 'category',
+                    boundaryGap : false,
+                    data :  ["1960","1970","1980","1990","2000","2010","2015","2016","2017"],
+                    axisLine: { onZero: false }
+                }
+            ],
+            yAxis : [
+                {
+                    type : 'value',
+                    inverse: true
+                }
+            ],
+            series : [
+                {
+                    name:'女性使用排名',
+                    type:'line',
+                    data:[786,1565,1175,572,791,319,235,184,161]                },
+                {
+                    name:'男性使用排名',
+                    type:'line',
+                    data:[222,266,230,198,337,202,118,76,61]                }
+            ]
+        };
+        chart_axis.setOption(option_axis);
+        chart_cate.setOption(option_cate);
+        chart_first.setOption(option_first);
+                chart_second.setOption(option_second);
+
+        // 获取浏览器滚动条宽度
+        var div = $('<div id="map" style="width:100px; height:1px; overflow-y: scroll; opacity: 0;"></div>')
+        $("body").append(div);
+        var scrollWidth = document.getElementById('map').offsetWidth - document.getElementById('map').scrollWidth;
+        div.remove();
+
+        function detailItem(num){
+            var text = '', fen = '', zb='', zb_text='';
+            if(num == 0){
+                text = '音形义';
+                fen = '87';
+            }else if(num == 1){
+                text = '八字五行';
+                fen = '88';
+            }else if(num == 2){
+                text = '星座';
+                fen = '98';
+            }else if(num == 3){
+                text = '生肖';
+                fen = '83';
+            }else if(num == 4){
+                text = '三才五格';
+                fen = '76';
+            }else if(num == 5){
+                text = '周易卦象';
+                fen = '100';
+            }
+            if(num <2 ){
+                zb = '30'
+                zb_text = '很重要'
+            }else{
+                zb = '10'
+                zb_text = '一般'
+            }
+            $('html').css({overflow:'hidden',paddingRight:scrollWidth})
+            $('.fixed_info').css({overflowY:'scroll'}).show().find('.info_box').fadeIn(200).find('.item').eq(num).removeClass('none').siblings().addClass('none')
+            $('.fixed_info .hd em').text(text+'起名详解').next().text(fen+'分').next().find('i').text(text).next().text(zb_text).next().text(zb)
+        }
+
+        function detailClose(){
+            $('.fixed_info').find('.info_box').fadeOut(200,function(){
+                $(this).parent().removeClass('show').removeAttr('style')
+                $('html').removeAttr('style')
+            })
+        }
+
+        $(".news_tishi").slide({
+            mainCell:".bd ul",
+            autoPage:true,
+            effect:"topLoop",
+            pnLoop:false,
+            autoPlay:true,
+            mouseOverStop:false,
+            delayTime:500,
+            interTime:2500
+        });
+
+        function generateHtml(){
+            $.ajax({
+                url: "/newqiming/index/tips",
+                data: {limit:10},
+                type: "POST",
+                dataType: "JSON",
+                success: function (msg) {
+                    if (msg.length) {
+                        var html = "";
+                        for(var i = 0; i < msg.length; i++){
+                            html += '<li><span>'+msg[i].second+'秒前</span>'+msg[i].content.replace('智能起名','大师手工测名')+'</li>';
+                        }
+                        $("#order-infos").html(html);
+                        $(".txt_scroll_top").slide({
+                            mainCell:".bd ul",
+                            autoPage:true,
+                            effect:"topLoop",
+                            pnLoop:false,
+                            autoPlay:true,
+                            mouseOverStop:false,
+                            delayTime:500,
+                            interTime:2500
+                        });
+                    }
+                },
+                error: function () {
+
+                }
+            });
+        }
+        /* 先生成10条数据滚屏 */
+        generateHtml();
+
+        /* 每个30秒重新拉取一次数据 */
+        function runTips(){
+            $.ajax({
+                url: "/newqiming/index/tips",
+                data: {limit:10},
+                type: "POST",
+                dataType: "JSON",
+                success: function (msg) {
+                    if (msg.length) {
+                        var html = "";
+                        for(var i = 0; i < msg.length; i++){
+                            html += '<li><span>'+msg[i].second+'秒前</span>'+msg[i].content.replace('智能起名','大师手工测名')+'</li>';
+                        }
+                        $("#order-infos").html(html);
+                        if (typeof window.gi != "undefined") {
+                            window.clearTimeout(window.gi);
+                        }
+                    }
+                    window.gi = setTimeout(function () {
+                        console.log("Again");
+                        runTips();
+                    }, 32 * 1000);
+                },
+                error: function () {
+
+                }
+            });
+        }
+        runTips();
+    </script>
 </body>
 </html>

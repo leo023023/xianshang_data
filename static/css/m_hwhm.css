@@ -22,7 +22,7 @@
     top: 0;
     /* left: 0%; */
     margin-left: 0%;
-    touch-action: none;
+    /*touch-action: none;*/
 }
 
 .hwhm_Cooldog_container .hwhm_Cooldog_content li {

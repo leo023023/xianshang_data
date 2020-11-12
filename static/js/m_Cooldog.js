@@ -23,14 +23,14 @@ $(function () {
 
 
 	//滑动上一张
-	$('.Cooldog_content').on('swipeleft', function () {
-		btn_left();
-	});
+	// $('.Cooldog_content').on('swipeleft', function () {
+	// 	btn_left();
+	// });
 
 	//滑动下一张
-	$('.Cooldog_content').on('swiperight', function () {
-		btn_right();
-	});
+	// $('.Cooldog_content').on('swiperight', function () {
+	// 	btn_right();
+	// });
 
 
 

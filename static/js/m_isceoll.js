@@ -58,7 +58,7 @@
         me.extend(me, {
             hasTransform: _transform !== false,
             hasPerspective: _prefixStyle('perspective') in _elementStyle,
-            hasTouch: 'ontouchstart' in window,
+            // hasTouch: 'ontouchstart' in window,
             hasPointer: !!(window.PointerEvent || window.MSPointerEvent),
             hasTransition: _prefixStyle('transition') in _elementStyle
         });
@@ -118,9 +118,9 @@
             return false;
         };
         me.extend(me.eventType = {}, {
-            touchstart: 1,
-            touchmove: 1,
-            touchend: 1,
+            // touchstart: 1,
+            // touchmove: 1,
+            // touchend: 1,
             mousedown: 2,
             mousemove: 2,
             mouseup: 2,

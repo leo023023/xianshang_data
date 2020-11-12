@@ -9,6 +9,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <title>宝宝起名_免费测名_在线起名_起名宝典</title>
+    <meta name="google-site-verification" content="_VIv8Nn23_7nRWgjY7F6FjFSYhQspwLhghPFHhNcDpg" />
     <meta name="keywords" content="免费起名字,宝宝起名网,起名字大全,起名网,取名">
     <meta NAME="description"
           content="起名宝典是以传统周易学、汉语语言文学、诗词国学、统计学(千万级大数据分析)、心理学结合大数据为理论基础,起名宝典主要有男孩起名、女孩起名、诗词起名、传统起名名等在线起名等功能，是起名必备工具!">
@@ -23,6 +24,8 @@
     <link rel="icon" href="../static/images/favicon.ico" type="image/x-icon"/>
     <link rel="stylesheet" href="../static/css/m_csrq_date.css">
     <link rel="stylesheet" type="text/css" href="../static/css/swiper.201912271438.css">
+    <meta name="sogou_site_verification" content="NkAsPh7wRY"/>
+
     <link rel="stylesheet" type="text/css" href="../static/css/mobile-v2.202005171105.css">
     <link rel="stylesheet" href="../static/css/m_csd.css">
     <script src="../static/js/jquery.min.js"></script>
@@ -774,7 +777,7 @@
         <div class="panel-head flex justify-between">
             <div class="h-title">起名攻略</div>
             <div class="more-text">
-                <a href="{{ url_for('qmgl') }}">更多<img src="../static/images/csjg_kaitong.svg" alt=""></a>
+                <a href="/qmgl/">更多<img src="../static/images/csjg_kaitong.svg" alt=""></a>
             </div>
         </div>
         <div class="gonglue-column swiper-container swiper-container-initialized swiper-container-horizontal swiper-container-ios"
@@ -799,86 +802,31 @@
              id="article-slide" style="display: block;">
             <div class="bd swiper-wrapper gonglue_neirong2"
                  style="transition-duration: 0ms; transform: translate3d(0px, 0px, 0px);">
-                <div class="li swiper-slide wz_contant_active swiper-slide-active" style="margin-right: 12px;">
-                    {% for i in range(0,5) %}
-                        <a href="{{ url_for('wzxq',article_idid=article_id[i]) }}">
-                            <div class="info">
-                                <div class="title">{{ article_title[i] }}</div>
-                                <div class="desc">{{ article_content[i] }}</div>
-                            </div>
-                        </a>
-                    {% endfor %}
-                </div>
-                <div class="li swiper-slide wz_contant swiper-slide-next" style="margin-right: 12px;">
-                    {% for i in range(5,10) %}
-                        <a href="{{ url_for('wzxq',article_idid=article_id[i]) }}">
-                            <div class="info">
-                                <div class="title">{{ article_title[i] }}</div>
-                                <div class="desc">{{ article_content[i] }}</div>
-                            </div>
-                        </a>
-                    {% endfor %}
-                </div>
-                <div class="li swiper-slide wz_contant" style="margin-right: 12px;">
-                    {% for i in range(10,15) %}
-                        <a href="{{ url_for('wzxq',article_idid=article_id[i]) }}">
-                            <div class="info">
-                                <div class="title">{{ article_title[i] }}</div>
-                                <div class="desc">{{ article_content[i] }}</div>
-                            </div>
-                        </a>
-                    {% endfor %}
-                </div>
-                <div class="li swiper-slide wz_contant" style="margin-right: 12px;">
-                    {% for i in range(15,20) %}
-                        <a href="{{ url_for('wzxq',article_idid=article_id[i]) }}">
-                            <div class="info">
-                                <div class="title">{{ article_title[i] }}</div>
-                                <div class="desc">{{ article_content[i] }}</div>
-                            </div>
-                        </a>
-                    {% endfor %}
-                </div>
-                <div class="li swiper-slide wz_contant" style="margin-right: 12px;">
-                    {% for i in range(20,25) %}
-                        <a href="{{ url_for('wzxq',article_idid=article_id[i]) }}">
-                            <div class="info">
-                                <div class="title">{{ article_title[i] }}</div>
-                                <div class="desc">{{ article_content[i] }}</div>
-                            </div>
-                        </a>
-                    {% endfor %}
-                </div>
-                <div class="li swiper-slide wz_contant" style="margin-right: 12px;">
-                    {% for i in range(25,30) %}
-                        <a href="{{ url_for('wzxq',article_idid=article_id[i]) }}">
-                            <div class="info">
-                                <div class="title">{{ article_title[i] }}</div>
-                                <div class="desc">{{ article_content[i] }}</div>
-                            </div>
-                        </a>
-                    {% endfor %}
-                </div>
-                <div class="li swiper-slide wz_contant" style="margin-right: 12px;">
-                    {% for i in range(30,35) %}
-                        <a href="{{ url_for('wzxq',article_idid=article_id[i]) }}">
-                            <div class="info">
-                                <div class="title">{{ article_title[i] }}</div>
-                                <div class="desc">{{ article_content[i] }}</div>
-                            </div>
-                        </a>
-                    {% endfor %}
-                </div>
-                <div class="li swiper-slide wz_contant" style="margin-right: 12px;">
-                    {% for i in range(35,40) %}
-                        <a href="{{ url_for('wzxq',article_idid=article_id[i]) }}">
-                            <div class="info">
-                                <div class="title">{{ article_title[i] }}</div>
-                                <div class="desc">{{ article_content[i] }}</div>
-                            </div>
-                        </a>
-                    {% endfor %}
-                </div>
+            	{% for i in range(0,8) %}
+            		{% if lanmu[i].xxxx|length<6 %}
+            			<div class="li swiper-slide wz_contant_active swiper-slide-active" style="margin-right: 12px;">
+	                    	{% for k in range(lanmu[i].xxxx|length-1,-1,-1) %}
+	                            <a href="{{ url_for('wzxq',article_idid=lanmu[i].xxxx[k].id) }}.html">
+			                    	<div class="info">
+			                    		<div class="title">{{ lanmu[i].xxxx[k].title }}</div>
+		                                <div class="desc">{{ lanmu[i].xxxx[k].description[:100]}}</div>
+			                    	</div>
+	                            </a>
+                        	{% endfor %}
+                    	</div>
+                	{% else %}
+            			<div class="li swiper-slide wz_contant_active swiper-slide-active" style="margin-right: 12px;">
+	                    	{% for k in range(lanmu[i].xxxx|length-1,lanmu[i].xxxx|length-6,-1) %}
+	                            <a href="{{ url_for('wzxq',article_idid=lanmu[i].xxxx[k].id) }}.html">
+			                    	<div class="info">
+			                    		<div class="title">{{ lanmu[i].xxxx[k].title }}</div>
+		                                <div class="desc">{{ lanmu[i].xxxx[k].description[:100]}}</div>
+			                    	</div>
+	                            </a>
+                        	{% endfor %}
+                    	</div>
+                    {% endif %}
+            	{% endfor %}
             </div>
             <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
     </div>

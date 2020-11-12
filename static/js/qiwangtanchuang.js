@@ -18,7 +18,7 @@ function lanPosScroll() {
         for (var i = 0; i < $('.shortcut-add-box-left ul li').size(); i++) {
             if (this == $('.shortcut-add-box-left ul li').get(i)) {
                 $('.shortcut-add-box-left ul li').eq(i).addClass('active');
-                $('.shortcut-add-box-left ul li input').eq(i).attr("name",'qiwang');
+                $('.shortcut-add-box-left ul li input').eq(i).attr("name", 'qiwang');
             } else {
                 $('.shortcut-add-box-left ul li').eq(i).removeClass('active');
                 // $('.shortcut-add-box-left ul li input').eq(i).attr("name",'');
@@ -27,12 +27,13 @@ function lanPosScroll() {
         ;index = $('.shortcut-add-box-left ul li').index(this);
     })
 };
+
 function shortcutChoice() {
     var shortcutBtn = $('.shortcut-add-box-left ul>li');
     shortcutBtn.click(function () {
         if ($(this).hasClass('shortcut-selected')) {
             $(this).removeClass('shortcut-selected');
-            $('.shortcut-add-box-left ul>li input').attr("name",'');
+            $('.shortcut-add-box-left ul>li input').attr("name", '');
         }
         else {
             $(this).addClass('shortcut-selected');
@@ -44,7 +45,7 @@ function shortcutChoice() {
 function modelConfirm() {
     var selectShortcut_box = $('#select-shortcut-box');
     var shortcutBoxLi = $('.shortcut-box li:not(:last)');
-    
+
     $('#shortcutEnter').click(function () {
         $('#myModal').modal('hide');
         shortcutBoxLi.remove();
@@ -122,3 +123,78 @@ function modelConfirm() {
         })
     });
 }
+
+$(document).ready(function () {
+    $(".qiminordafen .bd_grqm").click(function () {
+        $(this).addClass("active");
+        $('.dingzixuantian_1').removeClass("dingzixuantian");
+        $(".shuru_dingzi").css('display', 'block');
+        $('.bd_mzdf').removeClass("active");
+        $(".qiwangtanchuang_js_name").text("请输入姓氏:");
+        $(".shortcut-box").css('display', 'block');
+        $('.bd_qiwang').removeClass("qiwangtanchang_js_hide");
+        $(".qw_biaoti").css('margin-left', '-307px');
+        $("#form_tijiao").css('display', 'block');
+        $(".bd_lijiceming").css('display', 'none');
+        $(".xb_xz_class_cs").css('display', 'inline-block');
+        $("#cssj_js").html('预产期:');
+        $(".biaodan_neirong .name").css('width', '60px');
+        $(".daosnajiao_dafen").css('display', 'block');
+        $("#biaodan__xb_nobirth").prop("checked",true);
+        $("#biaodan_xb_nan").prop("checked",false);
+    })
+    $(".qiminordafen .bd_mzdf").click(function () {
+        $(this).addClass("active");
+        $('.dingzixuantian_1').addClass("dingzixuantian");
+        $(".shuru_dingzi").css('display', 'none');
+        $('.bd_grqm').removeClass("active");
+        $(".qiwangtanchuang_js_name").text("请输入姓名:");
+        $(".shortcut-box").css('display', 'none');
+        $('.bd_qiwang').addClass("qiwangtanchang_js_hide");
+        $(".qw_biaoti").css('margin-left', '-1px');
+        $("#form_tijiao").css('display', 'none');
+        $(".bd_lijiceming").css('display', 'block');
+        $(".xb_xz_class_cs").css('display', 'none');
+        $("#cssj_js").html('出生时间:');
+        $(".biaodan_neirong .name").css('width', '147px');
+        $(".daosnajiao_dafen").css('display', 'none');
+        $("#biaodan__xb_nobirth").prop("checked",false);
+        $("#biaodan_xb_nan").prop("checked",true);
+    })
+
+
+    $('.bd_lijiceming_in').click(function () {
+        // var mizi_ku_nm = document.getElementByclassName('name_xingming').val();
+        // var birthtime = document.getElementid('date-input').value;
+
+        var mizi_ku_nm = $('.name_xingming').val();
+        var birthtime = $('#date-input').val();
+        var xingbie_js = $('input[name="xingbie"]:checked').val();
+        var birthplace = $('#btn1').val();
+        var myRegttzw = /^[\u4e00-\u9fa5]+$/;
+        console.log('这个是获取懂啊的名字', mizi_ku_nm)
+        console.log('这个是获取懂啊的出生日期', birthtime)
+        console.log('这个是获取的性别', xingbie_js)
+        console.log('这个是获取懂啊的地点', birthplace)
+
+        if ($('.name_xingming').val() == '') {
+            alert("请输入正确的名字信息!");
+            return false;
+        }
+        else if ($('.name_xingming').val().length < 2)
+        {
+            alert("请输入完整的名字信息!");
+            return false;
+        }
+        else if (myRegttzw.test(mizi_ku_nm)) {
+            console.log('获取数据成功');
+            url_js = 'http://127.0.0.1:5000/'+'qmb_dafeng_qd?'+'　&name='+mizi_ku_nm+"&xb="+xingbie_js+'&birthtime='+birthtime+'&birthplace='+birthplace
+            window.open(url_js)
+        }
+        else {
+            alert("名字格式有误，请重新输入!");
+        }
+
+    })
+});
+
