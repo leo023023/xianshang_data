@@ -471,9 +471,9 @@ def namedafen():
     q_m_mingzi = "https://qm.qumingdashi.com/newqiming/index/detail?"
 
 
-    print('1110获取到的姓是',xing)
+    # print('1110获取到的姓是',xing)
 
-    print('1110获取到的名是', ming)
+    # print('1110获取到的名是', ming)
     q_m_mz_formdata = {
         'surname': xing,
         'name': ming,
@@ -501,20 +501,20 @@ def namedafen():
     # q_m_hanyi_2_2 = re.sub('[(<span>)(\[a-z\])(<>_")(\/)( )]', '', str(q_m_hanyi_2))
 
     q_m_pingying = etree.HTML(dafen_response).xpath("//div/a[@class='py']/text()")[0]
-    print('获取到的平阴是',q_m_pingying)
+    # print('获取到的平阴是',q_m_pingying)
 
     q_m_pingying= str(q_m_pingying)
-    print('这个拼音好似什么烈性的',type(q_m_pingying))
+    # print('这个拼音好似什么烈性的',type(q_m_pingying))
 
     q_m_pingying = re.sub(r'[(\()(\))]','',q_m_pingying)
-    print('首先提取的是拼音姓大大说', q_m_pingying)
+    # print('首先提取的是拼音姓大大说', q_m_pingying)
 
     # print('首先提取的是拼音 %s' % q_m_pingying)
 
     if len(ming) == 2:
     # 接着是字义内涵
         q_m_hanyi_quanbu = re.search(r'class="co_s">(.：.*)</p>', str(q_m_mz_xq_response)).group(1)
-        print('起名含义全部',q_m_hanyi_quanbu)
+        # print('起名含义全部',q_m_hanyi_quanbu)
         q_m_hanyi_1 = re.search(r'(.*?)<span class="co_s">', str(q_m_hanyi_quanbu), re.S).group(1)
         # print(type(q_m_hanyi_1))
         # print("第一个名未清洗: %s" % q_m_hanyi_1)
@@ -522,21 +522,21 @@ def namedafen():
         # print("第一个名已清洗: %s" % q_m_hanyi_1_1)
         q_m_hanyi_2 = re.search(r'<span class="co_s">(.*)', str(q_m_hanyi_quanbu), re.S).group(1)
         q_m_hanyi_2_2 = re.sub('[(<span>)(\[a-z\])(<>_")(\/)( )]', '', str(q_m_hanyi_2))
-        print("第二个名已清洗: %s" % q_m_hanyi_2_2)
+        # print("第二个名已清洗: %s" % q_m_hanyi_2_2)
     else:
         q_m_hanyi_quanbu = re.search(r'class="co_s">(.：.*)</p>', str(q_m_mz_xq_response)).group(1)
-        print('起名含义全部', q_m_hanyi_quanbu)
+        # print('起名含义全部', q_m_hanyi_quanbu)
         q_m_hanyi_1_1 = re.search(r'</span>(.*?)<p>', str(q_m_hanyi_quanbu), re.S).group(1)
         q_m_hanyi_1_2 = re.findall(r'<p>(.*?)</p>', str(q_m_hanyi_quanbu), re.S)
         q_m_hanyi_1_3=''
         for i in q_m_hanyi_1_2:
             q_m_hanyi_1_2 =  re.sub(r'[(<> =_"\/)(\[a-z\])(\n)(\r)(\d+)]','',str(i))
-            print('q_m_hanyi_1_2',q_m_hanyi_1_2)
+            # print('q_m_hanyi_1_2',q_m_hanyi_1_2)
             q_m_hanyi_1_2 +=q_m_hanyi_1_2+'<br>'
             q_m_hanyi_1_3 += q_m_hanyi_1_2
-            print('q_m_hanyi_1_3循环', q_m_hanyi_1_3)
+            # print('q_m_hanyi_1_3循环', q_m_hanyi_1_3)
 
-        print('q_m_hanyi_1_3',q_m_hanyi_1_3)
+        # print('q_m_hanyi_1_3',q_m_hanyi_1_3)
 
 
         print('zasdasdkash',q_m_hanyi_1_2)
@@ -561,17 +561,17 @@ def namedafen():
 
 
     q_m_yjjd_qx_1 = re.sub('<span class="co_red">', '', str(q_m_yjjd))
-    print("引经据典sadasd1112q_m_yjjd_qx_1,,,,,,,", q_m_yjjd_qx_1)
+    # print("引经据典sadasd1112q_m_yjjd_qx_1,,,,,,,", q_m_yjjd_qx_1)
 
     q_m_yjjd_qx_2 = re.sub('</span>', '', str(q_m_yjjd_qx_1))
 
-    print("引经据典sadasd1112,,,,,,,", q_m_yjjd_qx_2)
+    # print("引经据典sadasd1112,,,,,,,", q_m_yjjd_qx_2)
     q_m_yjjd_qx_3 = ast.literal_eval(q_m_yjjd_qx_2)
-    print("引经据典sadasd1112" ,q_m_yjjd_qx_3)
+    # print("引经据典sadasd1112" ,q_m_yjjd_qx_3)
 
     #清除重复的列表元素
     q_m_yjjd_qx_3 = list(set(q_m_yjjd_qx_3))
-    print("引经据典sadasd1112", q_m_yjjd_qx_3)
+    # print("引经据典sadasd1112", q_m_yjjd_qx_3)
 
     # 八字开运
     q_m_bzky = re.search(r'(八字偏.*\s.*)，', str(q_m_mz_xq_response), re.M).group(1)
@@ -581,9 +581,9 @@ def namedafen():
 
     # 大师点评
     q_m_dsdp = re.search(r'大师点评：.*\s.*\s.*<p>(.*)</p>', str(q_m_mz_xq_response), re.M).group(1)
-    print("大师点评: %s" % q_m_dsdp)
+    # print("大师点评: %s" % q_m_dsdp)
 
-    print('对应的名字印象mz_yx_lt_qx_qp %s ' % mz_yx_lt_qx_qp)
+    # print('对应的名字印象mz_yx_lt_qx_qp %s ' % mz_yx_lt_qx_qp)
 
     # 生肖性格优势标签
     q_m_sxxg = re.search(r'性格优点：</dt>\s.*\.*(\s.*\s.*\s.*\s*\s.*\s.*?)</span>', str(q_m_mz_xq_response),
@@ -644,7 +644,7 @@ def namedafen():
     # 三才五格正则
     # 名字的前两个格
     q_m_scwg_qb = re.compile(r'<p>(. \d+)</p>').findall(q_m_mz_xq_response)
-    print("全部三才五格q_m_scwg_qb %s" % q_m_scwg_qb)
+    # print("全部三才五格q_m_scwg_qb %s" % q_m_scwg_qb)
     # 第二个名
     if len(ming)==2:
         q_m_scwg_ming_2 = re.search(r'<p>(.&nbsp;\d+) </p>', str(q_m_mz_xq_response), re.M).group(1)

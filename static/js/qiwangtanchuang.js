@@ -188,7 +188,7 @@ $(document).ready(function () {
         }
         else if (myRegttzw.test(mizi_ku_nm)) {
             console.log('获取数据成功');
-            url_js = 'http://127.0.0.1:5000/'+'qmb_dafeng_qd?'+'　&name='+mizi_ku_nm+"&xb="+xingbie_js+'&birthtime='+birthtime+'&birthplace='+birthplace
+            url_js = 'http://www.qmg365.com/'+'qmb_dafeng_qd?'+'　&name='+mizi_ku_nm+"&xb="+xingbie_js+'&birthtime='+birthtime+'&birthplace='+birthplace
             window.open(url_js)
         }
         else {
