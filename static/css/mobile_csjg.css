@@ -685,5 +685,5 @@ h5{
 }
 
 .jieshi_display{
-    display: none;
+    display: none !important;
 }
