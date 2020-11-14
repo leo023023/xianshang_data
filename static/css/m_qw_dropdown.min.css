@@ -36,7 +36,7 @@ input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
     font-size: .14rem;
 }
 #demo_datetime{
-    margin-left: 4px;
+    margin-left: -8px;
 }
 input, textarea {
     color: #222;

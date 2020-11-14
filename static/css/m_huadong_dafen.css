@@ -216,17 +216,17 @@ input {
 }
 
 .wrapper02 .scroller li a {
-    color: #333;
+    color: #333 !important;
     display: block;
     margin: 0 .3rem;
     font-weight: bolder;
 }
 
 .wrapper02 .scroller li.cur {
-    background-color: #0C1222;
+    background-color: #0C1222 !important;
 }
 
-.wrapper02 .scroller li.cur a {
+.wrapper02 .scroller li.cur a button {
     color: #fff;
 }
 #m_jxhm_fenge{

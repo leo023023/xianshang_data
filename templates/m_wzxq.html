@@ -25,21 +25,33 @@
     <script src="../static/js/pay_ajax.js"></script>
     <script src="../static/js/m_qiwang.js"></script>
     <script src="../static/js/mobiscroll.custom.min.js"></script>
+    <script src="../static/js/m_qimingordafen.js"></script>
     <script>
-		var _hmt = _hmt || [];
-		(function() {
-			var hm = document.createElement("script");
-			hm.src = "https://hm.baidu.com/hm.js?5b37103acf8363b67cf5a20048902f2b";
-			var s = document.getElementsByTagName("script")[0]; 
-			s.parentNode.insertBefore(hm, s);
-		})();
-	</script>
-	<script>
-(function(){
-var src = "https://jspassport.ssl.qhimg.com/11.0.1.js?d182b3f28525f2db83acfaaf6e696dba";
-document.write('<script src="' + src + '" id="sozz"><\/script>');
-})();
-</script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?5b37103acf8363b67cf5a20048902f2b";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+    <script>
+        $(document).ready(function () {
+            var time = new Date();
+            var day = ("0" + time.getDate()).slice(-2);
+            var month = ("0" + (time.getMonth() + 1)).slice(-2);
+            var hour = time.getHours();
+            var minute = time.getMinutes();
+            var today = time.getFullYear() + "-" + (month) + "-" + (day) + ' ' + (hour) + ':' + (minute);
+            $('#demo_datetime').attr('value', today);
+        })
+    </script>
+    <script>
+        (function () {
+            var src = "https://jspassport.ssl.qhimg.com/11.0.1.js?d182b3f28525f2db83acfaaf6e696dba";
+            document.write('<script src="' + src + '" id="sozz"><\/script>');
+        })();
+    </script>
 </head>
 <body id="body">
 
@@ -161,19 +173,29 @@ document.write('<script src="' + src + '" id="sozz"><\/script>');
     <a class="m_csjg_logo" href="{{ url_for('helloWorld') }}" style="left: 256.5px;">
         <img src="/static/images/m_baishe_logo.svg" alt="">
     </a>
-    <a id="m_order_btn_vip" href="{{ url_for('order_cx') }}">VIP登录</a>
+
+    {% if vip_tele %}
+        <a id="m_order_btn_vip" class="btn fr vip_login_btn" href="#">{{ vip_tele.telephone }}</a>
+    {% else %}
+        <a id="m_order_btn_vip" class="btn fr vip_login_btn" href="{{ url_for('order_cx') }}">VIP登录</a>
+    {% endif %}
 </div>
 <div id="breadcrumb">
     <a href="{{ url_for('helloWorld') }}">首页</a>
     <a href="{{ url_for('zhuanshu_lanmu',lm_lujin='qmgl') }}">起名攻略</a>
     <a href="javascript:;">{{ article_title }}</a>
 </div>
+
+<div class="qimingordafeng">
+    <div class="m_grqm_flbg"></div>
+    <div class="m_mzdf_flbg"></div>
+</div>
 <div id="m_index_biaodan">
     <form action="{{ url_for("csjg") }}" method="post" autocomplete="off">
         <div class="bd_neirong">
             <ul>
                 <li>
-                    <span>姓氏</span>
+                    <span class="m_qsr_xingnanme">姓氏</span>
                     <div class="shurukuang">
                         <input type="text" required id="m_bd_xx_name" class="m_name m_bd_xx" name="xing"
                                placeholder="输入起名姓氏">
@@ -193,7 +215,7 @@ document.write('<script src="' + src + '" id="sozz"><\/script>');
                     </div>
                     <hr>
                 </li>
-                <li>
+                <li class="m_dingzhi">
                     <span>定字(选填)</span>
                     <div class="shurukuang">
                         <input type="text" class="m_bd_dz" name="dingzhi" placeholder="输入定字">
@@ -207,29 +229,25 @@ document.write('<script src="' + src + '" id="sozz"><\/script>');
                     </div>
                     <hr>
                 </li>
-                <li>
+                <li class="m_dingzhi">
                     <span>期望(选填)</span>
                     <div class="shurukuangggg">
                         <div class="shurukuang">
                             <!--<input class="zp_input" id="singleSelect" readonly="" placeholder="请选择期望性格" value=""-->
                             <!--       style="width: 57vw;height: 40px">-->
-                            <div class="zp_input_x" id="singleSelectt" style="width: 57vw;height: 40px">
+                            <div class="zp_input_x" id="singleSelectt" style="width: 60vw;height: 40px">
                                 <p class="m_qw_btn_moren">请选择期望性格</p>
                             </div>
                             <div id="xzchenggong">
-                                <!--这里调用的是m_qiwang_index.js-->
-                                <!--这里调用的是m_qw_dropdpwn.min.js-->
+
                                 <p id="zxcxzcxzc1" class="m_xingge_tags_tags"></p>
                                 <p id="zxcxzcxzc2" class="m_xingge_tags_tags"></p>
                                 <p id="zxcxzcxzc3" class="m_xingge_tags_tags"></p>
                             </div>
-                            <img src="/images/m_bd_sanjiao.svg" alt=""
+                            <img src="/static/images/m_bd_sanjiao.svg" alt=""
                                  style="width: 14px;height: 14px;background-size: cover;margin-top: 14px">
                             <div class="tool_tip"></div>
-                            <!--<script src="../static/js/m_jquery-1.11.0.min.js"></script>-->
-                            <!--<script src="../static/js/m_qw_dropdown.min.js"></script>-->
-                            <!--<script src="../static/js/m_qiwang_index.js"></script>-->
-                            <!--<audio controls="controls" style="display: none;"></audio>-->
+
                             <hr>
                         </div>
                     </div>
@@ -241,19 +259,8 @@ document.write('<script src="' + src + '" id="sozz"><\/script>');
                         <div class="section">
                             <!--<label>日期时间控件</label>-->
                             <input type="text" id="demo_datetime" name="birthtime" class="mbsc-comp" readonly=""
-                                   placeholder="请选择出生时间"
-                                   value=''>
-                            <script>
-                                $(document).ready(function () {
-                                    var time = new Date();
-                                    var day = ("0" + time.getDate()).slice(-2);
-                                    var month = ("0" + (time.getMonth() + 1)).slice(-2);
-                                    var hour = time.getHours();
-                                    var minute = time.getMinutes();
-                                    var today = time.getFullYear() + "-" + (month) + "-" + (day) + ' ' + (hour) + ':' + (minute);
-                                    $('#demo_datetime').attr('value', today);
-                                })
-                            </script>
+                                   placeholder="请选择出生时间" value=''>
+
                         </div>
                         <script>
 
@@ -299,12 +306,10 @@ document.write('<script src="' + src + '" id="sozz"><\/script>');
                                 lang: lang
                             });
                         </script>
-
-
                         <audio controls="controls" style="display: none;"></audio>
                     </div>
-                    <img src="/images/m_bd_sanjiao.svg" alt=""
-                         style="width: 14px;height: 14px;background-size: cover;margin-top: 14px">
+                    <img src="/static/images/m_bd_sanjiao.svg" alt=""
+                         style="width: 14px;height: 14px;background-size: cover;margin-top: 14px;margin-left: 10px">
                     <hr>
                 </li>
                 <li>
@@ -315,7 +320,7 @@ document.write('<script src="' + src + '" id="sozz"><\/script>');
                             <script src="../static/js/m_csd_picker.min.js"></script>
                             <script type="text/javascript" src="../static/js/m_diqu.js"></script>
                             <script type="text/javascript" src="../static/js/m_csd_index.js"></script>
-                            <div class="picker" style="z-index: 500003 !important;">
+                            <div class="picker" style="z-index: 5003 !important;">
                                 <div class="picker-mask mask-hook"></div>
                                 <div class="picker-panel panel-hook">
                                     <div class="picker-choose choose-hook">
@@ -411,16 +416,18 @@ document.write('<script src="' + src + '" id="sozz"><\/script>');
             </div>
         </div>
     </form>
+    <div id='bd_lijidafeng' class="bd_lijiceming bd_lijiceming_hide">
+        <input class="bd_lijiceming_in" type="submit" value="立即测名" name="lijiceming">
+    </div>
 </div>
-
 
 
 <div id="m_article_content">
     <h1>{{ article_title }}</h1>
     <div class="wenzhang_bz">
-        <p>{{article_time}}</p>
+        <p>{{ article_time }}</p>
         <p>{{ article }}</p>
-        <p>阅读:{{article_yuedu}}</p>
+        <p>阅读:{{ article_yuedu }}</p>
     </div>
     <div class="neirong_xq">
         <p>{{ article_content | safe }}</p>
@@ -432,9 +439,10 @@ document.write('<script src="' + src + '" id="sozz"><\/script>');
         <h2>相关起名攻略</h2>
     </div>
     <ul class="xg_wz_ul">
-    	{% for i in range(new_article_id_ls|length-1,-1,-1) %}
-    		<a class="xg_wz_ul_li" href="{{url_for('wzxq',article_idid=new_article_id_ls[i])}}">{{article_title_ls[i]}}</a>
-    	{% endfor %}
+        {% for i in range(new_article_id_ls|length-1,-1,-1) %}
+            <a class="xg_wz_ul_li"
+               href="{{ url_for('wzxq',article_idid=new_article_id_ls[i]) }}">{{ article_title_ls[i] }}</a>
+        {% endfor %}
     </ul>
 </div>
 <div id="xiangguang_wz">

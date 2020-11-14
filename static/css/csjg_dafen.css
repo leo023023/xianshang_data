@@ -756,9 +756,10 @@
     color: #0C1222;
     display: inline-block;
     height: 46px;
-    width: 120px;
+    width: 114px;
     line-height: 46px;
     margin-left: -8px;
+    text-align: left;
 }
 
 #csjg_zhengwen .jxhm_zongshu .pingying {

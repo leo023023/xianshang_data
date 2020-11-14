@@ -283,6 +283,9 @@ def namedafen():
         lt_lt_mz = pattern.findall(response)[0:10]
 
         print('生成的名字库1107',lt_lt_mz)
+        lt_lt_mz[0] = mizi_ku_nm
+
+        print('替换后的名字', lt_lt_mz)
 
         mz_yx = re.compile(r"class='item'><span class='yy'>.*?<div class='item am-margin-top-xs", re.S)
         mz_yx_lt = mz_yx.findall(response)[0:10]
@@ -307,6 +310,8 @@ def namedafen():
         li_lt_mz_noxing = re.sub(xing, "", str(lt_lt_mz))
         global neirog
         session['name_ku'] = lt_lt_mz
+        session['name_dafen'] = mizi_ku_nm
+
         session.permanent = True
 
         #写入名字印象到cookei中
@@ -319,6 +324,7 @@ def namedafen():
         else:
             jieshi = ''
         neirog = {
+            'name_dafen':mizi_ku_nm,
             'jieshi':jieshi,
             'mizi_ku_nm': mizi_ku_nm,
             'xing': xing,

@@ -9,7 +9,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <title>宝宝起名_免费测名_在线起名_起名宝典</title>
-    <meta name="google-site-verification" content="_VIv8Nn23_7nRWgjY7F6FjFSYhQspwLhghPFHhNcDpg" />
+    <meta name="google-site-verification" content="_VIv8Nn23_7nRWgjY7F6FjFSYhQspwLhghPFHhNcDpg"/>
     <meta name="keywords" content="免费起名字,宝宝起名网,起名字大全,起名网,取名">
     <meta NAME="description"
           content="起名宝典是以传统周易学、汉语语言文学、诗词国学、统计学(千万级大数据分析)、心理学结合大数据为理论基础,起名宝典主要有男孩起名、女孩起名、诗词起名、传统起名名等在线起名等功能，是起名必备工具!">
@@ -178,27 +178,26 @@
     </div>
     <div class="m_pay_tanchuang_bj"></div>
 </div>
-<div id="m_dinbuad" style="display:block ">
-    <!--<img src="/images/dbad_closed.svg" class="m_ad_close fr" alt=""/>-->
-    <p class='m_ad_content'>十年只专注一件事情——宝宝起名；以传统周易学为理论基础，结合大数据分析，为您提供最科学的起名方案</p>
-</div>
+{#<div id="m_dinbuad" style="display:block ">#}
+{#    <!--<img src="/images/dbad_closed.svg" class="m_ad_close fr" alt=""/>-->#}
+{#    <p class='m_ad_content'>十年只专注一件事情——宝宝起名；以传统周易学为理论基础，结合大数据分析，为您提供最科学的起名方案</p>#}
+{#</div>#}
 <!--<div id="m_dinbuad" style="display:block ">-->
 <!--	<div class="baidu_gr">X</div>-->
 <!--	<p class="gourigouri">bbnbmnmn</p>-->
 <!--	<p class='m_ad_content'>十年只专注一件事情——宝宝起名；以传统周易学为理论基础，结合大数据分析，为您提供最科学的起名方案</p>-->
 <!--</div>-->
 <!--<div class="m_csjg_kong" style="height:80px;width:100%">-->
-
+{#</div>#}
+<div id="m_nav" class="">
+    <div><a href="/" class="m_logo"></a></div>
+    {% if vip_tele %}
+        <a class="btn fr vip_login_btn" href="#">{{ vip_tele.telephone }}</a>
+    {% else %}
+        <a class="btn fr vip_login_btn" href="{{ url_for('order_cx') }}">VIP登录</a>
+    {% endif %}
 </div>
 <div id="m_index_first">
-    <div id="m_nav" class="clearfix">
-        <div><a href="/" class="m_logo"></a></div>
-        {% if vip_tele %}
-            <a class="btn fr vip_login_btn" href="#">{{ vip_tele.telephone }}</a>
-        {% else %}
-            <a class="btn fr vip_login_btn" href="{{ url_for('order_cx') }}">VIP登录</a>
-        {% endif %}
-    </div>
     <div class="m_index_sp_wa">
         <h1>科学·传统</h1>
         <p>以解决当下取名“难”、“俗”、“烂大街”为核心目标</p>
@@ -224,12 +223,17 @@
         </ul>
     </div>
 </div>
+
+<div class="qimingordafeng">
+    <div class="m_grqm_flbg"></div>
+    <div class="m_mzdf_flbg"></div>
+</div>
 <div id="m_index_biaodan">
     <form action="{{ url_for("csjg") }}" method="post" autocomplete="off">
         <div class="bd_neirong">
             <ul>
                 <li>
-                    <span>姓氏</span>
+                    <span class="m_qsr_xingnanme">姓氏</span>
                     <div class="shurukuang">
                         <input type="text" required id="m_bd_xx_name" class="m_name m_bd_xx" name="xing"
                                placeholder="输入起名姓氏">
@@ -249,7 +253,7 @@
                     </div>
                     <hr>
                 </li>
-                <li>
+                <li class="m_dingzhi">
                     <span>定字(选填)</span>
                     <div class="shurukuang">
                         <input type="text" class="m_bd_dz" name="dingzhi" placeholder="输入定字">
@@ -263,13 +267,13 @@
                     </div>
                     <hr>
                 </li>
-                <li>
+                <li class="m_dingzhi">
                     <span>期望(选填)</span>
                     <div class="shurukuangggg">
                         <div class="shurukuang">
                             <!--<input class="zp_input" id="singleSelect" readonly="" placeholder="请选择期望性格" value=""-->
                             <!--       style="width: 57vw;height: 40px">-->
-                            <div class="zp_input_x" id="singleSelectt" style="width: 57vw;height: 40px">
+                            <div class="zp_input_x" id="singleSelectt" style="width: 60vw;height: 40px">
                                 <p class="m_qw_btn_moren">请选择期望性格</p>
                             </div>
                             <div id="xzchenggong">
@@ -340,12 +344,10 @@
                                 lang: lang
                             });
                         </script>
-
-
                         <audio controls="controls" style="display: none;"></audio>
                     </div>
                     <img src="/static/images/m_bd_sanjiao.svg" alt=""
-                         style="width: 14px;height: 14px;background-size: cover;margin-top: 14px">
+                         style="width: 14px;height: 14px;background-size: cover;margin-top: 14px;margin-left: 10px">
                     <hr>
                 </li>
                 <li>
@@ -453,6 +455,12 @@
         </div>
     </form>
 </div>
+<div id='bd_lijidafeng' class="bd_lijiceming bd_lijiceming_hide">
+    <input class="bd_lijiceming_in" type="submit" value="立即测名" name="lijiceming">
+</div>
+
+
+
 
 <div id="m_jdlilun">
     <div class="m_jd_title">
@@ -556,10 +564,12 @@
                 </ul>
             </div>
             <a href="javascript:;" class="btn_left">
-                <i class="iconfont icon-zuoyoujiantou"><img class="i_mjiantou_left" src="../static/images/ljiantou.svg" alt=""></i>
+                <i class="iconfont icon-zuoyoujiantou"><img class="i_mjiantou_left" src="../static/images/ljiantou.svg"
+                                                            alt=""></i>
             </a>
             <a href="javascript:;" class="btn_right">
-                <i class="iconfont icon-zuoyoujiantou-copy-copy"><img class="mi_jiantou_right" src="../static/images/rjiantou.svg" alt=""></i>
+                <i class="iconfont icon-zuoyoujiantou-copy-copy"><img class="mi_jiantou_right"
+                                                                      src="../static/images/rjiantou.svg" alt=""></i>
             </a>
             <!--<a href="javascript:;" class="btn_close">-->
             <!--<i class="iconfont icon-icon-test"></i>-->
@@ -748,7 +758,8 @@
                     <i class="iconfont icon-zuoyoujiantou"><img src="../static/images/jxhm_left_arrow.svg" alt=""></i>
                 </a>
                 <a href="javascript:;" class="hwhm_btn_right">
-                    <i class="iconfont icon-zuoyoujiantou-copy-copy"><img src="../static/images/jxhm_right_arrow.svg" alt=""></i>
+                    <i class="iconfont icon-zuoyoujiantou-copy-copy"><img src="../static/images/jxhm_right_arrow.svg"
+                                                                          alt=""></i>
                 </a>
                 <!--<a href="javascript:;" class="btn_close">-->
                 <!--<i class="iconfont icon-icon-test"></i>-->
@@ -802,31 +813,31 @@
              id="article-slide" style="display: block;">
             <div class="bd swiper-wrapper gonglue_neirong2"
                  style="transition-duration: 0ms; transform: translate3d(0px, 0px, 0px);">
-            	{% for i in range(0,8) %}
-            		{% if lanmu[i].xxxx|length<6 %}
-            			<div class="li swiper-slide wz_contant_active swiper-slide-active" style="margin-right: 12px;">
-	                    	{% for k in range(lanmu[i].xxxx|length-1,-1,-1) %}
-	                            <a href="{{ url_for('wzxq',article_idid=lanmu[i].xxxx[k].id) }}.html">
-			                    	<div class="info">
-			                    		<div class="title">{{ lanmu[i].xxxx[k].title }}</div>
-		                                <div class="desc">{{ lanmu[i].xxxx[k].description[:100]}}</div>
-			                    	</div>
-	                            </a>
-                        	{% endfor %}
-                    	</div>
-                	{% else %}
-            			<div class="li swiper-slide wz_contant_active swiper-slide-active" style="margin-right: 12px;">
-	                    	{% for k in range(lanmu[i].xxxx|length-1,lanmu[i].xxxx|length-6,-1) %}
-	                            <a href="{{ url_for('wzxq',article_idid=lanmu[i].xxxx[k].id) }}.html">
-			                    	<div class="info">
-			                    		<div class="title">{{ lanmu[i].xxxx[k].title }}</div>
-		                                <div class="desc">{{ lanmu[i].xxxx[k].description[:100]}}</div>
-			                    	</div>
-	                            </a>
-                        	{% endfor %}
-                    	</div>
+                {% for i in range(0,8) %}
+                    {% if lanmu[i].xxxx|length<6 %}
+                        <div class="li swiper-slide wz_contant_active swiper-slide-active" style="margin-right: 12px;">
+                            {% for k in range(lanmu[i].xxxx|length-1,-1,-1) %}
+                                <a href="{{ url_for('wzxq',article_idid=lanmu[i].xxxx[k].id) }}.html">
+                                    <div class="info">
+                                        <div class="title">{{ lanmu[i].xxxx[k].title }}</div>
+                                        <div class="desc">{{ lanmu[i].xxxx[k].description[:100] }}</div>
+                                    </div>
+                                </a>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        <div class="li swiper-slide wz_contant_active swiper-slide-active" style="margin-right: 12px;">
+                            {% for k in range(lanmu[i].xxxx|length-1,lanmu[i].xxxx|length-6,-1) %}
+                                <a href="{{ url_for('wzxq',article_idid=lanmu[i].xxxx[k].id) }}.html">
+                                    <div class="info">
+                                        <div class="title">{{ lanmu[i].xxxx[k].title }}</div>
+                                        <div class="desc">{{ lanmu[i].xxxx[k].description[:100] }}</div>
+                                    </div>
+                                </a>
+                            {% endfor %}
+                        </div>
                     {% endif %}
-            	{% endfor %}
+                {% endfor %}
             </div>
             <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
     </div>
