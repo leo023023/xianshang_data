@@ -1630,6 +1630,12 @@ def m_ajax():
         #这个是字典，ajax不能回传字典
         # print("总结点评数据清洗： %s" % q_m_yxy_dsdp_qx)
 
+        jieshi = ''
+        if len(mizi_ku_nm) == 1:
+            jieshi = 'jieshi_display'
+        else:
+            jieshi = ''
+
         neirog = {
             'q_m_pingying': q_m_pingying,  # 名字的拼音
             'q_m_hanyi_1_1': q_m_hanyi_1_1,  # 第一个字的含义
