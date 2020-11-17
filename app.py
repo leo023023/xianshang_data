@@ -1630,13 +1630,15 @@ def m_ajax():
         #这个是字典，ajax不能回传字典
         # print("总结点评数据清洗： %s" % q_m_yxy_dsdp_qx)
 
+        print('mizi_ku_nm1114查看m_ajax的长度',mizi_ku_nm)
         jieshi = ''
-        if len(mizi_ku_nm) == 1:
+        if len(mizi_ku_nm) == 2:
             jieshi = 'jieshi_display'
         else:
             jieshi = ''
 
         neirog = {
+            'jieshi': jieshi,#名字长度控制解释
             'q_m_pingying': q_m_pingying,  # 名字的拼音
             'q_m_hanyi_1_1': q_m_hanyi_1_1,  # 第一个字的含义
             'q_m_hanyi_2_2': q_m_hanyi_2_2,  # 第二个字的含义
@@ -1880,6 +1882,11 @@ def my_context_processor():
     if vip_tele:
         vip_tele1 = User.query.filter(User.telephone == vip_tele).first()
         if vip_tele1:
+            print('这个是vip账号',vip_tele1.telephone)
+            tel_str=vip_tele1.telephone
+            tel_str=tel_str[:3] + '****' + tel_str[7:]
+            print('改样式后的手机号码',tel_str)
+            vip_tele1.telephone=tel_str
             return {'vip_tele': vip_tele1}
     else:
         return {}
@@ -1941,51 +1948,7 @@ def dqtime():
     return '描述写入完成'
     
     
-@app.route('/fabuwenzhang_jiaob0721en_lanmuid1/')
-def fabuwenz_1():
-    paowenz_1009.lanmu_id_1()
-    return '今天已跑完'
-    
-@app.route('/fabuwenzhang_jiaob0721en_lanmuid2/')
-def fabuwenz_2():
-    paowenz_1009.lanmu_id_2()
-    return '今天已跑完'
-    
-@app.route('/fabuwenzhang_jiaob0721en_lanmuid3/')
-def fabuwenz_3():
-    paowenz_1009.lanmu_id_3()
-    return '今天已跑完'
-    
-@app.route('/fabuwenzhang_jiaob0721en_lanmuid4/')
-def fabuwenz_4():
-    paowenz_1009.lanmu_id_4()
-    return '今天已跑完'    
-    
-@app.route('/fabuwenzhang_jiaob0721en_lanmuid5/')
-def fabuwenz_5():
-    paowenz_1009.lanmu_id_5()
-    return '今天已跑完'    
-    
-@app.route('/fabuwenzhang_jiaob0721en_lanmuid6/')
-def fabuwenz_6():
-    paowenz_1009.lanmu_id_6()
-    return '今天已跑完'    
-    
-@app.route('/fabuwenzhang_jiaob0721en_lanmuid7/')
-def fabuwenz_7():
-    paowenz_1009.lanmu_id_7()
-    return '今天已跑完'    
-    
-@app.route('/fabuwenzhang_jiaob0721en_lanmuid8/')
-def fabuwenz_8():
-    paowenz_1009.lanmu_id_8()
-    return '今天已跑完'   
-    
-@app.route('/fabuwenzhang_jiaob0721en_lanmuid9/')
-def fabuwenz_9():
-    paowenz_1009.lanmu_id_9()
-    return '今天已跑完'    
-    
+
 
 
 @app.route('/yalicesh/')

@@ -22,6 +22,15 @@ $(function () {
                 mizi_ku_nm: mizi_ku_nm,
                 // qiwang: qiwang,
             }
+            // console.log('走的ajax')
+            // console.log('长度是啥',$(this).val().length)
+
+            if ($(this).val().length < 3) {
+                $('.sceond_jieshi').addClass('jieshi_display');
+            }
+            else {
+                $('.sceond_jieshi').removeClass('jieshi_display');
+            }
 
             $(this).addClass('active_miziku')
             $(this).siblings().removeClass('active_miziku')

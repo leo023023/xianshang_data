@@ -20,6 +20,14 @@ $(function () {
         }
         $(".loader_bg").css({"display": "block",})
 
+        if ($(this).val().length < 3) {
+            $('.sceond_jieshi').addClass('jieshi_display');
+        }
+        else {
+            $('.sceond_jieshi').removeClass('jieshi_display');
+        }
+
+
         $.ajax({
             type: 'POST',
             url: '/m_ajax/',
@@ -48,7 +56,8 @@ $(function () {
                 for (var i = 0; i < neirog.q_m_yjjd_qx_3.length; i++) {
                     var item = neirog.q_m_yjjd_qx_3[i];
                     $(".q_m_yjjd_qx" + [i]).html(item);
-                };
+                }
+                ;
                 $('.q_m_bzky_qx').html(neirog.q_m_bzky_qx);
                 $('.q_m_dsdp').html(neirog.q_m_dsdp);
                 $('.mz_yx_lt_qx_qp_0').html(neirog.mz_yx_lt_qx_qp[0]);
@@ -76,7 +85,7 @@ $(function () {
 
                 for (var i = 0; i < neirog.q_m_sm_xz_yd_qx_qp.length; i++) {
                     var item_4 = neirog.q_m_sm_xz_yd_qx_qp[i];
-                    $(".xz_xingge_"+[i]).html(item_4);
+                    $(".xz_xingge_" + [i]).html(item_4);
                 }
                 ;
                 for (var i = 0; i < neirog.q_m_sm_xz_qd_qp.length; i++) {
