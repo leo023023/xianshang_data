@@ -34,19 +34,23 @@ $(function () {
             data: data,
             success: function (neirog) {
                 var x = document.cookie;
+                neirog = eval("(" + neirog + ")");
                 $('.m_big_xingming').html(mizi_ku_nm);
+                console.log('到这里来1');
                 $('.q_m_pingying').html(neirog.q_m_pingying);
                 $('.q_m_hanyi_1_1').html(neirog.q_m_hanyi_1_1);
                 $('.q_m_hanyi_2_2').html(neirog.q_m_hanyi_2_2);
                 $('.fenshu_fenshu').html(neirog.q_m_zh_df);
                 $('.q_m_zh_df').html(neirog.q_m_zh_df);
+                console.log('到这里来2');
                 $('.q_m_qt_df_qx_lt_1').html(neirog.q_m_qt_df_qx_lt[1]);
+                console.log('到这里来3');
                 $('.q_m_qt_df_qx_lt_2').html(neirog.q_m_qt_df_qx_lt[2]);
                 $('.q_m_qt_df_qx_lt_3').html(neirog.q_m_qt_df_qx_lt[3]);
                 $('.q_m_qt_df_qx_lt_4').html(neirog.q_m_qt_df_qx_lt[4]);
                 $('.q_m_qt_df_qx_lt_5').html(neirog.q_m_qt_df_qx_lt[5]);
                 $('.q_m_qt_df_qx_lt_0').html(neirog.q_m_qt_df_qx_lt[0]);
-
+                console.log('到这里来4');
                 $('.q_m_qt_df_qx_lt_1_1').html(neirog.q_m_qt_df_qx_lt[1]);
                 $('.q_m_qt_df_qx_lt_2_2').html(neirog.q_m_qt_df_qx_lt[2]);
                 $('.q_m_qt_df_qx_lt_3_3').html(neirog.q_m_qt_df_qx_lt[3]);
@@ -117,6 +121,7 @@ $(function () {
                     var item_6 = neirog.q_m_zybg_jg_qx2[i];
                     $(".gx_rzml_p_" + [i]).html(item_6);
                 }
+                console.log('到这里来')
                 $('.q_m_gxys_jx_dx').html(neirog.q_m_gxys_jx_dx);
                 $('.q_m_gxys_jx_zl').html(neirog.q_m_gxys_jx_zl);
                 $('.q_m_gxys_jx_jy').html(neirog.q_m_gxys_jx_jy);
