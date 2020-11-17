@@ -429,14 +429,14 @@
             </div>
             {% if lanmu[i].xxxx|length<6 %}
                 {% for m in range(lanmu[i].xxxx|length-1,-1,-1) %}
-                    <a class="gl_content" href="{{ url_for('wzxq',article_idid=lanmu[i].xxxx[m].id).html }}">
+                    <a class="gl_content" href="{{ url_for('wzxq',article_idid=lanmu[i].xxxx[m].id)}}.html">
                         <h4>{{ lanmu[i].xxxx[m].title }}</h4>
                         <p>{{ lanmu[i].xxxx[m].zaiyao }}</p>
                     </a>
                 {% endfor %}
             {% else %}
                 {% for m in range(lanmu[i].xxxx|length-1,lanmu[i].xxxx|length-6,-1) %}
-                    <a class="gl_content" href="{{ url_for('wzxq',article_idid=lanmu[i].xxxx[m].id).hmtl }}">
+                    <a class="gl_content" href="{{ url_for('wzxq',article_idid=lanmu[i].xxxx[m].id)}}.html">
                         <h4>{{ lanmu[i].xxxx[m].title }}</h4>
                         <p>{{ lanmu[i].xxxx[m].zaiyao }}</p>
                     </a>

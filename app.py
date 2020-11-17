@@ -196,6 +196,8 @@ def zhuanshu_lanmu(lm_lujin):
     elif lm_lujin == lanmu_canshu_2:
     	print('adasd全部文章')
     	kk = Lanmu.query.all()
+
+
     	len_kk = len(kk)
     	print('长度是',len_kk)
     	print('之歌啥子子',kk[0].xxxx[0].id)
@@ -236,6 +238,8 @@ def zhuanshu_lanmu(lm_lujin):
     	print('已添加格式后的样式',article_id_old)
     	print('已添加格式后的样式长度',len(article_id_old))
     	article_id = article_id_old
+
+
 
     	seo_article = {
             'len_kk': len_kk,
