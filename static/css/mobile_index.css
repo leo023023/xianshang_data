@@ -701,7 +701,7 @@ body{
     height: 100%;
     top: 0px;
     left: 0px;
-    position: fixed;
+    position: absolute;
     z-index: 99990000;
     background-color: rgba(0, 0, 0, 0.8);
 }
