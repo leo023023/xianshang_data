@@ -15,8 +15,6 @@ $(function () {
         // parent.location.reload();
         val_jsjs = 3;
     });
-
-
 })
 
 $(document).ready(function () {
@@ -62,7 +60,7 @@ $(document).ready(function () {
         $('#m_biaodan_shouji_form_tijiao').addClass('bd_lijiceming_hide');
         $('.bd_lijiceming').removeClass('bd_lijiceming_hide');
     });
-    $('#bd_lijidafeng').click(function () {
+    $('.bd_lijiceming_class').click(function () {
         // var mizi_ku_nm = document.getElementByclassName('name_xingming').val();
         // var birthtime = document.getElementid('date-input').value;
 
