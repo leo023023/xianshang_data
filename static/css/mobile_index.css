@@ -695,9 +695,27 @@ body{
     margin-top: -20px;
 }
 
+.name_dafen_gs{
+    display: none;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    position: fixed;
+    z-index: 400000;
+    background-color: rgba(0, 0, 0, 0.8);
+}
 
-
-
+.name_dafen_gs .queding{
+    width: 79px;
+    margin: 0 auto;
+    height: 32px;
+    text-align: center;
+    background-color: black;
+    line-height: 33px;
+    color: #fff;
+    border-radius: 4px;
+}
 
 
 

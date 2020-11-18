@@ -58,7 +58,6 @@ $(document).ready(function () {
         console.log('这个是获取的性别', xingbie_js)
         console.log('这个是获取懂啊的地点', birthplace)
         if ($('#m_bd_xx_name').val() == '') {
-            alert("请输入正确的名字信息!");
             $('.name_dafen_gs').css('display','block');
             $('.right_xinxi').css('display','block');
             $('.name_wanzheng').css('display','none');
@@ -67,7 +66,6 @@ $(document).ready(function () {
         }
         else if ($('#m_bd_xx_name').val().length < 2)
         {
-            alert("请输入完整的名字信息!");
             $('.name_dafen_gs').css('display','block');
             $('.right_xinxi').css('display','none');
             $('.name_wanzheng').css('display','block');
@@ -80,13 +78,18 @@ $(document).ready(function () {
             window.location.href=url_js
         }
         else {
-            alert("名字格式有误，请重新输入!");
             $('.name_dafen_gs').css('display','block');
             $('.right_xinxi').css('display','none');
             $('.name_wanzheng').css('display','none');
             $('.geshiyouwu').css('display','block');
         }
 
+    })
+    $('.name_dafen_gs .queding').click(function () {
+        $('.name_dafen_gs').css('display','none');
+            $('.right_xinxi').css('display','none');
+            $('.name_wanzheng').css('display','none');
+            $('.geshiyouwu').css('display','none');
     })
 
 })
