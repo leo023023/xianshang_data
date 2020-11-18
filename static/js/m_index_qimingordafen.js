@@ -57,14 +57,14 @@ $(document).ready(function () {
         console.log('这个是获取懂啊的出生日期', birthtime)
         console.log('这个是获取的性别', xingbie_js)
         console.log('这个是获取懂啊的地点', birthplace)
-        if ($("#m_bd_xx_name").val() == '') {
+        if ($("#m_bd_xx_name").val().length==0) {
             $(".name_dafen_gs").css('display','block');
             $(".right_xinxi").css('display','block');
             $(".name_wanzheng").css('display','none');
             $(".geshiyouwu").css('display','none');
             return false;
         }
-        else if ($("#m_bd_xx_name").val().length < 2)
+        else if ($("#m_bd_xx_name").val().length==1)
         {
             $(".name_dafen_gs").css('display','block');
             $(".right_xinxi").css('display','none');
