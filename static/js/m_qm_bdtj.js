@@ -16,12 +16,39 @@ $(function () {
         val_jsjs = 3;
     });
 
+    $('#bd_lijidafeng').click(function () {
+        // var mizi_ku_nm = document.getElementByclassName('name_xingming').val();
+        // var birthtime = document.getElementid('date-input').value;
 
-    // function m_bdtj_bdtj(){
-    //     var m_qm_si_name = document.getElementById('m_qm_si_name').value;
-    //     var name = document.getElementById('name').value;
-    //     var phone = document.getElementById('user_phone').value;
-    // }
+        var mizi_ku_nm = $('#m_bd_xx_name').val();
+        // var xingbie_js = $('input[name="xingbie"]:checked').val();
+        var xingbie_js = $('.m_xb_xz_active').val();
+        var birthtime = $('#demo_datetime').val();
+        var birthplace = $('#picker').val();
+
+        var myRegttzw = /^[\u4e00-\u9fa5]+$/;
+        console.log('这个是获取懂啊的名字', mizi_ku_nm)
+        console.log('这个是获取懂啊的出生日期', birthtime)
+        console.log('这个是获取的性别', xingbie_js)
+        console.log('这个是获取懂啊的地点', birthplace)
+        if ($('#m_bd_xx_name').val() == '') {
+            alert("请输入正确的名字信息!");
+            return false;
+        }
+        else if ($('#m_bd_xx_name').val().length < 2) {
+            alert("请输入完整的名字信息!");
+            return false;
+        }
+        else if (myRegttzw.test(mizi_ku_nm)) {
+            console.log('获取数据成功');
+            url_js = 'http://www.qmg365.com/' + 'qmb_dafeng_qd?' + '　&name=' + mizi_ku_nm + "&xb=" + xingbie_js + '&birthtime=' + birthtime + '&birthplace=' + birthplace
+            window.location.href = url_js
+        }
+        else {
+            alert("名字格式有误，请重新输入!");
+        }
+    })
+
 })
 
 $(document).ready(function () {
@@ -67,39 +94,4 @@ $(document).ready(function () {
         $('#m_biaodan_shouji_form_tijiao').addClass('bd_lijiceming_hide');
         $('.bd_lijiceming').removeClass('bd_lijiceming_hide');
     });
-})
-
-$(function () {
-    $('#bd_lijidafeng').click(function () {
-        // var mizi_ku_nm = document.getElementByclassName('name_xingming').val();
-        // var birthtime = document.getElementid('date-input').value;
-
-        var mizi_ku_nm = $('#m_bd_xx_name').val();
-        // var xingbie_js = $('input[name="xingbie"]:checked').val();
-        var xingbie_js = $('.m_xb_xz_active').val();
-        var birthtime = $('#demo_datetime').val();
-        var birthplace = $('#picker').val();
-
-        var myRegttzw = /^[\u4e00-\u9fa5]+$/;
-        console.log('这个是获取懂啊的名字', mizi_ku_nm)
-        console.log('这个是获取懂啊的出生日期', birthtime)
-        console.log('这个是获取的性别', xingbie_js)
-        console.log('这个是获取懂啊的地点', birthplace)
-        if ($('#m_bd_xx_name').val() == '') {
-            alert("请输入正确的名字信息!");
-            return false;
-        }
-        else if ($('#m_bd_xx_name').val().length < 2) {
-            alert("请输入完整的名字信息!");
-            return false;
-        }
-        else if (myRegttzw.test(mizi_ku_nm)) {
-            console.log('获取数据成功');
-            url_js = 'http://www.qmg365.com/' + 'qmb_dafeng_qd?' + '　&name=' + mizi_ku_nm + "&xb=" + xingbie_js + '&birthtime=' + birthtime + '&birthplace=' + birthplace
-            window.location.href = url_js
-        }
-        else {
-            alert("名字格式有误，请重新输入!");
-        }
-    })
 })
