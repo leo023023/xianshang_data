@@ -2,6 +2,9 @@ body{
     margin: 0px !important;
     background-color: #ffffff;
 }
+#picker{
+    width: 100%;
+}
 .picker {
     display: none;
     position: fixed;
@@ -210,4 +213,5 @@ body{
 #m_csd{
     font-size: 14px;
     font-weight: normal;
+    width: 100%;
 }

@@ -25,19 +25,9 @@
     <link rel="stylesheet" href="../static/css/m_csrq_date.css">
     <link rel="stylesheet" type="text/css" href="../static/css/swiper.201912271438.css">
     <meta name="sogou_site_verification" content="NkAsPh7wRY"/>
-
     <link rel="stylesheet" type="text/css" href="../static/css/mobile-v2.202005171105.css">
     <link rel="stylesheet" href="../static/css/m_csd.css">
-    <script src="../static/js/jquery.min.js"></script>
-    <script src="../static/js/mobiscroll.custom.min.js"></script>
-    <script src="../static/js/m_csjg_zffs.js"></script>
-    <script src="../static/js/m_isceoll.js"></script>
-    <script src="../static/js/m_qm_bdtj.js"></script>
-    <script src="../static/js/pay_ajax.js"></script>
-    <script src="../static/js/m_Cooldog.js"></script>
-    <script src="../static/js/m_hwhm.js"></script>
-    <script type="text/javascript" src="../static/js/swiper.201912271437.js"></script>
-    <script type="text/javascript" src="../static/js/mobile-v2.202005171104.js"></script>
+
     <script>
         $(document).ready(function () {
             var time = new Date();
@@ -49,10 +39,7 @@
             $('#demo_datetime').attr('value', today);
         })
     </script>
-    <script src="../static/js/m_qiwang.js"></script>
-    <script src="../static/js/m_db_ad_close.js"></script>
-    <script src="../static/js/canshu_js.js"></script>
-    <script src="../static/js/qiwangtanchuang.js"></script>
+
     <script>
         var _hmt = _hmt || [];
         (function () {
@@ -300,50 +287,7 @@
                                    placeholder="请选择出生时间" value=''>
 
                         </div>
-                        <script>
 
-                            var theme = "ios";
-                            var mode = "scroller";
-                            var display = "bottom";
-                            var lang = "zh";
-
-
-                            // Select demo initialization
-                            $('#demo_select').mobiscroll().select({
-                                theme: theme,     // Specify theme like: theme: 'ios' or omit setting to use default
-                                mode: mode,       // Specify scroller mode like: mode: 'mixed' or omit setting to use default
-                                display: display, // Specify display mode like: display: 'bottom' or omit setting to use default
-                                lang: lang        // Specify language like: lang: 'pl' or omit setting to use default
-                            });
-
-                            // Date demo initialization
-                            $('#demo_date').mobiscroll().date({
-                                theme: theme,
-                                mode: mode,
-                                display: display,
-                                lang: lang
-                            });
-
-                            // Date & Time demo initialization
-                            $('#demo_datetime').mobiscroll().datetime({
-                                theme: theme,
-                                mode: mode,
-                                display: display,
-                                lang: lang,
-                                dateFormat: "yyyy-mm-dd",
-                                minDate: new Date(1949, 3, 10, 9, 22),
-                                maxDate: new Date(2030, 7, 30, 15, 44),
-                                stepMinute: 1
-                            });
-
-                            // Time demo initialization
-                            $('#demo_time').mobiscroll().time({
-                                theme: theme,
-                                mode: mode,
-                                display: display,
-                                lang: lang
-                            });
-                        </script>
                         <audio controls="controls" style="display: none;"></audio>
                     </div>
                     <img src="/static/images/m_bd_sanjiao.svg" alt=""
@@ -858,9 +802,64 @@
         <button type="submit">开通VIP立即获取好名</button>
     </div>
 {% endif %}
-
-<script src="../static/js/m_csd_picker.min.js"></script>
+<script type="text/javascript" src="../static/js/jquery.min.js"></script>
+<script type="text/javascript" src="../static/js/mobiscroll.custom.min.js"></script>
+<script type="text/javascript" src="../static/js/m_csjg_zffs.js"></script>
+<script type="text/javascript" src="../static/js/m_isceoll.js"></script>
+<script type="text/javascript" src="../static/js/m_qm_bdtj.js"></script>
+<script type="text/javascript" src="../static/js/pay_ajax.js"></script>
+<script type="text/javascript" src="../static/js/m_Cooldog.js"></script>
+<script type="text/javascript" src="../static/js/m_hwhm.js"></script>
+<script type="text/javascript" src="../static/js/swiper.201912271437.js"></script>
+<script type="text/javascript" src="../static/js/mobile-v2.202005171104.js"></script>
+<script type="text/javascript" src="../static/js/m_csd_picker.min.js"></script>
 <script type="text/javascript" src="../static/js/m_diqu.js"></script>
 <script type="text/javascript" src="../static/js/m_csd_index.js"></script>
+<script type="text/javascript" src="../static/js/m_qiwang.js"></script>
+<script type="text/javascript" src="../static/js/m_db_ad_close.js"></script>
+<script type="text/javascript" src="../static/js/canshu_js.js"></script>
+<script type="text/javascript" src="../static/js/qiwangtanchuang.js"></script>
+<script>
+    var theme = "ios";
+    var mode = "scroller";
+    var display = "bottom";
+    var lang = "zh";
+    // Select demo initialization
+    $('#demo_select').mobiscroll().select({
+        theme: theme,     // Specify theme like: theme: 'ios' or omit setting to use default
+        mode: mode,       // Specify scroller mode like: mode: 'mixed' or omit setting to use default
+        display: display, // Specify display mode like: display: 'bottom' or omit setting to use default
+        lang: lang        // Specify language like: lang: 'pl' or omit setting to use default
+    });
+
+    // Date demo initialization
+    $('#demo_date').mobiscroll().date({
+        theme: theme,
+        mode: mode,
+        display: display,
+        lang: lang
+    });
+
+    // Date & Time demo initialization
+    $('#demo_datetime').mobiscroll().datetime({
+        theme: theme,
+        mode: mode,
+        display: display,
+        lang: lang,
+        dateFormat: "yyyy-mm-dd",
+        minDate: new Date(1949, 3, 10, 9, 22),
+        maxDate: new Date(2030, 7, 30, 15, 44),
+        stepMinute: 1
+    });
+
+    // Time demo initialization
+    $('#demo_time').mobiscroll().time({
+        theme: theme,
+        mode: mode,
+        display: display,
+        lang: lang
+    });
+</script>
+
 </body>
 </html>
