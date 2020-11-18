@@ -702,7 +702,7 @@ body{
     top: 0px;
     left: 0px;
     position: fixed;
-    z-index: 400000;
+    z-index: 99990000;
     background-color: rgba(0, 0, 0, 0.8);
 }
 
