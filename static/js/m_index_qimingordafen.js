@@ -6,13 +6,13 @@ $(document).ready(function () {
         $('.m_mzdf_flbg').removeClass('m_mzdf_flbg_active')
         $('.m_mzdf_flbg').css('z-index', '1');
         $('.m_dingzhi').removeClass('qimingordafen_dis');
-        $('#m_index_biaodan .m_xb_xz_ul').css('display','flex');
+        $('#m_index_biaodan .m_xb_xz_ul').css('display', 'flex');
         $('.m_xb_xz_nobirth').removeClass('qimingordafen_dis');
         $(".m_qsr_xingnanme").text("姓氏");
-        $("#m_bd_xx_name").attr('placeholder','请输入姓氏');
-        $(".m_xb_xz_nan").prop("checked",false);
-        $(".m_xb_xz_nv").prop("checked",false);
-        $(".m_xb_xz_nobirth").prop("checked",true);
+        $("#m_bd_xx_name").attr('placeholder', '请输入姓氏');
+        $(".m_xb_xz_nan").prop("checked", false);
+        $(".m_xb_xz_nv").prop("checked", false);
+        $(".m_xb_xz_nobirth").prop("checked", true);
         $(".m_xb_xz_nobirth").addClass('m_xb_xz_active');
         $(".m_xb_xz_nan").removeClass('m_xb_xz_active');
         $(".m_xb_xz_nv").removeClass('m_xb_xz_active');
@@ -27,13 +27,13 @@ $(document).ready(function () {
         $('.m_grqm_flbg').removeClass('m_grqm_flbg_active');
         $('.m_grqm_flbg').addClass('m_grqm_flbg_active_no');
         $('.m_dingzhi').addClass('qimingordafen_dis');
-        $('#m_index_biaodan .m_xb_xz_ul').css('display','block');
+        $('#m_index_biaodan .m_xb_xz_ul').css('display', 'block');
         $('.m_xb_xz_nobirth').addClass('qimingordafen_dis');
         $(".m_qsr_xingnanme").text("姓名");
-        $("#m_bd_xx_name").attr('placeholder','请输入姓名');
-        $(".m_xb_xz_nan").prop("checked",true);
-        $(".m_xb_xz_nobirth").prop("checked",false);
-        $(".m_xb_xz_nv").prop("checked",false);
+        $("#m_bd_xx_name").attr('placeholder', '请输入姓名');
+        $(".m_xb_xz_nan").prop("checked", true);
+        $(".m_xb_xz_nobirth").prop("checked", false);
+        $(".m_xb_xz_nv").prop("checked", false);
         $(".m_xb_xz_nan").addClass('m_xb_xz_active');
         $(".m_xb_xz_nv").removeClass('m_xb_xz_active');
         $(".m_xb_xz_nobirth").removeClass('m_xb_xz_active');
@@ -57,39 +57,40 @@ $(document).ready(function () {
         console.log('这个是获取懂啊的出生日期', birthtime)
         console.log('这个是获取的性别', xingbie_js)
         console.log('这个是获取懂啊的地点', birthplace)
-        if ($("#m_bd_xx_name").val().length==0) {
-            $(".name_dafen_gs").css('display','block');
-            $(".right_xinxi").css('display','block');
-            $(".name_wanzheng").css('display','none');
-            $(".geshiyouwu").css('display','none');
-            return false;
-        }
-        else if ($("#m_bd_xx_name").val().length==1)
-        {
-            $(".name_dafen_gs").css('display','block');
-            $(".right_xinxi").css('display','none');
-            $(".name_wanzheng").css('display','block');
-            $(".geshiyouwu").css('display','none');
-            return false;
-        }
-        else if (myRegttzw.test(mizi_ku_nm)) {
-            console.log('获取数据成功');
-            url_js = 'http://www.qmg365.com/'+'qmb_dafeng_qd?'+'　&name='+mizi_ku_nm+"&xb="+xingbie_js+'&birthtime='+birthtime+'&birthplace='+birthplace
-            window.location.href=url_js
+
+        if (myRegttzw.test(mizi_ku_nm)) {
+            if ($("#m_bd_xx_name").val().length > 3) {
+                $(".name_dafen_gs").css('display', 'block');
+                $(".right_xinxi").css('display', 'block');
+                $(".name_wanzheng").css('display', 'none');
+                $(".geshiyouwu").css('display', 'none');
+                return false;
+            }
+            else {
+                console.log('获取数据成功');
+                url_js = 'http://www.qmg365.com/' + 'qmb_dafeng_qd?' + '　&name=' + mizi_ku_nm + "&xb=" + xingbie_js + '&birthtime=' + birthtime + '&birthplace=' + birthplace
+                window.location.href = url_js
+            }
         }
         else {
-            $(".name_dafen_gs").css('display','block');
-            $(".right_xinxi").css('display','none');
-            $(".name_wanzheng").css('display','none');
-            $(".geshiyouwu").css('display','block');
+            $(".name_dafen_gs").css('display', 'block');
+            $(".right_xinxi").css('display', 'block');
+            $(".name_wanzheng").css('display', 'none');
+            $(".geshiyouwu").css('display', 'none');
+            return false;
         }
+        // if ($("#m_bd_xx_name").val().length>3){
+        //     $(".name_dafen_gs").css('display','block');
+        //     $(".right_xinxi").css('display','none');
+        //     $(".name_wanzheng").css('display','none');
+        //     $(".geshiyouwu").css('display','block');
+        // }
 
     })
     $('.name_dafen_gs .queding').click(function () {
-        $(".name_dafen_gs").css('display','none');
-            $(".right_xinxi").css('display','none');
-            $(".name_wanzheng").css('display','none');
-            $(".geshiyouwu").css('display','none');
+        $(".name_dafen_gs").css('display', 'none');
+        $(".right_xinxi").css('display', 'none');
+        $(".name_wanzheng").css('display', 'none');
+        $(".geshiyouwu").css('display', 'none');
     })
-
 })
