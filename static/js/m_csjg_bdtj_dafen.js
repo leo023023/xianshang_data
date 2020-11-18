@@ -29,7 +29,7 @@ $(function () {
             var mizi_ku_nm = $(this).val();
 
             var data = {
-                birthtime: birthtime,
+                birthtime: birthtim.bd_lijiceming_in
                 mizi_ku_nm: mizi_ku_nm,
                 // qiwang: qiwang,
             }

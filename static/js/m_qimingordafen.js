@@ -42,7 +42,7 @@ $(document).ready(function () {
         $('.bd_lijiceming').removeClass('bd_lijiceming_hide');
     });
 
-    $('#bd_lijidafeng').click(function () {
+    $('.bd_lijiceming_in').click(function () {
         // var mizi_ku_nm = document.getElementByclassName('name_xingming').val();
         // var birthtime = document.getElementid('date-input').value;
 
