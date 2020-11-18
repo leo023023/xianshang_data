@@ -61,7 +61,7 @@ $(document).ready(function () {
         if (myRegttzw.test(mizi_ku_nm)) {
             if ($("#m_bd_xx_name").val().length > 3) {
                 $(".name_dafen_gs").css('display', 'block');
-                $(".right_xinxi").css('display', 'block');
+                $(".right_xinxi").css({'display': 'block'}, {'position': 'relative'}, {'z-index': '99999999999999'});
                 $(".name_wanzheng").css('display', 'none');
                 $(".geshiyouwu").css('display', 'none');
                 return false;
@@ -74,7 +74,7 @@ $(document).ready(function () {
         }
         else {
             $(".name_dafen_gs").css('display', 'block');
-            $(".right_xinxi").css('display', 'block');
+            $(".right_xinxi").css({'display': 'block'}, {'position': 'relative'}, {'z-index': '99999999999999'});
             $(".name_wanzheng").css('display', 'none');
             $(".geshiyouwu").css('display', 'none');
             return false;

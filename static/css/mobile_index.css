@@ -670,6 +670,33 @@ body{
     padding: 8px;
 }
 
+.kong_tishi_dv_dv_dafen {
+    width: 50vw;
+    /*height: 100px;*/
+    background-color: #fff;
+    position: absolute;
+    top: 24%;
+    /* margin-top: -25vw; */
+    left: 50%;
+    margin-left: -25vw;
+    border-radius: 4px;
+    padding: 8px;
+}
+
+.kong_tishi_dv_dv_dafen .tishi {
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 22px;
+    color: red;
+}
+
+.kong_tishi_dv_dv_dafen .zw {
+    font-size: 14px;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
 .kong_tishi_dv_dv .tishi {
     font-size: 18px;
     font-weight: bold;
