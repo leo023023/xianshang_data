@@ -66,6 +66,13 @@ $(document).ready(function () {
                 $(".geshiyouwu").css('display', 'none');
                 return false;
             }
+            else if ($("#m_bd_xx_name").val().length < 2) {
+                $(".name_dafen_gs").css('display', 'block');
+                $(".right_xinxi").css({'display': 'block'}, {'position': 'relative'}, {'z-index': '99999999999999'});
+                $(".name_wanzheng").css('display', 'none');
+                $(".geshiyouwu").css('display', 'none');
+                return false;
+            }
             else {
                 console.log('获取数据成功');
                 url_js = 'http://www.qmg365.com/' + 'qmb_dafeng_qd?' + '　&name=' + mizi_ku_nm + "&xb=" + xingbie_js + '&birthtime=' + birthtime + '&birthplace=' + birthplace
@@ -74,7 +81,7 @@ $(document).ready(function () {
         }
         else {
             $(".name_dafen_gs").css('display', 'block');
-            $(".right_xinxi").css({'display': 'block'}, {'position': 'relative'}, {'z-index': '99999999999999'});
+            $(".right_xinxi").css({'display': 'block'}, {'position': 'relative'}, {'z-index': '999999999'});
             $(".name_wanzheng").css('display', 'none');
             $(".geshiyouwu").css('display', 'none');
             return false;
